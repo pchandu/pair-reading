@@ -1,2 +1,5 @@
 @import  url('styles/css-reset.css');
-@import url('styles/color-bg.css')
+@import url('styles/color-bg.css');
+
+/* Dashboard */
+@import url('styles/dashboard/dashboard-outer.css');
