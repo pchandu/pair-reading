@@ -6,19 +6,49 @@
     align-items: center
 }
 
+.onboarding-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 50px;
+    margin: 10px;
+}
+
+.onboarding-form > h1 {
+    font-weight: bold;
+}
 .preferences-container {
     display: flex;
     margin: 10px;
 }
 .preferences {
     display: flex;
-    flex-direction: row;
     align-items: center;
+    justify-content: center;
     /* margin: 100px; */
-    width: 500px;
+    width: 400px;
 }
 
-.preferences > p {
-    margin-left: 5px;
+.preferences-time-of-day{
     font-size: 45px;
+    margin-left: 5px;
 }
+
+.preferences-timing {
+    font-size: 20px;
+    font-weight: lighter;
+    margin-top: 6px;
+    margin-left: 3px;
+}
+
+.checkbox {
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+
+
+/* EXTRA STUFF TO LOOK AT LATER IF YOU HAVE TIME :) */
+/* .checkbox:hover {
+    border: 20px solid #4778d9 !important;
+} */
