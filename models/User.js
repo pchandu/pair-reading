@@ -13,6 +13,11 @@ const UserSchema = new Schema({
   password: {
     type: String,
     required: true
+  },
+  preferred_meeting_time: {
+    type: String,
+    required: true,
+    default: 'all'
   }
 }, {
   timestamps: true
