@@ -1,4 +1,6 @@
 import React from 'react'
+import ProfileContainer from '../profile/profile_container'
+
 
 class DashBoard extends React.Component {
 
@@ -8,7 +10,7 @@ class DashBoard extends React.Component {
                 Outer Top
                 <div className="row dashboard-content-container">
                     <div className="col left-side-dashboard-container">
-                        Left Side
+                        <ProfileContainer />
                     </div>
 
                     <div className="col middle-side-dashboard-container">
