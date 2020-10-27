@@ -1,0 +1,24 @@
+
+.onboarding-container {
+    width: 100%;
+    display: flex; 
+    flex-direction: column;
+    align-items: center
+}
+
+.preferences-container {
+    display: flex;
+    margin: 10px;
+}
+.preferences {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    /* margin: 100px; */
+    width: 500px;
+}
+
+.preferences > p {
+    margin-left: 5px;
+    font-size: 45px;
+}
