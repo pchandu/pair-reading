@@ -1,0 +1,12 @@
+.outer-dashboard-container {
+    display:flex;
+    flex-direction: column;
+}
+
+
+/* Styles each of the 3 columns within the dashboard */
+.dashboard-content-container > .col {
+    display: flex;
+    align-content: center;
+    justify-content: center;
+}

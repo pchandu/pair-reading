@@ -1,7 +1,9 @@
 import React from "react";
-// import { AuthRoute, ProtectedRoute } from "../util/route_util";
-// import { Switch } from "react-router-dom";
+import { AuthRoute, ProtectedRoute } from "../util/route_util";
+import { Switch, Route } from "react-router-dom";
 import NavBarContainer from "./nav/navbar_container";
+
+import DashBoardContainer from './dashboard/dashboard_container';
 
 // import TweetsContainer from "./tweets/tweets_container";
 // import MainPage from "./main/main_page";
@@ -13,6 +15,9 @@ import NavBarContainer from "./nav/navbar_container";
 const App = () => (
   <div>
     <NavBarContainer />
+      <Switch>
+        <Route path="/dashboard" component ={DashBoardContainer}/>
+      </Switch>
   </div>
 );
 
