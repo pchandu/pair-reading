@@ -1,0 +1,19 @@
+.nav-bg{
+    background-color: rgb(140, 200, 91);
+}
+
+
+.navbar-btn {
+    background-color: rgb(66, 169, 182);
+    margin: 0px 20px;
+    height: 40px;
+    border-radius: 5px;
+    width: 100px;
+    color: rgb(221, 243, 247);
+    border-style: none;
+    font-family: 'Nunito', sans-serif;
+}
+
+.nav-item {
+     background-color: rgb(140, 200, 91);
+}
