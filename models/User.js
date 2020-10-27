@@ -13,7 +13,19 @@ const UserSchema = new Schema({
   password: {
     type: String,
     required: true
-  }
+  },
+  book: {
+    type: Schema.Types.ObjectId,
+    ref: 'books'
+  },
+  bookclub: {
+    type: Schema.Types.ObjectId,
+    ref: 'bookclubs'
+  },
+  post: {
+    type: Schema.Types.ObjectId,
+    ref: 'posts'
+  },
 }, {
   timestamps: true
 })
