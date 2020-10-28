@@ -1,0 +1,24 @@
+.signup-div {
+   padding: 20px;
+   font-family: 'Nunito', sans-serif;
+}
+
+.signup-submit-btn {
+    background-color: rgb(66, 169, 182);
+    margin: 0px 20px;
+    height: 40px;
+    border-radius: 5px;
+    width: 100px;
+    color: rgb(221, 243, 247);
+    border-style: none;
+    font-family: 'Nunito', sans-serif;
+}
+
+.signup-input {
+    width: 300px;
+}
+
+.signup-errors {
+    color: #c96655;
+    padding: 20px;
+}
