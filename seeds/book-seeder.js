@@ -3,6 +3,7 @@ const db = require('../config/keys').mongoURI;
 var mongoose = require('mongoose');
 
 mongoose.connect(db, { useNewUrlParser: true, useUnifiedTopology: true} )
+
 var books = [
     new Book({
             title: "Harry Potter and the Chamber of Secrets",
@@ -38,6 +39,7 @@ var books = [
 ];
 
 var done = 0
+
 for (var i = 0; i < books.length; i++) {
     books[i].save(function(err, result) {
         done++;
