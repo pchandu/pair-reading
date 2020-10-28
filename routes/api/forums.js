@@ -3,7 +3,7 @@ const router = express.Router();
 const mongoose = require('mongoose');
 const passport = require('passport');
 
-const Forum = require('../../models/forum');
+const Forum = require('../../models/Forum');
 // const validateTweetInput = require('../../validation/forums');
 
 router.get('/', (req, res) => {
