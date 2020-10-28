@@ -12,21 +12,26 @@ import OnboardingContainer from "./onboarding/onboarding" //UPDATE TO CONTAINER 
 
 // import TweetsContainer from "./tweets/tweets_container";
 // import MainPage from "./main/main_page";
-// import LoginFormContainer from "./session/login_form_container";
-// import SignupFormContainer from "./session/signup_form_container";
+import LoginFormContainer from "./session/login_form_container";
+import SignupFormContainer from "./session/signup_form_container";
 // import ProfileContainer from "./profile/profile_container";
 // import TweetComposeContainer from "./tweets/tweet_compose_container";
 
 const App = () => (
   <div>
     <NavBarContainer />
-    {/* <OnboardingContainer /> */}
-      <Switch>
-        {/* <Route path="/dashboard" component ={DashBoardContainer}/> */}
-        <Route exact path="/forums" component ={ForumIndexContainer}/>
-        <Route exact path="/bookclubs" component ={BookClubIndexContainer}/>
-        <Route exact path="/posts" component ={PostIndexContainer}/>
-      </Switch>
+
+   <OnboardingContainer />
+    <Switch>
+      <Route path="/login" component={LoginFormContainer} />
+      <Route path="/signup" component={SignupFormContainer} />
+  
+      <Route exact path="/forums" component ={ForumIndexContainer}/>
+      <Route exact path="/bookclubs" component ={BookClubIndexContainer}/>
+      <Route exact path="/posts" component ={PostIndexContainer}/>
+
+      <Route path="/dashboard" component={DashBoardContainer} />
+    </Switch>
   </div>
 );
 
