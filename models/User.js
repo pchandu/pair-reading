@@ -19,18 +19,18 @@ const UserSchema = new Schema({
     required: true,
     default: 'all'
   },
-  book: {
-    type: Schema.Types.ObjectId,
-    ref: 'books'
-  },
-  bookclub: {
-    type: Schema.Types.ObjectId,
-    ref: 'bookclubs'
-  },
-  post: {
-    type: Schema.Types.ObjectId,
-    ref: 'posts'
-  },
+  // book: {
+  //   type: Schema.Types.ObjectId,
+  //   ref: 'books'
+  // },
+  // bookclub: {
+  //   type: Schema.Types.ObjectId,
+  //   ref: 'bookclubs'
+  // },
+  // post: {
+  //   type: Schema.Types.ObjectId,
+  //   ref: 'posts'
+  // },
 }, {
   timestamps: true
 })

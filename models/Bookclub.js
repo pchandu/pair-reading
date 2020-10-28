@@ -6,14 +6,14 @@ const BookClubSchema = new Schema({
         type: String,
         required: true
     },
-    book: {
-        type: Schema.Types.ObjectId,
-        ref: 'books'
-    },
-    forum: {
-        type: Schema.Types.ObjectId,
-        ref: 'forums'
-    }
+    // book: {
+    //     type: Schema.Types.ObjectId,
+    //     ref: 'books'
+    // },
+    // forum: {
+    //     type: Schema.Types.ObjectId,
+    //     ref: 'forums'
+    // }
 });
 
 module.exports = BookClub = mongoose.model('bookclub', BookClubSchema);
