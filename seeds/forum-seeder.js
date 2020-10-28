@@ -1,35 +1,32 @@
 // const exit = require('./entry')
 
+const faker = require('faker')
 const Forum = require('../models/Forum');
-module.exports = (nextSeeder) => {
-
-    Forum.deleteMany({}, () => {
-        console.log('Deleted all forums')
-    })
-
-
-    const forums = [
-        new Forum({
-            title: "Thematic discussions of Harry Potter",
-        }),
-        new Forum({
-            title: "Character analysis of Steve Jobs",
-        }),
-        new Forum({
-            title: "Twilight's effects on 21st century teen culture",
-        }),
-    ];
-
-    let done = 0
-
-    for (let i = 0; i < forums.length; i++) {
-        forums[i].save(function (err, result) {
-            done++;
-            if (done === forums.length) {
-                // exit();
-                nextSeeder();
-            }
-        });
-        console.log(forums[i]._id);
-    }
+const forums = [
+    new Forum({
+        title: "Thematic discussions of Harry Potter",
+    }),
+    new Forum({
+        title: "Character analysis of Steve Jobs",
+    }),
+    new Forum({
+        title: "Twilight's effects on 21st century teen culture",
+    }),
+    new Forum({
+        title: "Bloodsuckers are scary",
+    }),
+    new Forum({
+        title: "George RR Martin's beard",
+    }),
+    new Forum({
+        title: "Kites are fun to fly",
+    }),
+];
+for (let i = 0; i < 10; i++) {
+    forums.push(new Forum({
+        title: faker.commerce.productName()
+    }))
+}
+module.exports = {
+    forums
 }

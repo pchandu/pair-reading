@@ -1,12 +1,7 @@
 // const exit = require('./entry')
 
+const faker = require('faker')
 const Book = require('../models/Book');
-module.exports = (nextSeeder) => {
-
-    Book.deleteMany({}, () => {
-        console.log('Deleted all Books')
-    })
-
 
 const books = [
     new Book({
@@ -41,17 +36,6 @@ const books = [
     }),
 
 ];
-
-let done = 0
-
-for (let i = 0; i < books.length; i++) {
-    books[i].save(function(err, result) {
-        done++;
-        if (done === books.length){
-            // exit();
-            nextSeeder();
-        }
-    });
-    console.log(books[i]._id);
-}
+module.exports = {
+    books
 }

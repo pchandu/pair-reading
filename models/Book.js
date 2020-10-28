@@ -18,18 +18,18 @@ const BookSchema = new Schema({
         type: String, 
         required: true
     },
-    // reader: {
-    //     type: Schema.Types.ObjectId,
-    //     ref: 'users'
-    // },
-    // forum: {
-    //     type: Schema.Types.ObjectId,
-    //     ref: 'forums'
-    // },
-    // bookclub: {
-    //     type: Schema.Types.ObjectId,
-    //     ref: 'bookclubs'
-    // }
+    users: [{
+        type: Schema.Types.ObjectId,
+        ref: 'users'
+    }],
+    forums: [{
+        type: Schema.Types.ObjectId,
+        ref: 'forums'
+    }],
+    bookclubs: [{
+        type: Schema.Types.ObjectId,
+        ref: 'bookclubs'
+    }]
 });
 
 module.exports = Book = mongoose.model('book', BookSchema);

@@ -7,4 +7,27 @@ mongoose
 const exit = () => (
     mongoose.disconnect()
 )
-module.exports = exit;
+
+const saveData = (model, data, nextSeeder) => {
+
+    model.deleteMany({}, () => {
+        console.log('Deleted all data')
+    })
+    let done = 0
+
+    for (let i = 0; i < data.length; i++) {
+        data[i].save(function (err, result) {
+            done++;
+            if (done === data.length) {
+                // exit();
+                nextSeeder();
+            }
+        });
+        // console.log(data[i]._id);
+    }
+}
+
+module.exports = {
+    exit,
+    saveData
+}
