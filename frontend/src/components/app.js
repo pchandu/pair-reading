@@ -6,6 +6,9 @@ import NavBarContainer from "./nav/navbar_container";
 import DashBoardContainer from './dashboard/dashboard_container';
 import OnboardingContainer from "./onboarding/onboarding" //UPDATE TO CONTAINER ONCE CONTAINER IS READY
 
+import HomePage from './homepage/home'
+import NoPage from './homepage/no_page'
+
 // import TweetsContainer from "./tweets/tweets_container";
 // import MainPage from "./main/main_page";
 // import LoginFormContainer from "./session/login_form_container";
@@ -19,6 +22,8 @@ const App = () => (
     <OnboardingContainer />
       <Switch>
         <AuthRoute path="/dashboard" component ={DashBoardContainer}/>
+        <Route exact path="/" component={HomePage} />
+        <Route component={NoPage}/>
       </Switch>
   </div>
 );
