@@ -18,7 +18,7 @@ const App = () => (
     <NavBarContainer />
     <OnboardingContainer />
       <Switch>
-        <Route path="/dashboard" component ={DashBoardContainer}/>
+        <AuthRoute path="/dashboard" component ={DashBoardContainer}/>
       </Switch>
   </div>
 );
