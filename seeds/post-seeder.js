@@ -10,7 +10,16 @@ module.exports = (nextSeeder) => {
 
     const posts = [
         new Post({
-            body: "this book sucked",
+            body: "Harry Potter's in depth look at death was too much for young readers",
+        }),
+        new Post({
+            body: "Steve Jobs exhibited classical narcissitic behavior",
+        }),
+        new Post({
+            body: "Teenage girls now love glitter",
+        }),
+        new Post({
+            body: "Harry Potter is great children's literature",
         }),
     ];
 
