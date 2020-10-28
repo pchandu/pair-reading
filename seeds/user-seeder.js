@@ -1,9 +1,8 @@
-const User = require('../models/User');
-const mongoose = require('mongoose');
-const db = require('../config/keys').mongoURI;
+// const exit = require('./entry')
 
-mongoose
-    .connect(db, { useNewUrlParser: true, useUnifiedTopology: true })
+const User = require('../models/User');
+
+module.exports = (nextSeeder) => {
 User.deleteMany({}, () => {
     console.log('Deleted all Users')
 })
@@ -32,13 +31,15 @@ const users = [
 ];
 let done = 0;
 for(let i=0;i<users.length;i++){
-    users[i].save((err,res)=>{
+    users[i].save(
+    (err,res)=>{
         done++;
         if(done===users.length){
-            exit();
+            // exit();
+            // return true;
+            nextSeeder();
         }
     });
+    console.log(users[i]._id);
 }
-const exit = () => (
-    mongoose.disconnect()
-)
+}
