@@ -18,5 +18,5 @@ export const login = (userData) => {
 };
 
 export const updateUser = (updatedUser) => {
-    return axios.patch("/updateUser", updatedUser)
+    return axios.patch("api/users/updateUser", updatedUser)
 }

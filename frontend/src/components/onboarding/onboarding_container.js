@@ -5,7 +5,7 @@ import { updateUser } from '../../util/session_api_util';
 
 const mSTP = state => ({
     books: state.entities.books,
-    currentUser: state.session.user
+    currentUser: state.session.user.id
 });
 
 const mDTP = dispatch => ({
