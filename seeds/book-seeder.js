@@ -38,6 +38,10 @@ var books = [
 
 ];
 
+Book.deleteMany({}, () => {
+    console.log('deleted')
+})
+
 var done = 0
 
 for (var i = 0; i < books.length; i++) {
