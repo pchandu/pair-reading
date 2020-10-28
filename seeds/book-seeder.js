@@ -1,11 +1,13 @@
-const exit = require('./entry')
+// const exit = require('./entry')
 
 const Book = require('../models/Book');
-// const db = require('../config/keys').mongoURI;
-// var mongoose = require('mongoose');
+module.exports = (nextSeeder) => {
 
-// mongoose.connect(db, { useNewUrlParser: true, useUnifiedTopology: true} )
-module.exports = () => {
+    Book.deleteMany({}, () => {
+        console.log('Deleted all Books')
+    })
+
+
 const books = [
     new Book({
             title: "Harry Potter and the Chamber of Secrets",
@@ -40,17 +42,14 @@ const books = [
 
 ];
 
-Book.deleteMany({}, () => {
-    console.log('Deleted all Books')
-})
-
 let done = 0
 
 for (let i = 0; i < books.length; i++) {
     books[i].save(function(err, result) {
         done++;
         if (done === books.length){
-            exit();
+            // exit();
+            nextSeeder();
         }
     });
     console.log(books[i]._id);
