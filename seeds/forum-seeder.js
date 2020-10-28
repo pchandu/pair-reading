@@ -12,6 +12,12 @@ module.exports = (nextSeeder) => {
         new Forum({
             title: "Thematic discussions of Harry Potter",
         }),
+        new Forum({
+            title: "Character analysis of Steve Jobs",
+        }),
+        new Forum({
+            title: "Twilight's effects on 21st century teen culture",
+        }),
     ];
 
     let done = 0

@@ -1,5 +1,5 @@
-import axios from "axios";
+import Axios from "axios";
 
-export const fetchForums = () => {
-    return axios.get('/api/forums')
-}
+export const fetchAllForums = () => {
+    return Axios.get("/api/forums/")
+};
