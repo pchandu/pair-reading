@@ -17,15 +17,13 @@ class BookIndex extends React.Component {
         const {books} = this.props;
 
         return (
-            <ul className="browse-container">
+            <ul className="books-ul">
                 {Object.values(books).map((book, i) => {
                     return (
                     <li className="book-index-item" key={i}>
-                        <p>{book.title}</p>
                         {/* <a href={`#/books/${book.id}`}> */}
-                        <img src={`${book.imagePath}`}
-                        className="book-index-cover-photo" />
-                        {/* </a> */}
+                        <img src={`${book.imagePath}`} className="book-index-cover-photo" />
+                        <input type="checkbox" id={`${book.title}`} name={`${book.title}`} className="book-checkbox"/>
                     </li>
                     )
                 })}

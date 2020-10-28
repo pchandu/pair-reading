@@ -20,19 +20,19 @@ var books = [
     new Book({
             title: "Becoming Steve Jobs",
             author: "Brent Schlender and Rick Tetzeli",
-            imagePath: "https://m.media-amazon.com/images/I/51eXLWYrV5L.jpg",
+            imagePath: "https://images-na.ssl-images-amazon.com/images/I/513s9g1DBsL._SX324_BO1,204,203,200_.jpg",
             description: "Becoming Steve Jobs takes on and breaks down the existing myth and stereotypes about Steve Jobs. The conventional, one-dimensional view of Jobs is that he was half genius, half jerk from youth, an irascible and selfish leader who slighted friends and family alike. Becoming Steve Jobs answers the central question about the life and career of the Apple cofounder and CEO: How did a young man so reckless and arrogant that he was exiled from the company he founded become the most effective visionary business leader of our time, ultimately transforming the daily lives of billions of people? Drawing on incredible and sometimes exclusive access, Schlender and Tetzeli tell a different story of a real human being who wrestled with his failings and learned to maximize his strengths over time. Their rich, compelling narrative is filled with stories never told before from the people who knew Jobs best and who decided to open up to the authors, including his family, former inner circle executives, and top people at Apple, Pixar, and Disney. In addition Brent knew Jobs personally for 25 years and drew upon his many interviews with him, on and off the record, in writing the book. He and Rick humanize the man and explain, rather than simply describe, his behavior. Along the way the book provides rich context about the technology revolution we all have lived through and the ways in which Jobs changed our world. Schlender and Tetzeli make clear that Jobs' astounding success at Apple was far more complicated than simply picking the right products: he became more patient, he learned to trust his inner circle, and he discovered the importance of growing the company incrementally rather than only shooting for dazzling, game-changing products."
         }),
     new Book({
             title: "Twilight",
             author: "Stephanie Meyer",
-            imagePath: "https://m.media-amazon.com/images/I/41erIwL-5+L.jpg",
+            imagePath: "https://images-na.ssl-images-amazon.com/images/I/41K99+cInvL._SY344_BO1,204,203,200_.jpg",
             description: "About three things I was certain. First, Edward was a vampire. Second, there was a part of him, and I didn't know how dominant that part might be, that thirsted for my blood. And Third, I was unconditionally and irrevocably in love with him.",
         }),
     new Book({
             title: "The Kite Runner",
             author: "Khaled Hosseini",
-            imagePath: "https://m.media-amazon.com/images/I/51tDeQ9XOPL.jpg",
+            imagePath: "https://images-na.ssl-images-amazon.com/images/I/51vRNqL61aL._SX318_BO1,204,203,200_.jpg",
             description: "Taking us from Afghanistan in the final days of its monarchy to the present, The Kite Runner is the unforgettable and beautifully told story of the friendship between two boys growing up in Kabul. Raised in the same household and sharing the same wet nurse, Amir and Hassan grow up in different worlds: Amir is the son of a prominent and wealthy man, while Hassan, the son of Amir's father's servant, is a Hazara - a shunned ethnic minority. Their intertwined lives, and their fates, reflect the eventual tragedy of the world around them. When Amir and his father flee the country for a new life in California, Amir thinks that he has escaped his past. And yet he cannot leave the memory of Hassan behind him. The Kite Runner is a novel about friendship and betrayal, and about the price of loyalty. It is about the bonds between fathers and sons, and the power of fathers over sons - their love, their sacrifices, and their lies. Written against a backdrop of history that has not been told in fiction before, The Kite Runner describes the rich culture and beauty of a land in the process of being destroyed. But through the devastation, Khaled Hosseini offers hope for redemption.",
         }),
 
