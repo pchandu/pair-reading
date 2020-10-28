@@ -8,7 +8,7 @@ import BookClubIndexContainer from "./bookclub/bookclub_index_container"
 import PostIndexContainer from "./post/post_index_container"
 
 import DashBoardContainer from './dashboard/dashboard_container';
-import OnboardingContainer from "./onboarding/onboarding" //UPDATE TO CONTAINER ONCE CONTAINER IS READY
+import OnboardingContainer from "./onboarding/onboarding_container" 
 
 import HomePage from './homepage/home'
 import NoPage from './homepage/no_page'

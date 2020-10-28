@@ -2,16 +2,44 @@ import React from 'react';
 import BookIndex from '../books/book_index_container'
 
 class Onboarding extends React.Component {
-    // constructor(props){
-    //     super(this)
-    //     this.handleSubmit = this.handleSubmit.bind(this)
+    constructor(props){
+        super(props)
+        this.handleBook = this.handleBook.bind(this)
+        this.handleContinue = this.handleContinue.bind(this)
+        this.state = {
+            preferred_books:[],
+            preferred_meeting_times:[]
+        }
+    }
+
+    //updates state to mirror user preferences
+    handleBook(bookId){
+        this.setState({preferred_books: this.state.preferred_books.concat(bookId)})
+    }
+
+    // handlePreference(preference){
+    //     this.setState({preferred_meeting_times: this.state.preferred_books.concat(preference)})
     // }
 
-    // handleSubmit(){
+    handleContinue(){
+        const updatedUser = Object.assign({}, this.props.currentUser, this.state);
+        this.props.updatedUser(updatedUser)
+            .then(() => this.props.history.push("/dashboard"));
+        //this.props.updateUserPreferences(updatedUser)
+        //fix current User
+        //sends PATCH to currentUSER
+        //redirects to dashboard page
+    }
 
-    // }
+    componentDidMount() {
+        this.props.fetchAllBooks();
+    }
 
+    
     render(){
+        if (!this.props.books) return <div />
+            const {books} = this.props;
+    
         return(
             <div className="onboarding-container">
                 <form className="onboarding-form">
@@ -34,7 +62,18 @@ class Onboarding extends React.Component {
                         </li>
                     </ul>
                 <div className="books-container">
-                    <BookIndex />
+                    <ul className="books-ul">
+                        {Object.values(books).map((book, i) => {
+                            return (
+                                <li className="book-index-item" key={i}>
+                                    <a onClick={this.handleBook(book._id)}>
+                                        <img src={`${book.imagePath}`} className="book-index-cover-photo" />
+                                        <input type="checkbox" id={`${book.title}`} name={`${book.title}`} className="book-checkbox"/>
+                                    </a>
+                                </li>
+                            )
+                        })}
+                    </ul>
                 </div>
                   <input type="submit" value="Continue" className="onboarding-continue-button"></input>
                 </form>
