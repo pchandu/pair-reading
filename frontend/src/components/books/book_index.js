@@ -5,6 +5,7 @@ class BookIndex extends React.Component {
 
     constructor(props) {
         super(props)
+
     }
 
     componentDidMount() {
@@ -22,7 +23,7 @@ class BookIndex extends React.Component {
                     return (
                     <li className="book-index-item" key={i}>
                         {/* <a href={`#/books/${book.id}`}> */}
-                        <img src={`${book.imagePath}`} className="book-index-cover-photo" />
+                        <img src={`${book.imagePath}`} className="book-index-cover-photo"/> 
                         <input type="checkbox" id={`${book.title}`} name={`${book.title}`} className="book-checkbox"/>
                     </li>
                     )

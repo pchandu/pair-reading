@@ -11,3 +11,6 @@
 /* Dashboard */
 @import url('styles/dashboard/dashboard-outer.css');
 
+/* Homepage */
+
+@import url('styles/homepage/carousel.css');
