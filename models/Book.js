@@ -6,6 +6,18 @@ const BookSchema = new Schema({
         type: String,
         required: true
     },
+    author: {
+        type: String, 
+        required: true
+    },
+    imagePath: {
+        type: String, 
+        required: true
+    },
+    description: {
+        type: String, 
+        required: true
+    },
     // reader: {
     //     type: Schema.Types.ObjectId,
     //     ref: 'users'
