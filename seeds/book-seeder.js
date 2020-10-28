@@ -8,7 +8,7 @@ var books = [
     new Book({
             title: "Harry Potter and the Chamber of Secrets",
             author: "J.K. Rowling",
-            imagePath: "https://images-na.ssl-images-amazon.com/images/I/51jNORv6nQL._SX340_BO1,204,203,200_.jpg./frontend/public/images/1.jpg",
+            imagePath: "https://images-na.ssl-images-amazon.com/images/I/51jNORv6nQL._SX340_BO1,204,203,200_.jpg.",
             description: "Harry Potter and the Chamber of Secrets is a fantasy novel written by British author J. K. Rowling and the second novel in the Harry Potter series.",
         }),
     new Book({
