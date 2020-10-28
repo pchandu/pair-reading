@@ -13,12 +13,12 @@ class NavBar extends React.Component {
                          <img src={logo} width="auto" height="50" className="d-inline-block align-top nav-bg" alt="Pair Reading Logo" />
                     </a>
 
-                     <ul class="navbar-nav ml-auto">
-                        <li class="nav-item">
-                            <button type="button" class="navbar-btn">Sign In</button>
+                     <ul className="navbar-nav ml-auto">
+                        <li className="nav-item">
+                            <button type="button" className="navbar-btn">Sign In</button>
                         </li>
-                        <li class="nav-item">
-                             <button type="button" class="navbar-btn">Sign Up</button>
+                        <li className="nav-item">
+                             <button type="button" className="navbar-btn">Sign Up</button>
                         </li>
                     </ul>
                 </nav>
