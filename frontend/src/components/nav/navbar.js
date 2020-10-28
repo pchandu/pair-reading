@@ -28,17 +28,17 @@ class NavBar extends React.Component {
             />
           </a>
 
-          <ul class="navbar-nav ml-auto">
-            <li class="nav-item">
+          <ul className="navbar-nav ml-auto">
+            <li className="nav-item">
               <Link to="/login">
-                <button type="button" class="navbar-btn">
+                <button type="button" className="navbar-btn">
                   Sign In
                 </button>
               </Link>
             </li>
-            <li class="nav-item">
+            <li className="nav-item">
               <Link to="/signup">
-                <button type="button" class="navbar-btn">
+                <button type="button" className="navbar-btn">
                   Sign Up
                 </button>
               </Link>
@@ -48,6 +48,7 @@ class NavBar extends React.Component {
       </div>
     );
   }
+
 };
 
 export default NavBar;
