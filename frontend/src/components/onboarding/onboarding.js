@@ -1,5 +1,5 @@
 import React from 'react';
-
+import BookIndex from '../books/book_index_container'
 
 class Onboarding extends React.Component {
     // constructor(props){
@@ -33,12 +33,11 @@ class Onboarding extends React.Component {
                             <p className="preferences-timing">(5pm-9pm)</p>
                         </li>
                     </ul>
-                </form>
                 <div className="books-container">
-                    <ul>
-                        
-                    </ul>
+                    <BookIndex />
                 </div>
+                  <input type="submit" value="Continue" className="onboarding-continue-button"></input>
+                </form>
             </div>
         )
     }
