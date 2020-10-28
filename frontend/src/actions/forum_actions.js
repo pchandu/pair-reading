@@ -5,8 +5,17 @@ export const receiveAllForums = payload => ({
     type: RECEIVE_ALL_FORUMS,
     payload
 });
+export const receiveAllForumPosts = payload => ({
+    type: RECEIVE_ALL_FORUMS,
+    payload
+});
 
 export const fetchAllForums = () => dispatch => forumUtil.fetchAllForums()
+    .then((forums) => {
+        dispatch(receiveAllForums(forums))
+    });
+
+export const fetchAllForumPosts = (id) => dispatch => forumUtil.fetchAllForumPosts(id)
     .then((forums) => {
         dispatch(receiveAllForums(forums))
     });
