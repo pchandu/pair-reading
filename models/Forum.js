@@ -16,4 +16,4 @@ const ForumSchema = new Schema({
     // }
 });
 
-module.exports = Book = mongoose.model('book', ForumSchema);
+module.exports = Forum = mongoose.model('forum', ForumSchema);
