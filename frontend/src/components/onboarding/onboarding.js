@@ -22,7 +22,7 @@ class Onboarding extends React.Component {
     // }
 
     handleContinue(){
-        const updatedUser = Object.assign({}, this.props.currentUser, this.state);
+        const updatedUser = Object.assign({}, {user: this.props.currentUser} , this.state);
         this.props.updatedUser(updatedUser)
             .then(() => this.props.history.push("/dashboard"));
         //this.props.updateUserPreferences(updatedUser)

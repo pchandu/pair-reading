@@ -12,12 +12,13 @@ const passport = require('passport')
 router.get("/test", (req, res) => res.json({ msg: "This is the users route" }));
 
 router.patch('/updateUser', (req, res) => {
-  User.findOne({ id: req.body.id})
+  User.findById(req.body.user)
     .then(user => {
       if (user) {
-        user.preferred_meeting_times = req.body.preferred_meeting_times
-        user.books = req.body.preferred_books
-        user.save(); 
+        user.books = req.body.preferred_books;
+        // user.preferred_meeting_time = req.body.preferred_meeting_times;
+        user.save()
+          .then( (user) => res.json(user) )
       } else {
         return res.json({ msg: "Something went wrong, captain."})
       }

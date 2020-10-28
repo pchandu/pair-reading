@@ -11,5 +11,10 @@ router.get('/', (req, res) => {
         .then(forums => res.json(forums))
         .catch(err => res.status(404).json({ noforumsfound: 'No forums found' }));
 });
+// router.get('/:id/posts', (req, res) => {
+//     Forum.findById(req.params.id)
+//         .then(forum.posts => res.json(forum.posts))
+//         .catch(err => res.status(404).json({ noforumsfound: 'No forums found' }));
+// });
 
 module.exports = router;
