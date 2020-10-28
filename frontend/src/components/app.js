@@ -4,6 +4,7 @@ import { Switch, Route } from "react-router-dom";
 import NavBarContainer from "./nav/navbar_container";
 
 import DashBoardContainer from './dashboard/dashboard_container';
+import OnboardingContainer from "./onboarding/onboarding" //UPDATE TO CONTAINER ONCE CONTAINER IS READY
 
 // import TweetsContainer from "./tweets/tweets_container";
 // import MainPage from "./main/main_page";
@@ -15,6 +16,8 @@ import SignupFormContainer from "./session/signup_form_container";
 const App = () => (
   <div>
     <NavBarContainer />
+
+   <OnboardingContainer />
     <Switch>
       <Route path="/login" component={LoginFormContainer} />
       <Route path="/signup" component={SignupFormContainer} />
