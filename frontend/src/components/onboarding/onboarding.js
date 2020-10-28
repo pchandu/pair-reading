@@ -34,7 +34,7 @@ class Onboarding extends React.Component {
                         </li>
                     </ul>
                 <div className="books-container">
-                    {/* <BookIndex /> */}
+                    <BookIndex />
                 </div>
                   <input type="submit" value="Continue" className="onboarding-continue-button"></input>
                 </form>

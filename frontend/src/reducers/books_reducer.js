@@ -10,7 +10,7 @@ export default (state = {}, action) => {
         // case RECEIVE_BOOK:
         //     return action.payload.books;
         case RECEIVE_ALL_BOOKS:
-            return action.payload;
+            return action.payload.data;
         default:
             return state;
     }
