@@ -3,7 +3,7 @@ const router = express.Router();
 const mongoose = require('mongoose');
 const passport = require('passport');
 
-const BookClub = require('../../models/bookclub');
+const BookClub = require('../../models/Bookclub');
 // const validateTweetInput = require('../../validation/bookclubs');
 
 router.get('/', (req, res) => {
