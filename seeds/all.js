@@ -1,0 +1,6 @@
+const UserSeeds = require('./user-seeder')
+const BookSeeds = require('./book-seeder')
+UserSeeds()
+BookSeeds()
+// console.log(done)
+// exit()
