@@ -12,7 +12,7 @@ const passport = require('passport')
 router.get("/test", (req, res) => res.json({ msg: "This is the users route" }));
 
 router.patch('/updateUser', (req, res) => {
-  User.findOne({ email: req.body.currentUser})
+  User.findOne({ id: req.body.id})
     .then(user => {
       if (user) {
         user.preferred_meeting_times = req.body.preferred_meeting_times

@@ -32,7 +32,8 @@ const App = () => (
 
       <AuthRoute path="/dashboard" component ={DashBoardContainer}/>
 
-      <AuthRoute exact path="/onboarding" component={OnboardingContainer} />
+      <Route exact path="/onboarding" component={OnboardingContainer} /> 
+      {/* ^^^^^MAKE THIS AN AUTHROUTE ONCE CURRENT USER STUFF IS GOOD IN STATE */}
       <Route exact path="/" component={HomePage} />
       <Route component={NoPage}/>
     </Switch>
