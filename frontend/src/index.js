@@ -35,8 +35,8 @@ document.addEventListener('DOMContentLoaded', () => {
     store = configureStore({});
   };
   
-  // window.store = store;
-  // window.getState = store.getState;
+  window.store = store;
+  window.getState = store.getState;
   window.BookActions = BookActions;
   window.axios = Axios;
   ReactDOM.render(<Root store={store}/>, root);
