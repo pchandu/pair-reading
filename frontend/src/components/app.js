@@ -22,7 +22,6 @@ const App = () => (
   <div>
     <NavBarContainer />
 
-   <OnboardingContainer />
     <Switch>
       <Route path="/login" component={LoginFormContainer} />
       <Route path="/signup" component={SignupFormContainer} />
@@ -33,6 +32,7 @@ const App = () => (
 
       <AuthRoute path="/dashboard" component ={DashBoardContainer}/>
 
+      <AuthRoute exact path="/onboarding" component={OnboardingContainer} />
       <Route exact path="/" component={HomePage} />
       <Route component={NoPage}/>
     </Switch>

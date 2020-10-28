@@ -5,18 +5,7 @@ class BookIndex extends React.Component {
 
     constructor(props) {
         super(props)
-        this.state = {
-            books: []
-        }
 
-        this.handleClick = this.handleClick.bind(this)
-    }
-
-    handleClick(book) {
-        let bookList = this.state.books
-        this.setState({
-            books: bookList.push(book)
-        })
     }
 
     componentDidMount() {
@@ -34,9 +23,7 @@ class BookIndex extends React.Component {
                     return (
                     <li className="book-index-item" key={i}>
                         {/* <a href={`#/books/${book.id}`}> */}
-                        <a onClick={()=> this.handleClick(book)}>
-                        <img src={`${book.imagePath}`} className="book-index-cover-photo" /> 
-                        </a>
+                        <img src={`${book.imagePath}`} className="book-index-cover-photo"/> 
                         <input type="checkbox" id={`${book.title}`} name={`${book.title}`} className="book-checkbox"/>
                     </li>
                     )
