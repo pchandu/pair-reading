@@ -7,6 +7,7 @@ class NavBar extends React.Component {
   constructor(props) {
     super(props);
     this.logoutUser = this.logoutUser.bind(this);
+    this.getLinks = this.getLinks.bind(this);
   }
 
   logoutUser(e) {
@@ -14,21 +15,12 @@ class NavBar extends React.Component {
     this.props.logout();
   }
 
-  render() {
-    return (
-      <div>
-        <nav className="navbar navbar-expand-lg nav-bg navbar-left">
-          <a className="navbar-brand" href="#/">
-            <img
-              src={logo}
-              width="auto"
-              height="50"
-              className="d-inline-block align-top nav-bg"
-              alt="Pair Reading Logo"
-            />
-          </a>
 
-          <ul className="navbar-nav ml-auto">
+   getLinks() {
+    //    debugger
+    if (this.props.loggedIn !== true) {
+      return (
+         <ul className="navbar-nav ml-auto">
             <li className="nav-item">
               <Link to="/login">
                 <button type="button" className="navbar-btn">
@@ -44,11 +36,36 @@ class NavBar extends React.Component {
               </Link>
             </li>
           </ul>
+      )} else {
+          return (
+            <ul className="navbar-nav ml-auto">
+                <li className="nav-item">
+                    <button className="navbar-btn" onClick={() => this.props.logout()}>Sign Out</button>
+                </li>
+            </ul>
+          );
+      }
+    }
+
+  render() {
+    return (
+      <div>
+        <nav className="navbar navbar-expand-lg nav-bg navbar-left">
+          <a className="navbar-brand" href="#/">
+            <img
+              src={logo}
+              width="auto"
+              height="50"
+              className="d-inline-block align-top nav-bg"
+              alt="Pair Reading Logo"
+            />
+          </a>
+
+          {this.getLinks()}
         </nav>
       </div>
     );
   }
-
-};
+}
 
 export default NavBar;
