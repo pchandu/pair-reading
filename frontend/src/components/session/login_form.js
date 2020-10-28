@@ -48,7 +48,7 @@ class LoginForm extends React.Component {
   // Render the session errors if there are any
   renderErrors() {
     return (
-      <ul>
+      <ul className="login-errors">
         {Object.keys(this.state.errors).map((error, i) => (
           <li key={`error-${i}`}>{this.state.errors[error]}</li>
         ))}
@@ -58,25 +58,34 @@ class LoginForm extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className="login-div d-flex justify-content-center">
         <form onSubmit={this.handleSubmit}>
-          <div>
-            <input
-              type="text"
-              value={this.state.email}
-              onChange={this.update("email")}
-              placeholder="Email"
-            />
+          <div className="form-group col">
+            <div className="login-input">
+              <input
+                className="form-control"
+                type="text"
+                value={this.state.email}
+                onChange={this.update("email")}
+                placeholder="Email"
+              />
+            </div>
             <br />
-            <input
-              type="password"
-              value={this.state.password}
-              onChange={this.update("password")}
-              placeholder="Password"
-            />
+            <div className="login-input">
+              <input
+                className="form-control"
+                type="password"
+                value={this.state.password}
+                onChange={this.update("password")}
+                placeholder="Password"
+              />
+            </div>
             <br />
-            <input type="submit" value="Submit" />
-            {this.renderErrors()}
+            <div className="text-center">
+                <input type="submit" className="login-submit-btn  d-flex justify-content-center" value="Submit" />
+                {this.renderErrors()}
+
+            </div>
           </div>
         </form>
       </div>

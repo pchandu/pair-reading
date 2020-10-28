@@ -35,7 +35,7 @@ class SignupForm extends React.Component {
     e.preventDefault();
     let user = {
       email: this.state.email,
-      handle: this.state.handle,
+      username: this.state.username,
       password: this.state.password,
       password2: this.state.password2,
     };
@@ -45,7 +45,7 @@ class SignupForm extends React.Component {
 
   renderErrors() {
     return (
-      <ul>
+      <ul className="signup-errors">
         {Object.keys(this.state.errors).map((error, i) => (
           <li key={`error-${i}`}>{this.state.errors[error]}</li>
         ))}
@@ -55,25 +55,30 @@ class SignupForm extends React.Component {
 
   render() {
     return (
-      <div className="signup-form-container">
+      <div className="signup-div d-flex justify-content-center">
         <form onSubmit={this.handleSubmit}>
-          <div className="signup-form">
+          <div className="form-group">
+            <br />
+            <div className="">
+              <input
+                className="form-control signup-input"
+                type="text"
+                value={this.state.email}
+                onChange={this.update("email")}
+                placeholder="Email"
+              />
+            </div>
             <br />
             <input
+              className="form-control signup-input"
               type="text"
-              value={this.state.email}
-              onChange={this.update("email")}
-              placeholder="Email"
-            />
-            <br />
-            <input
-              type="text"
-              value={this.state.handle}
+              value={this.state.username}
               onChange={this.update("username")}
-              placeholder="username"
+              placeholder="Username"
             />
             <br />
             <input
+              className="form-control signup-input"
               type="password"
               value={this.state.password}
               onChange={this.update("password")}
@@ -81,14 +86,21 @@ class SignupForm extends React.Component {
             />
             <br />
             <input
+              className="form-control signup-input"
               type="password"
               value={this.state.password2}
               onChange={this.update("password2")}
               placeholder="Confirm Password"
             />
             <br />
-            <input type="submit" value="Submit" />
-            {this.renderErrors()}
+            <div className="text-center">
+              <input
+                type="submit"
+                className="signup-submit-btn d-flex justify-content-center"
+                value="Submit"
+              />
+              {this.renderErrors()}
+            </div>
           </div>
         </form>
       </div>
