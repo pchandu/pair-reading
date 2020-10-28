@@ -30,6 +30,8 @@ const BookSchema = new Schema({
         type: Schema.Types.ObjectId,
         ref: 'bookclubs'
     }]
+}, {
+    timestamps: true
 });
 
 module.exports = Book = mongoose.model('book', BookSchema);

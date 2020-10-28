@@ -14,6 +14,8 @@ const PostSchema = new Schema({
         type: Schema.Types.ObjectId,
         ref: 'forums'
     },
+}, {
+    timestamps: true
 });
 
 module.exports = Post = mongoose.model('post', PostSchema);

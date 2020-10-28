@@ -56,7 +56,7 @@ for(let i=0;i<posts.length;i++){
 //------------- BOOKCLUB ASS -------------
 for (let i = 0; i < bookclubs.length; i++) {
     //! User memembers
-    for (let j = 0; j < getRandomInt(users.length)+1; j++ ){
+    for (let j = 0; j < getRandomInt(users.length/2)+1; j++ ){
         idx = getRandomInt(users.length);
         bookclubs[i].users.push(users[idx]);
         users[idx].bookclubs.push(bookclubs[i]);

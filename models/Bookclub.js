@@ -18,6 +18,8 @@ const BookClubSchema = new Schema({
         type: Schema.Types.ObjectId,
         ref: 'users'
     }]
+}, {
+    timestamps: true
 });
 
 module.exports = BookClub = mongoose.model('bookclub', BookClubSchema);
