@@ -17,7 +17,8 @@ class NavBar extends React.Component {
 
 
    getLinks() {
-    if (this.props.loggedIn) {
+    //    debugger
+    if (this.props.loggedIn !== true) {
       return (
          <ul className="navbar-nav ml-auto">
             <li className="nav-item">
@@ -39,7 +40,7 @@ class NavBar extends React.Component {
           return (
             <ul className="navbar-nav ml-auto">
                 <li className="nav-item">
-                    <button className="navbar-btn" onClick={this.logoutUser}>Sign Out</button>
+                    <button className="navbar-btn" onClick={() => this.props.logout()}>Sign Out</button>
                 </li>
             </ul>
           );
