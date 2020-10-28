@@ -5,6 +5,7 @@ const bodyParser = require('body-parser');
 const mongoose = require('mongoose')
 const db = require('./config/keys').mongoURI;
 const users = require("./routes/api/users");
+const books = require("./routes/api/books")
 const passport = require('passport');
 require('./config/passport')(passport);
 
@@ -21,6 +22,7 @@ app.use(bodyParser.json());
 app.listen(port, () => console.log(`Server is running on port ${port}`));
 app.use(passport.initialize());
 app.use("/api/users", users);
+app.use("/api/books", books);
 
 if (process.env.NODE_ENV === 'production') {
     app.use(express.static('frontend/build'));
