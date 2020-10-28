@@ -6,14 +6,20 @@ const BookClubSchema = new Schema({
         type: String,
         required: true
     },
-    // book: {
-    //     type: Schema.Types.ObjectId,
-    //     ref: 'books'
-    // },
-    // forum: {
-    //     type: Schema.Types.ObjectId,
-    //     ref: 'forums'
-    // }
+    books: [{
+        type: Schema.Types.ObjectId,
+        ref: 'books'
+    }],
+    forums: [{
+        type: Schema.Types.ObjectId,
+        ref: 'forums'
+    }],
+    users: [{
+        type: Schema.Types.ObjectId,
+        ref: 'users'
+    }]
+}, {
+    timestamps: true
 });
 
 module.exports = BookClub = mongoose.model('bookclub', BookClubSchema);

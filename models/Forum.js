@@ -6,14 +6,21 @@ const ForumSchema = new Schema({
         type: String,
         required: true
     },
-    // bookclub: {
-    //     type: Schema.Types.ObjectId,
-    //     ref: 'bookclubs'
-    // },
-    // post: {
-    //     type: Schema.Types.ObjectId,
-    //     ref: 'posts'
-    // }
+    bookclub: {
+        type: Schema.Types.ObjectId,
+        ref: 'bookclubs'
+    },
+    book: {
+        type: Schema.Types.ObjectId,
+        ref: 'books'
+    },
+    posts: [{
+        type: Schema.Types.ObjectId,
+        ref: 'posts'
+    }]
+    
+}, {
+    timestamps: true
 });
 
 module.exports = Forum = mongoose.model('forum', ForumSchema);

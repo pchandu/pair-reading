@@ -14,21 +14,33 @@ const UserSchema = new Schema({
     type: String,
     required: true
   },
-  preferred_meeting_time: {
-    type: String
+  preferred_meeting_time: [
+  {
+    type: String,
+    default: 'M'
   },
-  preferred_books: {
+  {
+    type: String,
+    default: 'A'
+  },
+  {
+    type: String,
+    default: 'E'
+  },
+  ],
+  books: [{
     type: Schema.Types.ObjectId,
     ref: 'books'
-  },
-  // bookclub: {
-  //   type: Schema.Types.ObjectId,
-  //   ref: 'bookclubs'
-  // },
-  // post: {
-  //   type: Schema.Types.ObjectId,
-  //   ref: 'posts'
-  // },
+  }],
+  bookclubs: [{
+    type: Schema.Types.ObjectId,
+    ref: 'bookclubs'
+  }],
+  posts: [{
+    type: Schema.Types.ObjectId,
+    ref: 'posts'
+  }],
+
 }, {
   timestamps: true
 })
