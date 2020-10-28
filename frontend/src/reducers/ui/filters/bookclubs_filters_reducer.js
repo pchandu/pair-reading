@@ -22,4 +22,4 @@ const bookclubsFilterReducer = (state = defaultFilters, action) => {
     }
 };
 
-export default routesFilterReducer;
+export default bookclubsFilterReducer;

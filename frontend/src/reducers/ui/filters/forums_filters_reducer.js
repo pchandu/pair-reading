@@ -20,4 +20,4 @@ const forumsFilterReducer = (state = defaultFilters, action) => {
     }
 };
 
-export default routesFilterReducer;
+export default forumsFilterReducer;

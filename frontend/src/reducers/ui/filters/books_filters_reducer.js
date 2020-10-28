@@ -24,4 +24,4 @@ const booksFilterReducer = (state = defaultFilters, action) => {
     }
 };
 
-export default routesFilterReducer;
+export default booksFilterReducer;

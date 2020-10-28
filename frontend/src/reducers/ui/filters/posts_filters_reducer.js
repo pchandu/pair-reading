@@ -19,4 +19,4 @@ const postsFilterReducer = (state = defaultFilters, action) => {
     }
 };
 
-export default routesFilterReducer;
+export default postsFilterReducer;
