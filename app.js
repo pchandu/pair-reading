@@ -8,7 +8,7 @@ const users = require("./routes/api/users");
 const books = require("./routes/api/books")
 const forums = require("./routes/api/forums")
 // const posts = require("./routes/api/posts")
-// const bookclubs = require("./routes/api/bookclubs")
+const bookclubs = require("./routes/api/bookclubs")
 const passport = require('passport');
 require('./config/passport')(passport);
 
@@ -30,7 +30,7 @@ app.use("/api/users", users);
 app.use("/api/books", books);
 app.use("/api/forums", forums);
 // app.use("/api/posts", posts);
-// app.use("/api/bookclubs", bookclubs);
+app.use("/api/bookclubs", bookclubs);
 //! END ROUTES
 
 if (process.env.NODE_ENV === 'production') {
