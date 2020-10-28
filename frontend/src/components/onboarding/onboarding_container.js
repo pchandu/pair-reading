@@ -1,13 +1,16 @@
-// import { connect } from "react-redux";
-// import Onboarding from './onboarding'
+import Onboarding from './onboarding'
+import { connect } from 'react-redux'
+import { fetchAllBooks } from '../../actions/book_actions';
+import { updateUser } from '../../util/session_api_util';
 
-// const mSTP = state => ({
+const mSTP = state => ({
+    books: state.entities.books,
+    currentUser: state.session.user
+});
 
-// })
+const mDTP = dispatch => ({
+    fetchAllBooks: () => dispatch(fetchAllBooks()),
+    updateUser: (updatedUser) => dispatch(updateUser(updatedUser))
+});
 
-// const mDTP = dispatch => ({
-
-// })
-
-// export default connect(mSTP, mDPT)(Onboarding);
-// export default connect(null, null)(Onboarding);
+export default connect(mSTP,mDTP)(Onboarding)
