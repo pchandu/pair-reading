@@ -1,10 +1,12 @@
-var Book = require('../models/Book');
-const db = require('../config/keys').mongoURI;
-var mongoose = require('mongoose');
+const exit = require('./entry')
 
-mongoose.connect(db, { useNewUrlParser: true, useUnifiedTopology: true} )
+const Book = require('../models/Book');
+// const db = require('../config/keys').mongoURI;
+// var mongoose = require('mongoose');
 
-var books = [
+// mongoose.connect(db, { useNewUrlParser: true, useUnifiedTopology: true} )
+module.exports = () => {
+const books = [
     new Book({
             title: "Harry Potter and the Chamber of Secrets",
             author: "J.K. Rowling",
@@ -39,20 +41,18 @@ var books = [
 ];
 
 Book.deleteMany({}, () => {
-    console.log('deleted')
+    console.log('Deleted all Books')
 })
 
-var done = 0
+let done = 0
 
-for (var i = 0; i < books.length; i++) {
+for (let i = 0; i < books.length; i++) {
     books[i].save(function(err, result) {
         done++;
         if (done === books.length){
             exit();
         }
     });
+    console.log(books[i]._id);
 }
-
-function exit() {
-    mongoose.disconnect();
 }
