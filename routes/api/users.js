@@ -16,7 +16,7 @@ router.patch('/updateUser', (req, res) => {
     .then(user => {
       if (user) {
         user.preferred_meeting_times = req.body.preferred_meeting_times
-        user.preferred_books = req.body.preferred_books
+        user.books = req.body.preferred_books
         user.save(); 
       } else {
         return res.json({ msg: "Something went wrong, captain."})
