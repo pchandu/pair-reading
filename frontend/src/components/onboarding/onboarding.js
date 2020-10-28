@@ -66,7 +66,7 @@ class Onboarding extends React.Component {
                         {Object.values(books).map((book, i) => {
                             return (
                                 <li className="book-index-item" key={i}>
-                                    <a onClick={this.handleBook(book._id)}>
+                                    <a onClick={() => this.handleBook(book._id)}>
                                         <img src={`${book.imagePath}`} className="book-index-cover-photo" />
                                         <input type="checkbox" id={`${book.title}`} name={`${book.title}`} className="book-checkbox"/>
                                     </a>
