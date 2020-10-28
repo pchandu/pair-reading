@@ -1,8 +1,8 @@
-const exit = require('./entry')
+// const exit = require('./entry')
 
 const User = require('../models/User');
 
-module.exports = () => {
+module.exports = (nextSeeder) => {
 User.deleteMany({}, () => {
     console.log('Deleted all Users')
 })
@@ -35,8 +35,9 @@ for(let i=0;i<users.length;i++){
     (err,res)=>{
         done++;
         if(done===users.length){
-            exit();
+            // exit();
             // return true;
+            nextSeeder();
         }
     });
     console.log(users[i]._id);
