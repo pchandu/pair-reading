@@ -11,6 +11,19 @@ const passport = require('passport')
 
 router.get("/test", (req, res) => res.json({ msg: "This is the users route" }));
 
+router.patch('/updateUser', (req, res) => {
+  User.findOne({ email: req.body.currentUser})
+    .then(user => {
+      if (user) {
+        user.preferred_meeting_times = req.body.preferred_meeting_times
+        user.preferred_books = req.body.preferred_books
+        user.save(); 
+      } else {
+        return res.json({ msg: "Something went wrong, captain."})
+      }
+    })
+})
+
 router.post('/register', (req, res) => {
  
   const { errors, isValid } = validateRegisterInput(req.body);
