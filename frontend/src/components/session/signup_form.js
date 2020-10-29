@@ -40,11 +40,11 @@ class SignupForm extends React.Component {
       password2: this.state.password2,
     };
 
-    debugger
+    // debugger
     // make if else for what we need
     this.props.signup(user)
     .then((err) => {
-      debugger
+      // debugger
       // console.log(err);
       // console.log(err.errors);
 
