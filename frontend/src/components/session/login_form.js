@@ -15,9 +15,9 @@ class LoginForm extends React.Component {
     this.renderErrors = this.renderErrors.bind(this);
   }
 
-  // Once the user has been authenticated, redirect to the Tweets page
+  // Once the user has been authenticated, redirect to the dashboard
   componentWillReceiveProps(nextProps) {
-    if (nextProps.currentUser === true) {
+    if (nextProps.isAuthenticated === true) {
       this.props.history.push("/dashboard");
     }
 
@@ -42,7 +42,8 @@ class LoginForm extends React.Component {
       password: this.state.password,
     };
 
-    this.props.login(user);
+    this.props.login(user).then(() => this.props.history.push("/dashboard"))
+    
   }
 
   // Render the session errors if there are any
