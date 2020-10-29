@@ -1,5 +1,6 @@
 import React from 'react'
 import ProfileContainer from '../profile/profile_container'
+import Calendar from './calendar/calendar'
 
 
 class DashBoard extends React.Component {
@@ -9,6 +10,7 @@ class DashBoard extends React.Component {
             <div className="container outer-dashboard-container">
                 Outer Top
                 <div className="row dashboard-content-container">
+                        <Calendar />
                     <div className="col left-side-dashboard-container">
                         <ProfileContainer />
                     </div>

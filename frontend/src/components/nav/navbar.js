@@ -59,7 +59,7 @@ class NavBar extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className="navbar-outer-container">
         <nav className="navbar navbar-expand-lg nav-bg navbar-left">
           <a className="navbar-brand" href="#/">
             <img
