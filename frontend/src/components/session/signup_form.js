@@ -43,6 +43,7 @@ class SignupForm extends React.Component {
     // debugger
     // make if else for what we need
     this.props.signup(user)
+
     .then((err) => {
       // debugger
       // console.log(err);
@@ -55,7 +56,6 @@ class SignupForm extends React.Component {
 
 
     })
-
 
 
     

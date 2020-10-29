@@ -10,7 +10,7 @@ const mSTP = state => ({
 
 const mDTP = dispatch => ({
     fetchAllBooks: () => dispatch(fetchAllBooks()),
-    updateUser: (updatedUser) => dispatch(updateUser(updatedUser))
+    updateUser: (updatedUser) => updateUser(updatedUser)
 });
 
 export default connect(mSTP,mDTP)(Onboarding)
