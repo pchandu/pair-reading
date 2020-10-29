@@ -18,7 +18,7 @@ class HomePage extends React.Component {
                 < FrontPageRight />
                 < FrontPageLeft />
                 <div className="front-page-carousel-container-description">
-                    <p>Don't take our word for it, Here are some testimonials from happy people using Pair Reading!</p>
+                    <p>Don't take our word for it. Here are some testimonials!</p>
                 </div>
                 <div className="front-page-carousel-container">
                     <CarouselLeft  />

@@ -63,3 +63,18 @@
     height:auto;
     justify-content:space-evenly;
 }
+
+.front-page-carousel-container-description{
+    display: flex;
+    justify-content: center;
+    margin-top: 40px;
+    margin-bottom: 30px;
+}
+
+.front-page-carousel-container-description > p {
+    font-size: 60px;
+    font-weight: 600;
+    display:flex;
+    color: #2a8793;
+
+}

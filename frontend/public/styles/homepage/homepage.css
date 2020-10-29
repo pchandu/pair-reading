@@ -3,8 +3,14 @@
     flex-direction:column;
 }
 
+.home-page-outer-container > p {
+    display:flex;
+    align-items: center;
+}
+
 /* Front Page Header/Top Container  */
 .front-page-top-container {
+    border-top: 2px solid #2a8793;
     display:flex;
     width:100%;
     align-items:center;
@@ -43,14 +49,44 @@
 }
 /* Right Image CSS */
 
-.front-page-right-container {
-    display:flex;
-    justify-content: space-between;
-}
-
-/* Left Image CSS */
-
+.front-page-right-container,
 .front-page-left-container {
     display:flex;
     justify-content: space-between;
+    margin-bottom: 20px;
+    margin-top: 20px;
 }
+
+.front-page-right-container > img,
+.front-page-left-container > img {
+    width: 2500px;
+}
+
+.front-page-right-text-container,
+.front-page-left-text-container {
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    width:100%;
+    margin:10px;
+}
+
+.front-page-right-text-container > h1,
+.front-page-left-text-container > h1{
+    font-size: 50px;
+    font-weight: 600;
+    width: 100%;
+    margin-left: 30px;
+    margin-right: 20px;
+    margin-bottom: 20px;
+    color: #559623;
+}
+.front-page-right-text-container > p,
+.front-page-left-text-container > p {
+    font-size: 40px;
+    font-weight: 500;
+    width: 90%;
+    color:#2a8793;
+}
+
+/* Left Image CSS */
