@@ -40,11 +40,23 @@ class SignupForm extends React.Component {
       password2: this.state.password2,
     };
 
+    // debugger
+    // make if else for what we need
     this.props.signup(user)
-    .catch((err) => {debugger})
-    .then(() => {
-      debugger
-      this.props.login({email: user.email, password: user.password})})
+
+    .then((err) => {
+      // debugger
+      // console.log(err);
+      // console.log(err.errors);
+
+      if (err.type === "RECEIVE_USER_SIGN_IN" ){
+        // this.renderErrors()
+        this.props.login({ email: user.email, password: user.password })
+      } 
+
+
+    })
+
 
     
   }
