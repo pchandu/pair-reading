@@ -3,8 +3,8 @@ const convert2POJO = (res,data) => {
     data.forEach(el => Object.assign(pojo, pojo, { [el._id]: el }))
     return res.json(pojo)
 }
-const nestedIndex = (Model, nestedData, res) => (
-    Model.find({ '_id': { $in: nestedData } })
+const nestedIndex = (Model, nestedData, query, res) => (
+    Model.find(Object.assign({},{ '_id': { $in: nestedData } },query))
         .then(el => convert2POJO(res, el))
 )
 function getRandomInt(max) {

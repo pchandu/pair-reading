@@ -15,6 +15,11 @@ import {fetchFilteredBookclubs, changeBookclubsFilter, clearBookclubsFilter}  fr
 import {fetchFilteredPosts, changePostsFilter, clearPostsFilter}              from "./actions/filters/post_filter_actions"
 import {fetchFilteredForums, changeForumsFilter, clearForumsFilter}           from "./actions/filters/forum_filter_actions"
 
+import {fetchFilteredUserBooks, fetchFilteredBookClubBooks}              from "./actions/filters/book_filter_actions"
+import {fetchFilteredUserBookClubs, fetchFilteredBookBookClubs}  from "./actions/filters/bookclub_filter_actions"
+import {fetchFilteredForumPosts, fetchFilteredUserPosts}           from "./actions/filters/post_filter_actions"
+import {fetchFilteredBookForums, fetchFilteredBookClubsForums}           from "./actions/filters/forum_filter_actions"
+
 document.addEventListener('DOMContentLoaded', () => {
   const root = document.getElementById('root')
   let store;
@@ -42,4 +47,9 @@ document.addEventListener('DOMContentLoaded', () => {
   window.fetchFilteredBookclubs = fetchFilteredBookclubs; window.changeBookclubsFilter = changeBookclubsFilter; window.clearBookclubsFilter = clearBookclubsFilter
   window.fetchFilteredPosts = fetchFilteredPosts; window.changePostsFilter = changePostsFilter; window.clearPostsFilter = clearPostsFilter
   window.fetchFilteredForums = fetchFilteredForums; window.changeForumsFilter = changeForumsFilter; window.clearForumsFilter = clearForumsFilter
+
+  window.fetchFilteredUserBooks = fetchFilteredUserBooks; window.fetchFilteredBookClubBooks = fetchFilteredBookClubBooks;
+  window.fetchFilteredUserBookClubs = fetchFilteredUserBookClubs; window.fetchFilteredBookBookClubs = fetchFilteredBookBookClubs;
+  window.fetchFilteredForumPosts = fetchFilteredForumPosts; window.fetchFilteredUserPosts = fetchFilteredUserPosts;
+  window.fetchFilteredBookForums = fetchFilteredBookForums; window.fetchFilteredBookClubsForums = fetchFilteredBookClubsForums;
 })

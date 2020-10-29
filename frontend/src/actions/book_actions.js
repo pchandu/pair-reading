@@ -6,10 +6,6 @@ export const receiveBook = payload => ({
     type: RECEIVE_BOOK, 
     payload
 });
-
-// export const fetchBook = bookId => dispatch => BookUtil.fetchBook(bookId)
-//     .then(book => dispatch(receiveBook(book)));
-
 export const receiveAllBooks = payload => ({
     type: RECEIVE_ALL_BOOKS, 
     payload
@@ -19,6 +15,11 @@ export const fetchAllBooks = (filters) => dispatch =>
     BookUtil.fetchBooks(filters)
     .then((books) => (
         dispatch(receiveAllBooks(books))
+    ));
+export const fetchBook = (id) => dispatch =>
+    BookUtil.fetchBook(id)
+    .then((book) => (
+        dispatch(receiveBook(book))
     ));
 
 export const fetchUserBooks = (filters) => (userId) => dispatch =>

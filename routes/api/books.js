@@ -35,7 +35,7 @@ router.get('/:id/readers', (req,res) => {
         .then(book =>
             // User.find({ '_id': { $in: book.users } })
             //     .then(users => convert2POJO(res,users))
-            nestedIndex(User, book.users, res)
+            nestedIndex(User, book.users,{}, res)
         )
         .catch(err =>
             res.status(404).json({ nobookfound: 'No book found with that ID' })
@@ -44,7 +44,7 @@ router.get('/:id/readers', (req,res) => {
 router.get('/:id/forums', (req,res) => {
     Book.findById(req.params.id)
         .then(book => 
-            nestedIndex(Forum, book.forums, res)
+            nestedIndex(Forum, book.forums, filterForums(req.query), res)
         )
         .catch(err =>
             res.status(404).json({ nobookfound: 'No book found with that ID' })
@@ -54,7 +54,7 @@ router.get('/:id/bookclubs', (req,res) => {
     // console.log(req.query)
     Book.findById(req.params.id)
         .then(book => 
-            nestedIndex(BookClub, book.bookclubs, res)
+            nestedIndex(BookClub, book.bookclubs, filterBookclubs(req.query),res)
         )
         .catch(err =>
             res.status(404).json({ nobookfound: 'No book found with that ID' })

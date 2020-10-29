@@ -112,12 +112,16 @@ const BookClub = require('../../models/Bookclub');
 const Book = require('../../models/Book');
 const { convert2POJO, nestedIndex } = require('../api/routes_util')
 
+const filterPosts = require('../../filters/posts_filter');
+const filterBooks = require('../../filters/books_filter');
+const filterBookclubs = require('../../filters/bookclubs_filter');
+
 const _user = 'username email posts bookclubs books'
 
 router.get('/:id/books', (req, res) => {
   User.findById(req.params.id)
     .then(user =>
-      nestedIndex(Book, user.books, res)
+      nestedIndex(Book, user.books, filterBooks(req.query), res)
     )
     .catch(err => res.status(404).json({ nobooksfound: 'No books found' }));
 });
@@ -129,14 +133,14 @@ router.get('/:id', (req, res) => {
 router.get('/:id/posts', (req, res) => {
   User.findById(req.params.id)
     .then(user =>
-      nestedIndex(Post, user.posts, res)
+      nestedIndex(Post, user.posts, filterPosts(req.query), res)
     )
     .catch(err => res.status(404).json({ nopostsfound: 'No posts found' }));
 });
 router.get('/:id/bookclubs', (req, res) => {
   User.findById(req.params.id)
     .then(user =>
-      nestedIndex(BookClub, user.bookclubs, res)
+      nestedIndex(BookClub, user.bookclubs, filterBookclubs(req.query), res)
     )
     .catch(err => res.status(404).json({ nobookclubsfound: 'No bookclubs found' }));
 });
