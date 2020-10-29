@@ -107,5 +107,47 @@ router.get('/current', passport.authenticate('jwt', {session: false}), (req, res
   });
 })
 
+//! -------------------- DATA --------------------
+const Post = require('../../models/Post');
+const Bookclub = require('../../models/Bookclub');
+const Book = require('../../models/Book');
+
+const _user = (user) => ({
+  username: user.username,
+  email: user.email,
+  posts: user.posts,
+  bookclubs: user.bookclubs,
+  books: user.books
+})
+
+router.get('/:id/books', (req, res) => {
+  User.findById(req.params.id)
+    .then(user =>
+      Book.find({ '_id': { $in: user.books } })
+        .then(book => res.json(book))
+    )
+    .catch(err => res.status(404).json({ nobooksfound: 'No books found' }));
+});
+router.get('/:id', (req, res) => {
+  User.findById(req.params.id)
+    .then(user => res.json(_user(user)))
+    .catch(err => res.status(404).json({ nouserfound: 'No user found' }));
+});
+router.get('/:id/posts', (req, res) => {
+  User.findById(req.params.id)
+    .then(user =>
+      Post.find({ '_id': { $in: user.posts } })
+        .then(post => res.json(post))
+    )
+    .catch(err => res.status(404).json({ nopostsfound: 'No posts found' }));
+});
+router.get('/:id/bookclubs', (req, res) => {
+  User.findById(req.params.id)
+    .then(user =>
+      Bookclub.find({ '_id': { $in: user.bookclubs } })
+        .then(bookclub => res.json(bookclub))
+    )
+    .catch(err => res.status(404).json({ nobookclubsfound: 'No bookclubs found' }));
+});
 
 module.exports = router;

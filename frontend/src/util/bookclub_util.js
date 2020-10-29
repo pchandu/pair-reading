@@ -4,6 +4,10 @@ import Axios from "axios";
 //     return Axios.get(`/api/books/${bookId}`)
 // };
 
-export const fetchAllBookClubs = () => {
-    return Axios.get("/api/bookclubs/")
+export const fetchAllBookClubs = (filters) => {
+    // debugger
+    return Axios.get("/api/bookclubs/",{params: filters})
+};
+export const fetchBookClub = (id) => {
+    return Axios.get(`/api/bookclubs/${id}`)
 };

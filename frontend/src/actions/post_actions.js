@@ -6,7 +6,8 @@ export const receiveAllPosts = payload => ({
     payload
 });
 
-export const fetchAllPosts = () => dispatch => postUtil.fetchAllPosts()
+export const fetchAllPosts = (filters) => dispatch =>
+postUtil.fetchAllPosts(filters)
     .then((posts) => {
         dispatch(receiveAllPosts(posts))
     });

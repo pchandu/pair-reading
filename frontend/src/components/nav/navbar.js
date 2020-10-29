@@ -40,9 +40,19 @@ class NavBar extends React.Component {
           return (
             <ul className="navbar-nav ml-auto">
                 <li className="nav-item">
+                  <Link to="/dashboard">
+                    <button type="button" className="navbar-btn">
+                      Dashboard
+                    </button>
+                  </Link>
+              </li>
+              
+                <li className="nav-item">
                     <button className="navbar-btn" onClick={() => this.props.logout()}>Sign Out</button>
                 </li>
+              
             </ul>
+            
           );
       }
     }

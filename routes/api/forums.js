@@ -4,17 +4,28 @@ const mongoose = require('mongoose');
 const passport = require('passport');
 
 const Forum = require('../../models/Forum');
+const Post = require('../../models/Post');
 // const validateTweetInput = require('../../validation/forums');
 
+const filterForums = require('../../filters/forums_filter')
+
 router.get('/', (req, res) => {
-    Forum.find()
+    Forum.find(filterForums(req.query))
         .then(forums => res.json(forums))
         .catch(err => res.status(404).json({ noforumsfound: 'No forums found' }));
 });
-// router.get('/:id/posts', (req, res) => {
-//     Forum.findById(req.params.id)
-//         .then(forum.posts => res.json(forum.posts))
-//         .catch(err => res.status(404).json({ noforumsfound: 'No forums found' }));
-// });
+router.get('/:id', (req, res) => {
+    Forum.findById(req.params.id)
+        .then(forum => res.json(forum))
+        .catch(err => res.status(404).json({ noforumsfound: 'No forums found' }));
+});
+router.get('/:id/posts', (req, res) => {
+    Forum.findById(req.params.id)
+        .then(forum => 
+            Post.find({'_id': {$in: forum.posts}})
+            .then(post => res.json(post))
+        )
+        .catch(err => res.status(404).json({ noforumsfound: 'No forums found' }));
+});
 
 module.exports = router;

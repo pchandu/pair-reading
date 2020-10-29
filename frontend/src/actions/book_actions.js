@@ -15,7 +15,8 @@ export const receiveAllBooks = payload => ({
     payload
 });
 
-export const fetchAllBooks = () => dispatch => BookUtil.fetchBooks()
+export const fetchAllBooks = (filters) => dispatch =>
+    BookUtil.fetchBooks(filters)
     .then((books) => {
         dispatch(receiveAllBooks(books))
     });
