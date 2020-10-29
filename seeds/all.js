@@ -51,8 +51,8 @@ for(let i=0;i<posts.length;i++){
     posts[i].user = users[idx];
     users[idx].posts.push(posts[i]);
     //! FORUM
-    idx = getRandomInt(users.length);
-    posts[i].forum = forums[getRandomInt(forums.length)];
+    idx = getRandomInt(forums.length);
+    posts[i].forum = forums[idx];
     forums[idx].posts.push(posts[i]);
 }
 //------------- BOOKCLUB ASS -------------
