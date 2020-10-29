@@ -16,6 +16,7 @@ router.patch('/updateUser', (req, res) => {
     .then(user => {
       if (user) {
         user.books = req.body.preferred_books;
+        user.preferred_meeting_time = req.body.preferred_meeting_times;
         // user.preferred_meeting_time = req.body.preferred_meeting_times;
         user.save()
           .then( (user) => res.json(user) )

@@ -14,20 +14,20 @@ const UserSchema = new Schema({
     type: String,
     required: true
   },
-  preferred_meeting_time: [
-  {
-    type: String,
-    default: 'M'
+  preferred_meeting_time: {
+    M:{
+      type: Boolean,
+      default: false
+    },
+    A:{
+      type: Boolean,
+      default: false
+    },
+    E:{
+      type: Boolean,
+      default: false
+    },
   },
-  {
-    type: String,
-    default: 'A'
-  },
-  {
-    type: String,
-    default: 'E'
-  },
-  ],
   books: [{
     type: Schema.Types.ObjectId,
     ref: 'books'
