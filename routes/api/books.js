@@ -4,6 +4,7 @@ const mongoose = require('mongoose');
 const passport = require('passport');
 
 const Book = require('../../models/Book');
+const Forum = require('../../models/Forum');
 // const validateTweetInput = require('../../validation/books');
 
 router.get('/', (req, res) => {
@@ -28,7 +29,10 @@ router.get('/:id/readers', (req,res) => {
 });
 router.get('/:id/forums', (req,res) => {
     Book.findById(req.params.id)
-        .then(book => res.json(book.forum))
+        .then(book => 
+            Forum.find({ '_id': { $in: book.forums } })
+                .then(forum => res.json(forum))
+        )
         .catch(err =>
             res.status(404).json({ nobookfound: 'No book found with that ID' })
         );
