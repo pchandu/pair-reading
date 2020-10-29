@@ -17,3 +17,6 @@
 .nav-item {
      background-color: rgb(140, 200, 91);
 }
+.navbar-outer-container {
+    border-bottom: 2px solid #2A8793;
+}
