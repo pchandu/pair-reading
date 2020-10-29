@@ -11,3 +11,15 @@ export const fetchAllBookClubs = (filters) => dispatch =>
     .then((bookclubs) => {
         dispatch(receiveAllBookClubs(bookclubs))
     });
+export const fetchUserBookClubs = (filters) => (userId) => dispatch =>
+    bookclubUtil.fetchUserBookClubs(filters)(userId)
+    .then((bookclubs) => {
+        dispatch(receiveAllBookClubs(bookclubs))
+    });
+
+export const fetchBookBookClubs = (filters) => (bookId) => dispatch =>
+    bookclubUtil.fetchBookBookClubs(filters)(bookId)
+    .then((bookclubs) => {
+        dispatch(receiveAllBookClubs(bookclubs))
+    });
+

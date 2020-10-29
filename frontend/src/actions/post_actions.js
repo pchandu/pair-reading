@@ -11,3 +11,7 @@ postUtil.fetchAllPosts(filters)
     .then((posts) => {
         dispatch(receiveAllPosts(posts))
     });
+export const fetchAllForumPosts = (id) => dispatch => forumUtil.fetchAllForumPosts(id)
+    .then((posts) => {
+        dispatch(receiveAllPosts(posts))
+    });

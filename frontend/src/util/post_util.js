@@ -7,3 +7,7 @@ import Axios from "axios";
 export const fetchAllPosts = (filters) => {
     return Axios.get("/api/posts/",{params:filters})
 };
+
+export const fetchAllForumPosts = (id) => {
+    return Axios.get(`/api/forums/${id}/posts`)
+};

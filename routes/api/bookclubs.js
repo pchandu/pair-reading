@@ -6,17 +6,15 @@ const passport = require('passport');
 const BookClub = require('../../models/Bookclub');
 const Book = require('../../models/Book');
 const Forum = require('../../models/Forum');
-const Post = require('../../models/Post');
+const User = require('../../models/User');
 // const validateTweetInput = require('../../validation/bookclubs');
 
-const filterBookclubs = require('../../filters/bookclubs_filter')
+const filterBookclubs = require('../../filters/bookclubs_filter');
+const { convert2POJO } = require('./routes_util');
 
 router.get('/', (req, res) => {
-    // console.log(Object.keys(req))
-    console.log(req.query)
-    console.log(req.params)
     BookClub.find(filterBookclubs(req.query))
-        .then(bookclubs => res.json(bookclubs))
+        .then(bookclubs => convert2POJO(res,bookclubs))
         .catch(err => res.status(404).json({ nobookclubsfound: 'No bookclubs found' }));
 });
 router.get('/:id', (req, res) => {
@@ -27,24 +25,21 @@ router.get('/:id', (req, res) => {
 router.get('/:id/books', (req, res) => {
     BookClub.findById(req.params.id)
         .then(bookclub =>
-            Book.find({ '_id': { $in: bookclub.books } })
-                .then(book => res.json(book))
+            nestedIndex(Book, bookclub.books, res)
         )
         .catch(err => res.status(404).json({ nobooksfound: 'No books found' }));
 });
 router.get('/:id/forums', (req, res) => {
     BookClub.findById(req.params.id)
         .then(bookclub =>
-            Forum.find({ '_id': { $in: bookclub.forums } })
-                .then(forum => res.json(forum))
+            nestedIndex(Forum, bookclub.forums, res)
         )
         .catch(err => res.status(404).json({ noforumsfound: 'No forums found' }));
 });
 router.get('/:id/users', (req, res) => {
     BookClub.findById(req.params.id)
         .then(bookclub =>
-            User.find({ '_id': { $in: bookclub.users } })
-                .then(user => res.json(user))
+            nestedIndex(User, bookclub.users, res)
         )
         .catch(err => res.status(404).json({ nousersfound: 'No users found' }));
 });

@@ -16,7 +16,9 @@ export const fetchAllForums = (filters) => dispatch =>
         dispatch(receiveAllForums(forums))
     });
 
-export const fetchAllForumPosts = (id) => dispatch => forumUtil.fetchAllForumPosts(id)
+export const fetchBookForums = (filters) => (bookId) => dispatch =>
+    forumUtil.fetchBookForums(filters)
     .then((forums) => {
         dispatch(receiveAllForums(forums))
     });
+

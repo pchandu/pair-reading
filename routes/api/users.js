@@ -108,43 +108,35 @@ router.get('/current', passport.authenticate('jwt', {session: false}), (req, res
 
 //! -------------------- DATA --------------------
 const Post = require('../../models/Post');
-const Bookclub = require('../../models/Bookclub');
+const BookClub = require('../../models/Bookclub');
 const Book = require('../../models/Book');
+const { convert2POJO, nestedIndex } = require('../api/routes_util')
 
-const _user = (user) => ({
-  username: user.username,
-  email: user.email,
-  posts: user.posts,
-  bookclubs: user.bookclubs,
-  books: user.books
-})
+const _user = 'username email posts bookclubs books'
 
 router.get('/:id/books', (req, res) => {
   User.findById(req.params.id)
     .then(user =>
-      Book.find({ '_id': { $in: user.books } })
-        .then(book => res.json(book))
+      nestedIndex(Book, user.books, res)
     )
     .catch(err => res.status(404).json({ nobooksfound: 'No books found' }));
 });
 router.get('/:id', (req, res) => {
-  User.findById(req.params.id)
-    .then(user => res.json(_user(user)))
+  User.findById(req.params.id, _user)
+    .then(user => res.json(user))
     .catch(err => res.status(404).json({ nouserfound: 'No user found' }));
 });
 router.get('/:id/posts', (req, res) => {
   User.findById(req.params.id)
     .then(user =>
-      Post.find({ '_id': { $in: user.posts } })
-        .then(post => res.json(post))
+      nestedIndex(Post, user.posts, res)
     )
     .catch(err => res.status(404).json({ nopostsfound: 'No posts found' }));
 });
 router.get('/:id/bookclubs', (req, res) => {
   User.findById(req.params.id)
     .then(user =>
-      Bookclub.find({ '_id': { $in: user.bookclubs } })
-        .then(bookclub => res.json(bookclub))
+      nestedIndex(BookClub, user.bookclubs, res)
     )
     .catch(err => res.status(404).json({ nobookclubsfound: 'No bookclubs found' }));
 });

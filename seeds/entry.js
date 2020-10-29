@@ -22,6 +22,7 @@ const saveData = (model, data, nextSeeder) => {
                 // exit();
                 nextSeeder();
             }
+            if(!!err) console.log(err)
         });
         // console.log(data[i]._id);
     }
