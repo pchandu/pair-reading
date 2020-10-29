@@ -23,19 +23,19 @@ const App = () => (
     <NavBarContainer />
 
     <Switch>
-      <Route path="/login" component={LoginFormContainer} />
-      <Route path="/signup" component={SignupFormContainer} />
-  
-      <Route exact path="/forums" component ={ForumIndexContainer}/>
-      <Route exact path="/bookclubs" component ={BookClubIndexContainer}/>
-      <Route exact path="/posts" component ={PostIndexContainer}/>
+      <ProtectedRoute path="/login" component={LoginFormContainer} />
+      <ProtectedRoute path="/signup" component={SignupFormContainer} />
+
+      <Route exact path="/forums" component={ForumIndexContainer} />
+      <Route exact path="/bookclubs" component={BookClubIndexContainer} />
+      <Route exact path="/posts" component={PostIndexContainer} />
 
       <AuthRoute path="/dashboard" component ={DashBoardContainer}/>
       <AuthRoute exact path="/onboarding" component={OnboardingContainer} /> 
-      <Route exact path="/" component={HomePage} />
-      <Route component={NoPage}/>
-    </Switch>
 
+      <Route exact path="/" component={HomePage} />
+      <Route component={NoPage} />
+    </Switch>
   </div>
 );
 
