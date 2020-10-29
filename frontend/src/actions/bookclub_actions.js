@@ -17,7 +17,7 @@ export const fetchAllBookClubs = (filters) => dispatch =>
         dispatch(receiveAllBookClubs(bookclubs))
     });
 export const fetchBookClub = (id) => dispatch =>
-    BookUtil.fetchBookClub(id)
+    bookclubUtil.fetchBookClub(id)
         .then((book) => (
             dispatch(receiveBookClub(book))
         ));

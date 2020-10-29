@@ -1,4 +1,4 @@
-import { fetchAllForums, fetchBookForums } from '../forum_actions'
+import { fetchAllForums, fetchBookForums, fetchBookClubForums } from '../forum_actions'
 
 export const UPDATE_FORUMS_FILTER = 'UPDATE_FORUMS_FILTER';
 export const CLEAR_FORUMS_FILTER = 'CLEAR_FORUMS_FILTER';

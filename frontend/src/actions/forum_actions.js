@@ -6,7 +6,7 @@ export const receiveForum = payload => ({
     type: RECEIVE_FORUM,
     payload
 });
-export const receiveAllForum = payload => ({
+export const receiveAllForums = payload => ({
     type: RECEIVE_ALL_FORUMS,
     payload
 });

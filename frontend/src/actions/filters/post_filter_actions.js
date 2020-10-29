@@ -1,4 +1,4 @@
-import { fetchAllPosts, fetchAllForumPosts } from '../post_actions'
+import { fetchAllPosts, fetchAllForumPosts, fetchAllUserPosts } from '../post_actions'
 
 export const UPDATE_POSTS_FILTER = 'UPDATE_POSTS_FILTER';
 export const CLEAR_POSTS_FILTER = 'CLEAR_POSTS_FILTER';
