@@ -71,26 +71,26 @@ for (let i = 0; i < bookclubs.length; i++) {
     //! Forums (handled above)
 }
 //------------- USER BCRYPT -------------
-// User.deleteMany({}, () => {
-//     console.log('Deleted user data')
-// })
-// let done = 0;
-// for (let i = 0; i < users.length; i++) {
-//     bcrypt.genSalt(10, (err, salt) => {
-//         bcrypt.hash(users[i].password, salt, (err, hash) => {
-//             if (err) throw err;
-//             users[i].password = hash;
-//             console.log(users[i].password)
-//             users[i].save( (err, result) => {
-//                 done++;
-//                 if (done === users.length) {
-//                     // exit();
-//                     saveAllData();
-//                 }
-//             })
-//         })
-//     })
-// }
+User.deleteMany({}, () => {
+    console.log('Deleted user data')
+})
+let done = 0;
+for (let i = 0; i < users.length; i++) {
+    bcrypt.genSalt(10, (err, salt) => {
+        bcrypt.hash(users[i].password, salt, (err, hash) => {
+            if (err) throw err;
+            users[i].password = hash;
+            console.log(users[i].password)
+            users[i].save( (err, result) => {
+                done++;
+                if (done === users.length) {
+                    // exit();
+                    saveAllData();
+                }
+            })
+        })
+    })
+}
 
 // console.log(users[0].password)
 
@@ -101,4 +101,4 @@ const saveAllData =
 () => saveData( Forum, forums,
 () => saveData( Post, posts, exit
 ))))
-saveAllData();
+// saveAllData();
