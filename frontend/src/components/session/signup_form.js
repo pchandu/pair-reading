@@ -40,7 +40,7 @@ class SignupForm extends React.Component {
       password2: this.state.password2,
     };
 
-
+    debugger
     // make if else for what we need
     this.props.signup(user)
     .then((err) => {
@@ -48,7 +48,11 @@ class SignupForm extends React.Component {
       // console.log(err);
       // console.log(err.errors);
 
-      (err.errors === {}) ? this.props.login({ email: user.email, password: user.password }) : this.renderErrors()
+      if (err.type === "RECEIVE_USER_SIGN_IN" ){
+        // this.renderErrors()
+        this.props.login({ email: user.email, password: user.password })
+      } 
+
 
     })
 
