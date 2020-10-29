@@ -31,9 +31,7 @@ const App = () => (
       <Route exact path="/posts" component ={PostIndexContainer}/>
 
       <AuthRoute path="/dashboard" component ={DashBoardContainer}/>
-
-      <Route exact path="/onboarding" component={OnboardingContainer} /> 
-      {/* ^^^^^MAKE THIS AN AUTHROUTE ONCE CURRENT USER STUFF IS GOOD IN STATE */}
+      <AuthRoute exact path="/onboarding" component={OnboardingContainer} /> 
       <Route exact path="/" component={HomePage} />
       <Route component={NoPage}/>
     </Switch>
