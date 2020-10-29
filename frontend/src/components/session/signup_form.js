@@ -41,7 +41,10 @@ class SignupForm extends React.Component {
     };
 
     this.props.signup(user)
-    .then(() => this.props.login({email: user.email, password: user.password}))
+    .catch((err) => {debugger})
+    .then(() => {
+      debugger
+      this.props.login({email: user.email, password: user.password})})
 
     
   }

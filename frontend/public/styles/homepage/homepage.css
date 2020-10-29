@@ -1,0 +1,87 @@
+.home-page-outer-container {
+    display:flex;
+    flex-direction:column;
+}
+
+
+/* Front Page Header/Top Container  */
+.front-page-top-container {
+    display:flex;
+    width:100%;
+    align-items:center;
+    justify-content:space-between;
+    background-color: #8cc85b;
+}
+
+.front-page-top-container > img {
+    width: 900px;
+    background-color: #8cc85b;
+    border-radius: 5px;
+}
+
+.front-page-top-text-container{
+    background-color: #8cc85b;
+    display:flex;
+    flex-direction: column;
+    align-items:center;
+    width:100%;
+}
+
+.front-page-top-text-container > h1 {
+    background-color: #8cc85b;
+    font-size: 60px;
+    font-weight: 600;
+    color: #559623;
+    margin: 10px;
+}
+.front-page-top-text-container > p {
+    background-color: #8cc85b;
+    width: 70%;
+    font-size: 30px;
+    font-weight: 500;
+    color: #2a8793;
+    margin: 10px;
+}
+/* Right Image CSS */
+
+.front-page-right-container,
+.front-page-left-container {
+    display:flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    margin-top: 20px;
+}
+
+.front-page-right-container > img,
+.front-page-left-container > img {
+    width: 2500px;
+}
+
+.front-page-right-text-container,
+.front-page-left-text-container {
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    width:100%;
+    margin:10px;
+}
+
+.front-page-right-text-container > h1,
+.front-page-left-text-container > h1{
+    font-size: 60px;
+    font-weight: 600;
+    width: 100%;
+    margin-left: 30px;
+    margin-right: 20px;
+    margin-bottom: 20px;
+    color: #559623;
+}
+.front-page-right-text-container > p,
+.front-page-left-text-container > p {
+    font-size: 40px;
+    font-weight: 500;
+    width: 90%;
+    color:#2a8793;
+}
+
+/* Left Image CSS */
