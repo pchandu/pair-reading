@@ -7,8 +7,10 @@ const Forum = require('../../models/Forum');
 const Post = require('../../models/Post');
 // const validateTweetInput = require('../../validation/forums');
 
+const filterForums = require('../../filters/forums_filter')
+
 router.get('/', (req, res) => {
-    Forum.find()
+    Forum.find(filterForums(req.query))
         .then(forums => res.json(forums))
         .catch(err => res.status(404).json({ noforumsfound: 'No forums found' }));
 });

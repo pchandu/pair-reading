@@ -4,6 +4,12 @@ import Axios from "axios";
 //     return Axios.get(`/api/books/${bookId}`)
 // };
 
-export const fetchBooks = () => {
-    return Axios.get("/api/books/")
+export const fetchBooks = (filters) => {
+    // debugger
+    return Axios.get("/api/books",{params: filters})
 };
+export const fetchBook = (id) => {
+    // debugger
+    return Axios.get(`/api/books/${id}`)
+};
+

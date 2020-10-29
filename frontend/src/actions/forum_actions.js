@@ -10,7 +10,8 @@ export const receiveAllForumPosts = payload => ({
     payload
 });
 
-export const fetchAllForums = () => dispatch => forumUtil.fetchAllForums()
+export const fetchAllForums = (filters) => dispatch =>
+    forumUtil.fetchAllForums(filters)
     .then((forums) => {
         dispatch(receiveAllForums(forums))
     });
