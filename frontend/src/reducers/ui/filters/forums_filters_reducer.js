@@ -1,4 +1,4 @@
-import { UPDATE_FORUMS_FILTER, CLEAR_FORUMS_FILTER } from '../actions/filter_actions';
+import { UPDATE_FORUMS_FILTER, CLEAR_FORUMS_FILTER } from '../../../actions/filters/forum_filter_actions';
 
 const defaultFilters = Object.freeze({
     keywords: null,

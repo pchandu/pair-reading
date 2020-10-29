@@ -9,8 +9,13 @@ const Forum = require('../../models/Forum');
 const Post = require('../../models/Post');
 // const validateTweetInput = require('../../validation/bookclubs');
 
+const filterBookclubs = require('../../filters/bookclubs_filter')
+
 router.get('/', (req, res) => {
-    BookClub.find()
+    // console.log(Object.keys(req))
+    console.log(req.query)
+    console.log(req.params)
+    BookClub.find(filterBookclubs(req.query))
         .then(bookclubs => res.json(bookclubs))
         .catch(err => res.status(404).json({ nobookclubsfound: 'No bookclubs found' }));
 });

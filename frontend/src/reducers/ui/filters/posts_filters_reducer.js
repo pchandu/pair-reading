@@ -1,4 +1,4 @@
-import { UPDATE_POSTS_FILTER, CLEAR_POSTS_FILTER } from '../../../actions/filters/filter_actions';
+import { UPDATE_POSTS_FILTER, CLEAR_POSTS_FILTER } from '../../../actions/filters/post_filter_actions';
 
 const defaultFilters = Object.freeze({
     keywords: null

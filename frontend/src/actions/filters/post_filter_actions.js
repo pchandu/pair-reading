@@ -1,16 +1,16 @@
-import { fetchUserActivities } from './activity_actions'
+import { fetchAllPosts } from '../post_actions'
 
-export const UPDATE_ROUTES_FILTER = 'UPDATE_ROUTES_FILTER';
-export const UPDATE_ACTIVITIES_FILTER = 'UPDATE_ACTIVITIES_FILTER';
+export const UPDATE_POSTS_FILTER = 'UPDATE_POSTS_FILTER';
+export const CLEAR_POSTS_FILTER = 'CLEAR_POSTS_FILTER';
 
-export const changeRoutesFilter = (filter, value) => ({
-    type: UPDATE_ROUTES_FILTER,
+export const changePostsFilter = (filter, value) => ({
+    type: UPDATE_POSTS_FILTER,
     filter,
     value
 });
-export const clearRoutesFilter = () => ({
-    type: CLEAR_ACTIVITIES_FILTER
+export const clearPostsFilter = () => ({
+    type: CLEAR_POSTS_FILTER
 })
-export const fetchFilteredUserActivities = userId => (dispatch, getState) => {
-    return fetchUserActivities(getState().ui.filters.activity)(userId)(dispatch);
+export const fetchFilteredPosts = () => (dispatch, getState) => {
+    return fetchAllPosts(getState().ui.filters.posts)(dispatch);
 };

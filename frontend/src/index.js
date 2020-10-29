@@ -9,7 +9,11 @@ import jwt_decode from "jwt-decode";
 import { setAuthToken,updateUser } from "./util/session_api_util";
 
 
-// 
+//! debug
+import {fetchFilteredBooks, changeBooksFilter, clearBooksFilter}              from "./actions/filters/book_filter_actions"
+import {fetchFilteredBookclubs, changeBookclubsFilter, clearBookclubsFilter}  from "./actions/filters/bookclub_filter_actions"
+import {fetchFilteredPosts, changePostsFilter, clearPostsFilter}              from "./actions/filters/post_filter_actions"
+import {fetchFilteredForums, changeForumsFilter, clearForumsFilter}           from "./actions/filters/forum_filter_actions"
 
 document.addEventListener('DOMContentLoaded', () => {
   const root = document.getElementById('root')
@@ -25,12 +29,17 @@ document.addEventListener('DOMContentLoaded', () => {
   } else {
     store = configureStore({});
   };
-  
+  ReactDOM.render(<Root store={store}/>, root);
+  //! DEBUG
   window.store = store;
   window.getState = store.getState;
   window.BookActions = BookActions;
   window.axios = Axios;
 
   window.updateUser = updateUser;
-  ReactDOM.render(<Root store={store}/>, root);
+  //! filter actions
+  window.fetchFilteredBooks = fetchFilteredBooks; window.changeBooksFilter = changeBooksFilter; window.clearBooksFilter = clearBooksFilter
+  window.fetchFilteredBookclubs = fetchFilteredBookclubs; window.changeBookclubsFilter = changeBookclubsFilter; window.clearBookclubsFilter = clearBookclubsFilter
+  window.fetchFilteredPosts = fetchFilteredPosts; window.changePostsFilter = changePostsFilter; window.clearPostsFilter = clearPostsFilter
+  window.fetchFilteredForums = fetchFilteredForums; window.changeForumsFilter = changeForumsFilter; window.clearForumsFilter = clearForumsFilter
 })

@@ -1,4 +1,4 @@
-import { UPDATE_BOOKCLUBS_FILTER, CLEAR_BOOKCLUBS_FILTER } from '../actions/filter_actions';
+import { UPDATE_BOOKCLUBS_FILTER, CLEAR_BOOKCLUBS_FILTER } from '../../../actions/filters/bookclub_filter_actions';
 
 const defaultFilters = Object.freeze({
     keywords: null,

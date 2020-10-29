@@ -1,4 +1,4 @@
-import { UPDATE_BOOKS_FILTER, CLEAR_BOOKS_FILTER } from '../actions/filter_actions';
+import { UPDATE_BOOKS_FILTER, CLEAR_BOOKS_FILTER } from '../../../actions/filters/book_filter_actions';
 
 const defaultFilters = Object.freeze({
     keywords: null,

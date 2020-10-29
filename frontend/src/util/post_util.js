@@ -4,6 +4,6 @@ import Axios from "axios";
 //     return Axios.get(`/api/books/${bookId}`)
 // };
 
-export const fetchAllPosts = () => {
-    return Axios.get("/api/posts/")
+export const fetchAllPosts = (filters) => {
+    return Axios.get("/api/posts/",{params:filters})
 };

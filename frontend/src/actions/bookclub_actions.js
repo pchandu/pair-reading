@@ -6,7 +6,8 @@ export const receiveAllBookClubs = payload => ({
     payload
 });
 
-export const fetchAllBookClubs = () => dispatch => bookclubUtil.fetchAllBookClubs()
+export const fetchAllBookClubs = (filters) => dispatch =>
+    bookclubUtil.fetchAllBookClubs(filters)
     .then((bookclubs) => {
         dispatch(receiveAllBookClubs(bookclubs))
     });
