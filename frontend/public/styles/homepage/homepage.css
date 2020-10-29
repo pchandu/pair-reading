@@ -42,7 +42,7 @@
     color: #2a8793;
     margin: 10px;
 }
-/* Right Image CSS */
+/* Left/Right Image CSS */
 
 .front-page-right-container,
 .front-page-left-container {
@@ -84,4 +84,36 @@
     color:#2a8793;
 }
 
-/* Left Image CSS */
+/* Signup Container CSS */
+
+.front-page-signup-container {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.front-page-signup-container > p{
+    font-size:60px;
+    font-weight: 500;
+    color: #2a8793;
+    margin-top: 20px;
+}
+
+.front-page-signup-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 400px;
+    height: 150px;
+    font-size: 60px;
+    font-weight: 600;
+    background-color: #559623;
+    text-decoration: none;
+    border-radius: 10px;
+    margin: 10px;
+}
+
+.front-page-signup-link:hover {
+    background-color: #8cc85b;
+    text-decoration: none;
+}
