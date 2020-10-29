@@ -31,8 +31,7 @@ const App = () => (
       <Route exact path="/posts" component ={PostIndexContainer}/>
 
       <AuthRoute path="/dashboard" component ={DashBoardContainer}/>
-
-      <AuthRoute exact path="/onboarding" component={OnboardingContainer} />
+      <AuthRoute exact path="/onboarding" component={OnboardingContainer} /> 
       <Route exact path="/" component={HomePage} />
       <Route component={NoPage}/>
     </Switch>
