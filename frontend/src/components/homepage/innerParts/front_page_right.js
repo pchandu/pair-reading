@@ -4,8 +4,8 @@ class FrontPageRight extends React.Component {
     render(){
         return(
             <div className="front-page-right-container">
-                <img src={WomanReading} alt="Woman reading in library"/>
                 <p>Placeholders for life</p>
+                <img src={WomanReading} alt="Woman reading in library"/>
             </div>
         )
     }

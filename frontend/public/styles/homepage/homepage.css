@@ -4,8 +4,53 @@
 }
 
 /* Front Page Header/Top Container  */
+.front-page-top-container {
+    display:flex;
+    width:100%;
+    align-items:center;
+    justify-content:space-between;
+    background-color: #8cc85b;
+}
+
+.front-page-top-container > img {
+    width: 900px;
+    background-color: #8cc85b;
+    border-radius: 5px;
+}
+
+.front-page-top-text-container{
+    background-color: #8cc85b;
+    display:flex;
+    flex-direction: column;
+    align-items:center;
+    width:100%;
+}
+
+.front-page-top-text-container > h1 {
+    background-color: #8cc85b;
+    font-size: 60px;
+    font-weight: 600;
+    color: #559623;
+    margin: 10px;
+}
+.front-page-top-text-container > p {
+    background-color: #8cc85b;
+    width: 70%;
+    font-size: 30px;
+    font-weight: 500;
+    color: #2a8793;
+    margin: 10px;
+}
+/* Right Image CSS */
+
+.front-page-right-container {
+    display:flex;
+    justify-content: space-between;
+}
 
 /* Left Image CSS */
 
-
-/* Right Image CSS */
+.front-page-left-container {
+    display:flex;
+    justify-content: space-between;
+}
