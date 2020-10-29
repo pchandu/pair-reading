@@ -1,11 +1,11 @@
 import React from 'react'
-
+import { Link } from 'react-router-dom';
 
 class ForumIndex extends React.Component {
 
     constructor(props) {
         super(props)
-        debugger
+        // debugger
     }
 
     componentDidMount() {
@@ -13,19 +13,17 @@ class ForumIndex extends React.Component {
     }
 
     render() {
-        // if (!this.props.forums) return null
-        if (!this.props.forums) return <div />
         const { forums } = this.props;
-
+        debugger
         return (
-            <div className="browse-container">
-                {Object.values(forums).map((forum, i) => {
-                    return (
-                        <div className="forum-index-container">
-                            <p>{forum.title}</p>
-                        </div>
-                    )
-                })}
+            <div className="forum-index-container">
+                <ul className="forum-index-forums">
+                    {Object.values(forums).map((forum, i) => (
+                        <Link to={`/forums/${forum._id}`}>
+                        <li key={i}>{forum.title}</li>
+                        </Link>
+                    ))}
+                </ul>
             </div>
         )
     }

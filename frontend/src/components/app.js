@@ -16,6 +16,7 @@ import NoPage from './homepage/no_page'
 // import MainPage from "./main/main_page";
 import LoginFormContainer from "./session/login_form_container";
 import SignupFormContainer from "./session/signup_form_container";
+import forum_show_container from "./forum/forum_show_container";
 // import ProfileContainer from "./profile/profile_container";
 
 const App = () => (
@@ -23,12 +24,14 @@ const App = () => (
     <NavBarContainer />
 
     <Switch>
+      //! testing
       <ProtectedRoute path="/login" component={LoginFormContainer} />
       <ProtectedRoute path="/signup" component={SignupFormContainer} />
 
       <Route exact path="/forums" component={ForumIndexContainer} />
       <Route exact path="/bookclubs" component={BookClubIndexContainer} />
       <Route exact path="/posts" component={PostIndexContainer} />
+      <Route exact path="/forums/:forumId" component={forum_show_container} />
 
       <AuthRoute path="/dashboard" component ={DashBoardContainer}/>
       <AuthRoute exact path="/onboarding" component={OnboardingContainer} /> 

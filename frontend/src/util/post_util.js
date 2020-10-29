@@ -7,9 +7,9 @@ export const fetchPost = (id) => {
     return Axios.get(`/api/posts/${id}`)
 };
 
-export const fetchAllForumPosts = (id) => {
-    return Axios.get(`/api/forums/${id}/posts`)
+export const fetchAllForumPosts = filters => (id) => {
+    return Axios.get(`/api/forums/${id}/posts`,{params: filters})
 };
-export const fetchAllUserPosts = (id) => {
-    return Axios.get(`/api/users/${id}/posts`)
+export const fetchAllUserPosts = filters => (id) => {
+    return Axios.get(`/api/users/${id}/posts`, { params: filters })
 };

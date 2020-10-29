@@ -22,13 +22,13 @@ export const fetchPost = (id) => dispatch =>
         .then((book) => (
             dispatch(receivePost(book))
         ));
-export const fetchAllForumPosts = (forumId) => dispatch =>
-postUtil.fetchAllForumPosts(forumId)
+export const fetchAllForumPosts = (filters) => (forumId) => dispatch =>
+postUtil.fetchAllForumPosts(filters)(forumId)
     .then((posts) => {
         dispatch(receiveAllPosts(posts))
     });
-export const fetchAllUserPosts = (userId) => dispatch =>
-postUtil.fetchAllUserPosts(userId)
+export const fetchAllUserPosts = filters => (userId) => dispatch =>
+postUtil.fetchAllUserPosts(filters)(userId)
     .then((posts) => {
         dispatch(receiveAllPosts(posts))
     });
