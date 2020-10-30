@@ -7,3 +7,13 @@
 .cal-form-label {
     font-family: 'Nunito', sans-serif;
 }
+
+.cal-form {
+    padding: 20px 150px;
+}
+
+.cal-title {
+    font-size: 30px;
+    color: #1d5e66;
+    text-align: center;
+}

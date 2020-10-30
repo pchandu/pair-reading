@@ -18,18 +18,54 @@
     width: 33%;
     align-items: center;
     margin: 10px;
+     border: cadetblue 3px solid;
+    border-radius: 5px;
 }
 
 .left-side-dashboard-container {
-
 }
 
 .middle-side-dashboard-container {
+  
 
 }
 
 .right-side-dashboard-container {
 
+}
+
+.cal-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 5px;
+    color: cadetblue;
+  
+}
+
+.cal-btn {
+    padding: 4px;
+    margin: 5px;
+    font-family: 'Nunito', sans-serif;
+}
+
+.dash-mid-text {
+
+    padding: 5px;
+    color:cadetblue;
+    overflow: hidden;
+    
+}
+
+.dash-mid-text > p {
+    margin: 2px;
+}
+
+.dash-mid-title {
+    font-size: 30px;
+    color: #1d5e66;
+    text-align: center;
+    font-family: 'Nunito', sans-serif;
 }
 
 
