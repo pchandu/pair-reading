@@ -7,10 +7,10 @@ export const fetchAllBookClubs = (filters) => {
 export const fetchBookClub = (id) => {
     return Axios.get(`/api/bookclubs/${id}`)
 };
-export const fetchUserBookClubs = (userId) => {
-    return Axios.get(`/api/users/${userId}/bookclubs`)
+export const fetchUserBookClubs = (filters) => (userId) => {
+    return Axios.get(`/api/users/${userId}/bookclubs`,{params:filters})
 };
-export const fetchBookBookClubs = (bookId) => {
-    return Axios.get(`/api/books/${bookId}/bookclubs`)
+export const fetchBookBookClubs = filters => (bookId) => {
+    return Axios.get(`/api/books/${bookId}/bookclubs`, { params: filters })
 };
 

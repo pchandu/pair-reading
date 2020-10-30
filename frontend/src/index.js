@@ -11,7 +11,7 @@ import { setAuthToken,updateUser } from "./util/session_api_util";
 
 //! debug
 import {fetchFilteredBooks, changeBooksFilter, clearBooksFilter}              from "./actions/filters/book_filter_actions"
-import {fetchFilteredBookclubs, changeBookclubsFilter, clearBookclubsFilter}  from "./actions/filters/bookclub_filter_actions"
+import {fetchFilteredBookClubs, changeBookClubsFilter, clearBookClubsFilter}  from "./actions/filters/bookclub_filter_actions"
 import {fetchFilteredPosts, changePostsFilter, clearPostsFilter}              from "./actions/filters/post_filter_actions"
 import {fetchFilteredForums, changeForumsFilter, clearForumsFilter}           from "./actions/filters/forum_filter_actions"
 
@@ -44,7 +44,7 @@ document.addEventListener('DOMContentLoaded', () => {
   window.updateUser = updateUser;
   //! filter actions
   window.fetchFilteredBooks = fetchFilteredBooks; window.changeBooksFilter = changeBooksFilter; window.clearBooksFilter = clearBooksFilter
-  window.fetchFilteredBookclubs = fetchFilteredBookclubs; window.changeBookclubsFilter = changeBookclubsFilter; window.clearBookclubsFilter = clearBookclubsFilter
+  window.fetchFilteredBookClubs = fetchFilteredBookClubs; window.changeBookClubsFilter = changeBookClubsFilter; window.clearBookClubsFilter = clearBookClubsFilter
   window.fetchFilteredPosts = fetchFilteredPosts; window.changePostsFilter = changePostsFilter; window.clearPostsFilter = clearPostsFilter
   window.fetchFilteredForums = fetchFilteredForums; window.changeForumsFilter = changeForumsFilter; window.clearForumsFilter = clearForumsFilter
 
