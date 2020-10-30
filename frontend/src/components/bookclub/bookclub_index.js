@@ -5,7 +5,7 @@ class BookClubIndex extends React.Component {
 
     constructor(props) {
         super(props)
-        debugger
+        // debugger
     }
 
     componentDidMount() {
@@ -15,7 +15,7 @@ class BookClubIndex extends React.Component {
 
     render() {
         const { bookclubs } = this.props;
-        debugger
+        // debugger
         return (
             <div className="bookclub-index-container">
                 <ul className="bookclub-index-bookclubs">

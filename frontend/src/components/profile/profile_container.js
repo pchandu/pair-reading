@@ -1,15 +1,14 @@
 import {connect} from 'react-redux';
 import Profile from './profile';
-import { fetchFilteredUserMatches, changeUserFilter, clearUserFilter } from '../../actions/filters/user_filter_actions';
+import { fetchFilteredUserMatches, changeUsersFilter, clearUsersFilter } from '../../actions/filters/user_filter_actions';
 
-const mSTP = ({entities:{users}, session: {user}}) => ({
-    users: Object.values(users).filter(el => el._id !== user.id),
+const mSTP = ({session: {user}}) => ({
     user
 })
 
 const mDTP = (dispatch) => ({
-    changeUserFilter: (filter,value) => dispatch(changeUserFilter(filter,value)),
-    clearUserFilter: () => dispatch(clearUserFilter()),
+    changeUsersFilter: (filter,value) => dispatch(changeUsersFilter(filter,value)),
+    clearUsersFilter: () => dispatch(clearUsersFilter()),
     fetchFilteredUserMatches: (id) => dispatch(fetchFilteredUserMatches(id))
 })
 
