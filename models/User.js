@@ -19,15 +19,15 @@ const UserSchema = new Schema({
   preferred_meeting_time: {
     M:{
       type: Boolean,
-      default: false
+      default: true
     },
     A:{
       type: Boolean,
-      default: false
+      default: true
     },
     E:{
       type: Boolean,
-      default: false
+      default: true
     },
   },
   books: [{

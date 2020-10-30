@@ -8,7 +8,7 @@ const validateRegisterInput = require('../../validation/register');
 const validateLoginInput = require('../../validation/login');
 const passport = require('passport')
 
-const _user = 'username email posts bookclubs books'
+const _user = 'username email posts bookclubs books preferred_meeting_time'
 
 router.get("/test", (req, res) => res.json({ msg: "This is the users route" }));
 
@@ -79,7 +79,14 @@ router.post('/login', (req, res) => {
       bcrypt.compare(password, user.password)
       .then(isMatch => {
         if (isMatch) {
-          const payload = {id: user.id, username: user.username, books: user.books, bookclubs: user.bookclubs, posts: user.posts};
+          const payload = {id: user.id,
+              username: user.username,
+              email: user.email,
+              books: user.books,
+              bookclubs: user.bookclubs,
+              posts: user.posts,
+              preferred_meeting_time: user.preferred_meeting_time
+          };
 
         jwt.sign(
             payload,
@@ -111,7 +118,7 @@ router.get('/current', passport.authenticate('jwt', {session: false}), (req, res
 const Post = require('../../models/Post');
 const BookClub = require('../../models/Bookclub');
 const Book = require('../../models/Book');
-const { convert2POJO, nestedIndex } = require('../api/routes_util')
+const { convert2POJO, nestedIndex, userTimesMatches, userBookMatches } = require('../api/routes_util')
 
 const filterPosts = require('../../filters/posts_filter');
 const filterBooks = require('../../filters/books_filter');
@@ -127,6 +134,20 @@ router.get('/:id/books', (req, res) => {
   User.findById(req.params.id)
     .then(user =>
       nestedIndex(Book, user.books, filterBooks(req.query), res)
+    )
+    .catch(err => res.status(404).json({ nobooksfound: 'No books found' }));
+});
+router.get('/:id/timematches', (req, res) => {
+  User.findById(req.params.id)
+    .then(user =>
+      userTimesMatches(User, user, res)
+    )
+    .catch(err => res.status(404).json({ nobooksfound: 'No books found' }));
+});
+router.get('/:id/bookmatches', (req, res) => {
+  User.findById(req.params.id)
+    .then(user =>
+      userBookMatches(User, user, res)
     )
     .catch(err => res.status(404).json({ nobooksfound: 'No books found' }));
 });

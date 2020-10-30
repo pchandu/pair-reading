@@ -25,6 +25,9 @@ for (let i = 0; i < users.length; i++) {
         users[i].books.push(books[idx]);
         books[idx].users.push(users[i]);
     }
+    users[i].preferred_meeting_time.M = getRandomInt(2) === 1;
+    users[i].preferred_meeting_time.A = getRandomInt(2) === 1;
+    users[i].preferred_meeting_time.E = getRandomInt(2) === 1;
     //! Bookclubs ( handled below)
     //! Posts ( handled below)
 }
