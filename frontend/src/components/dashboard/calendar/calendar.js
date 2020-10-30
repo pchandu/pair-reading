@@ -28,16 +28,20 @@ class Calendar extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className="cal-container">
+        <p className="cal-title">Calendar and Meeting Options</p>
         <a
           href="https://accounts.google.com/signin/v2/identifier?service=cl&passive=1209600&osid=1&continue=https%3A%2F%2Fcalendar.google.com%2Fcalendar%2Frender&followup=https%3A%2F%2Fcalendar.google.com%2Fcalendar%2Frender&scc=1&flowName=GlifWebSignIn&flowEntry=ServiceLogin"
           target="_blank"
           rel="noopener noreferrer"
         >
-          <button className="btn btn-info"> Go to Google Calendar</button>
+          <button className="btn btn-info cal-btn"> Go to Google Calendar</button>
         </a>
         <Link to="/calendar-form">
-             <button className="btn btn-info"> Fill out form for next meeting! </button>
+          <button className="btn btn-info cal-btn">
+            {" "}
+            Fill out form for next meeting!{" "}
+          </button>
         </Link>
       </div>
     );
