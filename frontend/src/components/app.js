@@ -16,8 +16,14 @@ import NoPage from './homepage/no_page'
 import LoginFormContainer from "./session/login_form_container";
 import SignupFormContainer from "./session/signup_form_container";
 
+import forum_show_container from "./forum/forum_show_container";
+import bookclub_show_container from "./bookclub/bookclub_show_container";
+// import ProfileContainer from "./profile/profile_container";
+
+
 import Footer from './footer/footer';
 import AboutPage from './footer/about';
+
 
 const App = () => (
   <>
@@ -29,10 +35,18 @@ const App = () => (
       <ProtectedRoute path="/login" component={LoginFormContainer} />
       <ProtectedRoute path="/signup" component={SignupFormContainer} />
 
-      <Route exact path="/forums" component={ForumIndexContainer} />
-      <Route exact path="/bookclubs" component={BookClubIndexContainer} />
-      <Route exact path="/posts" component={PostIndexContainer} />
+
+      //! testing
+      <AuthRoute exact path="/forums" component={ForumIndexContainer} />
+      <AuthRoute exact path="/bookclubs" component={BookClubIndexContainer} />
+      <AuthRoute exact path="/posts" component={PostIndexContainer} />
+
+      <AuthRoute exact path="/forums/:forumId" component={forum_show_container} />
+      <AuthRoute exact path="/bookclubs/:bookclubId" component={bookclub_show_container} />
+
+    
       <Route exact path="/about" component={AboutPage} />
+
 
       <AuthRoute path="/dashboard" component ={DashBoardContainer}/>
       <AuthRoute exact path="/onboarding" component={OnboardingContainer} /> 

@@ -1,5 +1,5 @@
 import React from 'react'
-
+import { Link } from 'react-router-dom';
 
 class BookClubIndex extends React.Component {
 
@@ -9,22 +9,22 @@ class BookClubIndex extends React.Component {
     }
 
     componentDidMount() {
-        this.props.fetchAllBookClubs();
+        this.props.clearBookclubsFilter();
+        this.props.fetchFilteredBookclubs();
     }
 
     render() {
-        if (!this.props.bookclubs) return <div />
         const { bookclubs } = this.props;
-
+        debugger
         return (
-            <div className="browse-container">
-                {Object.values(bookclubs).map((forum, i) => {
-                    return (
-                        <div className="bookclub-index-container">
-                            <p>{forum.title}</p>
-                        </div>
-                    )
-                })}
+            <div className="bookclub-index-container">
+                <ul className="bookclub-index-bookclubs">
+                    {Object.values(bookclubs).map((bookclub, i) => (
+                        <Link to={`/bookclubs/${bookclub._id}`}>
+                            <li key={i}>{bookclub.title}</li>
+                        </Link>
+                    ))}
+                </ul>
             </div>
         )
     }

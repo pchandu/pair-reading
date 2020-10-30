@@ -14,10 +14,12 @@ const filterBooks = require('../../filters/books_filter')
 const filterForums = require('../../filters/forums_filter')
 const filterBookclubs = require('../../filters/bookclubs_filter')
 
+const {convert2POJO, nestedIndex} = require('../api/routes_util')
+
 router.get('/', (req, res) => {
-    // console.log(req.query)
+    // console.log(convert2POJO)
     Book.find(filterBooks(req.query))
-    .then(books => res.json(books))
+    .then(books => convert2POJO(res,books))
     .catch(err => res.status(404).json({ nobooksfound: 'No books found' }));
 });
 
@@ -31,8 +33,9 @@ router.get('/:id', (req, res) => {
 router.get('/:id/readers', (req,res) => {
     Book.findById(req.params.id)
         .then(book =>
-            User.find({ '_id': { $in: book.users } })
-                .then(user => res.json(user))
+            // User.find({ '_id': { $in: book.users } })
+            //     .then(users => convert2POJO(res,users))
+            nestedIndex(User, book.users,{}, res)
         )
         .catch(err =>
             res.status(404).json({ nobookfound: 'No book found with that ID' })
@@ -41,10 +44,7 @@ router.get('/:id/readers', (req,res) => {
 router.get('/:id/forums', (req,res) => {
     Book.findById(req.params.id)
         .then(book => 
-            Forum.find(Object.assign({},
-                { '_id': { $in: book.forums } }, filterForums(req.query)
-            ))
-                .then(forum => res.json(forum))
+            nestedIndex(Forum, book.forums, filterForums(req.query), res)
         )
         .catch(err =>
             res.status(404).json({ nobookfound: 'No book found with that ID' })
@@ -54,10 +54,7 @@ router.get('/:id/bookclubs', (req,res) => {
     // console.log(req.query)
     Book.findById(req.params.id)
         .then(book => 
-            BookClub.find(Object.assign({},
-                { '_id': { $in: book.bookclubs } }, filterBookclubs(req.query)
-            ))
-                .then(bookclub => res.json(bookclub))
+            nestedIndex(BookClub, book.bookclubs, filterBookclubs(req.query),res)
         )
         .catch(err =>
             res.status(404).json({ nobookfound: 'No book found with that ID' })

@@ -24,7 +24,7 @@ const posts = [
         body: "They totally butchered the last season of GoT",
     }),
 ];
-for(let i=0;i<100;i++){
+for(let i=0;i<500;i++){
     posts.push(new Post({
         body: faker.commerce.productDescription()
     }))

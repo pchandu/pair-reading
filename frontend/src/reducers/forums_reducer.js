@@ -7,8 +7,8 @@ export default (state = {}, action) => {
     Object.freeze(state);
 
     switch (action.type) {
-        // case RECEIVE_FORUM:
-        //     return action.payload.books;
+        case RECEIVE_FORUM:
+            return Object.assign({}, state, { [action.payload.data._id]: action.payload.data });
         case RECEIVE_ALL_FORUMS:
             return action.payload.data;
         default:

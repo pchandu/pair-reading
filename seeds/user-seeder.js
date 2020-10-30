@@ -1,5 +1,6 @@
 // const exit = require('./entry')
 
+const faker = require('faker')
 const User = require('../models/User');
 const bcrypt = require('bcryptjs');
 
@@ -25,7 +26,13 @@ const users = [
         password: "ilovereading",
     }),
 ];
-
+for (let i = 0; i < 20; i++) {
+    users.push(new User({
+        username: faker.name.firstName(),
+        email: faker.internet.email(),
+        password: "ilovereading",
+    }))
+}
 module.exports = {
     users
 }

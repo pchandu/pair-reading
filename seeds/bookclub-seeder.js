@@ -10,10 +10,10 @@ const bookclubs = [
         title: "Kevin and Praneeth Club",
     }),
     new BookClub({
-        title: "Kat Club",
+        title: "Kat and Doge Club",
     }),
 ];
-for (let i = 0; i < 10; i++) {
+for (let i = 0; i < 20; i++) {
     bookclubs.push(new BookClub({
         title: faker.company.companyName()
     }))
