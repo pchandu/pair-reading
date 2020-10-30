@@ -11,6 +11,13 @@ class BookFeed extends React.Component {
         this.props.clearBooksFilter();
         this.props.fetchFilteredUserBooks(this.props.userId);
     }
+    componentDidUpdate(ownProps) {
+        debugger
+        if (ownProps.match && this.props.userId !== ownProps.match.params.userId) {
+            this.props.fetchFilteredUserBooks(this.props.userId);
+        }
+
+    }
 
     render() {
         const books = this.props.books.map((el,i) =>
