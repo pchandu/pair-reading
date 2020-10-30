@@ -12,7 +12,7 @@ const User = require('../../models/User');
 const filterBookclubs = require('../../filters/bookclubs_filter');
 const filterForums = require('../../filters/forums_filter');
 const filterBooks = require('../../filters/books_filter');
-const { convert2POJO } = require('./routes_util');
+const { convert2POJO, nestedIndex } = require('./routes_util');
 
 router.get('/', (req, res) => {
     BookClub.find(filterBookclubs(req.query))
@@ -32,6 +32,7 @@ router.get('/:id/books', (req, res) => {
         .catch(err => res.status(404).json({ nobooksfound: 'No books found' }));
 });
 router.get('/:id/forums', (req, res) => {
+    console.log(req.params.id)
     BookClub.findById(req.params.id)
         .then(bookclub =>
             nestedIndex(Forum, bookclub.forums, filterForums(req.query), res)

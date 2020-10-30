@@ -5,7 +5,7 @@ class ForumShow extends React.Component {
 
     constructor(props) {
         super(props)
-        debugger
+        // debugger
     }
     
     componentDidMount() {
