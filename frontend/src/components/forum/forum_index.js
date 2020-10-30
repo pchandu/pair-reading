@@ -15,7 +15,7 @@ class ForumIndex extends React.Component {
 
     render() {
         const { forums } = this.props;
-        debugger
+        // debugger
         return (
             <div className="forum-index-container">
                 <ul className="forum-index-forums">
