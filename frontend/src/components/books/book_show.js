@@ -33,16 +33,19 @@ class BookShow extends React.Component {
                         <h1 className="book-show-title"> {this.props.books.title} </h1>
                         <h1 className="book-show-author"> by {this.props.books.author} </h1>
                         <p className="book-show-description"> {this.props.books.description} </p>
-                        <div>
-                            {Object.values(this.props.users).map((user) => {
-                                return (
-                                    <div className="user-match-container">
-                                        
-                                    </div>
-                                )
-                            })}
-                        </div>
                     </div>
+                    
+                </div>
+                
+                <div className="user-match-container">
+                    <h2 className="book-show-user-matches-text">Here are some other users that are looking for a partner! (these will be user show pages)</h2> 
+                    <ul className="user-matches">
+                        {Object.values(this.props.users).map((user) => {
+                            return (
+                                <li className="matched-user">{user.username}</li>
+                            )
+                        })}
+                    </ul>
                 </div>
             </div>
         )
