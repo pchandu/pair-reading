@@ -24,7 +24,6 @@ class DashBoard extends React.Component {
           
                 </div>
             </div>
-          </div>
         );
     }
 }
