@@ -1,0 +1,26 @@
+.profile-username, .profile-email, .profile-matches {
+    font-family: 'Nunito', sans-serif;
+}
+
+.profile-username{
+    color: #1d5e66;
+}
+
+.profile-username {
+    font-size: 30px;
+}
+
+.profile-email {
+    color: rgb(66, 169, 182);
+    font-size: 15px;
+}
+
+.profile-matches, .profile-label {
+    font-size: 20px;
+    color: rgb(42, 135, 147);
+}
+
+.profile-container {
+    padding: 5px;
+    color: cadetblue;
+}
