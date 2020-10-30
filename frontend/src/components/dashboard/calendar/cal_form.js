@@ -6,7 +6,7 @@ class CalendarForm extends React.Component {
     return (
         <div>
             <p className="cal-form-header">Feel free to fill out a form to remember your next meeting!</p>
-            <form >
+            <form className="">
 
                 <div className="form-group row">
                     <label for="example-text-input" className="col-2 col-form-label cal-form-label">Event Title</label>
@@ -34,6 +34,12 @@ class CalendarForm extends React.Component {
                     <div className="col-10">
                         <input className="form-control" type="time" />
                     </div>
+                </div>
+
+                <br />
+                <div className="text-center">
+                    <input type="submit" className="login-submit-btn  d-flex justify-content-center" value="Submit" />
+
                 </div>
              
             </form>
