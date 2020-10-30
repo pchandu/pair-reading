@@ -12,6 +12,8 @@
 @import url('styles/dashboard/dashboard-outer.css');
 @import url('styles/dashboard/calendar/calendar-form.css');
 
+/* Books */
+@import url('styles/book-show.css');
 /* Homepage */
 
 @import url('styles/homepage/carousel.css');

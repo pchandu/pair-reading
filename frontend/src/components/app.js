@@ -25,6 +25,7 @@ import bookclub_show_container from "./bookclub/bookclub_show_container";
 
 import Footer from './footer/footer';
 import AboutPage from './footer/about';
+import BookShow from "./books/book_show_container";
 
 
 const App = () => (
@@ -53,7 +54,7 @@ const App = () => (
       <AuthRoute path="/dashboard" component={DashBoardContainer} />
       <AuthRoute path="/calendar-form" component={DashBoardCalFormContainer} />
       <AuthRoute exact path="/onboarding" component={OnboardingContainer} />
-
+      <AuthRoute path="/books/:bookId" component={BookShow} />
       <Route exact path="/" component={HomePage} />
       <Route component={NoPage} />
     </Switch>
