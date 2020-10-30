@@ -13,15 +13,18 @@ import OnboardingContainer from "./onboarding/onboarding_container"
 import HomePage from './homepage/home'
 import NoPage from './homepage/no_page'
 
-// import MainPage from "./main/main_page";
 import LoginFormContainer from "./session/login_form_container";
 import SignupFormContainer from "./session/signup_form_container";
-// import ProfileContainer from "./profile/profile_container";
+
+import Footer from './footer/footer';
+import AboutPage from './footer/about';
 
 const App = () => (
-  <div>
+  <>
+  <div className="app-outside-container">
     <NavBarContainer />
-
+    
+    <div className="app-middle-container">
     <Switch>
       <ProtectedRoute path="/login" component={LoginFormContainer} />
       <ProtectedRoute path="/signup" component={SignupFormContainer} />
@@ -29,6 +32,7 @@ const App = () => (
       <Route exact path="/forums" component={ForumIndexContainer} />
       <Route exact path="/bookclubs" component={BookClubIndexContainer} />
       <Route exact path="/posts" component={PostIndexContainer} />
+      <Route exact path="/about" component={AboutPage} />
 
       <AuthRoute path="/dashboard" component ={DashBoardContainer}/>
       <AuthRoute exact path="/onboarding" component={OnboardingContainer} /> 
@@ -36,7 +40,11 @@ const App = () => (
       <Route exact path="/" component={HomePage} />
       <Route component={NoPage} />
     </Switch>
+    </div>
+
+    <Footer />
   </div>
+  </>
 );
 
 export default App;
