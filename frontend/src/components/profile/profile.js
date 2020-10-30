@@ -10,10 +10,18 @@ class Profile extends React.Component {
     }
 
     componentDidMount(){
-
+        this.props.clearUserFilter();
+        this.props.fetchFilteredUserMatches(this.props.user.id)
     }
 
     render(){
+        const matches = this.props.users.map((el,i) => 
+            <Link to={`/users/${el._id}`}>
+            <li key={i}>
+                {el.username}
+            </li>
+            </Link>
+        )
         const bookclubs = this.props.user.bookclubs.map(el => 
             <li>
                 {el}
@@ -33,6 +41,10 @@ class Profile extends React.Component {
                 <div className="profile-email">
                     {this.props.user.email}
                 </div>
+                <h1>Matches</h1>
+                <ul className="profile-matches">
+                    {matches}
+                </ul>
                 <h1>Books</h1>
                     <BooksFeedContainer />
                 <h1>Bookclubs</h1>

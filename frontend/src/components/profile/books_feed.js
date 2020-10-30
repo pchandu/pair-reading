@@ -8,6 +8,7 @@ class BookFeed extends React.Component {
     }
 
     componentDidMount() {
+        debugger
         this.props.clearBooksFilter();
         this.props.fetchFilteredUserBooks(this.props.userId);
     }
