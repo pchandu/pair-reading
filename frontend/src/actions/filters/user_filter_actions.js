@@ -2,12 +2,12 @@ import { fetchAllUsers, fetchBookClubUsers, fetchBookUsers, fetchUserMatches,fet
 export const UPDATE_USERS_FILTER = 'UPDATE_USERS_FILTER';
 export const CLEAR_USERS_FILTER = 'CLEAR_USERS_FILTER';
 
-export const changeUserFilter = (filter, value) => ({
+export const changeUsersFilter = (filter, value) => ({
     type: UPDATE_USERS_FILTER,
     filter,
     value
 });
-export const clearUserFilter = () => ({
+export const clearUsersFilter = () => ({
     type: CLEAR_USERS_FILTER
 })
 export const fetchFilteredUsers = () => (dispatch, getState) => {

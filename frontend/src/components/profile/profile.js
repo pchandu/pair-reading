@@ -2,6 +2,8 @@ import React from 'react';
 import {Link} from 'react-router-dom'
 import BooksFeedContainer from './books_feed_container';
 import BookClubFeedContainer from './bookclubs_feed_container';
+import MatchFeedContainer from './matches_feed_container';
+import PostFeedContainer from './posts_feed_container';
 
 class Profile extends React.Component {
     constructor(props){
@@ -11,23 +13,9 @@ class Profile extends React.Component {
     }
 
     componentDidMount(){
-        this.props.clearUserFilter();
-        this.props.fetchFilteredUserMatches(this.props.user.id)
     }
 
     render(){
-        const matches = this.props.users.map((el,i) => 
-            <Link to={`/users/${el._id}`}>
-            <li key={i}>
-                {el.username}
-            </li>
-            </Link>
-        )
-        const posts = this.props.user.posts.map(el => 
-            <li>
-                {el}
-            </li>    
-        )       
         return(
             <div className="profile-container">
                 <div className="profile-username">
@@ -39,7 +27,7 @@ class Profile extends React.Component {
                 </div>
                 <h1>Matches</h1>
                 <ul className="profile-matches">
-                    {matches}
+                    <MatchFeedContainer/>
                 </ul>
                 <h1>Books</h1>
                     <BooksFeedContainer />
@@ -47,9 +35,9 @@ class Profile extends React.Component {
                 <ul className = "profile-bookclubs">
                     <BookClubFeedContainer/>
                 </ul>
-                <h1>Posts</h1>
+                <h1>Recent Post Activity</h1>
                 <ul className = "profile-posts">
-                    {posts}
+                    <PostFeedContainer/>
                 </ul>
             </div>
         )  
