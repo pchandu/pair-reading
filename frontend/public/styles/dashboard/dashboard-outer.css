@@ -18,12 +18,15 @@
     width: 33%;
     align-items: center;
     margin: 10px;
+     border: cadetblue 3px solid;
+    border-radius: 5px;
 }
 
 .left-side-dashboard-container {
 }
 
 .middle-side-dashboard-container {
+  
 
 }
 
@@ -37,14 +40,25 @@
     align-items: center;
     padding: 5px;
     color: cadetblue;
-    border: cadetblue 2px solid;
-    border-radius: 5px;
+  
 }
 
 .cal-btn {
     padding: 4px;
     margin: 5px;
     font-family: 'Nunito', sans-serif;
+}
+
+.dash-mid-text {
+
+    padding: 5px;
+    color:cadetblue;
+    overflow: hidden;
+    
+}
+
+.dash-mid-text > p {
+    margin: 2px;
 }
 
 
