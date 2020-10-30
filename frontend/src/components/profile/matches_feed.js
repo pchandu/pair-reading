@@ -14,7 +14,7 @@ class MatchFeed extends React.Component {
 
     render() {
         const matches = this.props.matches.map((el, i) =>
-            <Link to={`/matches/${el._id}`}>
+            <Link to={`/users/${el._id}`}>
                 <li key={i} className="matches-feed-list-item">
                     <h2>{el.username}</h2>
                 </li>
