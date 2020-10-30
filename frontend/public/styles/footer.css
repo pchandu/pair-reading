@@ -1,7 +1,9 @@
 .footer-outside-container {
+    display: flex;
+    justify-content: space-between;
     background-color: #8cc85b;
     /* margin-top: -80px; */
-    height: 50px;
+    height: 30px;
     border-top-right-radius: 5px;
     border-top-left-radius: 5px;
     border-top: 1px solid #2a8793;
@@ -14,4 +16,14 @@
 .footer-outside-container > hr {
     width: 80%;
     background-color: #2a8793;
+}
+
+.footer-left-side-container,
+.footer-middle-container,
+.footer-right-side-container {
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 15px;
+    margin-right: 15px;
 }
