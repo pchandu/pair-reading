@@ -19,4 +19,8 @@
 
 /* Footer */
 
-@import url('style/footer.css');
+@import url('styles/footer.css');
+
+/* About Page */
+
+@import url('styles/about.css');

@@ -33,6 +33,7 @@
 .carousel-caption {
     background-color: #2a8793;
     border-radius:5px;
+    margin-bottom: 5px;
 }
 
 .carousel-caption > * {

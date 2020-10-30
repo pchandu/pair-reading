@@ -1,9 +1,9 @@
 import {connect} from 'react-redux';
 import Profile from './profile';
 
-const mSTP = (state) => {
-    return({})
-}
+const mSTP = ({session: {user}}) => ({
+    user
+})
 
 const mDTP = (dispatch) => {
     return({})

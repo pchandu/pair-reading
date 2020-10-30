@@ -13,19 +13,21 @@ const BookClub = require('../models/Bookclub');
 const Forum = require('../models/Forum');
 const Post = require('../models/Post');
 
-function getRandomInt(max) {
-    return Math.floor(Math.random() * Math.floor(max));
-}
+const {uniqueIdx, getRandomInt} = require('../routes/api/routes_util')
+
 let idx = 0;
 
 //------------- USER ASS -------------
 for (let i = 0; i < users.length; i++) {
     //! Preferred Books
     for (let j = 0; j < getRandomInt(books.length) + 1; j++) {
-        idx = getRandomInt(books.length);
+        idx = uniqueIdx(users[i].books, books)
         users[i].books.push(books[idx]);
         books[idx].users.push(users[i]);
     }
+    users[i].preferred_meeting_time.M = getRandomInt(2) === 1;
+    users[i].preferred_meeting_time.A = getRandomInt(2) === 1;
+    users[i].preferred_meeting_time.E = getRandomInt(2) === 1;
     //! Bookclubs ( handled below)
     //! Posts ( handled below)
 }
@@ -59,13 +61,13 @@ for(let i=0;i<posts.length;i++){
 for (let i = 0; i < bookclubs.length; i++) {
     //! User memembers
     for (let j = 0; j < getRandomInt(users.length/2)+1; j++ ){
-        idx = getRandomInt(users.length);
+        idx = uniqueIdx(bookclubs[i].users, users)
         bookclubs[i].users.push(users[idx]);
         users[idx].bookclubs.push(bookclubs[i]);
     }
     //! Books
     for (let j = 0; j < getRandomInt(books.length)+1; j++ ){
-        idx = getRandomInt(books.length);
+        idx = uniqueIdx(bookclubs[i].books, books)
         bookclubs[i].books.push(books[idx]);
         books[idx].bookclubs.push(bookclubs[i]);
     }
@@ -102,3 +104,4 @@ const saveAllData =
 () => saveData( Forum, forums,
 () => saveData( Post, posts, exit
 ))))
+// saveAllData();

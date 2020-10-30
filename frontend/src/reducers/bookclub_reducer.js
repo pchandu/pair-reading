@@ -7,8 +7,8 @@ export default (state = {}, action) => {
     Object.freeze(state);
 
     switch (action.type) {
-        // case RECEIVE_BOOKCLUB:
-        //     return action.payload.bookclub;
+        case RECEIVE_BOOKCLUB:
+            return Object.assign({}, state, { [action.payload.data._id]: action.payload.data });
         case RECEIVE_ALL_BOOKCLUBS:
             return action.payload.data;
         default:

@@ -8,6 +8,7 @@ const validateRegisterInput = require('../../validation/register');
 const validateLoginInput = require('../../validation/login');
 const passport = require('passport')
 
+const _user = 'username email posts bookclubs books preferred_meeting_time'
 
 router.get("/test", (req, res) => res.json({ msg: "This is the users route" }));
 
@@ -75,11 +76,17 @@ router.post('/login', (req, res) => {
       if (!user) {
         return res.status(404).json({email: 'This user does not exist'});
       }
-
-    bcrypt.compare(password, user.password)
-        .then(isMatch => {
+      bcrypt.compare(password, user.password)
+      .then(isMatch => {
         if (isMatch) {
-        const payload = {id: user.id, handle: user.handle};
+          const payload = {id: user.id,
+              username: user.username,
+              email: user.email,
+              books: user.books,
+              bookclubs: user.bookclubs,
+              posts: user.posts,
+              preferred_meeting_time: user.preferred_meeting_time
+          };
 
         jwt.sign(
             payload,
@@ -109,43 +116,52 @@ router.get('/current', passport.authenticate('jwt', {session: false}), (req, res
 
 //! -------------------- DATA --------------------
 const Post = require('../../models/Post');
-const Bookclub = require('../../models/Bookclub');
+const BookClub = require('../../models/Bookclub');
 const Book = require('../../models/Book');
+const { convert2POJO, nestedIndex, userTimesMatches, userBookMatches } = require('../api/routes_util')
 
-const _user = (user) => ({
-  username: user.username,
-  email: user.email,
-  posts: user.posts,
-  bookclubs: user.bookclubs,
-  books: user.books
-})
+const filterPosts = require('../../filters/posts_filter');
+const filterBooks = require('../../filters/books_filter');
+const filterBookclubs = require('../../filters/bookclubs_filter');
 
+
+router.get('/:id', (req, res) => {
+  User.findById(req.params.id, _user)
+    .then(user => res.json(user))
+    .catch(err => res.status(404).json({ nouserfound: 'No user found' }));
+});
 router.get('/:id/books', (req, res) => {
   User.findById(req.params.id)
     .then(user =>
-      Book.find({ '_id': { $in: user.books } })
-        .then(book => res.json(book))
+      nestedIndex(Book, user.books, filterBooks(req.query), res)
     )
     .catch(err => res.status(404).json({ nobooksfound: 'No books found' }));
 });
-router.get('/:id', (req, res) => {
+router.get('/:id/timematches', (req, res) => {
   User.findById(req.params.id)
-    .then(user => res.json(_user(user)))
-    .catch(err => res.status(404).json({ nouserfound: 'No user found' }));
+    .then(user =>
+      userTimesMatches(User, user, res)
+    )
+    .catch(err => res.status(404).json({ nobooksfound: 'No books found' }));
+});
+router.get('/:id/bookmatches', (req, res) => {
+  User.findById(req.params.id)
+    .then(user =>
+      userBookMatches(User, user, res)
+    )
+    .catch(err => res.status(404).json({ nobooksfound: 'No books found' }));
 });
 router.get('/:id/posts', (req, res) => {
   User.findById(req.params.id)
     .then(user =>
-      Post.find({ '_id': { $in: user.posts } })
-        .then(post => res.json(post))
+      nestedIndex(Post, user.posts, filterPosts(req.query), res)
     )
     .catch(err => res.status(404).json({ nopostsfound: 'No posts found' }));
 });
 router.get('/:id/bookclubs', (req, res) => {
   User.findById(req.params.id)
     .then(user =>
-      Bookclub.find({ '_id': { $in: user.bookclubs } })
-        .then(bookclub => res.json(bookclub))
+      nestedIndex(BookClub, user.bookclubs, filterBookclubs(req.query), res)
     )
     .catch(err => res.status(404).json({ nobookclubsfound: 'No bookclubs found' }));
 });
