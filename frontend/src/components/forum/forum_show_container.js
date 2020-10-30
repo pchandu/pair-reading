@@ -10,7 +10,6 @@ const mSTP = ({entities},{match}) => ({
 const mDTP = dispatch => ({
     clearPostsFilter: () => dispatch(clearPostsFilter()),
     changePostsFilter: (filter, value) => dispatch(changePostsFilter(filter, value)),
-    fetchFilteredUserPosts: (userId) => dispatch(fetchFilteredUserPosts(userId)),
     fetchFilteredForumPosts: (forumId) => dispatch(fetchFilteredForumPosts(forumId))
 });
 

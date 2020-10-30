@@ -6,10 +6,10 @@ class ForumShow extends React.Component {
     constructor(props) {
         super(props)
         debugger
-        this.props.clearPostsFilter();
     }
-
+    
     componentDidMount() {
+        this.props.clearPostsFilter();
         this.props.fetchFilteredForumPosts(this.props.forumId);
     }
 

@@ -9,7 +9,8 @@ class ForumIndex extends React.Component {
     }
 
     componentDidMount() {
-        this.props.fetchAllForums();
+        this.props.clearForumsFilter();
+        this.props.fetchFilteredForums();
     }
 
     render() {
