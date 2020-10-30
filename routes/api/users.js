@@ -8,6 +8,7 @@ const validateRegisterInput = require('../../validation/register');
 const validateLoginInput = require('../../validation/login');
 const passport = require('passport')
 
+const _user = 'username email posts bookclubs books'
 
 router.get("/test", (req, res) => res.json({ msg: "This is the users route" }));
 
@@ -75,11 +76,10 @@ router.post('/login', (req, res) => {
       if (!user) {
         return res.status(404).json({email: 'This user does not exist'});
       }
-
-    bcrypt.compare(password, user.password)
-        .then(isMatch => {
+      bcrypt.compare(password, user.password)
+      .then(isMatch => {
         if (isMatch) {
-        const payload = {id: user.id, handle: user.handle};
+          const payload = {id: user.id, username: user.username, books: user.books, bookclubs: user.bookclubs, posts: user.posts};
 
         jwt.sign(
             payload,
@@ -117,19 +117,18 @@ const filterPosts = require('../../filters/posts_filter');
 const filterBooks = require('../../filters/books_filter');
 const filterBookclubs = require('../../filters/bookclubs_filter');
 
-const _user = 'username email posts bookclubs books'
 
+router.get('/:id', (req, res) => {
+  User.findById(req.params.id, _user)
+    .then(user => res.json(user))
+    .catch(err => res.status(404).json({ nouserfound: 'No user found' }));
+});
 router.get('/:id/books', (req, res) => {
   User.findById(req.params.id)
     .then(user =>
       nestedIndex(Book, user.books, filterBooks(req.query), res)
     )
     .catch(err => res.status(404).json({ nobooksfound: 'No books found' }));
-});
-router.get('/:id', (req, res) => {
-  User.findById(req.params.id, _user)
-    .then(user => res.json(user))
-    .catch(err => res.status(404).json({ nouserfound: 'No user found' }));
 });
 router.get('/:id/posts', (req, res) => {
   User.findById(req.params.id)
