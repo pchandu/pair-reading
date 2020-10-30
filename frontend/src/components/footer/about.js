@@ -41,13 +41,13 @@ class AboutPage extends React.Component {
                     <a href="https://github.com/pchandu/pair-reading">
                         <img src={GithubLogo} />
                     </a>
-                    
+
                 </div>
 
                 <div className="about-page-inner-container">
                     <h1>Kevin Su</h1>
                     <div className="about-page-links-container" >
-                        <a href="#">
+                        <a href="https://www.linkedin.com/in/kevin-su-2700a859/">
                         <img src={LinkedInLogo} />
                         </a>
                         <a href="https://github.com/kevinsuboy">
