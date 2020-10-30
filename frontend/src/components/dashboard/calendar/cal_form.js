@@ -36,8 +36,6 @@ class CalendarForm extends React.Component {
                     </div>
                 </div>
              
-
-                
             </form>
         </div>
     );
