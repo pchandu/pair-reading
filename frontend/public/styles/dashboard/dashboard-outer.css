@@ -3,10 +3,34 @@
     flex-direction: column;
 }
 
+.dashboard-content-container {
+    display: flex;
+    justify-content: space-between;
+
+}
+
+.left-side-dashboard-container, 
+.middle-side-dashboard-container,
+.right-side-dashboard-container
+{
+    display:flex;
+    flex-direction:column;
+    width: 33%;
+    align-items: center;
+    margin: 10px;
+}
+
+.left-side-dashboard-container {
+
+}
+
+.middle-side-dashboard-container {
+
+}
+
+.right-side-dashboard-container {
+
+}
+
 
 /* Styles each of the 3 columns within the dashboard */
-.dashboard-content-container > .col {
-    display: flex;
-    align-content: center;
-    justify-content: center;
-}
