@@ -8,6 +8,8 @@ import BookClubIndexContainer from "./bookclub/bookclub_index_container"
 import PostIndexContainer from "./post/post_index_container"
 
 import DashBoardContainer from './dashboard/dashboard_container';
+import DashBoardCalFormContainer from './dashboard/calendar/cal_form';
+
 import OnboardingContainer from "./onboarding/onboarding_container" 
 
 import HomePage from './homepage/home'
@@ -48,8 +50,9 @@ const App = () => (
       <Route exact path="/about" component={AboutPage} />
 
 
-      <AuthRoute path="/dashboard" component ={DashBoardContainer}/>
-      <AuthRoute exact path="/onboarding" component={OnboardingContainer} /> 
+      <AuthRoute path="/dashboard" component={DashBoardContainer} />
+      <AuthRoute path="/calendar-form" component={DashBoardCalFormContainer} />
+      <AuthRoute exact path="/onboarding" component={OnboardingContainer} />
 
       <Route exact path="/" component={HomePage} />
       <Route component={NoPage} />
