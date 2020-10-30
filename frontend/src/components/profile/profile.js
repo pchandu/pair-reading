@@ -1,6 +1,7 @@
 import React from 'react';
 import {Link} from 'react-router-dom'
 import BooksFeedContainer from './books_feed_container';
+import BookClubFeedContainer from './bookclubs_feed_container';
 
 class Profile extends React.Component {
     constructor(props){
@@ -22,11 +23,6 @@ class Profile extends React.Component {
             </li>
             </Link>
         )
-        const bookclubs = this.props.user.bookclubs.map(el => 
-            <li>
-                {el}
-            </li>    
-        )       
         const posts = this.props.user.posts.map(el => 
             <li>
                 {el}
@@ -49,7 +45,7 @@ class Profile extends React.Component {
                     <BooksFeedContainer />
                 <h1>Bookclubs</h1>
                 <ul className = "profile-bookclubs">
-                    {bookclubs}
+                    <BookClubFeedContainer/>
                 </ul>
                 <h1>Posts</h1>
                 <ul className = "profile-posts">
