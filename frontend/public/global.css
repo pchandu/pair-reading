@@ -15,3 +15,11 @@
 
 @import url('styles/homepage/carousel.css');
 @import url('styles/homepage/homepage.css');
+
+/* Footer */
+
+@import url('styles/footer.css');
+
+/* About Page */
+
+@import url('styles/about.css');

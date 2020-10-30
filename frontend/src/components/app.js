@@ -13,20 +13,28 @@ import OnboardingContainer from "./onboarding/onboarding_container"
 import HomePage from './homepage/home'
 import NoPage from './homepage/no_page'
 
-// import MainPage from "./main/main_page";
 import LoginFormContainer from "./session/login_form_container";
 import SignupFormContainer from "./session/signup_form_container";
+
 import forum_show_container from "./forum/forum_show_container";
 import bookclub_show_container from "./bookclub/bookclub_show_container";
 // import ProfileContainer from "./profile/profile_container";
 
-const App = () => (
-  <div>
-    <NavBarContainer />
 
+import Footer from './footer/footer';
+import AboutPage from './footer/about';
+
+
+const App = () => (
+  <>
+  <div className="app-outside-container">
+    <NavBarContainer />
+    
+    <div className="app-middle-container">
     <Switch>
       <ProtectedRoute path="/login" component={LoginFormContainer} />
       <ProtectedRoute path="/signup" component={SignupFormContainer} />
+
 
       //! testing
       <AuthRoute exact path="/forums" component={ForumIndexContainer} />
@@ -36,13 +44,21 @@ const App = () => (
       <AuthRoute exact path="/forums/:forumId" component={forum_show_container} />
       <AuthRoute exact path="/bookclubs/:bookclubId" component={bookclub_show_container} />
 
+    
+      <Route exact path="/about" component={AboutPage} />
+
+
       <AuthRoute path="/dashboard" component ={DashBoardContainer}/>
       <AuthRoute exact path="/onboarding" component={OnboardingContainer} /> 
 
       <Route exact path="/" component={HomePage} />
       <Route component={NoPage} />
     </Switch>
+    </div>
+
+    <Footer />
   </div>
+  </>
 );
 
 export default App;
