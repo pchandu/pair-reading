@@ -6,24 +6,24 @@ import Calendar from './calendar/calendar'
 class DashBoard extends React.Component {
 
     render(){
-        return (
-          <div className="container outer-dashboard-container">
-            Outer Top
-            <div className="row dashboard-content-container">
-              <div className="col left-side-dashboard-container">
-                <ProfileContainer />
-              </div>
+        return(
+            <div className="outer-dashboard-container">
+                <div className="dashboard-content-container">
+                    
+                    <div className="left-side-dashboard-container">
+                        <ProfileContainer />
+                    </div>
 
-              <div className="col middle-side-dashboard-container">
-                Middle Side
-              </div>
+                    <div className="middle-side-dashboard-container">
 
-              <div className="col right-side-dashboard-container">
-                Right Side
-                <Calendar />
-              </div>
+                    </div>
+
+                    <div className="right-side-dashboard-container">
+                        <Calendar />
+                    </div>
+          
+                </div>
             </div>
-            Outer Bottom
           </div>
         );
     }
