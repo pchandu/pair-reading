@@ -1,31 +1,41 @@
-import * as BookUtil from '../util/book_util'
-export const RECEIVE_ALL_BOOKS = 'RECEIVE_ALL_BOOKS'
-export const RECEIVE_BOOK = 'RECEIVE_BOOK'
+import * as UserUtil from '../util/user_util'
+export const RECEIVE_ALL_USERS = 'RECEIVE_ALL_USERS'
+export const RECEIVE_USER = 'RECEIVE_USER'
 
-export const receiveBook = payload => ({
-    type: RECEIVE_BOOK, 
+export const receiveUser = payload => ({
+    type: RECEIVE_USER, 
     payload
 });
-export const receiveAllBooks = payload => ({
-    type: RECEIVE_ALL_BOOKS, 
+export const receiveAllUsers = payload => ({
+    type: RECEIVE_ALL_USERS, 
     payload
 });
 
-export const fetchAllBooks = (filters) => dispatch =>
-    BookUtil.fetchBooks(filters)
-    .then((books) => (
-        dispatch(receiveAllBooks(books))
+export const fetchAllUsers = (filters) => dispatch =>
+    UserUtil.fetchAllUsers(filters)
+    .then((users) => (
+        dispatch(receiveAllUsers(users))
     ));
-export const fetchBook = (id) => dispatch =>
-    BookUtil.fetchBook(id)
-    .then((book) => (
-        dispatch(receiveBook(book))
+export const fetchUser = (id) => dispatch =>
+    UserUtil.fetchUser(id)
+    .then((user) => (
+        dispatch(receiveUser(user))
     ));
 
-export const fetchUserBooks = (filters) => (userId) => dispatch =>
-    BookUtil.fetchUserBooks(filters)(userId)
-    .then(books => dispatch(receiveAllBooks(books)))
+export const fetchBookClubUsers = (filters) => (id) => dispatch =>
+    UserUtil.fetchBookClubUsers(filters)(id)
+    .then(users => dispatch(receiveAllUsers(users)))
+export const fetchBookUsers = (filters) => (id) => dispatch =>
+    UserUtil.fetchBookUsers(filters)(id)
+    .then(users => dispatch(receiveAllUsers(users)))
 
-export const fetchBookClubBooks = (filters) => (bcId) => dispatch =>
-    BookUtil.fetchBookClubBooks(filters)(bcId)
-    .then(books => dispatch(receiveAllBooks(books)))
+export const fetchUserMatches = (filters) => (userId) => dispatch =>
+    UserUtil.fetchUserMatches(filters)(userId)
+    .then(users => dispatch(receiveAllUsers(users)))
+export const fetchUserTimeMatches = (filters) => (userId) => dispatch =>
+    UserUtil.fetchUserTimeMatches(filters)(userId)
+    .then(users => dispatch(receiveAllUsers(users)))
+export const fetchUserBookMatches = (filters) => (userId) => dispatch =>
+    UserUtil.fetchUserBookMatches(filters)(userId)
+    .then(users => dispatch(receiveAllUsers(users)))
+

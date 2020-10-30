@@ -118,13 +118,21 @@ router.get('/current', passport.authenticate('jwt', {session: false}), (req, res
 const Post = require('../../models/Post');
 const BookClub = require('../../models/Bookclub');
 const Book = require('../../models/Book');
-const { convert2POJO, nestedIndex, userTimesMatches, userBookMatches } = require('../api/routes_util')
+const { convert2POJO, nestedIndex, userMatches,userTimesMatches, userBookMatches } = require('../api/routes_util')
 
 const filterPosts = require('../../filters/posts_filter');
 const filterBooks = require('../../filters/books_filter');
 const filterBookclubs = require('../../filters/bookclubs_filter');
 
 
+router.get('/', (req, res) => {
+  User.find({},_user)
+    .then(users => {
+      // console.log(users)
+      return convert2POJO(res, users)
+    })
+    .catch(err => res.status(404).json({ nouserfound: 'No user found' }));
+});
 router.get('/:id', (req, res) => {
   User.findById(req.params.id, _user)
     .then(user => res.json(user))
@@ -134,6 +142,13 @@ router.get('/:id/books', (req, res) => {
   User.findById(req.params.id)
     .then(user =>
       nestedIndex(Book, user.books, filterBooks(req.query), res)
+    )
+    .catch(err => res.status(404).json({ nobooksfound: 'No books found' }));
+});
+router.get('/:id/matches', (req, res) => {
+  User.findById(req.params.id)
+    .then(user =>
+      userMatches(User, user, res)
     )
     .catch(err => res.status(404).json({ nobooksfound: 'No books found' }));
 });

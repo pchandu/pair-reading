@@ -20,14 +20,15 @@ let idx = 0;
 //------------- USER ASS -------------
 for (let i = 0; i < users.length; i++) {
     //! Preferred Books
-    for (let j = 0; j < getRandomInt(books.length) + 1; j++) {
+    // for (let j = 0; j < getRandomInt(books.length) + 1; j++) {
+    for (let j = 0; j < 1; j++) {
         idx = uniqueIdx(users[i].books, books)
         users[i].books.push(books[idx]);
         books[idx].users.push(users[i]);
     }
-    users[i].preferred_meeting_time.M = getRandomInt(2) === 1;
-    users[i].preferred_meeting_time.A = getRandomInt(2) === 1;
-    users[i].preferred_meeting_time.E = getRandomInt(2) === 1;
+    users[i].preferred_meeting_time.M = getRandomInt(4) === 1;
+    users[i].preferred_meeting_time.A = getRandomInt(4) === 1;
+    users[i].preferred_meeting_time.E = getRandomInt(4) === 1;
     //! Bookclubs ( handled below)
     //! Posts ( handled below)
 }

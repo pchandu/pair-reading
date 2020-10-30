@@ -8,6 +8,21 @@ const nestedIndex = (Model, nestedData, query, res) => (
         .then(el => convert2POJO(res, el))
 )
 
+const userMatches = (Model, data, res) => {
+    const params = [
+    ]
+    const { books: dataBooks } = data;
+    const {preferred_meeting_time:p} = data;
+    if (p.M) params.push({ 'preferred_meeting_time.M': p.M });
+    if (p.A) params.push({ 'preferred_meeting_time.A': p.A });
+    if (p.E) params.push({ 'preferred_meeting_time.E': p.E });
+    if(params.length === 0) return res.json({});
+    Model.find({$or: params})
+        .find({ books: { $in: dataBooks } })
+        .then(el => {
+            return convert2POJO(res, el)
+        })
+}
 const userTimesMatches = (Model, data, res) => {
     const params = [
     ]
@@ -23,7 +38,8 @@ const userTimesMatches = (Model, data, res) => {
 }
 const userBookMatches = (Model,data,res) => {
     const {books:dataBooks} = data;
-    Model.find({ 'books': {$in: dataBooks} })
+    // console.log(dataBooks)
+    Model.find({ books: {$in: dataBooks} })
         .then(el => {
             return convert2POJO(res, el)
         })
@@ -34,7 +50,7 @@ function getRandomInt(max) {
 }
 
 const uniqueIdx = (nestedModel, model2) => {
-    let idx = 0;
+    let idx = getRandomInt(model2.length);
     while (nestedModel.includes(model2[idx]._id)) {
         idx = getRandomInt(model2.length);
     }
@@ -47,5 +63,6 @@ module.exports = {
     uniqueIdx,
     getRandomInt,
     userTimesMatches,
-    userBookMatches
+    userBookMatches,
+    userMatches
 }
