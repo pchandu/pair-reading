@@ -1,5 +1,6 @@
 .book-show-container {
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
     padding: 10px;
@@ -38,7 +39,22 @@
 
 .book-show-info-container {
     display: flex;
+}
 
+.user-match-container {
+    display: flex;
+    flex-direction: column;
+    width: 98%;
+}
+
+.book-show-user-matches-text {
+    font-weight: bolder;
+
+}
+
+.user-matches > li {
+    line-height: 20px;
+    list-style-type: disc;
 }
 /* .book-show-isbn {
 

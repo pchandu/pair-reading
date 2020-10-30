@@ -25,6 +25,7 @@ export const fetchUser = (id) => dispatch =>
 export const fetchBookClubUsers = (filters) => (id) => dispatch =>
     UserUtil.fetchBookClubUsers(filters)(id)
     .then(users => dispatch(receiveAllUsers(users)))
+    
 export const fetchBookUsers = (filters) => (id) => dispatch =>
     UserUtil.fetchBookUsers(filters)(id)
     .then(users => dispatch(receiveAllUsers(users)))
