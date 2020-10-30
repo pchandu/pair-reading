@@ -13,13 +13,14 @@ class DashBoard extends React.Component {
 
           <div className="middle-side-dashboard-container"></div>
 
-          <div className="right-side-dashboard-container">
-            <Calendar />
-          </div>
-        </div>
-      </div>
-    );
-  }
+                    <div className="right-side-dashboard-container">
+                        <Calendar />
+                    </div>
+          
+                </div>
+            </div>
+        );
+    }
 }
 
 export default DashBoard;
