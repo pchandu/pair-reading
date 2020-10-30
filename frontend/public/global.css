@@ -10,6 +10,7 @@
 
 /* Dashboard */
 @import url('styles/dashboard/dashboard-outer.css');
+@import url('styles/dashboard/dashboard_profile.css');
 @import url('styles/dashboard/calendar/calendar-form.css');
 
 /* Homepage */
