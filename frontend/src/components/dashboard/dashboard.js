@@ -21,10 +21,11 @@ class DashBoard extends React.Component {
                     <div className="right-side-dashboard-container">
                         <Calendar />
                     </div>
-
+          
                 </div>
             </div>
-        )
+          </div>
+        );
     }
 }
 

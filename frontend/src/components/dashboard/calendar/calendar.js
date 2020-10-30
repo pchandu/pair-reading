@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 // import { gapi } from 'gapi-script'
 
 
@@ -28,10 +29,20 @@ class Calendar extends React.Component {
   render() {
     return (
       <div>
-        <button >Go to Google Calendar</button>
+        <a
+          href="https://accounts.google.com/signin/v2/identifier?service=cl&passive=1209600&osid=1&continue=https%3A%2F%2Fcalendar.google.com%2Fcalendar%2Frender&followup=https%3A%2F%2Fcalendar.google.com%2Fcalendar%2Frender&scc=1&flowName=GlifWebSignIn&flowEntry=ServiceLogin"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <button className="btn btn-info"> Go to Google Calendar</button>
+        </a>
+        <Link to="/calendar-form">
+             <button className="btn btn-info"> Fill out form for next meeting! </button>
+        </Link>
       </div>
     );
   }
 }
+//
 
 export default Calendar;
