@@ -8,8 +8,10 @@ class AboutPage extends React.Component {
     render(){
         return(
             <div className="about-page-outer-container">
+
                 <div className="about-page-inner-container">
                     <h1>Alexzander Archibeque</h1>
+
                     <div className="about-page-links-container" >
                         <a href="https://www.linkedin.com/in/alexzander-archibeque-129810189/">
                         <img src={LinkedInLogo} />
@@ -18,7 +20,9 @@ class AboutPage extends React.Component {
                         <img src={GithubLogo} />
                         </a>
                     </div>
+
                 </div>
+
                 <div className="about-page-inner-container">
                     <h1>Kathy Chan</h1>
                     <div className="about-page-links-container" >
@@ -32,10 +36,12 @@ class AboutPage extends React.Component {
                 </div>
 
                 <div className="about-page-inner-links-container">
+
                     <p>Pair Reading</p>
                     <a href="https://github.com/pchandu/pair-reading">
                         <img src={GithubLogo} />
                     </a>
+                    
                 </div>
 
                 <div className="about-page-inner-container">
