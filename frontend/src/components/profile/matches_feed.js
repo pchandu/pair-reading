@@ -11,6 +11,13 @@ class MatchFeed extends React.Component {
         this.props.clearUsersFilter();
         this.props.fetchFilteredUserMatches(this.props.userId);
     }
+    componentDidUpdate(ownProps) {
+        debugger
+        if (ownProps.match && this.props.userId !== ownProps.match.params.userId) {
+            this.props.fetchFilteredUserMatches(this.props.userId);
+        }
+
+    }
 
     render() {
         const matches = this.props.matches.map((el, i) =>

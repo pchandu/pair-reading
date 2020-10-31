@@ -25,6 +25,7 @@ import bookclub_show_container from "./bookclub/bookclub_show_container";
 
 import Footer from './footer/footer';
 import AboutPage from './footer/about';
+import user_show_container from "./user/user_show_container";
 import BookShow from "./books/book_show_container";
 
 
@@ -46,6 +47,7 @@ const App = () => (
 
       <AuthRoute exact path="/forums/:forumId" component={forum_show_container} />
       <AuthRoute exact path="/bookclubs/:bookclubId" component={bookclub_show_container} />
+      <AuthRoute exact path="/users/:userId" component={user_show_container} />
 
     
       <Route exact path="/about" component={AboutPage} />

@@ -7,9 +7,6 @@ const mSTP = ({session: {user}}) => ({
 })
 
 const mDTP = (dispatch) => ({
-    changeUsersFilter: (filter,value) => dispatch(changeUsersFilter(filter,value)),
-    clearUsersFilter: () => dispatch(clearUsersFilter()),
-    fetchFilteredUserMatches: (id) => dispatch(fetchFilteredUserMatches(id))
 })
 
 export default connect(mSTP,mDTP)(Profile);

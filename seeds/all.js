@@ -18,7 +18,12 @@ const {uniqueIdx, getRandomInt} = require('../routes/api/routes_util')
 let idx = 0;
 
 //------------- USER ASS -------------
-for (let i = 0; i < users.length; i++) {
+for (let j = 0; j < books.length; j++) {
+    users[0].books.push(books[j]);
+    books[j].users.push(users[0]);
+}
+
+for (let i = 1; i < users.length; i++) {
     //! Preferred Books
     // for (let j = 0; j < getRandomInt(books.length) + 1; j++) {
     for (let j = 0; j < 1; j++) {
