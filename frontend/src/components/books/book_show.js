@@ -1,4 +1,5 @@
-import React from 'react'
+import React from 'react';
+import { Link } from 'react-router-dom'
 
 
 class BookShow extends React.Component {
@@ -39,7 +40,11 @@ class BookShow extends React.Component {
                     <ul className="user-matches">
                         {Object.values(this.props.users).map((user) => {
                             return (
-                                <li className="matched-user">{user.username}</li>
+                                <Link to={`/users/${user._id}`} style={{ textDecoration: 'none' }} >
+                                    <li className="matched-user">
+                                        <button>{user.username}</button>      
+                                    </li>
+                                </Link>
                             )
                         })}
                     </ul>

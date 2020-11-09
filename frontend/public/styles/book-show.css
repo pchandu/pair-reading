@@ -60,6 +60,7 @@
 
 .user-matches {
     height: 650px;
+    justify-content: center;
 }
 
 .book-show-user-matches-text {
@@ -72,25 +73,30 @@
 
 }
 
-.user-matches > li {
-    /* line-height: 20px; */
-    /* list-style-type: disc; */
-    /* list-style-type: none; */
+.matched-user > button {
     margin: 10px;
     height: 35px;
+    width: 300px;
     padding: 5px;
     background-color: rgb(66, 169, 182);
     font-size: 25px;
     color: white;
     border-radius: 5px;
     text-align: center;
+    display: flex;
     justify-content: center;
+    border: none;
+    text-decoration: none;
+
 }
 
-.user-matches > li:hover {
+.matched-user > button:hover {
     background-color: cadetblue;
     cursor: pointer;
+    text-decoration: none;
+
 }
+
 /* .book-show-isbn {
 
 } */
