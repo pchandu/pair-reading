@@ -5,21 +5,17 @@ class BookShow extends React.Component {
 
     constructor(props) {
         super(props)
-
-        this.state = {
-            userIds: {},
-            users: {},
-            bookClubIds: {}, 
-            bookClubs: {},
-            forums: {}
-        }
-
     }
 
     componentDidMount(){
         this.props.clearFilters();
         this.props.fetchBook(this.props.bookId);
         this.props.fetchUsers(this.props.bookId);
+    }
+
+    componentWillUnmount(){
+        this.props.removeAllBooks();
+        this.props.removeAllUsers();
     }
 
     render() {
@@ -47,9 +43,7 @@ class BookShow extends React.Component {
                             )
                         })}
                     </ul>
-                </div>
-                
-                
+                </div>  
             </div>
         )
     }
