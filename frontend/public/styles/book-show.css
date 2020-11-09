@@ -64,6 +64,7 @@
 }
 
 .book-show-user-matches-text {
+    width: 300px;
     font-weight: bolder;
     font-size: 30px;
     text-align: center;
