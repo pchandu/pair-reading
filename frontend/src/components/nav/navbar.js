@@ -14,13 +14,25 @@ class NavBar extends React.Component {
     e.preventDefault();
     this.props.logout();
   }
-
+  // demo@pairreading.com
+  // ilovereading
+  demoUser(){
+    this.props.login({
+      email: "demo@pairreading.com",
+      password: "ilovereading"
+    })
+  }
   // btn btn-info cal-btn
    getLinks() {
     //    debugger
     if (this.props.loggedIn !== true) {
       return (
          <ul className="navbar-nav ml-auto">
+            <li className="nav-item">
+              <button type="button" className="navbar-btn btn btn-info"
+                onClick={() => this.demoUser()}
+              >Demo</button>
+            </li>
             <li className="nav-item">
               <Link to="/login">
                 <button type="button" className="navbar-btn btn btn-info">
@@ -72,6 +84,9 @@ class NavBar extends React.Component {
           </a>
 
           {this.getLinks()}
+          <Link to="/about">
+          <button className="navbar-btn btn btn-info">About Us</button>
+          </Link>
         </nav>
       </div>
     );
