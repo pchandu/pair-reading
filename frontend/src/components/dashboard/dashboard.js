@@ -1,5 +1,6 @@
 import React from "react";
 import ProfileContainer from "../profile/profile_container";
+import MatchFeedContainer from "../profile/matches_feed_container"
 import Calendar from "./calendar/calendar";
 
 class DashBoard extends React.Component {
@@ -14,6 +15,7 @@ class DashBoard extends React.Component {
         <div className="dashboard-content-container">
           <div className="left-side-dashboard-container">
             <ProfileContainer />
+            <MatchFeedContainer />
           </div>
 
           <div className="middle-side-dashboard-container">

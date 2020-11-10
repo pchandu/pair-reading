@@ -28,6 +28,7 @@ class MatchFeed extends React.Component {
         )
         return (
             <div className="matches-feed-container">
+                <h1 className="match-feed-label" >Matches</h1>
                 <ul className="matches-feed-list">
                     {matches}
                 </ul>
