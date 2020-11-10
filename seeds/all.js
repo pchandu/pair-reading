@@ -18,6 +18,9 @@ const {uniqueIdx, getRandomInt} = require('../routes/api/routes_util')
 let idx = 0;
 
 //------------- USER ASS -------------
+users[0].preferred_meeting_time.M = true;
+users[0].preferred_meeting_time.A = true;
+users[0].preferred_meeting_time.E = true;
 for (let j = 0; j < books.length; j++) {
     users[0].books.push(books[j]);
     books[j].users.push(users[0]);

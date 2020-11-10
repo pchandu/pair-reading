@@ -20,7 +20,7 @@ class BookClubFeed extends React.Component {
 
     render() {
         const bookclubs = this.props.bookclubs.map((el, i) =>
-            <Link to={`/bookclubs/${el._id}`}>
+            <Link key={i} to={`/bookclubs/${el._id}`}>
                 <li key={i} className="bookclubs-feed-list-item">
                     <h2>{el.title}</h2>
                 </li>

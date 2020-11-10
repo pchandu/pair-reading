@@ -3,9 +3,13 @@ const convert2POJO = (res,data) => {
     data.forEach(el => Object.assign(pojo, pojo, { [el._id]: el }))
     return res.json(pojo)
 }
-const nestedIndex = (Model, nestedData, query, res) => (
-    Model.find(Object.assign({},{ '_id': { $in: nestedData } },query))
-        .then(el => convert2POJO(res, el))
+const nestedIndex = (Model, nestedData, query, res, limit) => {
+    console.log(limit)
+    return nestedIndexBase(Model, nestedData, query, limit)
+        .then(el => convert2POJO(res, el));
+}
+const nestedIndexBase = (Model, nestedData, query, limit) => (
+    Model.find(Object.assign({}, { '_id': { $in: nestedData } }, query)).limit(limit)
 )
 
 const userMatches = (Model, data, res) => {

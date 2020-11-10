@@ -27,27 +27,31 @@ class UserShow extends React.Component {
         }
         return (
             <div className="user-show-container">
-                <div className="user-show-username">
-                    {/* {this.props.user.id} */}
-                    {username}
+                <div className="user-show-left user-show-column">
+                    <div className="user-show-details">
+                        <div className="user-show-username">
+                            {/* {this.props.user.id} */}
+                            {username}
+                        </div>
+                        <div className="user-show-email">
+                            {email}
+                        </div>
+                    <h1 className="user-show-label">Bookclubs</h1>
+                    <ul className="user-show-bookclubs">
+                        <BookClubContainer match={this.props.match} />
+                    </ul>
+                    </div>
                 </div>
-                <div className="user-show-email">
-                    {email}
+                <div className="user-show-middle user-show-column">
+                    <h1 className="user-show-label">Recent Post Activity</h1>
+                    <ul className="user-show-posts">
+                        <PostContainer match={this.props.match} />
+                    </ul>
                 </div>
-                <h1 className="user-show-label" >Matches</h1>
-                <ul className="user-show-matches">
-                    <MatchContainer match={this.props.match} />
-                </ul>
-                <h1 className="user-show-label" >Books</h1>
-                    <BooksContainer match={this.props.match} />
-                <h1 className="user-show-label">Bookclubs</h1>
-                <ul className="user-show-bookclubs">
-                    <BookClubContainer match={this.props.match} />
-                </ul>
-                <h1 className="user-show-label">Recent Post Activity</h1>
-                <ul className="user-show-posts">
-                    <PostContainer match={this.props.match} />
-                </ul>
+                <div className="user-show-right user-show-column">
+                    <h1 className="user-show-label" >Books</h1>
+                        <BooksContainer match={this.props.match} />
+                </div>
             </div>
         )
     }

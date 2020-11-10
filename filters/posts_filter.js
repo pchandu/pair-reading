@@ -7,4 +7,6 @@ const filterPosts = (query) => {
     return res;
 };
 
-module.exports = filterPosts;
+module.exports = {
+    filterPosts
+};
