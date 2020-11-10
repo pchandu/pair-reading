@@ -1,0 +1,10 @@
+.books-feed-list-item, .bookclubs-feed-list-item, .posts-feed-list-item {
+    color: #42a9b6;
+    text-decoration: none;
+    margin: 1px;
+    font-size: 20px;
+}
+
+.matches-feed-list-item > h2 {
+    text-decoration: none;
+}

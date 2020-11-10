@@ -1,25 +1,22 @@
-import React from 'react'
+import React from 'react';
+import { Link } from 'react-router-dom'
 
 
 class BookShow extends React.Component {
 
     constructor(props) {
         super(props)
-
-        this.state = {
-            userIds: {},
-            users: {},
-            bookClubIds: {}, 
-            bookClubs: {},
-            forums: {}
-        }
-
     }
 
     componentDidMount(){
         this.props.clearFilters();
         this.props.fetchBook(this.props.bookId);
         this.props.fetchUsers(this.props.bookId);
+    }
+
+    componentWillUnmount(){
+        this.props.removeAllBooks();
+        this.props.removeAllUsers();
     }
 
     render() {
@@ -34,19 +31,24 @@ class BookShow extends React.Component {
                         <h1 className="book-show-author"> by {this.props.books.author} </h1>
                         <p className="book-show-description"> {this.props.books.description} </p>
                     </div>
+                   
                     
                 </div>
-                
+
                 <div className="user-match-container">
-                    <h2 className="book-show-user-matches-text">Here are some other users that are looking for a partner! (these will be user show pages)</h2> 
+                    <h2 className="book-show-user-matches-text">Here are some other users that are looking for a partner! (these will be user show pages)</h2>
                     <ul className="user-matches">
                         {Object.values(this.props.users).map((user) => {
                             return (
-                                <li className="matched-user">{user.username}</li>
+                                <Link to={`/users/${user._id}`} style={{ textDecoration: 'none' }} >
+                                    <li className="matched-user">
+                                        <button>{user.username}</button>      
+                                    </li>
+                                </Link>
                             )
                         })}
                     </ul>
-                </div>
+                </div>  
             </div>
         )
     }
