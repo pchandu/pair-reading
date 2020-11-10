@@ -1,7 +1,7 @@
 import { connect } from 'react-redux'
 import BookShow from './book_show'
 import {fetchBook} from '../../actions/book_actions'
-import {clearUserFilter, fetchFilteredBookUsers} from '../../actions/filters/user_filter_actions'
+import {clearUsersFilter, fetchFilteredBookUsers} from '../../actions/filters/user_filter_actions'
 
 
 const mSTP = (state, ownProps) => {
@@ -18,7 +18,7 @@ const mSTP = (state, ownProps) => {
 const mDTP = dispatch => ({
     fetchBook: (bookId) => dispatch(fetchBook(bookId)), 
     fetchUsers: (bookId) => dispatch(fetchFilteredBookUsers(bookId)),
-    clearFilters: () => dispatch(clearUserFilter())
+    clearFilters: () => dispatch(clearUsersFilter())
 });
 
 export default connect(mSTP,mDTP)(BookShow)

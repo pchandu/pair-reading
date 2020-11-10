@@ -21,7 +21,7 @@ class BookFeed extends React.Component {
 
     render() {
         const books = this.props.books.map((el,i) =>
-            <Link to={`/books/${el._id}`}>
+            <Link key={i} to={`/books/${el._id}`}>
             <li key={i} className="books-feed-list-item">
                 <h2>{el.title}</h2>
             </li>
