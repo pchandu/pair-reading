@@ -1,0 +1,91 @@
+.signup-div,
+.login-div {
+    width: 100%;
+    height: 80vh;
+    font-family: 'Nunito', sans-serif;
+    display:flex;
+    align-items:center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.signup-div > h1,
+.login-div > h1 {
+    margin-bottom: 40px;
+    font-weight: 600;
+    font-size: 40px;
+    color: #8cc85b;
+    /* background-color: #8cc85b;
+    padding: 10px;
+    border-radius: 5px; */
+}
+
+
+.signup-submit-btn,
+.login-submit-btn {
+    background-color: rgb(66, 169, 182);
+    height: 40px;
+    border-radius: 5px;
+    width: 100%;
+    color: rgb(221, 243, 247);
+    border-style: none;
+    font-family: 'Nunito', sans-serif;
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.signup-input,
+.login-input {
+    width: 300px;
+    height: 45px;
+}
+
+.inner-login-container,
+.inner-signup-container {
+    display: flex;
+    flex-direction: column;
+
+} 
+
+.hidden-errors {
+    opacity: 0;
+    position: absolute;
+    margin-bottom: 5px;
+
+    border: 2px solid rgb(238, 67, 67);
+    cursor: default;
+    height: 45px;
+    width: 300px;
+
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.signup-login-form-errors {
+    position: absolute;
+    opacity: 1;
+    margin-left: 310px;
+    border: 2px solid rgb(238, 67, 67);
+    border-radius: 5px;
+    background-color: beige;
+    cursor: default;
+
+    padding: 4px;
+
+    font-size: 14;
+    font-weight: 700;
+    height: 45px;
+    width: 300px;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.errored-input{ 
+    border: 1px solid red;
+} 
+
+.signup-login-input-div {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}

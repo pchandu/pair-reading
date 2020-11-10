@@ -22,8 +22,6 @@ const mDTP = dispatch => ({
     clearFilters: () => dispatch(clearUsersFilter()),
     removeAllBooks: () => dispatch(removeAllBooks()),
     removeAllUsers: () => dispatch(removeAllUsers())
-
-
 });
 
 export default connect(mSTP,mDTP)(BookShow)
