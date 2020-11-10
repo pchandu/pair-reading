@@ -8,12 +8,10 @@ class BookClubFeed extends React.Component {
     }
 
     componentDidMount() {
-        // debugger
         this.props.clearBookClubsFilter();
         this.props.fetchFilteredUserBookClubs(this.props.userId);
     }
     componentDidUpdate(ownProps) {
-        debugger
         if (ownProps.match && this.props.userId !== ownProps.match.params.userId) {
             this.props.fetchFilteredUserBookClubs(this.props.userId);
         }
@@ -21,9 +19,8 @@ class BookClubFeed extends React.Component {
     }
 
     render() {
-        // debugger
         const bookclubs = this.props.bookclubs.map((el, i) =>
-            <Link to={`/bookclubs/${el._id}`}>
+            <Link key={i} to={`/bookclubs/${el._id}`}>
                 <li key={i} className="bookclubs-feed-list-item">
                     <h2>{el.title}</h2>
                 </li>

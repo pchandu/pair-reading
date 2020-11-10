@@ -12,7 +12,6 @@ class MatchFeed extends React.Component {
         this.props.fetchFilteredUserMatches(this.props.userId);
     }
     componentDidUpdate(ownProps) {
-        debugger
         if (ownProps.match && this.props.userId !== ownProps.match.params.userId) {
             this.props.fetchFilteredUserMatches(this.props.userId);
         }

@@ -5,13 +5,15 @@
 
 @import url('styles/nav-bar.css');
 @import url('styles/color-bg.css');
-@import url('styles/login-form.css');
-@import url('styles/sign-up-form.css');
+
+@import url('styles/signup-login-form.css');
 
 /* Dashboard */
 @import url('styles/dashboard/dashboard-outer.css');
 @import url('styles/dashboard/dashboard_profile.css');
 @import url('styles/dashboard/calendar/calendar-form.css');
+@import url('styles/dashboard/dashboard-match.css');
+
 
 /* Books */
 @import url('styles/book-show.css');
@@ -30,3 +32,6 @@
 
 /* Bookclub */
 @import url('styles/bookclub.css');
+
+/* Profile */
+@import url('styles/profile.css')

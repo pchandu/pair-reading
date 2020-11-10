@@ -4,6 +4,11 @@ import Calendar from "./calendar/calendar";
 import BookClubFeedContainer from '../profile/bookclubs_feed_container';
 
 class DashBoard extends React.Component {
+
+  componentWillUnmount() {
+    this.props.removeAllUsers();
+  }
+
   render() {
     return (
       <div className="outer-dashboard-container">

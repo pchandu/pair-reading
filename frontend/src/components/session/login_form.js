@@ -12,7 +12,6 @@ class LoginForm extends React.Component {
     };
 
     this.handleSubmit = this.handleSubmit.bind(this);
-    this.renderErrors = this.renderErrors.bind(this);
   }
 
   // Once the user has been authenticated, redirect to the dashboard
@@ -46,48 +45,48 @@ class LoginForm extends React.Component {
     
   }
 
-  // Render the session errors if there are any
-  renderErrors() {
-    return (
-      <ul className="login-errors">
-        {Object.keys(this.state.errors).map((error, i) => (
-          <li key={`error-${i}`}>{this.state.errors[error]}</li>
-        ))}
-      </ul>
-    );
-  }
-
+  
   render() {
-    return (
-      <div className="login-div d-flex justify-content-center">
-        <form onSubmit={this.handleSubmit}>
-          <div className="form-group col">
-            <div className="login-input">
+    const {errors} = this.state;
+    return ( 
+      <div className="login-div">
+        <h1> Login to see your pairs </h1>
+        <form onSubmit={this.handleSubmit} className="inner-login-container">
+              <div className="signup-login-input-div">
+                <input
+                  className={errors['password'] ? `form-control login-input errored-input` : "form-control login-input" }
+                  type="text"
+                  value={this.state.email}
+                  onChange={this.update("email")}
+                  placeholder="Email"
+                />
+
+                <p className={errors['email'] ? `signup-login-form-errors` : `hidden-errors` }>
+                  {this.state.errors['email']}
+                </p>
+              </div>
+
+              <div className="signup-login-input-div">
+
               <input
-                className="form-control"
-                type="text"
-                value={this.state.email}
-                onChange={this.update("email")}
-                placeholder="Email"
-              />
-            </div>
-            <br />
-            <div className="login-input">
-              <input
-                className="form-control"
+                className={errors['password'] ? `form-control login-input errored-input` : "form-control login-input" }
                 type="password"
                 value={this.state.password}
                 onChange={this.update("password")}
                 placeholder="Password"
               />
-            </div>
-            <br />
-            <div className="text-center">
-                <input type="submit" className="login-submit-btn  d-flex justify-content-center" value="Submit" />
-                {this.renderErrors()}
 
-            </div>
-          </div>
+              <p className={errors['password'] ? `signup-login-form-errors` : `hidden-errors` }>
+              {this.state.errors['password']}
+              </p>
+              </div>
+
+              <input 
+              type="submit" 
+              className="login-submit-btn btn btn-info" 
+              value="Submit" 
+              />
+
         </form>
       </div>
     );

@@ -12,7 +12,6 @@ class PostFeed extends React.Component {
         this.props.fetchFilteredUserPosts(this.props.userId);
     }
     componentDidUpdate(ownProps) {
-        debugger
         if(ownProps.match && this.props.userId !== ownProps.match.params.userId){
             this.props.fetchFilteredUserPosts(this.props.userId);
         }
@@ -20,9 +19,8 @@ class PostFeed extends React.Component {
     }
 
     render() {
-        // debugger
         const posts = this.props.posts.map((el, i) =>
-            <Link to={`/posts/${el._id}`}>
+            <Link key={i} to={`/posts/${el._id}`}>
                 <li key={i} className="posts-feed-list-item">
                     <p>{el.body}</p>
                 </li>
