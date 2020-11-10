@@ -120,7 +120,7 @@ const BookClub = require('../../models/Bookclub');
 const Book = require('../../models/Book');
 const { convert2POJO, nestedIndex, userMatches,userTimesMatches, userBookMatches } = require('../api/routes_util')
 
-const filterPosts = require('../../filters/posts_filter');
+const {filterPosts} = require('../../filters/posts_filter');
 const filterBooks = require('../../filters/books_filter');
 const filterBookclubs = require('../../filters/bookclubs_filter');
 
@@ -169,7 +169,7 @@ router.get('/:id/bookmatches', (req, res) => {
 router.get('/:id/posts', (req, res) => {
   User.findById(req.params.id)
     .then(user =>
-      nestedIndex(Post, user.posts, filterPosts(req.query), res)
+      nestedIndex(Post, user.posts, filterPosts(req.query), res, req.query.recentCnt)
     )
     .catch(err => res.status(404).json({ nopostsfound: 'No posts found' }));
 });

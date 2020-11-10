@@ -6,6 +6,11 @@ const bcrypt = require('bcryptjs');
 
 const users = [
     new User({
+        username: "Demo User",
+        email: "demo@pairreading.com", 
+        password: "ilovereading",
+    }),
+    new User({
         username: "Kevin Su",
         email: "kevinsu@pairreading.com", 
         password: "ilovereading",
