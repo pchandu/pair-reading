@@ -17,8 +17,6 @@ class SignupForm extends React.Component {
   }
 
   componentWillReceiveProps(nextProps) {
-
-
     this.setState({ errors: nextProps.errors });
   }
 
@@ -46,13 +44,11 @@ class SignupForm extends React.Component {
       // debugger
       // console.log(err);
       // console.log(err.errors);
-
       if (err.type === "RECEIVE_USER_SIGN_IN" ){
         // this.renderErrors()
         this.props.login({ email: user.email, password: user.password })
           .then(() =>  this.props.history.push("/onboarding"));
       } 
-
 
     })
 
@@ -60,65 +56,75 @@ class SignupForm extends React.Component {
     
   }
 
-  renderErrors() {
-    return (
-      <ul className="signup-errors">
-        {Object.keys(this.state.errors).map((error, i) => (
-          <li key={`error-${i}`}>{this.state.errors[error]}</li>
-        ))}
-      </ul>
-    );
-  }
 
   render() {
+    const {errors} = this.state;
     return (
-      <div className="signup-div d-flex justify-content-center">
-        <form onSubmit={this.handleSubmit}>
-          <div className="form-group">
-            <br />
-            <div className="">
-              <input
-                className="form-control signup-input"
-                type="text"
-                value={this.state.email}
-                onChange={this.update("email")}
-                placeholder="Email"
-              />
-            </div>
-            <br />
+      <div className="signup-div">
+        <h1> Signup now and find your pair! </h1>
+        <form onSubmit={this.handleSubmit} className="inner-signup-container">
+
+          <div className="signup-login-input-div">
             <input
-              className="form-control signup-input"
+              className={errors['email'] ? `form-control signup-input errored-input` : "form-control signup-input" }
+              type="text"
+              value={this.state.email}
+              onChange={this.update("email")}
+              placeholder="Email"
+            />
+            <p className={errors['email'] ? `signup-login-form-errors` : `hidden-errors` }>
+             {this.state.errors['email']}
+            </p>
+            </div>
+
+            <div className="signup-login-input-div">
+            <input
+              className={errors['username'] ? `form-control signup-input errored-input` : "form-control signup-input" }
               type="text"
               value={this.state.username}
               onChange={this.update("username")}
               placeholder="Username"
             />
-            <br />
+            <p className={errors['username'] ? `signup-login-form-errors` : `hidden-errors` }>
+             {this.state.errors['username']}
+            </p>
+            </div>
+
+            <div className="signup-login-input-div">
             <input
-              className="form-control signup-input"
+              className={errors['password'] ? `form-control signup-input errored-input` : "form-control signup-input" }
               type="password"
               value={this.state.password}
               onChange={this.update("password")}
               placeholder="Password"
-            />
-            <br />
+            />            
+            <p className={errors['password'] ? `signup-login-form-errors` : `hidden-errors` }>
+            {this.state.errors['password']}
+            </p>
+
+            </div>
+
+            <div className="signup-login-input-div">
+
             <input
-              className="form-control signup-input"
+              className={errors['password2'] ? `form-control signup-input errored-input` : "form-control signup-input" }
               type="password"
               value={this.state.password2}
               onChange={this.update("password2")}
               placeholder="Confirm Password"
             />
-            <br />
-            <div className="text-center">
-              <input
-                type="submit"
-                className="signup-submit-btn d-flex justify-content-center"
-                value="Submit"
-              />
-              {this.renderErrors()}
+            <p className={errors['password2'] ? `signup-login-form-errors` : `hidden-errors` }>
+             {this.state.errors['password2']}
+            </p>
+
             </div>
-          </div>
+
+            <input
+              type="submit"
+              className="signup-submit-btn btn btn-info"
+              value="Submit"
+            />
+
         </form>
       </div>
     );
