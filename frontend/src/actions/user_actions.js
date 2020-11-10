@@ -1,14 +1,20 @@
 import * as UserUtil from '../util/user_util'
 export const RECEIVE_ALL_USERS = 'RECEIVE_ALL_USERS'
+export const REMOVE_ALL_USERS = 'REMOVE_ALL_USERS'
 export const RECEIVE_USER = 'RECEIVE_USER'
 
 export const receiveUser = payload => ({
     type: RECEIVE_USER, 
     payload
 });
+
 export const receiveAllUsers = payload => ({
     type: RECEIVE_ALL_USERS, 
     payload
+});
+
+export const removeAllUsers = () => ({
+    type: REMOVE_ALL_USERS,
 });
 
 export const fetchAllUsers = (filters) => dispatch =>

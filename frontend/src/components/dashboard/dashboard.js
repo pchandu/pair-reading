@@ -3,6 +3,11 @@ import ProfileContainer from "../profile/profile_container";
 import Calendar from "./calendar/calendar";
 
 class DashBoard extends React.Component {
+
+  componentWillUnmount() {
+    this.props.removeAllUsers();
+  }
+
   render() {
     return (
       <div className="outer-dashboard-container">
