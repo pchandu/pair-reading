@@ -1,6 +1,7 @@
 import React from "react";
 import ProfileContainer from "../profile/profile_container";
 import Calendar from "./calendar/calendar";
+import BookClubFeedContainer from '../profile/bookclubs_feed_container';
 
 class DashBoard extends React.Component {
   render() {
@@ -55,6 +56,8 @@ class DashBoard extends React.Component {
 
                     <div className="right-side-dashboard-container">
                         <Calendar />
+                        <h1 className="profile-label">Bookclubs</h1>
+                        <BookClubFeedContainer/>
                     </div>
           
                 </div>
