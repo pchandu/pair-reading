@@ -1,25 +1,45 @@
 .profile-username, .profile-email, .profile-matches {
     font-family: 'Nunito', sans-serif;
+    
 }
 
 .profile-username{
     color: #1d5e66;
+    background-color: #92CB63;
+    font-size: 50px;
+    padding: 10px;
+    margin: 5px;
+    border-radius: 5px;
+    width: 100%;
+    height: 120px;
+    display: flex;
+    align-items: center;
 }
 
-.profile-username {
-    font-size: 30px;
-}
 
 .profile-email {
-    color: rgb(66, 169, 182);
-    font-size: 15px;
+    background-color: rgb(66, 169, 182);
+    color: rgb(221, 243, 247);
+    font-size: 30px;
+    padding: 10px;
+    border-radius: 5px;
+    margin: 5px;
+
 }
 
 .profile-matches, .profile-label {
     font-size: 20px;
     color: rgb(42, 135, 147);
+    padding: 10px;
+    border-radius: 5px;
+    margin: 5px;
 }
 
+.profile-label {
+    color: #1d5e66;
+    background-color: #AFDC8B;
+
+}
 .profile-container {
     padding: 5px;
     color: cadetblue;
