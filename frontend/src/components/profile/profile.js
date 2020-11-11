@@ -29,12 +29,12 @@ class Profile extends React.Component {
                 <MatchFeedContainer/>
 
                 <h1 className="profile-label" >Books</h1>
-                {/* <BooksFeedContainer /> */}
+                <BooksFeedContainer />
                 <h1 className="profile-label">Bookclubs</h1>
 
-                {/* <BookClubFeedContainer/> */}
+                <BookClubFeedContainer/>
                 <h1 className="profile-label">Recent Post Activity</h1>
-                {/* <PostFeedContainer/> */}
+                <PostFeedContainer/>
 
             </div>
         )  
