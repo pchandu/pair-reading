@@ -11,7 +11,7 @@
     margin: 5px;
     border-radius: 5px;
     width: auto;
-    height: 120px;
+    height: auto;
     display: flex;
     align-items: center;
 }
@@ -27,7 +27,7 @@
 
 }
 
-.profile-matches, .profile-label {
+ .profile-label {
     font-size: 20px;
     color: rgb(42, 135, 147);
     padding: 10px;
@@ -35,12 +35,7 @@
     margin: 5px;
 }
 
-.matches-feed-list-item {
-    color: #42a9b6;
-    text-decoration: none;
-    margin: 1px;
-    font-size: 20px;
-}
+
 
 .profile-label {
     color: #1d5e66;
@@ -50,5 +45,5 @@
 .profile-container {
     padding: 5px;
     color: cadetblue;
-   
+    width: 100%;
 }

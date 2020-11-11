@@ -14,7 +14,7 @@ const mSTP = ({ entities: { users, posts } }, { match }) => {
 
 const mDTP = dispatch => ({
     clearPostsFilter: () => dispatch(clearPostsFilter()),
-    changePostsFilter: (filters) => dispatch(changePostsFilter(filters)),
+    changePostsFilter: (filter, value) => dispatch(changePostsFilter(filter, value)),
     fetchFilteredUserPosts: (userId) => dispatch(fetchFilteredUserPosts(userId))
 });
 

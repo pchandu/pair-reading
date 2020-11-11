@@ -1,0 +1,16 @@
+.user-show-posts * {
+    background-color: unset !important;
+}
+.user-show-posts {
+    background-color: unset !important;
+}
+
+.posts-feed-list-item {
+    margin: 5px;
+    padding: 5px;
+    border-radius: 5px;
+    font-size: 12px;
+    color: white;
+    background-color: cadetblue !important;
+}
+

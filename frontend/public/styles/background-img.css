@@ -1,0 +1,31 @@
+.session-img {
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    /* height: 100%; */
+    margin: 0;
+}
+.background-1 {
+    background-image: url("./stock/1.jpg");
+}
+.background-2 {
+    background-image: url("./stock/2.jpg");
+}
+.background-3 {
+    background-image: url("./stock/3.jpg");
+}
+.background-4 {
+    background-image: url("./stock/4.jpg");
+}
+.background-5 {
+    background-image: url("./stock/5.jpg");
+}
+.background-6 {
+    background-image: url("./stock/6.jpg");
+}
+.background-7 {
+    background-image: url("./stock/7.jpg");
+}
+.background-8 {
+    background-image: url("./stock/8.jpg");
+}
