@@ -9,6 +9,7 @@ class PostFeed extends React.Component {
 
     componentDidMount() {
         this.props.clearPostsFilter();
+        this.props.changePostsFilter("recentCnt",3);
         this.props.fetchFilteredUserPosts(this.props.userId);
     }
     componentDidUpdate(ownProps) {

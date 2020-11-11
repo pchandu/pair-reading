@@ -23,8 +23,8 @@ router.get('/:id', (req, res) => {
         .catch(err => res.status(404).json({ noforumsfound: 'No forums found' }));
 });
 router.get('/:id/posts', (req, res) => {
-    console.log(req.params.id)
-    console.log(req.query)
+    // console.log(req.params.id)
+    // console.log(req.query)
     Forum.findById(req.params.id)
         .then(forum => 
             nestedIndex(Post, forum.posts,filterPosts(req.query), res)

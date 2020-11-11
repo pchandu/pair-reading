@@ -6,7 +6,7 @@ const filterBookclubs = (query) => {
     if (!!query.bookCnt) {
         res.$where =`this.books.length > ${query.bookCnt}`
     }
-    console.log(res)
+    // console.log(res)
     return res;
 };
 

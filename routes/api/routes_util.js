@@ -4,13 +4,14 @@ const convert2POJO = (res,data) => {
     return res.json(pojo)
 }
 const nestedIndex = (Model, nestedData, query, res, limit) => {
-    console.log(limit)
+    // console.log(limit)
     return nestedIndexBase(Model, nestedData, query, limit)
         .then(el => convert2POJO(res, el));
 }
-const nestedIndexBase = (Model, nestedData, query, limit) => (
-    Model.find(Object.assign({}, { '_id': { $in: nestedData } }, query)).limit(limit)
-)
+const nestedIndexBase = (Model, nestedData, query, limit) => {
+    // console.log(limit)
+    return Model.find(Object.assign({}, { '_id': { $in: nestedData } }, query)).limit(parseInt(limit))
+}
 
 const userMatches = (Model, data, res) => {
     const params = [
