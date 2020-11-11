@@ -14,7 +14,7 @@ const mSTP = ({ entities: { users, bookclubs } }, { match }) => {
 
 const mDTP = dispatch => ({
     clearBookClubsFilter: () => dispatch(clearBookClubsFilter()),
-    changeBookClubsFilter: (filters) => dispatch(changeBookClubsFilter(filters)),
+    changeBookClubsFilter: (filter, value) => dispatch(changeBookClubsFilter(filter, value)),
     fetchFilteredUserBookClubs: (userId) => dispatch(fetchFilteredUserBookClubs(userId))
 });
 

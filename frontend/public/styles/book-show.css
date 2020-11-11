@@ -44,15 +44,19 @@
 
 .book-show-info-container {
     display: flex;
+    align-items: center;
+    justify-content: center;
+    
     height: 900px;
     padding: 20px;
+    width: 70%;
 
 }
 
 .user-match-container {
     display: flex;
     flex-direction: column;
-    width: 300px;
+    width: 30%;
     height: 900px;
     padding: 20px;
     

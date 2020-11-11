@@ -41,7 +41,7 @@ class BookShow extends React.Component {
                         {Object.values(this.props.users).map((user) => {
                             return (
                                 <Link to={`/users/${user._id}`} style={{ textDecoration: 'none' }} >
-                                    <li className="matched-user">
+                                    <li key={user._id }className="matched-user">
                                         <button>{user.username}</button>      
                                     </li>
                                 </Link>

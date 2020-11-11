@@ -1,5 +1,8 @@
 @import  url('styles/css-reset.css');
 
+/* Background img */
+@import  url('styles/background-img.css');
+
 @import url('styles/onboarding.css');
 @import url('styles/base.css');
 
@@ -32,6 +35,12 @@
 
 /* Bookclub */
 @import url('styles/bookclub.css');
+@import url('styles/book.css');
 
 /* Profile */
-@import url('styles/profile.css')
+@import url('styles/profile.css');
+
+/* User Show */
+@import url('styles/user_show.css');
+/* Feed */
+@import url('styles/posts.css');
