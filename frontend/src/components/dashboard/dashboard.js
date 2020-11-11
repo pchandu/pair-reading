@@ -3,7 +3,11 @@ import ProfileContainer from "../profile/profile_container";
 import Calendar from "./calendar/calendar";
 
 class DashBoard extends React.Component {
-
+  componentDidMount(){
+    const body = document.getElementsByClassName("dashboard-content-container")[0];
+    body.classList.add(`session-img`)
+    body.classList.add(`background-${Math.floor(Math.random() * 8) + 1}`);
+  }
   componentWillUnmount() {
     this.props.removeAllUsers();
   }

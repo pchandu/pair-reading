@@ -1,0 +1,72 @@
+.outer-user-show-container {
+    display:flex;
+    flex-direction: column;
+}
+
+.user-show-content-container {
+    display: flex;
+    justify-content: space-between;
+    min-height: 1000px;
+}
+
+.left-side-user-show-container, 
+.middle-side-user-show-container,
+.right-side-user-show-container
+{
+    display:flex;
+    flex-direction:column;
+    width: 33%;
+    align-items: center;
+    margin: 10px;
+     border: cadetblue 3px solid;
+    border-radius: 5px;
+}
+
+.left-side-user-show-container {
+}
+
+.middle-side-user-show-container {
+  
+
+}
+
+.right-side-user-show-container {
+
+}
+
+.cal-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 5px;
+    color: cadetblue;
+  
+}
+
+.cal-btn {
+    padding: 4px;
+    margin: 5px;
+    font-family: 'Nunito', sans-serif;
+}
+
+.user-show-mid-text {
+
+    padding: 5px;
+    color:cadetblue;
+    overflow: hidden;
+    
+}
+
+.user-show-mid-text > p {
+    margin: 2px;
+}
+
+.user-show-mid-title {
+    font-size: 30px;
+    color: #1d5e66;
+    text-align: center;
+    font-family: 'Nunito', sans-serif;
+}
+
+
+/* Styles each of the 3 columns within the user-show */
