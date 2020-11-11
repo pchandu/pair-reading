@@ -26,19 +26,16 @@ class Profile extends React.Component {
                     {this.props.user.email}
                 </div>
                 <h1 className="profile-label" >Matches</h1>
-                <ul className="profile-matches">
-                    <MatchFeedContainer/>
-                </ul>
+                <MatchFeedContainer/>
+
                 <h1 className="profile-label" >Books</h1>
-                    <BooksFeedContainer />
+                {/* <BooksFeedContainer /> */}
                 <h1 className="profile-label">Bookclubs</h1>
-                <ul className = "profile-bookclubs">
-                    <BookClubFeedContainer/>
-                </ul>
+
+                {/* <BookClubFeedContainer/> */}
                 <h1 className="profile-label">Recent Post Activity</h1>
-                <ul className = "profile-posts">
-                    <PostFeedContainer/>
-                </ul>
+                {/* <PostFeedContainer/> */}
+
             </div>
         )  
     }
