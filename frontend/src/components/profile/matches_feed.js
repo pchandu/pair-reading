@@ -29,12 +29,15 @@ class MatchFeed extends React.Component {
 
     render() {
         const matches = this.props.matches.map((el, i) =>
-            <Link key={i} to={`/users/${el._id}`}>
                 <li key={i} className="matches-feed-list-item">
-                    <h2>{el.username}</h2>
+
+                <Link key={i} to={`/users/${el._id}`}>
+                <h2 className="h2-matches-inner-li">
+                    {el.username}
+                </h2>
+                </Link>
                     <button className="match-user-invite">Invite</button>
                 </li>
-            </Link>
         )
         return (
             <div className="matches-feed-container">

@@ -25,10 +25,10 @@
 }
 .matches-feed-container {
     width: 100%;
-    height: 30%%;
+    height: 30%;
 }
 
-.matches-feed-list-item > h2{
+.h2-matches-inner-li{
     width: 80%;
     color: #1d5e66;
     background-color: #92CB63;
@@ -37,14 +37,13 @@
     margin: 5px;
     font-size: 20px;
     padding: 5px;
-    text-decoration: none;
     display: inline-block;
     height: 30px;
     border-radius: 5px;
 
 }
 
-.matches-feed-list-item > h2:hover {
+.h2-matches-inner-li:hover {
     text-decoration: none;
 }
 
