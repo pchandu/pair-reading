@@ -14,6 +14,11 @@ time, mark, audio, video  {
     font-family: 'Nunito', sans-serif;
 }
 
+* {   
+    background-color: rgb(199, 234, 171);
+}
+
+
 
 
 .app-outside-container {
