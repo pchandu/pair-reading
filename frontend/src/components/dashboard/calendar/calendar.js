@@ -29,7 +29,6 @@ class Calendar extends React.Component {
   render() {
     return (
       <div className="cal-container">
-        <p className="cal-title">Calendar and Meeting Options</p>
         <a
           href="https://accounts.google.com/signin/v2/identifier?service=cl&passive=1209600&osid=1&continue=https%3A%2F%2Fcalendar.google.com%2Fcalendar%2Frender&followup=https%3A%2F%2Fcalendar.google.com%2Fcalendar%2Frender&scc=1&flowName=GlifWebSignIn&flowEntry=ServiceLogin"
           target="_blank"

@@ -26,28 +26,31 @@ class DashBoard extends React.Component {
     return (
       <div className="outer-dashboard-container">
           <div className="dashboard-content-container">
-                <MakeBookClubModal />
+                  <MakeBookClubModal />
                 <div className="left-side-dashboard-container">
-                    < ProfileContainer />
+                    <ProfileContainer />
                     <MatchFeedContainer/>
                 </div>
 
                 <div className="middle-side-dashboard-container">
 
-                    <h1 className="profile-label">Recent Post Activity</h1>
+                    <h1 className="dashboard-header">Recent Post Activity</h1>
                     <PostFeedContainer/>
 
+                    <h1 className="dashboard-header">Casual Reading of The Day!</h1>
                     < ReadOfTheDayContainer />
+
                 </div>
 
                 <div className="right-side-dashboard-container">
 
+                    <h1 className="dashboard-header">Calendar and Meeting Options</h1>
                     <Calendar />
 
-                    <h1 className="profile-label" >Books</h1>
+                    <h1 className="dashboard-header" >Books</h1>
                     <BooksFeedContainer />
 
-                    <h1 className="profile-label">Your bookclubs</h1>
+                    <h1 className="dashboard-header">Your bookclubs</h1>
                     <BookClubFeedContainer/>
 
                 </div>
