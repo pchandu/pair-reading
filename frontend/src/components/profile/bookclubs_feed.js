@@ -28,6 +28,7 @@ class BookClubFeed extends React.Component {
         )
         return (
             <div className="bookclubs-feed-container">
+                <h1 className="bookclubs-label">Your Bookclubs</h1>
                 <ul className="bookclubs-feed-list">
                     {bookclubs}
                 </ul>

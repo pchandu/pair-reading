@@ -1,6 +1,8 @@
 import React from "react";
 import ProfileContainer from "../profile/profile_container";
 import Calendar from "./calendar/calendar";
+import BookClubFeedContainer from '../profile/bookclubs_feed_container'
+import PostFeedContainer from '../profile/posts_feed_container'
 
 class DashBoard extends React.Component {
 
@@ -19,7 +21,7 @@ class DashBoard extends React.Component {
           <div className="middle-side-dashboard-container">
               <div className="dash-mid-text">
                 <h5 className="dash-mid-title"> Casual Reading of the Day </h5>
-                <p>"I think that this should do," said he, glancing into the glass above the fireplace. "I only wish that you could come with me, Watson, but I fear that it won't do. I may be on the trail in this matter, or I may be following a will-o'-the-wisp, but I shall soon know which it is. I hope that I may be back in a few hours." He cut a slice of beef from the joint upon the sideboard, sandwiched it between two rounds of bread, and thrusting this rude meal into his pocket he started off upon his expedition.</p>
+                /* <p>"I think that this should do," said he, glancing into the glass above the fireplace. "I only wish that you could come with me, Watson, but I fear that it won't do. I may be on the trail in this matter, or I may be following a will-o'-the-wisp, but I shall soon know which it is. I hope that I may be back in a few hours." He cut a slice of beef from the joint upon the sideboard, sandwiched it between two rounds of bread, and thrusting this rude meal into his pocket he started off upon his expedition.</p>
 
                 <p>I had just finished my tea when he returned, evidently in excellent spirits, swinging an old elastic-sided boot in his hand. He chucked it down into a corner and helped himself to a cup of tea.</p>
 
@@ -53,13 +55,14 @@ class DashBoard extends React.Component {
 
                 <p>"What could she mean by that note, Mr. Holmes? Do you think it points to suicide?"</p>
 
-                <p>"No, no, nothing of the kind. It is perhaps the best possible solution. I trust, Mr. Holder, that you are nearing the end of your troubles."</p>
+                <p>"No, no, nothing of the kind. It is perhaps the best possible solution. I trust, Mr. Holder, that you are nearing the end of your troubles."</p> */}
 
               </div>
           </div>
 
                     <div className="right-side-dashboard-container">
                         <Calendar />
+                        <BookClubFeedContainer/>
                     </div>
           
                 </div>
