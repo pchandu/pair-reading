@@ -32,6 +32,7 @@ class MatchFeed extends React.Component {
             <Link to={`/users/${el._id}`}>
                 <li key={i} className="matches-feed-list-item">
                     <h2>{el.username}</h2>
+                    <button className="match-user-invite">Invite</button>
                 </li>
             </Link>
         )
