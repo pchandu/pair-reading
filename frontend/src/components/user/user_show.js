@@ -14,7 +14,7 @@ class UserShow extends React.Component {
 
     componentDidMount() {
         this.props.fetchUser(this.props.userId);
-        const body = document.getElementsByClassName("dashboard-content-container")[0];
+        const body = document.getElementsByClassName("user-show-content-container")[0];
         body.classList.add(`session-img`)
         body.classList.add(`background-${Math.floor(Math.random() * 8) + 1}`);
     }
@@ -29,8 +29,8 @@ class UserShow extends React.Component {
             email = user.email;
         }
         return (
-            <div className="dashboard-content-container">
-                <div className="left-side-dashboard-container">
+            <div className="user-show-content-container">
+                <div className="left-side-user-show-container">
                     <div className="profile-container">
                         <div className="profile-username">
                             {/* {this.props.user.id} */}
@@ -45,13 +45,13 @@ class UserShow extends React.Component {
                     </ul>
                     </div>
                 </div>
-                <div className="left-side-dashboard-container">
+                <div className="left-side-user-show-container">
                     <h1 className="profile-label">Recent Post Activity</h1>
                     <ul className="user-show-posts">
                         <PostContainer match={this.props.match} />
                     </ul>
                 </div>
-                <div className="left-side-dashboard-container">
+                <div className="left-side-user-show-container">
                     <h1 className="profile-label" >Books</h1>
                         <BooksContainer match={this.props.match} />
                 </div>

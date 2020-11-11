@@ -39,5 +39,8 @@
 
 /* Profile */
 @import url('styles/profile.css');
+
+/* User Show */
+@import url('styles/user_show.css');
 /* Feed */
 @import url('styles/posts.css');

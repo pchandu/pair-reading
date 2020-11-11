@@ -1,16 +1,17 @@
-.outer-dashboard-container {
+.outer-user-show-container {
     display:flex;
     flex-direction: column;
 }
 
-.dashboard-content-container {
+.user-show-content-container {
     display: flex;
     justify-content: space-between;
+    min-height: 1000px;
 }
 
-.left-side-dashboard-container, 
-.middle-side-dashboard-container,
-.right-side-dashboard-container
+.left-side-user-show-container, 
+.middle-side-user-show-container,
+.right-side-user-show-container
 {
     display:flex;
     flex-direction:column;
@@ -21,15 +22,15 @@
     border-radius: 5px;
 }
 
-.left-side-dashboard-container {
+.left-side-user-show-container {
 }
 
-.middle-side-dashboard-container {
+.middle-side-user-show-container {
   
 
 }
 
-.right-side-dashboard-container {
+.right-side-user-show-container {
 
 }
 
@@ -48,7 +49,7 @@
     font-family: 'Nunito', sans-serif;
 }
 
-.dash-mid-text {
+.user-show-mid-text {
 
     padding: 5px;
     color:cadetblue;
@@ -56,11 +57,11 @@
     
 }
 
-.dash-mid-text > p {
+.user-show-mid-text > p {
     margin: 2px;
 }
 
-.dash-mid-title {
+.user-show-mid-title {
     font-size: 30px;
     color: #1d5e66;
     text-align: center;
@@ -68,4 +69,4 @@
 }
 
 
-/* Styles each of the 3 columns within the dashboard */
+/* Styles each of the 3 columns within the user-show */
