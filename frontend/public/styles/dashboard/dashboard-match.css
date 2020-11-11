@@ -5,13 +5,15 @@
     font-size: 20px;
 }
 
-.match-feed-label {
+.match-feed-btn {
     font-size: 30px;
+    width: 90%;
     color: rgb(42, 135, 147);
     padding: 10px;
     border-radius: 5px;
     margin: 5px;
     background-color: #AFDC8B;
+    border: none;
 }
 
 .matches-feed-container {
@@ -31,4 +33,8 @@
 
 .matches-feed-list-item > h2:hover {
     text-decoration: none;
+}
+
+#matches-feed-list {
+    display: block;
 }

@@ -18,6 +18,15 @@ class MatchFeed extends React.Component {
 
     }
 
+    toggleMatches() {
+        let matchDiv = document.getElementById('matches-feed-list');
+        if (matchDiv.style.display === "none") {
+            matchDiv.style.display = "block";
+        } else {
+            matchDiv.style.display = "none";
+        }
+    }
+
     render() {
         const matches = this.props.matches.map((el, i) =>
             <Link to={`/users/${el._id}`}>
@@ -28,10 +37,10 @@ class MatchFeed extends React.Component {
         )
         return (
             <div className="matches-feed-container">
-                <h1 className="match-feed-label" >Matches</h1>
-                <ul className="matches-feed-list">
-                    {matches}
-                </ul>
+                <button className="match-feed-btn" onClick={this.toggleMatches} type="button" >Matches</button>
+                    <ul id="matches-feed-list">
+                        {matches}
+                    </ul>
             </div>
         )
     }
