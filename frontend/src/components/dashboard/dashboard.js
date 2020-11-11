@@ -1,11 +1,15 @@
 import React from "react";
 import ProfileContainer from "../profile/profile_container";
-import MatchFeedContainer from "../profile/matches_feed_container"
 import Calendar from "./calendar/calendar";
 import ReadOfTheDayContainer from './readOfTheDay/read_of_the_day'
 import MakeBookClubModal from "../profile/bookclubs/make_bookclub";
 
 import makeBookClubModal from '../profile/bookclubs/make_bookclub'
+
+import BookClubFeedContainer from '../profile/bookclubs_feed_container';
+import BooksFeedContainer from '../profile/books_feed_container';
+import PostFeedContainer from '../profile/posts_feed_container';
+import MatchFeedContainer from '../profile/matches_feed_container';
 
 class DashBoard extends React.Component {
   componentDidMount(){
@@ -17,26 +21,35 @@ class DashBoard extends React.Component {
     this.props.removeAllUsers();
   }
 
-  modalSendInfo(){
-
-  }
 
   render() {
     return (
       <div className="outer-dashboard-container">
           <div className="dashboard-content-container">
-                <button onClick={this.modalSendInfo}>TestModal</button>
                 <MakeBookClubModal />
                 <div className="left-side-dashboard-container">
                     < ProfileContainer />
+                    <MatchFeedContainer/>
                 </div>
 
                 <div className="middle-side-dashboard-container">
+
+                    <h1 className="profile-label">Recent Post Activity</h1>
+                    <PostFeedContainer/>
+
                     < ReadOfTheDayContainer />
                 </div>
 
                 <div className="right-side-dashboard-container">
+
                     <Calendar />
+
+                    <h1 className="profile-label" >Books</h1>
+                    <BooksFeedContainer />
+
+                    <h1 className="profile-label">Your bookclubs</h1>
+                    <BookClubFeedContainer/>
+
                 </div>
           
           </div>
