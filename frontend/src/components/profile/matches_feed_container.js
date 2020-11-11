@@ -1,5 +1,5 @@
 import { connect } from 'react-redux'
-import { fetchFilteredUserMatches, clearUsersFilter, changeUsersFilter } from '../../actions/filters/user_filter_actions';
+import { fetchFilteredUserBookMatches, clearUsersFilter, changeUsersFilter } from '../../actions/filters/user_filter_actions';
 import MatchFeed from './matches_feed'
 import { refSelector } from '../selectors/index_selectors'
 
@@ -12,7 +12,7 @@ const mSTP = ({ session: { user }, entities:{users} }) => ({
 const mDTP = dispatch => ({
     clearUsersFilter: () => dispatch(clearUsersFilter()),
     changeUsersFilter: (filters) => dispatch(changeUsersFilter(filters)),
-    fetchFilteredUserMatches: (userId) => dispatch(fetchFilteredUserMatches(userId))
+    fetchFilteredUserBookMatches: (userId) => dispatch(fetchFilteredUserBookMatches(userId))
 });
 
 export default connect(mSTP, mDTP)(MatchFeed)

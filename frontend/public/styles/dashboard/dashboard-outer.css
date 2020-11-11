@@ -48,23 +48,17 @@
     font-family: 'Nunito', sans-serif;
 }
 
-.dash-mid-text {
-
-    padding: 5px;
-    color:cadetblue;
-    overflow: hidden;
-    
+.read-of-the-day-outer-div {
+    line-height: 1.2;
+    font-size: 14px;
 }
-
-.dash-mid-text > p {
-    margin: 2px;
-}
-
-.dash-mid-title {
+.read-of-the-day-outer-div  > h1 {
+    display:flex;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
     font-size: 30px;
-    color: #1d5e66;
-    text-align: center;
-    font-family: 'Nunito', sans-serif;
+    font-weight: 600;
 }
 
 
