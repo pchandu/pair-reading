@@ -35,6 +35,9 @@
 
 /* Bookclub */
 @import url('styles/bookclub.css');
+@import url('styles/book.css');
 
 /* Profile */
-@import url('styles/profile.css')
+@import url('styles/profile.css');
+/* Feed */
+@import url('styles/posts.css');

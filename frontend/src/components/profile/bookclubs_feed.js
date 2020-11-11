@@ -23,6 +23,7 @@ class BookClubFeed extends React.Component {
             <Link key={i} to={`/bookclubs/${el._id}`}>
                 <li key={i} className="bookclubs-feed-list-item">
                     <h2>{el.title}</h2>
+                    <div>Members: {el.users.length}</div>
                 </li>
             </Link>
         )

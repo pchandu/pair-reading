@@ -14,6 +14,9 @@ class UserShow extends React.Component {
 
     componentDidMount() {
         this.props.fetchUser(this.props.userId);
+        const body = document.getElementsByClassName("dashboard-content-container")[0];
+        body.classList.add(`session-img`)
+        body.classList.add(`background-${Math.floor(Math.random() * 8) + 1}`);
     }
 
     render() {

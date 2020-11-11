@@ -6,7 +6,7 @@
 .dashboard-content-container {
     display: flex;
     justify-content: space-between;
-
+    min-height: 1000px;
 }
 
 .left-side-dashboard-container, 
