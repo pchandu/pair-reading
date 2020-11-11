@@ -1,10 +1,16 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import MakeBookClubModal from './bookclubs/make_bookclub';
 
 class MatchFeed extends React.Component {
 
     constructor(props) {
         super(props)
+        this.state = {
+            bookClubModal: false
+        }
+
+        this.showBookClubModal = this.showBookClubModal.bind(this)
     }
 
     componentDidMount() {
@@ -27,7 +33,14 @@ class MatchFeed extends React.Component {
         }
     }
 
+    showBookClubModal(){
+        this.setState({
+            bookClubModal : true
+        })
+    }
+
     render() {
+        let makeBookClubModal = this.state.bookClubModal ? <MakeBookClubModal show={true}/> : <MakeBookClubModal show={false}/>
         const matches = this.props.matches.map((el, i) =>
                 <li key={i} className="matches-feed-list-item">
 
@@ -36,7 +49,7 @@ class MatchFeed extends React.Component {
                     {el.username}
                 </h2>
                 </Link>
-                    <button className="match-user-invite">Invite</button>
+                    <button className="match-user-invite" onClick={this.showBookClubModal}>Invite</button>
                 </li>
         )
         return (
@@ -45,6 +58,7 @@ class MatchFeed extends React.Component {
                     <ul id="matches-feed-list">
                         {matches}
                     </ul>
+                { makeBookClubModal }
             </div>
         )
     }
