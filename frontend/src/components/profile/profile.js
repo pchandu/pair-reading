@@ -25,7 +25,7 @@ class Profile extends React.Component {
                 <div className="profile-email">
                     {this.props.user.email}
                 </div>
-                <h1 className="profile-label" >Matches</h1>
+                {/* <h1 className="profile-label" >Matches</h1>
                 <ul className="profile-matches">
                     <MatchFeedContainer/>
                 </ul>
@@ -38,7 +38,7 @@ class Profile extends React.Component {
                 <h1 className="profile-label">Recent Post Activity</h1>
                 <ul className = "profile-posts">
                     <PostFeedContainer/>
-                </ul>
+                </ul> */}
             </div>
         )  
     }
