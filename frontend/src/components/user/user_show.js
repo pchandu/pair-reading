@@ -26,30 +26,30 @@ class UserShow extends React.Component {
             email = user.email;
         }
         return (
-            <div className="user-show-container">
-                <div className="user-show-left user-show-column">
-                    <div className="user-show-details">
-                        <div className="user-show-username">
+            <div className="dashboard-content-container">
+                <div className="left-side-dashboard-container">
+                    <div className="profile-container">
+                        <div className="profile-username">
                             {/* {this.props.user.id} */}
                             {username}
                         </div>
-                        <div className="user-show-email">
+                        <div className="profile-email">
                             {email}
                         </div>
-                    <h1 className="user-show-label">Bookclubs</h1>
+                    <h1 className="profile-label">Bookclubs</h1>
                     <ul className="user-show-bookclubs">
                         <BookClubContainer match={this.props.match} />
                     </ul>
                     </div>
                 </div>
-                <div className="user-show-middle user-show-column">
-                    <h1 className="user-show-label">Recent Post Activity</h1>
+                <div className="left-side-dashboard-container">
+                    <h1 className="profile-label">Recent Post Activity</h1>
                     <ul className="user-show-posts">
                         <PostContainer match={this.props.match} />
                     </ul>
                 </div>
-                <div className="user-show-right user-show-column">
-                    <h1 className="user-show-label" >Books</h1>
+                <div className="left-side-dashboard-container">
+                    <h1 className="profile-label" >Books</h1>
                         <BooksContainer match={this.props.match} />
                 </div>
             </div>

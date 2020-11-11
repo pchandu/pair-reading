@@ -1,5 +1,8 @@
 @import  url('styles/css-reset.css');
 
+/* Background img */
+@import  url('styles/background-img.css');
+
 @import url('styles/onboarding.css');
 @import url('styles/base.css');
 
