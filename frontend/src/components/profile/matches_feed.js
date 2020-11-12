@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import MakeBookClubModal from './bookclubs/make_bookclub';
+import Modal from 'react-bootstrap/Modal';
 
 class MatchFeed extends React.Component {
 
@@ -8,10 +8,11 @@ class MatchFeed extends React.Component {
         super(props)
         this.state = {
             bookClubModal: false,
-            userEl: null
+            userEl: ''
         }
 
         this.showBookClubModal = this.showBookClubModal.bind(this)
+        this.handleClose = this.handleClose.bind(this)
     }
 
     componentDidMount() {
@@ -37,13 +38,22 @@ class MatchFeed extends React.Component {
     showBookClubModal(user){
         this.setState({
             bookClubModal : true,
-            userEl: user
+            userEl: user, 
         })
     }
 
+    handleClose(){
+        this.setState({
+            bookClubModal: false
+        })
+    }
+
+    makeBookClub(event){
+        // event.preventDefault();
+    }
+
+
     render() {
-        let userEl;
-        let makeBookClubModal = this.state.bookClubModal ? <MakeBookClubModal user={this.state.userEl} show={true}/> : <MakeBookClubModal show={false}/>
         const matches = this.props.matches.map((el, i) =>{
             return(
                 <li key={i} className="matches-feed-list-item">
@@ -62,7 +72,35 @@ class MatchFeed extends React.Component {
                     <ul id="matches-feed-list">
                         {matches}
                     </ul>
-                { makeBookClubModal }
+
+
+                <Modal 
+                show={this.state.bookClubModal} 
+                onHide={this.handleClose}
+                backdrop="static"
+                keyboard={false}
+                className="modal-bookclub-creation"
+                contentClassName="modal-bookclub-creation-content"
+                > 
+
+                <h1 className="modal-bookclub-header">Create a BookClub</h1>
+
+
+                
+                
+                <form onSubmit={() => this.makeBookClub()} className="form-bookclub-creation">
+                    <input type="text" placeholder="Name"/>
+
+                    <input 
+                    type="submit" 
+                    value={`Make bookclub and invite ${this.state.userEl.username}`} 
+                    />
+                </form>
+                <button onClick={this.handleClose}>
+                Close
+                </button>
+
+                </Modal>
             </div>
         )
     }

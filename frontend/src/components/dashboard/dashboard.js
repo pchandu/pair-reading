@@ -2,9 +2,6 @@ import React from "react";
 import ProfileContainer from "../profile/profile_container";
 import Calendar from "./calendar/calendar";
 import ReadOfTheDayContainer from './readOfTheDay/read_of_the_day'
-import MakeBookClubModal from "../profile/bookclubs/make_bookclub";
-
-import makeBookClubModal from '../profile/bookclubs/make_bookclub'
 
 import BookClubFeedContainer from '../profile/bookclubs_feed_container';
 import BooksFeedContainer from '../profile/books_feed_container';
@@ -26,7 +23,6 @@ class DashBoard extends React.Component {
     return (
       <div className="outer-dashboard-container">
           <div className="dashboard-content-container">
-                  <MakeBookClubModal />
                 <div className="left-side-dashboard-container">
                     <ProfileContainer />
                     <MatchFeedContainer/>
