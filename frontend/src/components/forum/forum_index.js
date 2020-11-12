@@ -21,7 +21,7 @@ class ForumIndex extends React.Component {
                 <h1>Welcome to the Forums</h1>
                 <ul className="forum-index-forums">
                     {Object.values(forums).map((forum, i) => (
-                        <Link to={`/forums/${forum._id}`}>
+                        <Link to={`/forums/${forum._id}`} style={{ textDecoration: 'none' }}>
                             <li className="forum-index-forums-title" key={i}>{forum.title}</li>
                         </Link>
                     ))}
