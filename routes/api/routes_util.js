@@ -4,7 +4,7 @@ const convert2POJO = (res,data) => {
     return res.json(pojo)
 }
 const nestedIndex = (Model, nestedData, query, res, limit) => {
-    // console.log(limit)
+    console.log(nestedData)
     return nestedIndexBase(Model, nestedData, query, limit)
         .then(el => convert2POJO(res, el));
 }

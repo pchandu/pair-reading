@@ -4,7 +4,8 @@ import { fetchFilteredForumPosts, clearPostsFilter, changePostsFilter, fetchFilt
 
 const mSTP = ({entities},{match}) => ({
     forumId: match.params.forumId,
-    posts: entities.posts
+    posts: entities.posts,
+    forum: entities.forums[match.params.forumId]
 });
 
 const mDTP = dispatch => ({
