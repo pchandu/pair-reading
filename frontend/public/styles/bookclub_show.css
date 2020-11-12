@@ -50,6 +50,9 @@
 .bookclub-forums-list {
     font-weight: normal;
 }
+.bookclub-books-list {
+    padding-bottom: 15px;
+}
 .bookclub-books-list *{
     font-weight: normal;
 }
@@ -68,3 +71,10 @@
     /*  */
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);;
 }
+
+
+.bookclub-forums-list * {
+    text-decoration: none !important;
+}
+
+
