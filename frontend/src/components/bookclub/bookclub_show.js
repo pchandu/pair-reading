@@ -48,6 +48,7 @@ class BookClubShow extends React.Component {
             <div className="bookclub-show-container">
                 <h1 className="bookclub-header">BookClub - </h1>
                 <h2 className="bookclub-title">{bookclub ? bookclub.title:""}</h2>
+                <div className="bookclub-show-content-container">
                 <div className="left-side-user-show-container">
                     <h1 className="profile-label">Members</h1>
                     <ul className="bookclub-users-list">
@@ -55,7 +56,7 @@ class BookClubShow extends React.Component {
                     </ul>                    
                 </div>
                 <div className="middle-side-user-show-container">
-                    <h3>Forums</h3>
+                    <h1 className="profile-label">Forums</h1>
                     <ul className="bookclub-forums-list">
                         {forums}
                     </ul>
@@ -66,6 +67,7 @@ class BookClubShow extends React.Component {
                         <BooksContainer match={this.props.match} owner="bookclub" />
                     </ul>
                 </div>
+            </div>
             </div>
         )
     }
