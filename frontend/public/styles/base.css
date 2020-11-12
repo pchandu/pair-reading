@@ -32,7 +32,8 @@ time, mark, audio, video  {
 }
 
 
-.dashboard-header {
+.dashboard-header,
+.profile-label {
     display: flex;
     font-size: 30px;
     width: 98%;
