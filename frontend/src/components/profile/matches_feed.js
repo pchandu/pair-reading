@@ -7,7 +7,8 @@ class MatchFeed extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
-            bookClubModal: false
+            bookClubModal: false,
+            userEl: null
         }
 
         this.showBookClubModal = this.showBookClubModal.bind(this)
@@ -33,15 +34,18 @@ class MatchFeed extends React.Component {
         }
     }
 
-    showBookClubModal(){
+    showBookClubModal(user){
         this.setState({
-            bookClubModal : true
+            bookClubModal : true,
+            userEl: user
         })
     }
 
     render() {
-        let makeBookClubModal = this.state.bookClubModal ? <MakeBookClubModal show={true}/> : <MakeBookClubModal show={false}/>
-        const matches = this.props.matches.map((el, i) =>
+        let userEl;
+        let makeBookClubModal = this.state.bookClubModal ? <MakeBookClubModal user={this.state.userEl} show={true}/> : <MakeBookClubModal show={false}/>
+        const matches = this.props.matches.map((el, i) =>{
+            return(
                 <li key={i} className="matches-feed-list-item">
 
                 <Link key={i} to={`/users/${el._id}`}>
@@ -49,9 +53,9 @@ class MatchFeed extends React.Component {
                     {el.username}
                 </h2>
                 </Link>
-                    <button className="match-user-invite" onClick={this.showBookClubModal}>Invite</button>
+                    <button className="match-user-invite" onClick={() => this.showBookClubModal(el)}>Invite</button>
                 </li>
-        )
+        )})
         return (
             <div className="matches-feed-container">
                 <button className="match-feed-btn" onClick={this.toggleMatches} type="button" >Matches</button>

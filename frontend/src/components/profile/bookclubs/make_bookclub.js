@@ -14,6 +14,8 @@ class MakeBookClubModal extends React.Component {
 
 
     render(){
+        const {user} = this.props;
+        console.log(user);
         return(
             <Modal show={this.props.show}>
 
