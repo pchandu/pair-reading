@@ -23,7 +23,11 @@
     display: inline-block;
     height: 30px;
     border-radius: 5px;
+}
 
+.bookclub-users-list-item > h2:hover {
+    cursor: pointer;
+    background-color: #9CD170;
 }
 
 
@@ -40,16 +44,25 @@
     justify-content: space-between;
     min-height: 500px;
 }
+
 .bookclub-header {
     font-size: 30px;
     font-weight: bold;
     display: inline-block;
-     color: #1d5e66;
+    color: #35757B;
+    padding: 5px;
+
 }
+
 .bookclub-title {
     font-size: 30px;
     display: inline-block;
-    color: cadetblue;
+    font-weight: bold;
+
+    color: #35757B;
+    padding: 5px;
+    
+
 
 }
 .bookclub-forums-list {
