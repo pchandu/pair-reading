@@ -47,7 +47,7 @@ class ProfilePreferences extends React.Component {
         
         return (
         <div className="Preferences-button">
-        <button variant="primary" onClick={this.handleShow} className="match-user-invite">
+        <button onClick={this.handleShow} className="preferences-button">
             Preferences
         </button>
 
