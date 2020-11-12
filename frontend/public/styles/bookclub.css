@@ -18,3 +18,27 @@
     flex-direction: row;
     justify-content: space-between;
 }
+
+/* Bookclub Modal */
+
+.modal-bookclub-creation{
+    top: 40%;
+    background: transparent;
+    height: 400px;
+}
+
+.modal-bookclub-creation-content{
+    display:flex;
+    flex-direction:column;
+    padding: 5px;
+}
+
+.modal-bookclub-header {
+    font-size: 40px;
+    font-weight: 600;
+}
+
+.form-bookclub-creation{
+    display:flex;
+    flex-direction: column;
+}

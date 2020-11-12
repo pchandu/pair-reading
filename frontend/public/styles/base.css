@@ -29,5 +29,20 @@ time, mark, audio, video  {
 
 .app-middle-container {
     flex:1;
-    background-color: #DDF1CA;
+}
+
+
+.dashboard-header,
+.profile-label {
+    display: flex;
+    font-size: 30px;
+    width: 98%;
+    color: rgb(42, 135, 147);
+    padding: 10px;
+    border-radius: 5px;
+    margin: 5px;
+    background-color: #AFDC8B;
+    border: none;
+    align-items: center;
+    align-content: center;
 }
