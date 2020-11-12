@@ -45,10 +45,11 @@
 
 .h2-matches-inner-li:hover {
     text-decoration: none;
+    background-color: #9CD170;
 }
 
 #matches-feed-list {
-    display: block;
+    display: none;
 }
 
 .match-user-invite {
@@ -61,5 +62,5 @@
 }
 
 .match-user-invite:hover {
-    cursor: pointer;
+   background-color: #6abec9;
 }

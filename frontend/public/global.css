@@ -33,6 +33,7 @@
 @import url('styles/about.css');
 
 /* Bookclub */
+@import url('styles/bookclub_show.css');
 @import url('styles/bookclub.css');
 @import url('styles/book.css');
 
@@ -43,3 +44,6 @@
 @import url('styles/user_show.css');
 /* Feed */
 @import url('styles/posts.css');
+
+/* Forums */
+@import url('styles/forum_index.css');

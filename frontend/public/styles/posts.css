@@ -5,12 +5,21 @@
     background-color: unset !important;
 }
 
-.posts-feed-list-item {
+.posts-feed-list-item > p {
     margin: 5px;
     padding: 5px;
     border-radius: 5px;
-    font-size: 12px;
+    font-size: 15px;
     color: white;
-    background-color: cadetblue !important;
+    background-color: #67C3B2;
+    text-decoration: none;
+}
+.posts-feed-list-item > p:hover {
+    background-color: #47B6B4;
+    text-decoration: none;
 }
 
+
+.posts-feed-list-item {
+    text-decoration: none;
+}
