@@ -5,3 +5,19 @@ export const refSelector = (currentDataArr, allData) => {
     }
     else return [];
 }
+export const bookclubShowSelector = (bookclubs, allData, type) => {
+    if(bookclubs){
+        switch(type){
+            case "books":
+                return refSelector(bookclubs.books, allData);
+            case "users":
+                return refSelector(bookclubs.users, allData);
+            case "forums":
+                return refSelector(bookclubs.forums, allData);
+            default:
+                return [];
+        }
+    }
+    return [];
+}
+

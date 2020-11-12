@@ -6,7 +6,8 @@
 .user-show-content-container {
     display: flex;
     justify-content: space-between;
-    min-height: 1000px;
+    min-height: 500px;
+    background-color: #DDF1CA;
 }
 
 .left-side-user-show-container, 

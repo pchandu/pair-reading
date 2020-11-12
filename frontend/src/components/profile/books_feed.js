@@ -9,13 +9,26 @@ class BookFeed extends React.Component {
 
     componentDidMount() {
         this.props.clearBooksFilter();
-        this.props.fetchFilteredUserBooks(this.props.userId);
+        this.props.fetchFilteredOwnerBooks(this.props.ownerId);
     }
     componentDidUpdate(ownProps) {
-        if (ownProps.match && this.props.userId !== ownProps.match.params.userId) {
-            this.props.fetchFilteredUserBooks(this.props.userId);
+        if (ownProps.match){
+            let ownerId;
+            switch(this.props.owner){
+                case "user":
+                    ownerId = ownProps.match.params.userId;
+                    break;
+                case "bookclub":
+                    ownerId = ownProps.match.params.bookclubId;
+                    break;
+                default:
+                    ownerId = this.props.ownerId;
+                    break;
+            }
+            if(this.props.ownerId !== ownerId) {
+                this.props.fetchFilteredOwnerBooks(this.props.ownerId);
+            }
         }
-
     }
 
     render() {

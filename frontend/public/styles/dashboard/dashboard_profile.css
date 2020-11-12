@@ -27,23 +27,7 @@
 
 }
 
- .profile-label {
-    font-size: 20px;
-    color: rgb(42, 135, 147);
-    padding: 10px;
-    border-radius: 5px;
-    margin: 5px;
-}
-
-
-
-.profile-label {
-    color: #1d5e66;
-    background-color: #AFDC8B;
-
-}
 .profile-container {
-    padding: 5px;
     color: cadetblue;
     width: 100%;
 }

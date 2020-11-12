@@ -2,9 +2,6 @@ import React from "react";
 import ProfileContainer from "../profile/profile_container";
 import Calendar from "./calendar/calendar";
 import ReadOfTheDayContainer from './readOfTheDay/read_of_the_day'
-import MakeBookClubModal from "../profile/bookclubs/make_bookclub";
-
-import makeBookClubModal from '../profile/bookclubs/make_bookclub'
 
 import BookClubFeedContainer from '../profile/bookclubs_feed_container';
 import BooksFeedContainer from '../profile/books_feed_container';
@@ -14,9 +11,9 @@ import ProfilePreferences from "../profile/preferences_container";
 
 class DashBoard extends React.Component {
   componentDidMount(){
-    const body = document.getElementsByClassName("dashboard-content-container")[0];
-    body.classList.add(`session-img`)
-    body.classList.add(`background-${Math.floor(Math.random() * 8) + 1}`);
+    // const body = document.getElementsByClassName("dashboard-content-container")[0];
+    // body.classList.add(`session-img`)
+    // body.classList.add(`background-${Math.floor(Math.random() * 8) + 1}`);
   }
   componentWillUnmount() {
     this.props.removeAllUsers();
@@ -27,7 +24,6 @@ class DashBoard extends React.Component {
     return (
       <div className="outer-dashboard-container">
           <div className="dashboard-content-container">
-                <MakeBookClubModal />
                 <div className="left-side-dashboard-container">
                     < ProfileContainer />
                     < ProfilePreferences />
@@ -36,20 +32,23 @@ class DashBoard extends React.Component {
 
                 <div className="middle-side-dashboard-container">
 
-                    <h1 className="profile-label">Recent Post Activity</h1>
+                    <h1 className="dashboard-header">Recent Post Activity</h1>
                     <PostFeedContainer/>
 
+                    <h1 className="dashboard-header">Casual Reading of The Day!</h1>
                     < ReadOfTheDayContainer />
+
                 </div>
 
                 <div className="right-side-dashboard-container">
 
+                    <h1 className="dashboard-header">Calendar and Meeting Options</h1>
                     <Calendar />
 
-                    <h1 className="profile-label" >Books</h1>
+                    <h1 className="dashboard-header" >Books</h1>
                     <BooksFeedContainer />
 
-                    <h1 className="profile-label">Your bookclubs</h1>
+                    <h1 className="dashboard-header">Your bookclubs</h1>
                     <BookClubFeedContainer/>
 
                     <div className="right-side-dashboard-container">

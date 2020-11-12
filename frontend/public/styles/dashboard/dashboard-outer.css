@@ -6,6 +6,7 @@
 .dashboard-content-container {
     display: flex;
     justify-content: space-between;
+    background-color: #DDF1CA;
 }
 
 .left-side-dashboard-container, 
