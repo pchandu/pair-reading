@@ -1,4 +1,5 @@
 import React from 'react'
+import PostsForum from './posts_forum';
 
 
 class ForumShow extends React.Component {
@@ -10,20 +11,16 @@ class ForumShow extends React.Component {
     
     componentDidMount() {
         this.props.clearPostsFilter();
+        this.props.fetchForum(this.props.forumId);
         this.props.fetchFilteredForumPosts(this.props.forumId);
     }
 
     render() {
         debugger
-        const { posts } = this.props;
         return (
             <div className="forum-show-container">
-                <h1></h1>
-                <ul className = "forum-show-posts">
-                {Object.values(posts).map((post, i) => (
-                    <li key={i}>{post.body}</li>
-                ))}
-                </ul>
+                <h1>{this.props.forum.title}</h1>
+                <PostsForum props={this.props}/>
             </div>
         )
     }
