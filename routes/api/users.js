@@ -8,11 +8,12 @@ const validateRegisterInput = require('../../validation/register');
 const validateLoginInput = require('../../validation/login');
 const passport = require('passport')
 
-const _user = 'username email posts bookclubs books preferred_meeting_time'
+const _user = 'username email posts bookclubs books preferred_meeting_time invites'
 
 router.get("/test", (req, res) => res.json({ msg: "This is the users route" }));
 
 router.patch('/updateUser', (req, res) => {
+  // console.log(req.body)
   User.findById(req.body.user)
     .then(user => {
       if (user) {
@@ -23,6 +24,23 @@ router.patch('/updateUser', (req, res) => {
           .then( (user) => res.json(user) )
       } else {
         return res.json({ msg: "Something went wrong, captain."})
+      }
+    })
+})
+
+router.post('/refreshUserInfo', (req,res) => {
+  User.findById(req.body.user)
+    .then(user => {
+      if(user) {
+        res.json({
+          invites: user.invites,
+          books: user.books,
+          bookclubs: user.bookclubs,
+          posts: user.posts,
+          preferred_meetings_time: user.preferred_meeting_time
+        })
+      } else {
+        return res.json({ msg: "Not sure what happened."})
       }
     })
 })
@@ -85,7 +103,8 @@ router.post('/login', (req, res) => {
               books: user.books,
               bookclubs: user.bookclubs,
               posts: user.posts,
-              preferred_meeting_time: user.preferred_meeting_time
+              preferred_meeting_time: user.preferred_meeting_time,
+              invites: user.invites
           };
 
         jwt.sign(

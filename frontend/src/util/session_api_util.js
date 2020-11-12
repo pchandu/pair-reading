@@ -20,3 +20,7 @@ export const login = (userData) => {
 export const updateUser = (updatedUser) => {
     return axios.patch("api/users/updateUser", updatedUser)
 }
+
+export const refreshUserInfo = (loggedInUser) => {
+    return axios.post("api/users/refreshUserInfo", loggedInUser)
+}

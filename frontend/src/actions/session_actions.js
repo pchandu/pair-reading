@@ -7,6 +7,14 @@ export const RECEIVE_USER_LOGOUT = "RECEIVE_USER_LOGOUT";
 export const RECEIVE_USER_SIGN_IN = "RECEIVE_USER_SIGN_IN";
 export const UPDATE_USER_PREFERENCES = "UPDATE_USER_PREFERENCES"
 
+export const GET_UPDATE_USER_INFO = "GET_UPDATE_USER_INFO";
+
+// Retrieves user info from backed and returns OBJ of updated info
+export const updatedUserInfo = payload => ({
+  type: GET_UPDATE_USER_INFO,
+  payload
+})
+
 export const updateUserPreferences = payload => ({
   type: UPDATE_USER_PREFERENCES,
   payload
@@ -63,4 +71,9 @@ export const logout = () => (dispatch) => {
 
 export const updatePreferences = (updatedUser) => dispatch => {
   APIUtil.updateUser(updatedUser);
+}
+
+export const refreshLoggedInUserInfo = (loggedInUser) => dispatch => {
+  APIUtil.refreshUserInfo(loggedInUser)
+    .then(userInfo => dispatch(updatedUserInfo(userInfo)))
 }

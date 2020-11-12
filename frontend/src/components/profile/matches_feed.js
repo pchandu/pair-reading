@@ -83,23 +83,18 @@ class MatchFeed extends React.Component {
                 contentClassName="modal-bookclub-creation-content"
                 > 
 
-                <h1 className="modal-bookclub-header">Create a BookClub</h1>
-
-
-                
+                <h1 className="modal-bookclub-header">BookClub Creation</h1>   
                 
                 <form onSubmit={() => this.makeBookClub()} className="form-bookclub-creation">
-                    <input type="text" placeholder="Name"/>
+                    <input type="text" placeholder="Bookclub Name" />
 
                     <input 
                     type="submit" 
                     value={`Make bookclub and invite ${this.state.userEl.username}`} 
                     />
                 </form>
-                <button onClick={this.handleClose}>
-                Close
-                </button>
 
+                <button onClick={this.handleClose}>Close</button>
                 </Modal>
             </div>
         )

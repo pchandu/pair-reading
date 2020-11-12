@@ -17,6 +17,11 @@ class DashBoard extends React.Component {
   componentWillUnmount() {
     this.props.removeAllUsers();
   }
+  
+  componentWillMount(){
+    this.props.refreshUserInfo({user: "5fac6bba2e71864d8faefb79"});
+
+  }
 
 
   render() {
