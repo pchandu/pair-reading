@@ -12,7 +12,6 @@ class BookFeed extends React.Component {
         this.props.fetchFilteredOwnerBooks(this.props.ownerId);
     }
     componentDidUpdate(ownProps) {
-        debugger
         if (ownProps.match){
             let ownerId;
             switch(this.props.owner){
