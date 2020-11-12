@@ -2,8 +2,8 @@
         top: 20px;
         font-weight: 600;
         font-size: 85px;
-        color: #8cc85b;
-        background-color: #DDF1CA;
+        color: #1d5e66;
+        background-color: #AFDC8B;
         text-align: center;
         padding: 15px;
         border-radius: 15px;
@@ -25,7 +25,8 @@
   }
 
    .forum-index-forums-title {
-    background-color: rgb(66, 169, 182);
+    background-color: #67C3B2;
+
        width: 600px;
        height: 40px;
        padding: 5px;
@@ -39,6 +40,6 @@
 
 .forum-index-forums-title:hover {
     cursor: pointer;
-       background-color: cadetblue;
+     background-color: #47B6B4;
 
 }
