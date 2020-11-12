@@ -6,7 +6,7 @@ import {refSelector} from '../selectors/index_selectors'
 const mSTP = ({ entities: { users, books } }, { match }) => {
     const user = users[match.params.userId];
     return{
-    userId: match.params.userId,
+    ownerId: match.params.userId,
     user: user,
     books: refSelector(user?user.books:undefined, books)
 }};
@@ -14,7 +14,7 @@ const mSTP = ({ entities: { users, books } }, { match }) => {
 const mDTP = dispatch => ({
     clearBooksFilter: () => dispatch(clearBooksFilter()),
     changeBooksFilter: (filters) => dispatch(changeBooksFilter(filters)),
-    fetchFilteredUserBooks: (userId) => dispatch(fetchFilteredUserBooks(userId))
+    fetchFilteredOwnerBooks: (ownerId) => dispatch(fetchFilteredUserBooks(ownerId))
 });
 
 export default connect(mSTP, mDTP)(BookFeed)

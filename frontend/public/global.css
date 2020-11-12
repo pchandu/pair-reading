@@ -33,6 +33,7 @@
 @import url('styles/about.css');
 
 /* Bookclub */
+@import url('styles/bookclub_show.css');
 @import url('styles/bookclub.css');
 @import url('styles/book.css');
 
