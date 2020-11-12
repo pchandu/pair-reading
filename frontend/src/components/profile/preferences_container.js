@@ -5,7 +5,9 @@ import ProfilePreferences from './preferences';
 
 const mSTP = state => ({
     books: state.entities.books,
-    currentUser: state.session.user.id
+    currentUser: state.session.user.id,
+    preferred_books: state.session.user.books,
+    preferred_meeting_times: state.session.user.preferred_meeting_time
 });
 
 const mDTP = dispatch => ({

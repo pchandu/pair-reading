@@ -8,17 +8,14 @@ class ProfilePreferences extends React.Component {
         super(props)
         this.state = {
             show: false,
-            preferred_books:[],
-            preferred_meeting_times:{
-                M: false, // morning 
-                A: false, // afternoon
-                E: false  // evening
-            }
+            // preferred_books:[],
+            preferred_meeting_times: this.props.preferred_meeting_times
         }
 
         this.handleClose = this.handleClose.bind(this)
         this.handleShow = this.handleShow.bind(this)
         this.handleSave = this.handleSave.bind(this)
+        this.handlePreference = this.handlePreference.bind(this)
     }
 
     handleClose(){
@@ -36,33 +33,12 @@ class ProfilePreferences extends React.Component {
         this.handleClose();
     }
 
-    handleBook(bookId){
-        if(this.state.preferred_books.includes(bookId)) {
-            const index = this.state.preferred_books.indexOf(bookId);
-            var stateCopy = Object.assign({}, this.state);
-            let newBooks = [];
-            this.state.preferred_books.forEach((book) => {
-                if(book !== bookId){
-                    newBooks.push(book)
-                }
-            })
-
-            stateCopy.preferred_books = newBooks;
-            this.setState(stateCopy);
-        } else {
-            this.setState({preferred_books: this.state.preferred_books.concat(bookId)});
-        }
-    }
-
     //updates state to mirror user meeting time preferences
     handlePreference(preference){
         var stateCopy = Object.assign({}, this.state);
-        stateCopy.preferred_meeting_times[preference] = !this.state.preferred_meeting_times[preference];
+        // debugger
+        this.state.preferred_meeting_times[preference] = !this.state.preferred_meeting_times[preference];
         this.setState(stateCopy);
-    }
-
-    componentDidMount() {
-        this.props.fetchAllBooks();
     }
 
     render(){
@@ -71,13 +47,13 @@ class ProfilePreferences extends React.Component {
         
         return (
         <div className="Preferences-button">
-        <Button variant="primary" onClick={this.handleShow}>
+        <button variant="primary" onClick={this.handleShow} className="match-user-invite">
             Preferences
-        </Button>
+        </button>
 
         <Modal show={this.state.show} onHide={this.handleClose} contentClassName="preferences-modal-container">
             <Modal.Header closeButton>
-                <Modal.Title>Hello! Please select your new preferences.</Modal.Title>
+                <h1>Hello! Please select your new preferences.</h1>
             </Modal.Header>
             
             <form className="onboarding-form" onSubmit={this.handleContinue}>
@@ -108,23 +84,6 @@ class ProfilePreferences extends React.Component {
                             </a>
                         </li>
                     </ul>
-                    <h1>Please select what books you're interested in reading </h1>
-                    <div className="books-container">
-                        <ul className="books-ul">
-                            {Object.values(books).map((book, i) => {
-                                return (
-                                    <li className="book-index-item" key={i}>
-                                        <a onClick={() => this.handleBook(book._id)}>
-                                            <img src={`${book.imagePath}`} 
-                                            className={this.state.preferred_books.includes(book._id) ? 
-                                                `book-index-cover-photo selected-book-preference`
-                                                : `book-index-cover-photo`} />
-                                        </a>
-                                    </li>
-                                )
-                            })}
-                        </ul>
-                    </div>
                   {/* <input type="submit" value="Continue" className="onboarding-continue-button"></input> */}
                 </form>
 
