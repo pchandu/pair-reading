@@ -10,9 +10,9 @@ import MatchFeedContainer from '../profile/matches_feed_container';
 
 class DashBoard extends React.Component {
   componentDidMount(){
-    const body = document.getElementsByClassName("dashboard-content-container")[0];
-    body.classList.add(`session-img`)
-    body.classList.add(`background-${Math.floor(Math.random() * 8) + 1}`);
+    // const body = document.getElementsByClassName("dashboard-content-container")[0];
+    // body.classList.add(`session-img`)
+    // body.classList.add(`background-${Math.floor(Math.random() * 8) + 1}`);
   }
   componentWillUnmount() {
     this.props.removeAllUsers();

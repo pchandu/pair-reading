@@ -1,6 +1,7 @@
 .books-feed-container {
     width: 90%;
     background-color: unset;
+    margin: 0 auto;
 }
 .books-feed-container * {
     background-color: unset !important;

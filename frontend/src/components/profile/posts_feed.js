@@ -21,7 +21,9 @@ class PostFeed extends React.Component {
 
     render() {
         const posts = this.props.posts.map((el, i) =>
-            <Link key={i} to={`/posts/${el._id}`}>
+            // <Link key={i} to={`/posts/${el._id}`} style={{ textDecoration: 'none'}}>
+            <Link key={i} to={`/forums/${el.forum}`} style={{ textDecoration: 'none' }}>
+
                 <li key={i} className="posts-feed-list-item">
                     <p>{el.body}</p>
                 </li>
