@@ -1,0 +1,11 @@
+.bookclub-show-container {
+    border: 3px solid cadetblue;
+    border-radius: 5px;
+    width: 90%;
+    margin: 10px auto;
+    /*  */
+}
+.bookclub-users-list-item {
+    background-color: cadetblue;
+}
+
