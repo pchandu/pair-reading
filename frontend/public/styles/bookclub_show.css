@@ -43,9 +43,14 @@
 .bookclub-header {
     font-size: 30px;
     font-weight: bold;
+    display: inline-block;
+     color: #1d5e66;
 }
 .bookclub-title {
     font-size: 30px;
+    display: inline-block;
+    color: cadetblue;
+
 }
 .bookclub-forums-list {
     font-weight: normal;
