@@ -18,7 +18,7 @@ class ForumIndex extends React.Component {
         // debugger
         return (
             <div className="forum-index-container">
-                <h1>Welcome to the Forums!</h1>
+                <h1>Welcome to the Forums</h1>
                 <ul className="forum-index-forums">
                     {Object.values(forums).map((forum, i) => (
                         <Link to={`/forums/${forum._id}`}>

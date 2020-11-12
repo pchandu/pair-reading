@@ -5,20 +5,37 @@
         color: #8cc85b;
         background-color: #DDF1CA;
         text-align: center;
+        padding: 15px;
+        border-radius: 15px;
    } 
 
 
   .forum-index-container {
-      display: flex;
-      flex-direction: column;
+    display:flex;
+    align-items:center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 10px;
       
 
   }
 
+  .forum-index-forums {
+      padding: 20px;
+  }
+
    .forum-index-forums-title {
-       background-color: cadetblue;
+    background-color: rgb(66, 169, 182);
        width: 600px;
+       height: 40px;
        padding: 5px;
        margin: 5px;
        color: white;
+       border-radius: 5px;
    }
+
+.forum-index-forums-title:hover {
+    cursor: pointer;
+       background-color: cadetblue;
+
+}
