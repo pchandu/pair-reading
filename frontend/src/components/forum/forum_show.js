@@ -16,10 +16,10 @@ class ForumShow extends React.Component {
     }
 
     render() {
-        debugger
+        // debugger
         return (
             <div className="forum-show-container">
-                <h1>{this.props.forum.title}</h1>
+                <h1 className="forum-title">{this.props.forum.title}</h1>
                 <PostsForum props={this.props}/>
             </div>
         )
