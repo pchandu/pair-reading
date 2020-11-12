@@ -1,3 +1,33 @@
+.bookclub-users-container {
+    width: 100%;
+    height: 30%;
+}
+
+.bookclub-users-list * {
+    text-decoration: none !important;
+}
+.bookclub-users-list-item {
+    display: flex;
+    justify-content: center;
+}
+
+.bookclub-users-list-item > h2{
+    width: 90%;
+    color: #1d5e66;
+    background-color: #92CB63;
+
+    margin: 5px;
+    font-size: 20px;
+    padding: 5px;
+    text-decoration: none;
+    display: inline-block;
+    height: 30px;
+    border-radius: 5px;
+
+}
+
+
+
 .bookclub-show-container {
     border: 3px solid cadetblue;
     border-radius: 5px;
@@ -22,9 +52,6 @@
 }
 .bookclub-books-list *{
     font-weight: normal;
-}
-.bookclub-users-list-item {
-    background-color: cadetblue;
 }
 
 .left-side-user-show-container, 

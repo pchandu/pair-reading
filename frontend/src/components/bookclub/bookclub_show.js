@@ -51,9 +51,11 @@ class BookClubShow extends React.Component {
                 <div className="bookclub-show-content-container">
                 <div className="left-side-user-show-container">
                     <h1 className="profile-label">Members</h1>
+                    <div className="bookclub-users-container">
                     <ul className="bookclub-users-list">
                         {users}
-                    </ul>                    
+                    </ul>
+                    </div>
                 </div>
                 <div className="middle-side-user-show-container">
                     <h1 className="profile-label">Forums</h1>
