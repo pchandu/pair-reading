@@ -7,7 +7,7 @@ import { clearUsersFilter, changeUsersFilter, fetchFilteredBookClubUsers } from 
 import { refSelector, bookclubShowSelector } from '../selectors/index_selectors';
 
 const mSTP = ({ entities }, { match }) => {
-    debugger
+    // debugger
     return {
     bookclubId: match.params.bookclubId,
     bookclub: entities.bookclubs[match.params.bookclubId],

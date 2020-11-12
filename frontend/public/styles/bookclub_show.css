@@ -3,9 +3,35 @@
     border-radius: 5px;
     width: 90%;
     margin: 10px auto;
+    padding: 15px;
     /*  */
+}
+.bookclub-header {
+    font-size: 30px;
+    font-weight: bold;
+}
+.bookclub-title {
+    font-size: 30px;
+}
+.bookclub-forums-list {
+    font-weight: normal;
+}
+.bookclub-books-list *{
+    font-weight: normal;
 }
 .bookclub-users-list-item {
     background-color: cadetblue;
 }
 
+.left-side-user-show-container, 
+.middle-side-user-show-container,
+.right-side-user-show-container
+{
+    display:flex;
+    flex-direction:column;
+    width: 33%;
+    align-items: center;
+    margin: 10px;
+     border: cadetblue 3px solid;
+    border-radius: 5px;
+}

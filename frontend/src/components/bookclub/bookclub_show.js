@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import BooksFeedContainer from '../profile/books_feed_container';
+import BooksContainer from './books_bookclub_container';
 
 class BookClubShow extends React.Component {
 
@@ -15,7 +15,7 @@ class BookClubShow extends React.Component {
         this.props.clearUsersFilter();
         this.props.fetchBookClub(this.props.bookclubId);
         this.props.fetchFilteredBookClubForums(this.props.bookclubId);
-        this.props.fetchFilteredBookClubBooks(this.props.bookclubId);
+        // this.props.fetchFilteredBookClubBooks(this.props.bookclubId);
         this.props.fetchFilteredBookClubUsers(this.props.bookclubId);
     }
 
@@ -31,14 +31,14 @@ class BookClubShow extends React.Component {
         // )
         debugger
         const forums = this.props.forums.map((el, i) =>
-            <Link to={`/forums/${el._id}`}>
+            <Link key={i} to={`/forums/${el._id}`}>
                 <li key={i} className="bookclub-forums-list-item">
                     <h2>{el.title}</h2>
                 </li>
             </Link>
         )
         const users = this.props.users.map((el, i) =>
-            <Link to={`/users/${el._id}`}>
+            <Link key={i} to={`/users/${el._id}`}>
                 <li key={i} className="bookclub-users-list-item">
                     <h2>{el.username}</h2>
                 </li>
@@ -46,20 +46,26 @@ class BookClubShow extends React.Component {
         )
         return (
             <div className="bookclub-show-container">
-                <h1>BookClub - </h1>
-                <h2>{bookclub ? bookclub.title:""}</h2>
-                <h3>Forums</h3>
-                <ul className="bookclub-forums-list">
-                    {forums}
-                </ul>
-                <h3>Books</h3>
-                <ul className="bookclub-books-list">
-                    <BooksFeedContainer />
-                </ul>
-                <h3>Members</h3>
-                <ul className="bookclub-users-list">
-                    {users}
-                </ul>
+                <h1 className="bookclub-header">BookClub - </h1>
+                <h2 className="bookclub-title">{bookclub ? bookclub.title:""}</h2>
+                <div className="left-side-user-show-container">
+                    <h1 className="profile-label">Members</h1>
+                    <ul className="bookclub-users-list">
+                        {users}
+                    </ul>                    
+                </div>
+                <div className="middle-side-user-show-container">
+                    <h3>Forums</h3>
+                    <ul className="bookclub-forums-list">
+                        {forums}
+                    </ul>
+                </div>
+                <div className="right-side-user-show-container">
+                    <h1 className="profile-label" >Books</h1>
+                    <ul className="bookclub-books-list">
+                        <BooksContainer match={this.props.match} owner="bookclub" />
+                    </ul>
+                </div>
             </div>
         )
     }

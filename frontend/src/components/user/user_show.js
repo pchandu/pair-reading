@@ -45,15 +45,15 @@ class UserShow extends React.Component {
                     </ul>
                     </div>
                 </div>
-                <div className="left-side-user-show-container">
+                <div className="middle-side-user-show-container">
                     <h1 className="profile-label">Recent Post Activity</h1>
                     <ul className="user-show-posts">
                         <PostContainer match={this.props.match} />
                     </ul>
                 </div>
-                <div className="left-side-user-show-container">
+                <div className="right-side-user-show-container">
                     <h1 className="profile-label" >Books</h1>
-                        <BooksContainer match={this.props.match} />
+                        <BooksContainer match={this.props.match} owner="user"/>
                 </div>
             </div>
         )
