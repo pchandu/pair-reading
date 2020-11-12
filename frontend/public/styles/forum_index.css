@@ -2,8 +2,8 @@
         top: 20px;
         font-weight: 600;
         font-size: 85px;
-        color: #1d5e66;
-        background-color: #AFDC8B;
+        color: rgb(42, 135, 147);
+         background-color: #AFDC8B;
         text-align: center;
         padding: 15px;
         border-radius: 15px;
@@ -27,7 +27,7 @@
 
    .forum-index-forums-title {
     background-color: #67C3B2;
-
+        justify-content: flex-start;
        width: 600px;
        height: 40px;
        padding: 5px;
