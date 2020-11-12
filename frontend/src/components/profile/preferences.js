@@ -1,13 +1,13 @@
-import React from 'react';
-import BookIndex from '../books/book_index_container'
+import React from 'react'
+import Modal from 'react-bootstrap/Modal';
+import Button from 'react-bootstrap/Button';
+import Onboarding from '../onboarding/onboarding';
 
-class Onboarding extends React.Component {
-    constructor(props){
+class ProfilePreferences extends React.Component {
+    constructor(props) {
         super(props)
-        this.handleBook = this.handleBook.bind(this)
-        this.handlePreference = this.handlePreference.bind(this)
-        this.handleContinue = this.handleContinue.bind(this)
         this.state = {
+            show: false,
             preferred_books:[],
             preferred_meeting_times:{
                 M: false, // morning 
@@ -15,9 +15,27 @@ class Onboarding extends React.Component {
                 E: false  // evening
             }
         }
+
+        this.handleClose = this.handleClose.bind(this)
+        this.handleShow = this.handleShow.bind(this)
+        this.handleSave = this.handleSave.bind(this)
     }
 
-    //updates state to mirror user book preferences
+    handleClose(){
+        this.setState({show: false});
+    }
+    
+    handleShow(){
+        this.setState({show: true});
+    }
+
+    handleSave(e){
+        e.preventDefault();
+        const updatedUser = Object.assign({}, {user: this.props.currentUser} , this.state);
+        this.props.updateUser(updatedUser)
+        this.handleClose();
+    }
+
     handleBook(bookId){
         if(this.state.preferred_books.includes(bookId)) {
             const index = this.state.preferred_books.indexOf(bookId);
@@ -43,26 +61,26 @@ class Onboarding extends React.Component {
         this.setState(stateCopy);
     }
 
-    //sends PATCH to currentUSER
-    //redirects to dashboard page
-    handleContinue(e){
-        e.preventDefault();
-        const updatedUser = Object.assign({}, {user: this.props.currentUser} , this.state);
-        this.props.updateUser(updatedUser)
-        this.props.history.push("/dashboard");
-    }
-
     componentDidMount() {
         this.props.fetchAllBooks();
     }
-    
+
     render(){
         if (!this.props.books) return <div />
             const {books} = this.props;
+        
+        return (
+        <div className="Preferences-button">
+        <Button variant="primary" onClick={this.handleShow}>
+            Preferences
+        </Button>
 
-        return(
-            <div className="onboarding-container">
-                <form className="onboarding-form" onSubmit={this.handleContinue}>
+        <Modal show={this.state.show} onHide={this.handleClose} contentClassName="preferences-modal-container">
+            <Modal.Header closeButton>
+                <Modal.Title>Hello! Please select your new preferences.</Modal.Title>
+            </Modal.Header>
+            
+            <form className="onboarding-form" onSubmit={this.handleContinue}>
                     <h1>What time of day works best for you to meet with a partner?</h1>
                     <ul className="preferences-container"> 
                         <li className={this.state.preferred_meeting_times["M"] === true ? 
@@ -107,11 +125,23 @@ class Onboarding extends React.Component {
                             })}
                         </ul>
                     </div>
-                  <input type="submit" value="Continue" className="onboarding-continue-button"></input>
+                  {/* <input type="submit" value="Continue" className="onboarding-continue-button"></input> */}
                 </form>
-            </div>
-        )
+
+            <Modal.Footer>
+                <Button variant="secondary" onClick={this.handleClose}>
+                    Close
+                </Button>
+                <Button variant="primary" onClick={this.handleSave}>
+                    Save Changes
+                </Button>
+            </Modal.Footer>
+
+
+        </Modal>
+        </div>
+        );
     }
 }
 
-export default Onboarding;
+export default ProfilePreferences;
