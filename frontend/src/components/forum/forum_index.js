@@ -18,10 +18,11 @@ class ForumIndex extends React.Component {
         // debugger
         return (
             <div className="forum-index-container">
+                <h1>Welcome to the Forums!</h1>
                 <ul className="forum-index-forums">
                     {Object.values(forums).map((forum, i) => (
                         <Link to={`/forums/${forum._id}`}>
-                        <li key={i}>{forum.title}</li>
+                            <li className="forum-index-forums-title" key={i}>{forum.title}</li>
                         </Link>
                     ))}
                 </ul>

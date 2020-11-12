@@ -1,0 +1,24 @@
+   .forum-index-container > h1 {
+        top: 20px;
+        font-weight: 600;
+        font-size: 85px;
+        color: #8cc85b;
+        background-color: #DDF1CA;
+        text-align: center;
+   } 
+
+
+  .forum-index-container {
+      display: flex;
+      flex-direction: column;
+      
+
+  }
+
+   .forum-index-forums-title {
+       background-color: cadetblue;
+       width: 600px;
+       padding: 5px;
+       margin: 5px;
+       color: white;
+   }
