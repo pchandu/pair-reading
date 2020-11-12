@@ -40,16 +40,12 @@ class UserShow extends React.Component {
                             {email}
                         </div>
                     <h1 className="profile-label">Bookclubs</h1>
-                    <ul className="user-show-bookclubs">
                         <BookClubContainer match={this.props.match} />
-                    </ul>
                     </div>
                 </div>
                 <div className="middle-side-user-show-container">
                     <h1 className="profile-label">Recent Post Activity</h1>
-                    <ul className="user-show-posts">
                         <PostContainer match={this.props.match} />
-                    </ul>
                 </div>
                 <div className="right-side-user-show-container">
                     <h1 className="profile-label" >Books</h1>
