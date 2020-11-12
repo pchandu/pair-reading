@@ -57,9 +57,9 @@
     font-weight: normal;
 }
 
-.left-side-user-show-container, 
-.middle-side-user-show-container,
-.right-side-user-show-container
+.left-side-bookclub-show-container, 
+.middle-side-bookclub-show-container,
+.right-side-bookclub-show-container
 {
     display:flex;
     flex-direction:column;
@@ -76,5 +76,7 @@
 .bookclub-forums-list * {
     text-decoration: none !important;
 }
-
-
+/* .bookclub-forums-list-item{
+    background-color: red;
+}
+ */
