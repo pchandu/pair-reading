@@ -190,11 +190,12 @@ router.get('/:id/bookmatches', (req, res) => {
 });
 router.get('/:id/posts', (req, res) => {
   // console.log(req.query.recentCnt)
+  const cnt = { limit: req.query.recentCnt, offset: req.query.offset};
   User.findById(req.params.id)
     .then(user =>
       {
       console.log(filterPosts(req.query))
-        return nestedIndex(Post, user.posts, filterPosts(req.query), res, req.query.recentCnt)}
+        return nestedIndex(Post, user.posts, filterPosts(req.query), res, cnt)}
     )
     .catch(err => res.status(404).json({ nopostsfound: 'No posts found' }));
 });

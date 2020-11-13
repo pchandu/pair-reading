@@ -25,9 +25,10 @@ router.get('/:id', (req, res) => {
 router.get('/:id/posts', (req, res) => {
     // console.log(req.params.id)
     // console.log(req.query)
+    const cnt = { limit: req.query.recentCnt, offset: req.query.offset };
     Forum.findById(req.params.id)
         .then(forum => 
-            nestedIndex(Post, forum.posts,filterPosts(req.query), res, req.query.recentCnt)
+            nestedIndex(Post, forum.posts,filterPosts(req.query), res, cnt)
         )
         .catch(err => res.status(404).json({ noforumsfound: 'No forums found' }));
 });

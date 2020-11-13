@@ -47,5 +47,6 @@
 @import url('styles/posts.css');
 
 /* Forums */
+@import url('styles/crud_buttons.css');
 @import url('styles/forum_index.css');
 @import url('styles/forum_show.css');

@@ -6,10 +6,10 @@ export default ({props}) => {
     return <ul className="forum-show-posts">
         {Object.values(posts).map((post, i) => {
             const actions = (post.user === user.id) ? <div className="forum-show-post-actions">
-                <div>
+                <div className="edit-button">
                     <i className="fas fa-pen"></i>
                 </div>
-                <div>
+                <div className="delete-button">
                     <i className="fas fa-trash"></i>
                 </div>
             </div> : null;

@@ -1,0 +1,4 @@
+.edit-button:hover, .delete-button:hover {
+    color: red;
+    cursor: pointer;
+}

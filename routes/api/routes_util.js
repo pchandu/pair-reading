@@ -8,9 +8,8 @@ const nestedIndex = (Model, nestedData, query, res, limit) => {
     return nestedIndexBase(Model, nestedData, query, limit)
         .then(el => convert2POJO(res, el));
 }
-const nestedIndexBase = (Model, nestedData, query, limit) => {
-    // console.log(limit)
-    return Model.find(Object.assign({}, { '_id': { $in: nestedData } }, query)).limit(parseInt(limit))
+const nestedIndexBase = (Model, nestedData, query, {limit,offset}) => {
+    return Model.find(Object.assign({}, { '_id': { $in: nestedData } }, query)).limit(parseInt(limit)).skip(parseInt(offset))
 }
 
 const userMatches = (Model, data, res) => {
