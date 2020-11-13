@@ -28,6 +28,17 @@ router.patch('/updateUser', (req, res) => {
     })
 })
 
+router.patch("/userFollowBook", (req, res) => {
+  User.findById(req.body.user).then((user) => {
+    if (user) {
+      user.books = req.body.preferred_books;
+      user.save().then((user) => res.json(user));
+    } else {
+      return res.json({ msg: "Something went wrong, captain." });
+    }
+  });
+});
+
 router.post('/refreshUserInfo', (req,res) => {
   User.findById(req.body.user)
     .then(user => {
