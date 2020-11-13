@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 
 export default ({props}) => {
     const {posts, user} = props;
-    debugger
+    // debugger
     return <ul className="forum-show-posts">
         {Object.values(posts).map((post, i) => {
             const actions = (post.user === user.id) ? <div className="forum-show-post-actions">

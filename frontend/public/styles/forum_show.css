@@ -27,3 +27,41 @@ i {
     display: flex;
     flex-direction: row;
 }
+
+.forum-show-nav {
+    width: 100%;
+    margin: 10px auto;
+    display: flex;
+    justify-content: space-between;
+}
+.forum-show-pages li{
+    width: 20px;
+}
+.forum-show-pages {
+    margin: 0 auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+.forum-show-prev-btn:hover, .forum-show-nxt-btn:hover {
+    background-color: #8ab666;
+}
+.forum-show-prev-btn, .forum-show-nxt-btn {
+    background-color: #AFDC8B;
+    color: rgb(42, 135, 147);
+    width: 50px !important;
+    border-radius: 5px;
+    border: 1px solid cadetblue;
+    text-align: center;
+    padding: 5px 10px;
+    margin-right: 10px;
+    cursor: pointer;
+}
+.page-selected {
+    font-weight: 900;
+}
+.empty {
+    width: 50px !important;
+    margin-right: 10px;
+}

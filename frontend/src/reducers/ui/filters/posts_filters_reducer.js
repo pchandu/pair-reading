@@ -3,7 +3,8 @@ import { UPDATE_POSTS_FILTER, CLEAR_POSTS_FILTER } from '../../../actions/filter
 const defaultFilters = Object.freeze({
     keywords: null,
     recentDays: null,
-    recentCnt: null
+    recentCnt: null,
+    offset: null
 });
 
 const postsFilterReducer = (state = defaultFilters, action) => {
