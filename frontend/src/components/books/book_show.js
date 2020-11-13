@@ -6,6 +6,8 @@ class BookShow extends React.Component {
 
     constructor(props) {
         super(props)
+        this.userFollow = this.userFollow.bind(this);
+
     }
 
     componentDidMount(){
@@ -19,6 +21,17 @@ class BookShow extends React.Component {
         this.props.removeAllUsers();
     }
 
+    userFollow() {
+       let checkArr = Object.values(this.props.users).map(user => user._id);
+       if (checkArr.includes(this.props.currentUserId)) {
+            console.log('we exists yes')
+       }
+       else {
+            console.log("NaH BrO");
+
+       }
+    }
+
     render() {
         if (!this.props.books) return null
 
@@ -30,6 +43,10 @@ class BookShow extends React.Component {
                         <h1 className="book-show-title"> {this.props.books.title} </h1>
                         <h1 className="book-show-author"> by {this.props.books.author} </h1>
                         <p className="book-show-description"> {this.props.books.description} </p>
+                        <button className="book-show-follow-btn" onClick={this.userFollow}>{this.props.currentUserId}</button>
+                        
+                        
+
                     </div>
                    
                     
@@ -42,7 +59,7 @@ class BookShow extends React.Component {
                             return (
                                 <Link to={`/users/${user._id}`} style={{ textDecoration: 'none' }} >
                                     <li key={user._id }className="matched-user">
-                                        <button>{user.username}</button>      
+                                        <button>{user.username}</button> 
                                     </li>
                                 </Link>
                             )

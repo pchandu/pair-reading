@@ -11,7 +11,7 @@ const mSTP = (state, ownProps) => {
         books: state.entities.books[ownProps.match.params.bookId],
         bookId: ownProps.match.params.bookId,
         currentUserId: state.session.user.id,
-        users: state.entities.users
+        users: state.entities.users,
     }
     // match allows us to look in the url and extract the wild card
 };
