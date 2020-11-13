@@ -1,12 +1,25 @@
-const convert2POJO = (res,data) => {
+const convert2POJO = (res,data,cb) => {
     let pojo = {};
-    data.forEach(el => Object.assign(pojo, pojo, { [el._id]: el }))
-    return res.json(pojo)
+    const promises = [];
+    data.forEach(el => {
+        promises.push(
+        cb(el).then(
+        el2 => {
+            Object.assign(pojo, pojo, { [el2._id]: el2 })
+        })
+        )
+    })
+    // console.log(promises)
+    Promise.all(promises).then( values => {
+        // console.log(values)
+        return res.json(pojo)
+    })
+    // return res.json(pojo)
 }
-const nestedIndex = (Model, nestedData, query, res, cnt={limit:null,offset:null}) => {
-    console.log(nestedData)
+const nestedIndex = (Model, nestedData, query, res, cnt={limit:null,offset:null},cb) => {
+    // console.log(nestedData)
     return nestedIndexBase(Model, nestedData, query, cnt)
-        .then(el => convert2POJO(res, el));
+        .then(el => convert2POJO(res, el, cb));
 }
 const nestedIndexBase = (Model, nestedData, query, {limit,offset}) => {
     return Model.find(Object.assign({}, { '_id': { $in: nestedData } }, query)).limit(parseInt(limit)).skip(parseInt(offset))
