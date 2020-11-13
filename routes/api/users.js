@@ -39,7 +39,8 @@ router.post('/refreshUserInfo', (req,res) => {
           books: user.books,
           bookclubs: user.bookclubs,
           posts: user.posts,
-          preferred_meetings_time: user.preferred_meeting_time
+          preferred_meeting_time: user.preferred_meeting_time,
+          id: user.id
         })
       } else {
         return res.json({ msg: "Not sure what happened."})
