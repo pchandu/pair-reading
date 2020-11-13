@@ -43,6 +43,10 @@ const UserSchema = new Schema({
     ref: 'posts'
   }],
 
+  invites: [{
+      type: String
+  }]
+
 }, {
   timestamps: true
 })

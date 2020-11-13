@@ -2,6 +2,7 @@ import {
   RECEIVE_CURRENT_USER,
   RECEIVE_USER_LOGOUT,
   RECEIVE_USER_SIGN_IN,
+  GET_UPDATE_USER_INFO
 } from "../actions/session_actions";
 
 const initialState = {
@@ -27,6 +28,8 @@ const sessionReducer = (state = initialState, action) => {
         ...state,
         isSignedIn: true,
       };
+    case GET_UPDATE_USER_INFO:
+      return Object.assign({}, state, {user: action.payload.data});
     default:
       return state;
   }
