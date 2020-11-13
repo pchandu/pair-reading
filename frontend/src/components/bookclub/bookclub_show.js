@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import ForumCreate from '../forum/forum_create';
+import ForumCreate from '../forum/forum_create_container';
 import BooksContainer from './books_bookclub_container';
 
 class BookClubShow extends React.Component {

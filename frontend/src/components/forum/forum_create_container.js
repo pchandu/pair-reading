@@ -9,7 +9,7 @@ const mSTP = state => ({
 
 const mDTP = dispatch => ({
     clearForumsFilter: () => dispatch(clearForumsFilter()),
-    createForum: (newForum) => dispatch(createForum(newForum))
+    createForum: (newForum) => createForum(newForum)
 });
 
 export default connect(mSTP, mDTP)(ForumCreate)

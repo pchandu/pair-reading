@@ -12,8 +12,8 @@ export const fetchBookForums = (filters) => (bookId) => {
 export const fetchBookClubForums = (filters) => (bcId) => {
     return Axios.get(`/api/bookclubs/${bcId}/forums`, { params: filters })
 };
-export const createForum = (filters) => (forumData) => {
-    return Axios.post(`/api/forums/new`, { params: filters })
+export const createForum = (forumData) => {
+    return Axios.post(`/api/forums/new`, forumData)
 };
 
 

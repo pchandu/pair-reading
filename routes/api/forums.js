@@ -33,12 +33,12 @@ router.get('/:id/posts', (req, res) => {
 });
 
 router.post('/new', (req, res) => {
-    const { errors, isValid } = validateRegisterInput(req.body);
+    // const { errors, isValid } = validateRegisterInput(req.body);
 
-    if (!isValid) {
-        return res.status(400).json(errors);
-    }
-
+    // if (!isValid) {
+    //     return res.status(400).json(errors);
+    // }
+    console.log(req.body);
     Forum.findOne({ title: req.body.title })
         .then(forum => {
             if (forum) {
@@ -48,6 +48,11 @@ router.post('/new', (req, res) => {
                 const newForum = new Forum({
                     title: req.body.title
                 })
+
+                newForum.save()
+                    .then(forum => {
+                        res.status(200).json({message: "You have successfully made a forum."})
+                    })
             }
         })
 })
