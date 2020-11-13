@@ -75,7 +75,7 @@ router.post('/createBookClub',(req,res) => {
                         // Finds invitee and invites to bookclub
                         User.findOne({_id: req.body.invitee})
                         .then( user => {
-                        user.invites.push(newBookCub._id)
+                        user.invites.push(newBookClub._id)
                         user.save()
                         res.status(200).json({msg: "Successfully Created BookClub!", newBookClub})
                     })

@@ -22,18 +22,33 @@
 /* Bookclub Modal */
 
 .modal-bookclub-creation{
-    top: 40%;
     background: transparent;
-    height: 400px;
+    /* height: 85vh; */
+    height: 100%;
+}
+
+.modal-bookclub-dialog-class{
+    top: 30%;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    height: 250px;
+    width: 600px;
+    background-color: #c7eaab;
 }
 
 .modal-bookclub-creation-content{
     display:flex;
     flex-direction:column;
-    padding: 5px;
-}
+    height: 100%;
+    justify-content: space-between; 
+    background-color: #c7eaab;
+} 
 
 .modal-bookclub-header {
+    display:flex;
+    justify-content: center;
+    margin-top: 10px;
     font-size: 40px;
     font-weight: 600;
 }
@@ -41,4 +56,24 @@
 .form-bookclub-creation{
     display:flex;
     flex-direction: column;
+}
+
+.modal-bookclub-input-title{
+    width: 95%;
+    height: 45px;
+    border-radius: 5px;
+    margin: 5px;
+}
+
+.create-bookclub-button{
+    background-color: rgb(66, 169, 182);
+
+    height: 40px;
+    margin: 5px;
+    border-radius: 5px;
+    width: 95%;
+    color: rgb(221, 243, 247);
+
+    border-style: none;
+    font-family: 'Nunito', sans-serif;
 }

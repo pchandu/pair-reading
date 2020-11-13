@@ -53,12 +53,12 @@ class MatchFeed extends React.Component {
 
     makeBookClub(event){
         event.preventDefault();
-        debugger;
         this.props.makeBookClub({
             title: this.state.bookClubTitle,
             creator: this.props.userId,
             invitee: this.state.userEl
             })
+            .then( () => window.location.reload())
     }
 
     handleChange(field) {
@@ -96,25 +96,29 @@ class MatchFeed extends React.Component {
                 backdrop="static"
                 keyboard={false}
                 className="modal-bookclub-creation"
+                dialogClassName="modal-bookclub-dialog-class"
                 contentClassName="modal-bookclub-creation-content"
+                // style="display: flex;"
                 > 
 
-                <h1 className="modal-bookclub-header">BookClub Creation</h1>   
-                
+                <h1 className="modal-bookclub-header">Book Club Creation</h1>   
                 <form onSubmit={this.makeBookClub} className="form-bookclub-creation">
                     <input type="text" 
                     placeholder="Bookclub Name" 
                     value={this.state.bookClubTitle}
                     onChange={this.handleChange("bookClubTitle")}
+                    centered="true"
+                    className="modal-bookclub-input-title form-control" 
                     />
 
                     <input 
                     type="submit" 
-                    value={`Make bookclub and invite ${this.state.userEl.username}`} 
+                    value={`Make bookclub and invite ${this.state.userEl.username}`}
+                    className="create-bookclub-button btn btn-info" 
                     />
                 </form>
 
-                <button onClick={this.handleClose}>Close</button>
+                <button onClick={this.handleClose} className="create-bookclub-button btn btn-info">Close</button>
                 </Modal>
             </div>
         )
