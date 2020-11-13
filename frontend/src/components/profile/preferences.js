@@ -47,55 +47,55 @@ class ProfilePreferences extends React.Component {
         
         return (
         <div className="Preferences-button">
-        <button onClick={this.handleShow} className="preferences-button">
+        <button onClick={this.handleShow} className="dashboard-preferences-button">
             Preferences
         </button>
 
-        <Modal show={this.state.show} onHide={this.handleClose} contentClassName="preferences-modal-container">
-            <Modal.Header closeButton>
+        <Modal show={this.state.show} onHide={this.handleClose} contentClassName="preferences-modal-container"
+            className="actual-preferences-modal">
+            {/* <Modal.Header closeButton>
                 <h1>Hello! Please select your new preferences.</h1>
-            </Modal.Header>
+            </Modal.Header> */}
             
-            <form className="onboarding-form" onSubmit={this.handleContinue}>
+            <form className="dashboard-preferences-form" onSubmit={this.handleContinue}>
                     <h1>What time of day works best for you to meet with a partner?</h1>
-                    <ul className="preferences-container"> 
+                    <ul className="dashboard-preferences-container"> 
                         <li className={this.state.preferred_meeting_times["M"] === true ? 
-                                            `preferences selected-meeting-time`
-                                            : `preferences`}>
+                                            `dashboard-preferences selected-meeting-time`
+                                            : `dashboard-preferences`}>
                             <a onClick={() => this.handlePreference("M")}>
-                                <h2 className="preferences-time-of-day">Morning</h2>
-                                <p className="preferences-timing">(8am-12pm)</p>
+                                <h2 className="dashboard-preferences-time-of-day">Morning</h2>
+                                <p className="dashboard-preferences-timing">(8am-12pm)</p>
                             </a>
                         </li>
                         <li className={this.state.preferred_meeting_times["A"] === true ? 
-                                            `preferences selected-meeting-time`
-                                            : `preferences`}>
+                                            `dashboard-preferences selected-meeting-time`
+                                            : `dashboard-preferences`}>
                             <a onClick={() => this.handlePreference("A")}>
-                                <h2 className="preferences-time-of-day">Afternoon </h2>
-                                <p className="preferences-timing">(12pm-4pm)</p>
+                                <h2 className="dashboard-preferences-time-of-day">Afternoon </h2>
+                                <p className="dashboard-preferences-timing">(12pm-4pm)</p>
                             </a>
                         </li>
                         <li className={this.state.preferred_meeting_times["E"] === true ? 
-                                            `preferences selected-meeting-time`
-                                            : `preferences`}>
+                                            `dashboard-preferences selected-meeting-time`
+                                            : `dashboard-preferences`}>
                             <a onClick={() => this.handlePreference("E")}>
-                                <h2 className="preferences-time-of-day">Evening</h2>
-                                <p className="preferences-timing">(5pm-9pm)</p>
+                                <h2 className="dashboard-preferences-time-of-day">Evening</h2>
+                                <p className="dashboard-preferences-timing">(5pm-9pm)</p>
                             </a>
                         </li>
                     </ul>
                   {/* <input type="submit" value="Continue" className="onboarding-continue-button"></input> */}
                 </form>
 
-            <Modal.Footer>
-                <Button variant="secondary" onClick={this.handleClose}>
+            <div className="dashboard-preferences-modal-footer">
+                <button onClick={this.handleClose} className="dashboard-preferences-modal-cancelbtn">
                     Close
-                </Button>
-                <Button variant="primary" onClick={this.handleSave}>
+                </button>
+                <button onClick={this.handleSave} className="dashboard-preferences-modal-savebtn">
                     Save Changes
-                </Button>
-            </Modal.Footer>
-
+                </button>
+            </div>
 
         </Modal>
         </div>

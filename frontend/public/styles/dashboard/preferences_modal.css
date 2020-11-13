@@ -1,7 +1,90 @@
+.modal-dialog{
+    width: 100%;
+    border-radius: 5px;
+}
+
 .preferences-modal-container{
+    width: 100%;
+    
+}
+
+.actual-preferences-modal{
+    top: 40%;
+    background: transparent;
+    border-radius: 5px;
+}
+
+.modal-content{
     width: 100%;
 }
 
-.preferences-button {
+.dashboard-preferences-button {
+    /* height: 30px; */
+    padding: 10px;
+    border: none;
+    background-color: #42a9b6;
+    color: rgb(221, 243, 247);
+    border-radius: 5px;
     
+}
+
+.dashboard-preferences {
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+    justify-content: center;
+    width: 400px;
+    margin: 10px;
+    cursor: pointer;
+    border: 2px transparent solid;
+}
+
+.dashboard-preferences-form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.dashboard-preferences-form > h1 {
+    /* color: green; */
+    font-weight: 750;
+    margin-top: 10px;
+}
+
+.profile-email-and-preferences{
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.dashboard-preferences-modal-footer{
+    display: flex;
+    justify-content: center;
+}
+
+.dashboard-preferences-modal-footer > button {
+    padding: 8px;
+    margin: 2px;
+    border-radius: 5px;
+}
+
+.dashboard-preferences-container > li > a {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.dashboard-preferences-modal-savebtn {
+    background-color: #42a9b6;
+    border-color: #42a9b6;
+    color: rgb(221, 243, 247);
+}
+
+.dashboard-preferences-modal-cancelbtn {
+    background-color: lightslategray;
+    border-color: lightslategray;
+    color: rgb(221, 243, 247);
 }

@@ -1,5 +1,6 @@
 import React from 'react';
 import {Link} from 'react-router-dom'
+import ProfilePreferences from './preferences_container'
 
 class Profile extends React.Component {
     constructor(props){
@@ -18,10 +19,12 @@ class Profile extends React.Component {
                     {/* {this.props.user.id} */}
                     {this.props.user.username}
                 </div>
-                <div className="profile-email">
-                    {this.props.user.email}
+                <div className="profile-email-and-preferences">
+                    <div className="profile-email">
+                        {this.props.user.email}
+                    </div>
+                    < ProfilePreferences />
                 </div>
-
             </div>
         )  
     }

@@ -26,7 +26,6 @@ class DashBoard extends React.Component {
           <div className="dashboard-content-container">
                 <div className="left-side-dashboard-container">
                     < ProfileContainer />
-                    < ProfilePreferences />
                     <MatchFeedContainer/>
                 </div>
 
@@ -37,7 +36,6 @@ class DashBoard extends React.Component {
 
                     <h1 className="dashboard-header">Casual Reading of The Day!</h1>
                     < ReadOfTheDayContainer />
-
                 </div>
 
                 <div className="right-side-dashboard-container">
@@ -50,13 +48,6 @@ class DashBoard extends React.Component {
 
                     <h1 className="dashboard-header">Your bookclubs</h1>
                     <BookClubFeedContainer/>
-
-                    <div className="right-side-dashboard-container">
-                        <Calendar />
-                        <h1 className="profile-label">Bookclubs</h1>
-                        <BookClubFeedContainer/>
-                    </div>
-          
                 </div>
           
           </div>
