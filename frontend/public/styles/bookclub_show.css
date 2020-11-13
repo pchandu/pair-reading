@@ -33,16 +33,18 @@
 
 
 .bookclub-show-container {
-    border: 3px solid cadetblue;
+    /* border: 3px solid cadetblue; */
     border-radius: 5px;
     margin: 10px;
     padding: 15px;
+    
     /*  */
 }
 .bookclub-show-content-container{
     display: flex;
     justify-content: space-between;
     min-height: 500px;
+    height: 85vh;
 }
 
 .bookclub-header {
