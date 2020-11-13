@@ -8,11 +8,14 @@ class MatchFeed extends React.Component {
         super(props)
         this.state = {
             bookClubModal: false,
-            userEl: ''
+            userEl: '',
+            bookClubTitle: ''
         }
 
         this.showBookClubModal = this.showBookClubModal.bind(this)
         this.handleClose = this.handleClose.bind(this)
+        this.makeBookClub = this.makeBookClub.bind(this)
+        this.handleChange = this.handleChange.bind(this)
     }
 
     componentDidMount() {
@@ -49,7 +52,23 @@ class MatchFeed extends React.Component {
     }
 
     makeBookClub(event){
-        // event.preventDefault();
+        event.preventDefault();
+        debugger;
+        this.props.makeBookClub({
+            title: this.state.bookClubTitle,
+            creator: this.props.userId
+            })
+
+        // this.props.sendInvite({
+            
+        // })
+    }
+
+    handleChange(field) {
+        return (e) => 
+        this.setState({
+            [field]:e.currentTarget.value
+        })
     }
 
 
@@ -85,8 +104,12 @@ class MatchFeed extends React.Component {
 
                 <h1 className="modal-bookclub-header">BookClub Creation</h1>   
                 
-                <form onSubmit={() => this.makeBookClub()} className="form-bookclub-creation">
-                    <input type="text" placeholder="Bookclub Name" />
+                <form onSubmit={this.makeBookClub} className="form-bookclub-creation">
+                    <input type="text" 
+                    placeholder="Bookclub Name" 
+                    value={this.state.bookClubTitle}
+                    onChange={this.handleChange("bookClubTitle")}
+                    />
 
                     <input 
                     type="submit" 

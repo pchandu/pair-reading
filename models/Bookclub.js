@@ -17,7 +17,11 @@ const BookClubSchema = new Schema({
     users: [{
         type: Schema.Types.ObjectId,
         ref: 'users'
-    }]
+    }],
+    creator: {
+        type: Schema.Types.ObjectId,
+        ref: 'users'
+    }
 }, {
     timestamps: true
 });
