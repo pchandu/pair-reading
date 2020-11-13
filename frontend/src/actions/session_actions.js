@@ -87,6 +87,6 @@ export const refreshLoggedInUserInfo = (loggedInUser) => dispatch => {
     .then(userInfo => dispatch(updatedUserInfo(userInfo)))
 }
 
-export const userFollowBook = (updatedUser) => (dispatch) => {
+export const recieveUserFollowBook = (updatedUser) => (dispatch) => {
   APIUtil.userFollowBook(updatedUser);
 };
