@@ -21,13 +21,22 @@ class BookShow extends React.Component {
         this.props.removeAllUsers();
     }
 
+    toggleFollow() {
+        
+    }
+
     userFollow() {
+        let elem = document.getElementById("book-show-follow-btn");
        let checkArr = Object.values(this.props.users).map(user => user._id);
        if (checkArr.includes(this.props.currentUserId)) {
-            console.log('we exists yes')
+            // console.log('we exists yes');
+            elem.innerHTML = "Unfollow Book";
+            return true;
        }
        else {
-            console.log("NaH BrO");
+            // console.log("NaH BrO");
+            elem.innerHTML = "Follow Book";
+            return false;
 
        }
     }
@@ -43,10 +52,8 @@ class BookShow extends React.Component {
                         <h1 className="book-show-title"> {this.props.books.title} </h1>
                         <h1 className="book-show-author"> by {this.props.books.author} </h1>
                         <p className="book-show-description"> {this.props.books.description} </p>
-                        <button className="book-show-follow-btn" onClick={this.userFollow}>{this.props.currentUserId}</button>
+                        <button id="book-show-follow-btn" onClick={this.userFollow}>{this.userFollow ? "Unfollow Book" : "Follow Book"}</button>
                         
-                        
-
                     </div>
                    
                     

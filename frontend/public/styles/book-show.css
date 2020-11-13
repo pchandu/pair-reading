@@ -54,7 +54,7 @@
 
 }
 
-.book-show-follow-btn {
+#book-show-follow-btn {
     margin: 10px;
     height: 30px;
     background-color: darkcyan;
