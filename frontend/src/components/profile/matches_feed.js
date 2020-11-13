@@ -56,12 +56,9 @@ class MatchFeed extends React.Component {
         debugger;
         this.props.makeBookClub({
             title: this.state.bookClubTitle,
-            creator: this.props.userId
+            creator: this.props.userId,
+            invitee: this.state.userEl
             })
-
-        // this.props.sendInvite({
-            
-        // })
     }
 
     handleChange(field) {
