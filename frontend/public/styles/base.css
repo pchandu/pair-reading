@@ -29,6 +29,8 @@ time, mark, audio, video  {
 
 .app-middle-container {
     flex:1;
+    background-color: #DDF1CA;
+
 }
 
 

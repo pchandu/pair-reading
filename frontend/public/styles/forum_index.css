@@ -17,6 +17,8 @@
     flex-direction: column;
     padding: 10px;
     margin: 10px;
+    background-color: #DDF1CA;
+
       
 
   }
@@ -42,5 +44,10 @@
 .forum-index-forums-title:hover {
     cursor: pointer;
      background-color: #47B6B4;
+
+}
+
+.forum-index-forums {
+    background-color: #DDF1CA;
 
 }

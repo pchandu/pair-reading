@@ -34,10 +34,11 @@
 
 .bookclub-show-container {
     /* border: 3px solid cadetblue; */
-    border-radius: 5px;
-    margin: 10px;
+    /* border-radius: 5px; */
+    /* margin: 10px; */
     padding: 15px;
-    
+    background-color: #DDF1CA;
+
     /*  */
 }
 .bookclub-show-content-container{
@@ -45,6 +46,9 @@
     justify-content: space-between;
     min-height: 500px;
     height: 85vh;
+    background-color: #DDF1CA;
+
+
 }
 
 .bookclub-header {
@@ -53,6 +57,9 @@
     display: inline-block;
     color: #35757B;
     padding: 5px;
+    background-color: #DDF1CA;
+
+
 
 }
 
@@ -62,6 +69,8 @@
     font-weight: bold;
     color: #35757B;
     padding: 5px;
+    background-color: #DDF1CA;
+
 }
 
 .bookclub-forums-list {
@@ -85,10 +94,10 @@
     width: 33%;
     align-items: center;
     margin: 10px;
-    border: cadetblue 3px solid;
+    /* border: cadetblue 3px solid; */
     border-radius: 5px;
     /*  */
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.5);
 }
 
 
