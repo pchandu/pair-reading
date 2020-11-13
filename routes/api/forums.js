@@ -32,4 +32,24 @@ router.get('/:id/posts', (req, res) => {
         .catch(err => res.status(404).json({ noforumsfound: 'No forums found' }));
 });
 
+router.post('/new', (req, res) => {
+    const { errors, isValid } = validateRegisterInput(req.body);
+
+    if (!isValid) {
+        return res.status(400).json(errors);
+    }
+
+    Forum.findOne({ title: req.body.title })
+        .then(forum => {
+            if (forum) {
+                // Throw a 400 error if the forum title already exists
+                return res.status(400).json({title: "A forum has already registered with this title"})
+            } else {
+                const newForum = new Forum({
+                    title: req.body.title
+                })
+            }
+        })
+})
+
 module.exports = router;
