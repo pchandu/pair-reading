@@ -8,7 +8,7 @@ const Post = require('../../models/Post');
 // const validateTweetInput = require('../../validation/forums');
 
 const filterForums = require('../../filters/forums_filter')
-const filterPosts = require('../../filters/posts_filter')
+const {filterPosts} = require('../../filters/posts_filter')
 
 const { convert2POJO, nestedIndex } = require('../api/routes_util')
 
@@ -27,7 +27,7 @@ router.get('/:id/posts', (req, res) => {
     // console.log(req.query)
     Forum.findById(req.params.id)
         .then(forum => 
-            nestedIndex(Post, forum.posts,filterPosts(req.query), res)
+            nestedIndex(Post, forum.posts,filterPosts(req.query), res, req.query.recentCnt)
         )
         .catch(err => res.status(404).json({ noforumsfound: 'No forums found' }));
 });
