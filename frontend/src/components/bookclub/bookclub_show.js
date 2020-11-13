@@ -29,9 +29,8 @@ class BookClubShow extends React.Component {
         //         </li>
         //     </Link>
         // )
-        debugger
         const forums = this.props.forums.map((el, i) =>
-            <Link key={i} to={`/forums/${el._id}`}>
+            <Link key={i} to={`/forums/${el._id}`} className="bookclub-forums-list-link">
                 <li key={i} className="bookclub-forums-list-item">
                     <h2>{el.title}</h2>
                 </li>
@@ -46,7 +45,7 @@ class BookClubShow extends React.Component {
         )
         return (
             <div className="bookclub-show-container">
-                <h1 className="bookclub-header">BookClub - </h1>
+                <h1 className="bookclub-header">BookClub -</h1>
                 <h2 className="bookclub-title">{bookclub ? bookclub.title:""}</h2>
                 <div className="bookclub-show-content-container">
                 <div className="left-side-bookclub-show-container">
@@ -59,9 +58,11 @@ class BookClubShow extends React.Component {
                 </div>
                 <div className="middle-side-bookclub-show-container">
                     <h1 className="profile-label">Forums</h1>
-                    <ul className="bookclub-forums-list">
-                        {forums}
-                    </ul>
+                    <div className="bookclub-forums-container">
+                        <ul className="bookclub-forums-list">
+                            {forums}
+                        </ul>
+                    </div>
                 </div>
                 <div className="right-side-bookclub-show-container">
                     <h1 className="profile-label" >Books</h1>

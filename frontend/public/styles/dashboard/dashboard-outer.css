@@ -18,8 +18,10 @@
     width: 33%;
     align-items: center;
     margin: 10px;
-     border: cadetblue 3px solid;
+     /* border: cadetblue 3px solid; */
     border-radius: 5px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.5);
+
 }
 
 .left-side-dashboard-container {

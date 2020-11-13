@@ -9,13 +9,13 @@
 .bookclub-users-list-item {
     display: flex;
     justify-content: center;
+    
 }
 
 .bookclub-users-list-item > h2{
     width: 90%;
     color: #1d5e66;
     background-color: #92CB63;
-
     margin: 5px;
     font-size: 20px;
     padding: 5px;
@@ -23,36 +23,64 @@
     display: inline-block;
     height: 30px;
     border-radius: 5px;
+}
 
+.bookclub-users-list-item > h2:hover {
+    cursor: pointer;
+    background-color: #9CD170;
 }
 
 
 
 .bookclub-show-container {
-    border: 3px solid cadetblue;
-    border-radius: 5px;
-    margin: 10px;
+    /* border: 3px solid cadetblue; */
+    /* border-radius: 5px; */
+    /* margin: 10px; */
     padding: 15px;
+    background-color: #DDF1CA;
+
     /*  */
 }
 .bookclub-show-content-container{
     display: flex;
     justify-content: space-between;
     min-height: 500px;
+    height: 85vh;
+    background-color: #DDF1CA;
+
+
 }
+
 .bookclub-header {
     font-size: 30px;
     font-weight: bold;
+    display: inline-block;
+    color: #35757B;
+    padding: 5px;
+    background-color: #DDF1CA;
+
+
+
 }
+
 .bookclub-title {
     font-size: 30px;
+    display: inline-block;
+    font-weight: bold;
+    color: #35757B;
+    padding: 5px;
+    background-color: #DDF1CA;
+
 }
+
 .bookclub-forums-list {
     font-weight: normal;
 }
+
 .bookclub-books-list {
     padding-bottom: 15px;
 }
+
 .bookclub-books-list *{
     font-weight: normal;
 }
@@ -66,17 +94,36 @@
     width: 33%;
     align-items: center;
     margin: 10px;
-    border: cadetblue 3px solid;
+    /* border: cadetblue 3px solid; */
     border-radius: 5px;
     /*  */
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.5);
 }
 
 
 .bookclub-forums-list * {
     text-decoration: none !important;
 }
-/* .bookclub-forums-list-item{
-    background-color: red;
+
+.bookclub-forums-list-item > h2{
+    margin: 5px;
+    padding: 5px;
+    border-radius: 5px;
+    font-size: 20px;
+    color: white;
+    background-color: #67C3B2;
+    text-decoration: none;
+    height: 30px;
+    width: 98%;
+
 }
- */
+
+.bookclub-forums-list-item > h2:hover{
+     background-color: #47B6B4;
+    text-decoration: none;
+}
+
+.bookclub-forums-container {
+     width: 100%;
+    height: 30%;
+}
