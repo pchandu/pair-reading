@@ -19,7 +19,6 @@ export const fetchFilteredBookClubUsers = (bId) => (dispatch, getState) => {
 export const fetchFilteredBookUsers = (bId) => (dispatch, getState) => {
     return fetchBookUsers(getState().ui.filters.users)(bId)(dispatch);
 };
-
 export const fetchFilteredUserMatches = (userId) => (dispatch, getState) => {
     return fetchUserMatches(getState().ui.filters.users)(userId)(dispatch);
 };
@@ -28,4 +27,4 @@ export const fetchFilteredUserTimeMatches = (userId) => (dispatch, getState) => 
 };
 export const fetchFilteredUserBookMatches = (userId) => (dispatch, getState) => {
     return fetchUserBookMatches(getState().ui.filters.users)(userId)(dispatch);
-};
+}; 

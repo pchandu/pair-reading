@@ -7,6 +7,7 @@ import BookClubFeedContainer from '../profile/bookclubs_feed_container';
 import BooksFeedContainer from '../profile/books_feed_container';
 import PostFeedContainer from '../profile/posts_feed_container';
 import MatchFeedContainer from '../profile/matches_feed_container';
+import ProfilePreferences from "../profile/preferences_container";
 
 class DashBoard extends React.Component {
   componentDidMount(){
@@ -29,7 +30,7 @@ class DashBoard extends React.Component {
       <div className="outer-dashboard-container">
           <div className="dashboard-content-container">
                 <div className="left-side-dashboard-container">
-                    <ProfileContainer />
+                    < ProfileContainer />
                     <MatchFeedContainer/>
                 </div>
 
@@ -40,7 +41,6 @@ class DashBoard extends React.Component {
 
                     <h1 className="dashboard-header">Casual Reading of The Day!</h1>
                     < ReadOfTheDayContainer />
-
                 </div>
 
                 <div className="right-side-dashboard-container">
@@ -53,7 +53,6 @@ class DashBoard extends React.Component {
 
                     <h1 className="dashboard-header">Your bookclubs</h1>
                     <BookClubFeedContainer/>
-
                 </div>
           
           </div>

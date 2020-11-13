@@ -18,9 +18,10 @@
 
 
 .profile-email {
-    background-color: rgb(66, 169, 182);
+    /* background-color: rgb(66, 169, 182); */
     color: rgb(221, 243, 247);
-    font-size: 30px;
+    background-color: #42a9b6;
+    font-size: 15px;
     padding: 10px;
     border-radius: 5px;
     margin: 5px;
