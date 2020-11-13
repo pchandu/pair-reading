@@ -3,9 +3,9 @@ const convert2POJO = (res,data) => {
     data.forEach(el => Object.assign(pojo, pojo, { [el._id]: el }))
     return res.json(pojo)
 }
-const nestedIndex = (Model, nestedData, query, res, limit) => {
+const nestedIndex = (Model, nestedData, query, res, cnt={limit:null,offset:null}) => {
     console.log(nestedData)
-    return nestedIndexBase(Model, nestedData, query, limit)
+    return nestedIndexBase(Model, nestedData, query, cnt)
         .then(el => convert2POJO(res, el));
 }
 const nestedIndexBase = (Model, nestedData, query, {limit,offset}) => {
