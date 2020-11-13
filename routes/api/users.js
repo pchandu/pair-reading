@@ -33,6 +33,8 @@ router.post('/refreshUserInfo', (req,res) => {
     .then(user => {
       if(user) {
         res.json({
+          username: user.username,
+          email: user.email,
           invites: user.invites,
           books: user.books,
           bookclubs: user.bookclubs,

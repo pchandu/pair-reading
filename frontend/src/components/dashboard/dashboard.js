@@ -19,7 +19,7 @@ class DashBoard extends React.Component {
   }
   
   componentWillMount(){
-    this.props.refreshUserInfo({user: "5fac6bba2e71864d8faefb79"});
+    this.props.refreshUserInfo({user: this.props.currentUser["id"]});
 
   }
 

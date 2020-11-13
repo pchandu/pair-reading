@@ -29,7 +29,7 @@ const sessionReducer = (state = initialState, action) => {
         isSignedIn: true,
       };
     case GET_UPDATE_USER_INFO:
-      return Object.assign({}, state, action.payload.data);
+      return Object.assign({}, state, {user: action.payload.data});
     default:
       return state;
   }
