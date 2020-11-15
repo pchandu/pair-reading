@@ -5,10 +5,10 @@ class ForumCreate extends React.Component {
     constructor(props){
         super(props)
         this.state = {
-            show: false,
-            title: "",
             bookclub: this.props.bookclubId,
-            posts: []
+            posts: [],
+            show: false,
+            title: ""
         }
 
         this.handleClose = this.handleClose.bind(this)
@@ -19,9 +19,9 @@ class ForumCreate extends React.Component {
 
     handleClose(){
         console.log("does this work at least?")
-        // debugger
+        debugger
         this.setState({show: false});
-        // debugger
+        debugger
     }
     
     handleShow(){
