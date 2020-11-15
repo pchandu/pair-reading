@@ -4,7 +4,8 @@ import {clearForumsFilter} from '../../actions/filters/forum_filter_actions';
 import {createForum} from '../../util/forum_util'
 
 const mSTP = state => ({
-    forums: state.entities.forums
+    forums: state.entities.forums,
+    // bookclub: this. 
 });
 
 const mDTP = dispatch => ({

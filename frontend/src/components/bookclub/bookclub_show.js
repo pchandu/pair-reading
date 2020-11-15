@@ -63,7 +63,7 @@ class BookClubShow extends React.Component {
                     <div className="profile-label">
                         <h1>Forums</h1>     
                         <div>
-                            <ForumCreate />
+                            <ForumCreate bookclubId={this.props.bookclubId}/>
                         </div>
                     </div>
                     <div className="bookclub-forums-container">

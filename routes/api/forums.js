@@ -5,7 +5,7 @@ const passport = require('passport');
 
 const Forum = require('../../models/Forum');
 const Post = require('../../models/Post');
-// const validateTweetInput = require('../../validation/forums');
+const validateForumCreate = require('../../validation/forums');
 
 const filterForums = require('../../filters/forums_filter')
 const {filterPosts} = require('../../filters/posts_filter')
@@ -33,11 +33,11 @@ router.get('/:id/posts', (req, res) => {
 });
 
 router.post('/new', (req, res) => {
-    // const { errors, isValid } = validateRegisterInput(req.body);
+    const { errors, isValid } = validateForumCreate(req.body);
 
-    // if (!isValid) {
-    //     return res.status(400).json(errors);
-    // }
+    if (!isValid) {
+        return res.status(400).json(errors);
+    }
     console.log(req.body);
     Forum.findOne({ title: req.body.title })
         .then(forum => {
@@ -49,10 +49,14 @@ router.post('/new', (req, res) => {
                     title: req.body.title
                 })
 
-                newForum.save()
-                    .then(forum => {
-                        res.status(200).json({message: "You have successfully made a forum."})
-                    })
+                const associatedBookClub = BookClub.findOne({_id: req.body.bookclub}).then(
+                    bookclub => {
+                        newForum.bookclub = bookclub;
+                        return newForum;
+                    }
+                ).then((nf) => nf.save().then(forum => {res.status(200).json({message: "You have successfully made a forum."})
+                // newForum.save().then(forum => {res.status(200).json({message: "You have successfully made a forum."})
+                }))
             }
         })
 })

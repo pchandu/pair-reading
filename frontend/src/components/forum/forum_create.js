@@ -6,7 +6,9 @@ class ForumCreate extends React.Component {
         super(props)
         this.state = {
             show: false,
-            title: ""
+            title: "",
+            bookclub: this.props.bookclubId,
+            posts: []
         }
 
         this.handleClose = this.handleClose.bind(this)
@@ -16,7 +18,10 @@ class ForumCreate extends React.Component {
     }
 
     handleClose(){
+        console.log("does this work at least?")
+        debugger
         this.setState({show: false});
+        debugger
     }
     
     handleShow(){
@@ -25,8 +30,8 @@ class ForumCreate extends React.Component {
 
     handleCreate(e){
         e.preventDefault();
-        const newForum = Object.assign({}, {title: this.state.title})
-        debugger
+        const newForum = Object.assign({}, {title: this.state.title, bookclub: this.state.bookclub})
+        // debugger
         this.props.createForum(newForum)
         this.handleClose();
     }
