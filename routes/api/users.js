@@ -48,6 +48,10 @@ router.post('/refreshUserInfo', (req,res) => {
     })
 })
 
+router.post('/sendUserInvite', (req,res) => {
+  User.findById({id: req.body.id})
+})
+
 router.post('/register', (req, res) => {
  
   const { errors, isValid } = validateRegisterInput(req.body);
