@@ -5,6 +5,8 @@ class BookClubFeed extends React.Component {
 
     constructor(props) {
         super(props)
+
+        this.deleteBookClub = this.deleteBookClub.bind(this)
     }
 
     componentDidMount() {
@@ -18,21 +20,33 @@ class BookClubFeed extends React.Component {
 
     }
 
+    deleteBookClub(bookClubId){
+
+    }
+
     render() {
         const bookclubs = this.props.bookclubs.map((el, i) =>
-            <Link key={i} to={`/bookclubs/${el._id}`}>
-                <li key={i} className="bookclubs-feed-list-item">
+                <Link key={i} to={`/bookclubs/${el._id}`} className="bookclubs-feed-list-item">       
                     <h2>{el.title}</h2>
-                    <div>Members: {el.users.length}</div>
-                </li>
-            </Link>
+                    <div>
+                    {el.creator === this.props.userId ?
+
+                    <button 
+                    className="bookclubs-delete-button"
+                    onClick={() => this.deleteBookClub(el._id)}
+                    >
+                        DEL
+                    </button> 
+                    : ''}
+
+                    Members: ( {el.users.length} ) 
+                    </div>
+                </Link>
         )
         return (
-            <div className="bookclubs-feed-container">
-                <ul className="bookclubs-feed-list">
+            <ul className="bookclubs-feed-list">
                     {bookclubs}
-                </ul>
-            </div>
+            </ul>
         )
     }
 }

@@ -1,29 +1,42 @@
 .bookclubs-feed-list-item * {
     background-color: inherit;
 }
-.bookclubs-feed-list *:hover {
+
+.bookclubs-feed-list a:hover {
     text-decoration: none;
     background-color: rgb(80, 160, 170) !important;
 }
-.bookclubs-feed-list-item {
-    font-size: 15px;
+.bookclubs-feed-list-item{
+    font-size: 18px;
     background-color: rgb(119, 199, 209) !important;
     color: white;
     padding: 10px;
-    width: 80%;
+    width: 100%;
     margin: 5px auto;
     border-radius: 5px;
-    /*  */
     display: flex;
     flex-direction: row;
+    align-items:center;
     justify-content: space-between;
+}
+
+.bookclubs-feed-list{
+    width: 95%;
+    margin-bottom: 10px;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+}
+
+.bookclubs-feed-item-container{
+
 }
 
 /* Bookclub Modal */
 
 .modal-bookclub-creation{
     background: transparent;
-    /* height: 85vh; */
     height: 100%;
 }
 
