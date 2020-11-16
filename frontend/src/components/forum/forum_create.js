@@ -25,6 +25,7 @@ class ForumCreate extends React.Component {
     }
     
     handleShow(){
+        debugger
         this.setState({show: true});
     }
 
@@ -43,13 +44,14 @@ class ForumCreate extends React.Component {
     render(){
         
         return(
-        
-        <i className="fas fa-pen" onClick={this.handleShow}>
+        <>
+        <i className="fas fa-pen" onClick={this.handleShow} />
             <Modal show={this.state.show} onHide={this.handleClose} contentClassName="preferences-modal-container"
             className="actual-preferences-modal">
                 <form className="dashboard-preferences-form">
                     <h1>What would like your forum to be called?</h1>
                     <input type="text" value={this.state.title} onChange={this.handleChange}/>
+                </form>
                     <div className="dashboard-preferences-modal-footer">
                         <button onClick={this.handleClose} className="dashboard-preferences-modal-cancelbtn">
                             Close
@@ -58,12 +60,8 @@ class ForumCreate extends React.Component {
                             Create Forum
                         </button>
                     </div>
-                </form>
-
-        </Modal>
-
-        </i>
-        
+            </Modal>
+        </>
         )
         
     }
