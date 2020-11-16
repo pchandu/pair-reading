@@ -19,6 +19,10 @@ i {
 .forum-show-post-item {
     padding: 15px;
     border: 1px solid black;
+}
+.forum-show-post-upper {
+    padding: 15px;
+    border: 1px solid black;
     display: flex;
     flex-direction: row;
     justify-content: space-between;

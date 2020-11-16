@@ -30,7 +30,7 @@ router.get('/:id/posts', (req, res) => {
         // el.user = result.username;
         // console.log(el)
         // console.log(Object.assign({},el._doc,{user:result.username}))
-        return Object.assign({},el._doc,{user:result.username})
+        return Object.assign({},el._doc,{user:{_id: el.user, username:result.username}})
     })
     Forum.findById(req.params.id)
         .then(forum => 

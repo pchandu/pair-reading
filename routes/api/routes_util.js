@@ -2,12 +2,16 @@ const convert2POJO = (res,data,cb) => {
     let pojo = {};
     const promises = [];
     data.forEach(el => {
-        promises.push(
-        cb(el).then(
-        el2 => {
-            Object.assign(pojo, pojo, { [el2._id]: el2 })
-        })
-        )
+        if(cb)
+            promises.push(
+                cb(el).then(
+                el2 => {
+                    Object.assign(pojo, pojo, { [el2._id]: el2 })
+                })
+            )
+        else{
+            Object.assign(pojo, pojo, { [el._id]: el })
+        }
     })
     // console.log(promises)
     Promise.all(promises).then( values => {
