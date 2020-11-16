@@ -5,6 +5,9 @@ class BookClubFeed extends React.Component {
 
     constructor(props) {
         super(props)
+        this.state = {
+            updated: 0
+        }
 
         this.deleteBookClub = this.deleteBookClub.bind(this)
     }
@@ -17,7 +20,10 @@ class BookClubFeed extends React.Component {
         if (ownProps.match && this.props.userId !== ownProps.match.params.userId) {
             this.props.fetchFilteredUserBookClubs(this.props.userId);
         }
+    }
 
+    refreshComponentFromDashboard(){
+        this.setState({updated: (this.state.updated += 1) })
     }
 
     deleteBookClub(bookClubTitle){
@@ -29,7 +35,6 @@ class BookClubFeed extends React.Component {
                     title: bookClubTitle, 
                     creator: this.props.userId
                 })
-                    .then( res => alert(res.data.msg))
                     .then(this.props.fetchFilteredUserBookClubs(this.props.userId))
             }
         })

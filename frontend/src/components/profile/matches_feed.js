@@ -58,8 +58,9 @@ class MatchFeed extends React.Component {
             creator: this.props.userId,
             invitee: this.state.userEl
             })
-            .then( () => window.location.reload())
-    }
+            .then( this.setState({bookClubModal: false}) )
+            .then( window.location.reload() )
+        }
 
     handleChange(field) {
         return (e) => 

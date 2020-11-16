@@ -1,5 +1,8 @@
 import { connect } from 'react-redux'
-import { fetchFilteredUserBookClubs, clearBookClubsFilter, changeBookClubsFilter } from '../../actions/filters/bookclub_filter_actions';
+import { 
+    fetchFilteredUserBookClubs, 
+    clearBookClubsFilter, 
+    changeBookClubsFilter } from '../../actions/filters/bookclub_filter_actions';
 import BookClubFeed from './bookclubs_feed'
 import { refSelector } from '../selectors/index_selectors'
 import { deleteBookClub } from '../../util/bookclub_util';
