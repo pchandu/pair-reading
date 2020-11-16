@@ -18,6 +18,6 @@ export const makeBookClub = (bookClubData) => {
 }
 
 export const deleteBookClub = (bookClubData) => {
-    return Axios.delete(`/api/bookclubs/deleteBookClub`, bookClubData)
+    return Axios.delete(`/api/bookclubs/deleteBookClub`, {data: bookClubData})
 }
 

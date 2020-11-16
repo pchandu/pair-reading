@@ -20,7 +20,20 @@ class BookClubFeed extends React.Component {
 
     }
 
-    deleteBookClub(bookClubId){
+    deleteBookClub(bookClubTitle){
+        return ( e =>{
+            e.preventDefault();
+            e.stopPropagation();
+            if(window.confirm(`This will delete the Book Club named: ${bookClubTitle}`)){
+                this.props.deleteBookClub({
+                    title: bookClubTitle, 
+                    creator: this.props.userId
+                })
+                    .then( res => alert(res.data.msg))
+                    .then(this.props.fetchFilteredUserBookClubs(this.props.userId))
+            }
+        })
+
 
     }
 
@@ -33,7 +46,7 @@ class BookClubFeed extends React.Component {
 
                     <button 
                     className="bookclubs-delete-button"
-                    onClick={() => this.deleteBookClub(el._id)}
+                    onClick={this.deleteBookClub(el.title)}
                     >
                         DEL
                     </button> 
