@@ -98,7 +98,6 @@ class MatchFeed extends React.Component {
                 className="modal-bookclub-creation"
                 dialogClassName="modal-bookclub-dialog-class"
                 contentClassName="modal-bookclub-creation-content"
-                
                 > 
 
                 <h1 className="modal-bookclub-header">Book Club Creation</h1>   
