@@ -11,16 +11,28 @@
   grid-template-columns: repeat(3, 1fr);
 }
 
-.book-show-all-ul > div{
-    background-color: mintcream;
+.book-show-all-item {
+    background-color: white !important;
     color: red;
     padding: 5px;
+    margin: 5px;
     /* height: 300px; */
     /* width: 300px; */
 }
 
+.book-show-all-item:hover {
+    background-color: rgba(255, 255, 255, 0.788) !important;
+
+}
+
 .book-show-all-title {
     color: blue !important;
+    /* background-color: white !important; */
+}
+
+.book-show-all-author {
+    /* background-color: white !important; */
+
 }
 
 .book-show-all-cover-photo {

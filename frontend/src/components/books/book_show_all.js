@@ -21,14 +21,12 @@ class BookShowAll extends React.Component {
             {Object.values(books).map((book, i) => {
             return (
                 <div className="book-show-all-item" key={i}>
-                <img
-                    src={`${book.imagePath}`}
-                    className="book-show-all-cover-photo"
-                />
-                <div>
+                    <img
+                        src={`${book.imagePath}`}
+                        className="book-show-all-cover-photo"
+                    />
                     <h1 className="book-show-all-title">{book.title}</h1>
                     <h2 className="book-show-all-author">by {book.author}</h2>
-                </div>
                 </div>
             );
             })}
