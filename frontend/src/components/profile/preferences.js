@@ -8,7 +8,7 @@ class ProfilePreferences extends React.Component {
         super(props)
         this.state = {
             show: false,
-            // preferred_books:[],
+            preferred_books: this.props.preferred_books,
             preferred_meeting_times: this.props.preferred_meeting_times
         }
 
