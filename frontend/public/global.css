@@ -20,6 +20,8 @@
 
 /* Books */
 @import url('styles/book-show.css');
+@import url('styles/book_show_all.css');
+
 /* Homepage */
 
 @import url('styles/homepage/carousel.css');

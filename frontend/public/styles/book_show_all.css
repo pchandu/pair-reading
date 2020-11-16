@@ -1,0 +1,29 @@
+.book-show-all-div {
+
+
+}
+
+.book-show-all-ul {
+    /* background-color: darkcyan; */
+    color: white;
+        /* background-color: orange; */
+   display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.book-show-all-ul > div{
+    background-color: mintcream;
+    color: red;
+    padding: 5px;
+    /* height: 300px; */
+    /* width: 300px; */
+}
+
+.book-show-all-title {
+    color: blue !important;
+}
+
+.book-show-all-cover-photo {
+    height: 250px;
+    width: auto;
+}
