@@ -23,25 +23,34 @@ class BookShow extends React.Component {
         this.props.removeAllUsers();
     }
 
-    toggleFollow() {
+    toggleFollow(bookId) {
         // debugger
       let elem = document.getElementById("book-show-follow-btn");
       if (elem.innerHTML === "Unfollow Book"){
-        console.log('we exists yes');
+        // console.log('we exists yes');
+        
 
         elem.innerHTML = "Follow Book";
       }
       else if (elem.innerHTML === "Follow Book") {
-        console.log("NaH BrO");
+        // console.log("NaH BrO");
+        // console.log(bookId);
+
 
         elem.innerHTML = "Unfollow Book";
         // console.log(this.props);
       }
 
-    }
+      this.props.userFollowBook({
+        user: this.props.currentUserId,
+        book: bookId,
+      });
+
+    };
+    
 
     userFollow() {
-       let checkArr = Object.values(this.props.users).map(user => user._id);
+       let checkArr = Object.values(this.props.users).map(user => user._id)
        if (checkArr.includes(this.props.currentUserId)) {
             // console.log('we exists yes');
             // elem.innerHTML = "Unfollow Book";
@@ -53,7 +62,7 @@ class BookShow extends React.Component {
             return false;
 
        }
-    }
+    };
 
     render() {
         if (!this.props.books) return null
@@ -66,7 +75,7 @@ class BookShow extends React.Component {
                         <h1 className="book-show-title"> {this.props.books.title} </h1>
                         <h1 className="book-show-author"> by {this.props.books.author} </h1>
                         <p className="book-show-description"> {this.props.books.description} </p>
-                        <button id="book-show-follow-btn" onClick={this.toggleFollow}>{this.userFollow() ? "Unfollow Book" : "Follow Book"}</button>
+                        <button id="book-show-follow-btn" onClick={() => this.toggleFollow(this.props.books._id)}>{this.userFollow() ? "Unfollow Book" : "Follow Book"}</button>
                         
                     </div>
                    
