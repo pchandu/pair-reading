@@ -5,7 +5,7 @@ class FrontPageRight extends React.Component {
         super(props)
         window.addEventListener("scroll", () => {
             let scrollPos = window.scrollY;
-            if(scrollPos >= 1000){
+            if(scrollPos >= 1200){
                 let imgEle = document.getElementById('front-page-right-container-img')
                 imgEle.classList.add("fadeIn")
             }

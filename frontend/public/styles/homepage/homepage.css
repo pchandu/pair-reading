@@ -70,6 +70,7 @@
     align-items: center;
     justify-content: center;
     width: 60%;
+    margin-top:100px;
 }
 
 .front-page-dashboard-container-img {
@@ -97,14 +98,15 @@
     display:flex;
     justify-content: space-between;
     width: 60%;
-    margin-bottom: 20px;
-    margin-top: 20px;
+    margin-bottom: 200px;
+    margin-top: 200px;
 }
 
 .front-page-right-container-img,
 .front-page-left-container-img {
-    width: 60%;
+    max-width: 100%;
     visibility: hidden ;
+    object-fit: contain;
 }
 
 .front-page-right-text-container,
