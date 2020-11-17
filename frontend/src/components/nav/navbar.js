@@ -68,6 +68,14 @@ class NavBar extends React.Component {
                     </button>
                 </Link>
               </li>
+
+                <li className="nav-item">
+                <Link to="/book-show-all">
+                  <button type="button" className="navbar-btn btn btn-info">
+                    All Books
+                    </button>
+                </Link>
+              </li>
               
                 <li className="nav-item">
                     <button className="navbar-btn btn btn-info" onClick={() => this.props.logout()}>Sign Out</button>

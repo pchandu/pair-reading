@@ -4,7 +4,8 @@
     align-items: center;
     justify-content: center;
     padding: 10px;
-    height: 50%;
+    /* height: 50%; */
+    height: 100vh;
     width: 100%;
    /* position: relative; */
 }
@@ -20,15 +21,14 @@
 .book-show-cover-photo {
     border-color: black;
     padding: 10px;
-    padding-top: 50px;
     width: 600px;
     height: auto;
 
 }
 
 .book-show-title {
-    font-size: xx-large;
-    font-weight: 900;
+    font-size: 50px;
+    font-weight: 600;
     margin-bottom: 10px;
 }
 
@@ -42,6 +42,7 @@
     line-height: 1.5;
 }
 
+
 .book-show-info-container {
     display: flex;
     align-items: center;
@@ -51,6 +52,15 @@
     padding: 20px;
     width: 70%;
 
+}
+
+#book-show-follow-btn {
+    margin: 10px;
+    height: 30px;
+    background-color: darkcyan;
+    color: white;
+    border: none;
+    border-radius: 5px;
 }
 
 .user-match-container {

@@ -1,0 +1,38 @@
+
+.book-show-all-ul{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    height: 80vh;
+}
+
+.book-show-all-item-div {
+    height: 275px;
+    padding: 5px;
+    margin: 5px;
+    border-radius: 5px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+     background-color: 	rgb(244, 250, 237) !important;
+    display: flex;
+    flex-direction: row;
+    border: 3px transparent solid;
+}
+
+
+.book-show-all-text {
+    padding: 10px;
+     background-color: 	rgb(244, 250, 237) !important;
+}
+
+.book-show-all-text  > p{
+     background-color: 	rgb(244, 250, 237) !important;
+}
+
+.book-show-all-item-div:hover{
+    border: cadetblue 3px solid;
+    /* background-color: red !important; */
+}
+
+.book-show-all-cover-photo {
+    height: 250px;
+    width: auto;
+}
