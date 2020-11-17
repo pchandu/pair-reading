@@ -3,6 +3,12 @@ import React from 'react'
 import Logo from '../../../PR-Logo.png';
 
 class FrontPageTop extends React.Component {
+    constructor(props){
+        super(props)
+
+
+    }
+
     render(){
         return(
             <div className="front-page-top-container">

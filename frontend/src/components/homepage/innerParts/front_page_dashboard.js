@@ -7,7 +7,7 @@ class FrontPageDashboard extends React.Component {
 
         window.addEventListener("scroll", () => {
             let scrollPos = window.scrollY;
-            if(scrollPos >= 200){
+            if(scrollPos >= 400){
                 let imgEle = document.getElementById('front-page-dashboard-image')
                 imgEle.classList.add("fadeIn")
             }
