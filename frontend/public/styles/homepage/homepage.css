@@ -142,11 +142,12 @@
     display: flex;
     align-items: center;
     flex-direction: column;
+    width: 60%;
 }
 
 .front-page-signup-container > p{
-    font-size:60px;
-    font-weight: 500;
+    font-size:38px;
+    font-weight: 600;
     color: #2a8793;
     margin-top: 20px;
 }
@@ -155,16 +156,17 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 400px;
-    height: 150px;
-    font-size: 60px;
+    width: 250px;
+    height: 100px;
+    font-size: 30px;
     font-weight: 600;
     background-color: #8cc85b;
     color: rgb(221, 243, 247);
     text-decoration: none;
     border-radius: 10px;
-    margin: 10px;
-    padding: 10px;
+    margin-top: 40px;
+    margin-bottom: 40px;
+    /* padding: 10px; */
 }
 
 .front-page-signup-link:hover {

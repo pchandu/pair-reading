@@ -35,7 +35,7 @@ class CarouselItem extends React.Component {
                 </Carousel.Item>
                 <Carousel.Item >
                     <div className="carousel-item-container">
-                    <img src={AlexzanderArchibeque} alt="Alexzander"/>
+                    <img src={AlexzanderArchibeque} alt="Alexzander" className="alex-picture-carousel"/>
                     <Carousel.Caption>
                     <h3>Alexzander</h3>
                     <h2>Enjoys reading while drinking coffee in the morning.</h2>
