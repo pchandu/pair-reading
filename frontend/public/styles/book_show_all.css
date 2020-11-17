@@ -1,38 +1,26 @@
-.book-show-all-div {
 
-
+.book-show-all-ul{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
 }
 
-.book-show-all-ul {
-    /* background-color: darkcyan; */
-    color: white;
-        /* background-color: orange; */
-   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-}
-
-.book-show-all-item {
-    background-color: white !important;
-    color: red;
+.book-show-all-item-div {
     padding: 5px;
     margin: 5px;
-    /* height: 300px; */
-    /* width: 300px; */
-}
-
-.book-show-all-item:hover {
-    background-color: rgba(255, 255, 255, 0.788) !important;
+    border-radius: 5px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);;
+    display: flex;
+    flex-direction: row;
 
 }
 
-.book-show-all-title {
-    color: blue !important;
-    /* background-color: white !important; */
+
+.book-show-all-text:hover {
+    background-color: white;
 }
 
-.book-show-all-author {
-    /* background-color: white !important; */
-
+.book-show-all-item-div:hover{
+    background-color: red !important;
 }
 
 .book-show-all-cover-photo {

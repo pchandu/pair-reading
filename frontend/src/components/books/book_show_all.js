@@ -16,22 +16,28 @@ class BookShowAll extends React.Component {
     const { books } = this.props;
 
     return (
-        <div className="book-show-all-div">
-        <div className="book-show-all-ul">
-            {Object.values(books).map((book, i) => {
+      <div>
+        <ul className="book-show-all-ul">
+          {Object.values(books).map((book, i) => {
             return (
-                <div className="book-show-all-item" key={i}>
+              <Link className="book-show-all-link" key={i} to={`/books/${book._id}`}>
+               
+                  <div className="book-show-all-item-div">
                     <img
-                        src={`${book.imagePath}`}
-                        className="book-show-all-cover-photo"
+                      src={`${book.imagePath}`}
+                      className="book-show-all-cover-photo"
                     />
-                    <h1 className="book-show-all-title">{book.title}</h1>
-                    <h2 className="book-show-all-author">by {book.author}</h2>
-                </div>
+                    <div className="book-show-all-text">
+                        <p className="book-show-all-title">{book.title}</p>
+                        <p className="book-show-all-author">by {book.author}</p>
+                    </div>
+                  </div>
+                
+              </Link>
             );
-            })}
-        </div>
-        </div>
+          })}
+        </ul>
+      </div>
     );
   }
 }
