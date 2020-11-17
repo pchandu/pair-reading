@@ -1,7 +1,7 @@
 .signup-div,
 .login-div {
     width: 100%;
-    height: 80vh;
+    height: 95vh;
     font-family: 'Nunito', sans-serif;
     display:flex;
     align-items:center;
@@ -15,9 +15,6 @@
     font-weight: 600;
     font-size: 40px;
     color: #8cc85b;
-    /* background-color: #8cc85b;
-    padding: 10px;
-    border-radius: 5px; */
 }
 
 
