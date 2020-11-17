@@ -31,13 +31,14 @@ class BookClubFeed extends React.Component {
             e.preventDefault();
             e.stopPropagation();
             if(window.confirm(`This will delete the Book Club named: ${bookClubTitle}`)){
+                debugger;
                 this.props.deleteBookClub({
                     title: bookClubTitle, 
                     creator: this.props.userId
                 })
                     .then(this.props.fetchFilteredUserBookClubs(this.props.userId))
             }
-        })
+        }).bind(this)
 
 
     }
