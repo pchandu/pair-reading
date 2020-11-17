@@ -5,10 +5,12 @@ import { fetchFilteredBookClubForums, clearForumsFilter, changeForumsFilter } fr
 import { clearBooksFilter, changeBooksFilter, fetchFilteredBookClubBooks } from '../../actions/filters/book_filter_actions';
 import { clearUsersFilter, changeUsersFilter, fetchFilteredBookClubUsers } from '../../actions/filters/user_filter_actions';
 import { refSelector, bookclubShowSelector } from '../selectors/index_selectors';
+import { deleteBookClub } from '../../util/bookclub_util'
 
-const mSTP = ({ entities }, { match }) => {
+const mSTP = ({ entities, session }, { match }) => {
     // debugger
     return {
+    userId: session.user.id,
     bookclubId: match.params.bookclubId,
     bookclub: entities.bookclubs[match.params.bookclubId],
     books: bookclubShowSelector(entities.bookclubs[match.params.bookclubId], entities.books,"books"),
@@ -29,6 +31,8 @@ const mDTP = dispatch => ({
     clearUsersFilter: () => dispatch(clearUsersFilter()),
     changeUsersFilter: (filter,value) => dispatch(changeUsersFilter(filter,value)),
     fetchFilteredBookClubUsers: (id) => dispatch(fetchFilteredBookClubUsers(id)),
+
+    deleteBookClub: (bookClubData) => deleteBookClub(bookClubData)
 
 });
 

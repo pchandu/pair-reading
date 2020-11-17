@@ -86,11 +86,11 @@ router.post('/createBookClub',(req,res) => {
 })
 
 router.delete('/deleteBookClub', (req,res) => {
-    BookClub.findOne({title: req.body.title})
+    BookClub.findOne({title: req.body.title })
         .then( bookClub => {
             if(bookClub){
                 // Have to send back creator as a string
-                if(JSON.stringify(bookClub['creator']) === req.body.creator){
+                if(JSON.stringify(bookClub.creator) === `"${req.body.creator}"`){
                     let stripped_string = req.body.creator.replace(/\"/g, "") 
                     User.findOne({_id: stripped_string})
                         .then( user => { 

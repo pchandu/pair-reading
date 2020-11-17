@@ -58,8 +58,9 @@ class MatchFeed extends React.Component {
             creator: this.props.userId,
             invitee: this.state.userEl
             })
-            .then( () => window.location.reload())
-    }
+            .then( this.setState({bookClubModal: false}) )
+            .then( window.location.reload() )
+        }
 
     handleChange(field) {
         return (e) => 
@@ -98,7 +99,6 @@ class MatchFeed extends React.Component {
                 className="modal-bookclub-creation"
                 dialogClassName="modal-bookclub-dialog-class"
                 contentClassName="modal-bookclub-creation-content"
-                
                 > 
 
                 <h1 className="modal-bookclub-header">Book Club Creation</h1>   

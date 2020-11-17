@@ -197,7 +197,7 @@ router.get('/:id/posts', (req, res) => {
   User.findById(req.params.id)
     .then(user =>
       {
-      console.log(filterPosts(req.query))
+      // console.log(filterPosts(req.query))
         return nestedIndex(Post, user.posts, filterPosts(req.query), res, req.query.recentCnt)}
     )
     .catch(err => res.status(404).json({ nopostsfound: 'No posts found' }));
