@@ -2,13 +2,16 @@
 .book-show-all-ul{
     display: grid;
     grid-template-columns: repeat(3, 1fr);
+    height: 80vh;
 }
 
 .book-show-all-item-div {
+    height: 275px;
     padding: 5px;
     margin: 5px;
     border-radius: 5px;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+     background-color: 	rgb(244, 250, 237) !important;
     display: flex;
     flex-direction: row;
     border: 3px transparent solid;
@@ -16,8 +19,14 @@
 }
 
 
-.book-show-all-text:hover {
-    /* background-color: white; */
+
+
+.book-show-all-text {
+     background-color: 	rgb(244, 250, 237) !important;
+}
+
+.book-show-all-text  > p{
+     background-color: 	rgb(244, 250, 237) !important;
 }
 
 .book-show-all-item-div:hover{

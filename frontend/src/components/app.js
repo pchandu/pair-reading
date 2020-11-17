@@ -53,7 +53,7 @@ const App = () => (
 
     
       <Route exact path="/about" component={AboutPage} />
-      <Route exact path="/bookshowall" component={BookShowAll} />
+      <Route exact path="/book-show-all" component={BookShowAll} />
 
 
 
