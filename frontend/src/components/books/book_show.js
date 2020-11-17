@@ -33,12 +33,7 @@ class BookShow extends React.Component {
         elem.innerHTML = "Follow Book";
       }
       else if (elem.innerHTML === "Follow Book") {
-        // console.log("NaH BrO");
-        // console.log(bookId);
-
-
         elem.innerHTML = "Unfollow Book";
-        // console.log(this.props);
       }
 
       this.props.userFollowBook({

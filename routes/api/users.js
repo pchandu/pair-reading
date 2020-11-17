@@ -31,11 +31,17 @@ router.patch('/updateUser', (req, res) => {
 router.patch("/userFollowBook", (req, res) => {
   User.findById(req.body.user).then((user) => {
     if (user) {
+      console.log(req.body.book);
+      console.log(user.books);
       if(user.books.includes(req.body.book)) {
-        console.log(typeof req.body.book);
-        console.log(user.books);
+        
         user.books.forEach( (ele, idx) => {
-          if (ele === req.body.book){
+          //  console.log(ele);
+          //  console.log(typeof ele);
+          //  console.log(typeof JSON.stringify(ele));
+        //  console.log(JSON.stringify(ele));
+         let sult = JSON.stringify(ele).slice(1, -1);
+          if (sult === req.body.book) {
             user.books.splice(idx, 1);
           }
         })
