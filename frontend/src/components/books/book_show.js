@@ -36,28 +36,18 @@ class BookShow extends React.Component {
         // console.log(this.props.user)
         // debugger
       let elem = document.getElementById("book-show-follow-btn");
+      let userAdd = 0;
       if (elem.innerHTML === "Unfollow Book"){
         // console.log('we exists yes');
-        
-
         elem.innerHTML = "Follow Book";
-        console.log(this.props.users);
-        let currUser = this.props.currentUser;
-        console.log(currUser);
+        // console.log(this.props.users);
+       
+        // console.log(currUser);
         // console.log(typeof currUser);
 
         // console.log(this.props.users)
-        // console.log(typeof this.props.users);
-
-
-
-        // let joined = this.props.users;
-        // joined[this.props.currentUserId] = currUser;
-
-        // console.log(joined);
-        
-        // this.setState({ users: joined });
-
+        // console.log(typeof this.props.users);    
+        userAdd = true;
         // this.props.users.map((ele, idx)=> {
         //     if (ele === this.props.currentUserId){
         //         this.props.users.splice(idx, 1);
@@ -67,13 +57,9 @@ class BookShow extends React.Component {
       }
       else if (elem.innerHTML === "Follow Book") {
         elem.innerHTML = "Unfollow Book";
+        userAdd = false;
         // this.props.users.push(this.props.currentUserId);
-        // let currUser = this.props.currentUser;
-        // let currUserId = this.props.currentUserId;
-
-
-        // let joined = this.props.users;
-        // delete joined.currUserId;
+      
         
 
       }
@@ -81,8 +67,36 @@ class BookShow extends React.Component {
       this.props.userFollowBook({
         user: this.props.currentUserId,
         book: bookId,
+      }).then(() => {
+          if (userAdd) {
+            let currUser = this.props.currentUser;
+            let joined = this.props.users;
+            joined[this.props.currentUserId] = currUser;
+
+            // console.log(joined);
+
+            this.setState({ users: joined });
+          } else {
+            let blank = {};
+            let currUser = this.props.currentUser;
+            let currUserId = this.props.currentUserId;
+
+             Object.keys(this.props.users).map((user, idx) => {
+                 if (user === currUserId) {
+                    delete this.props.users[user];
+                 }
+             })
+            // })
+
+            //   joined[this.props.currentUserId] = {};
+              this.setState({ users: blank});
+          }
+
       });
 
+    let currUserId = this.props.currentUserId;
+    console.log(currUserId)
+      
       console.log(this.props.users);
       console.log(this.props.currentUserId);
 
