@@ -132,22 +132,21 @@ router.post('/joinBookClub', (req,res) => {
                             }
                         })
 
-                        user.save()
                         bookclub.save()
-
                         return res.status(200).json({msg: "Got everything boss."})
                     }else{
                         user.invites.forEach((invite,idx) => {
-                            if(JSON.stringify(invite.id) === JSON.stringify(bookclub._id)){
+                            if(JSON.stringify(invite.id) === `"${req.body.bookclub}"`){
                                 user.invites.splice(idx, 1)
                             }
                         })
-                        return res.status(400).json({msg: "BookClub doesn't Exist! removed from invites."})
                     }
+                    return res.status(400).json({msg: "BookClub doesn't Exist! removed from invites."})
                 })
             }else{
                 return res.status(400).json({msg: "User not found."})
             }
+            user.save()
         })
 })
 
