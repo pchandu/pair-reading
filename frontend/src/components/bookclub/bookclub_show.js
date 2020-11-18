@@ -1,5 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import ForumCreate from '../forum/forum_create_container';
 import BooksContainer from './books_bookclub_container';
 import { Redirect } from 'react-router-dom';
 
@@ -73,6 +74,7 @@ class BookClubShow extends React.Component {
                 {deleteButton}
                 </h1>
                 <div className="bookclub-show-content-container">
+                
                 <div className="left-side-bookclub-show-container">
                     <h1 className="profile-label">Members</h1>
                     <div className="bookclub-users-container">
@@ -81,14 +83,21 @@ class BookClubShow extends React.Component {
                     </ul>
                     </div>
                 </div>
+
                 <div className="middle-side-bookclub-show-container">
-                    <h1 className="profile-label">Forums</h1>
+                    <div className="profile-label">
+                        <h1>Forums</h1>     
+                        <div>
+                            <ForumCreate bookclubId={this.props.bookclubId}/>
+                        </div>
+                    </div>
                     <div className="bookclub-forums-container">
                         <ul className="bookclub-forums-list">
                             {forums}
                         </ul>
                     </div>
                 </div>
+                
                 <div className="right-side-bookclub-show-container">
                     <h1 className="profile-label" >Books</h1>
                     <ul className="bookclub-books-list">
