@@ -11,6 +11,7 @@ class CarouselItem extends React.Component {
 
     render(){
         return(
+            <div className="outside-carousel-container">
         <div className="home-page-carousel-container">
             <Carousel >
                 <Carousel.Item >
@@ -54,6 +55,7 @@ class CarouselItem extends React.Component {
                     </div>
                 </Carousel.Item>
             </Carousel>
+        </div>
         </div>
         )
     }

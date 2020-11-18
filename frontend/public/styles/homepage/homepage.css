@@ -93,6 +93,21 @@
 
 /* Left/Right Image CSS */
 
+.front-page-right-outer-div {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #DDF1CA;
+}
+.front-page-right-text-container,
+.front-page-right-text-container > h1,
+.front-page-right-text-container > p,
+.front-page-right-container{
+    background-color: #DDF1CA;
+}
+
+
 .front-page-right-container,
 .front-page-left-container {
     display:flex;
@@ -137,6 +152,17 @@
 }
 
 /* Signup Container CSS */
+.front-page-outer-container{
+    background-color: #DDF1CA;
+    width: 100%;
+    display:flex;
+    align-items: center;
+    justify-content:center;
+}
+.front-page-signup-container,
+.front-page-signup-container >p {
+    background-color: #DDF1CA;
+}
 
 .front-page-signup-container {
     display: flex;

@@ -13,6 +13,7 @@ class FrontPageRight extends React.Component {
     }
     render(){
         return(
+            <div className="front-page-right-outer-div">
             <div className="front-page-right-container">
                 <div className="front-page-right-text-container">
                     <h1>Have you started a book only to shelve it a couple of minutes later?</h1>
@@ -25,6 +26,7 @@ class FrontPageRight extends React.Component {
                 id="front-page-right-container-img" 
                 className="front-page-right-container-img"
                 alt="Woman reading in library"/>
+            </div>
             </div>
         )
     }
