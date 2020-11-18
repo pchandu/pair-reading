@@ -41,9 +41,9 @@ class BookShow extends React.Component {
         
 
         elem.innerHTML = "Follow Book";
-        // console.log(this.props.users);
-        // let currUser = this.props.currentUser;
-        // console.log(currUser);
+        console.log(this.props.users);
+        let currUser = this.props.currentUser;
+        console.log(currUser);
         // console.log(typeof currUser);
 
         // console.log(this.props.users)
@@ -83,8 +83,8 @@ class BookShow extends React.Component {
         book: bookId,
       });
 
-    //   console.log(this.props.users);
-    //   console.log(this.props.currentUserId);
+      console.log(this.props.users);
+      console.log(this.props.currentUserId);
 
     };
     
