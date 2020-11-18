@@ -42,7 +42,7 @@ class BookShow extends React.Component {
 
         elem.innerHTML = "Follow Book";
         // console.log(this.props.users);
-        let currUser = this.props.currentUser;
+        // let currUser = this.props.currentUser;
         // console.log(currUser);
         // console.log(typeof currUser);
 
@@ -51,12 +51,12 @@ class BookShow extends React.Component {
 
 
 
-        let joined = this.props.users;
-        joined[this.props.currentUserId] = currUser;
+        // let joined = this.props.users;
+        // joined[this.props.currentUserId] = currUser;
 
         // console.log(joined);
         
-        this.setState({ users: joined });
+        // this.setState({ users: joined });
 
         // this.props.users.map((ele, idx)=> {
         //     if (ele === this.props.currentUserId){
