@@ -72,17 +72,17 @@ router.post('/createBookClub',(req,res) => {
                         user.save()
                     })
                     .then(
-                        // Finds invitee and invites to bookclub
-                        User.findOne({_id: req.body.invitee})
-                        .then( user => {
+                    User.findOne({_id: req.body.invitee})
+                        .then( user => {User.findOne({_id: req.body.creator})
+                        .then(creator => {
                         user.invites.push({
                             "id": newBookClub._id,
                             "title": newBookClub.title,
-                            "creator": user.username,
+                            "creator": creator.username,
                         })
                         user.save()
                         res.status(200).json({msg: "Successfully Created BookClub!", newBookClub})
-                    })
+                        })})
                     ))
             }
         })
@@ -133,6 +133,7 @@ router.post('/joinBookClub', (req,res) => {
                         })
 
                         bookclub.save()
+                        user.save()
                         return res.status(200).json({msg: "Got everything boss."})
                     }else{
                         user.invites.forEach((invite,idx) => {
@@ -140,13 +141,14 @@ router.post('/joinBookClub', (req,res) => {
                                 user.invites.splice(idx, 1)
                             }
                         })
+                        user.save()
+                        return res.status(200).json({msg: "Bookclub didnt exist!"})
                     }
-                    return res.status(400).json({msg: "BookClub doesn't Exist! removed from invites."})
+                    // return res.status(400).json({msg: "BookClub doesn't Exist! removed from invites."})
                 })
-            }else{
+            }else if(!user){
                 return res.status(400).json({msg: "User not found."})
             }
-            user.save()
         })
 })
 
