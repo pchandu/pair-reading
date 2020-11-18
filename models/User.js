@@ -44,7 +44,7 @@ const UserSchema = new Schema({
   }],
 
   invites: [{
-      type: String
+      type: Object
   }]
 
 }, {

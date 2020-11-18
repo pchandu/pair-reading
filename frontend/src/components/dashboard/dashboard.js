@@ -8,6 +8,7 @@ import BooksFeedContainer from '../profile/books_feed_container';
 import PostFeedContainer from '../profile/posts_feed_container';
 import MatchFeedContainer from '../profile/matches_feed_container';
 import ProfilePreferences from "../profile/preferences_container";
+import InvitesContainer from '../profile/invites_container'
 
 class DashBoard extends React.Component {
   componentDidMount(){
@@ -30,6 +31,7 @@ class DashBoard extends React.Component {
           <div className="dashboard-content-container">
                 <div className="left-side-dashboard-container">
                     < ProfileContainer />
+                    < InvitesContainer />
                     <MatchFeedContainer/>
                 </div>
 
