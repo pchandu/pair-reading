@@ -48,3 +48,11 @@ time, mark, audio, video  {
     align-items: center;
     align-content: center;
 }
+
+.hidden{
+    display: none;
+}
+
+.show{
+    display: block;
+}
