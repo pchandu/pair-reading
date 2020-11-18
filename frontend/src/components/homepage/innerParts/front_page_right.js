@@ -3,13 +3,23 @@ import WomanReading from '../../../images/Samantha-photo.jpeg'
 class FrontPageRight extends React.Component {
     constructor(props){
         super(props)
-        window.addEventListener("scroll", () => {
-            let scrollPos = window.scrollY;
-            if(scrollPos >= 1200){
-                let imgEle = document.getElementById('front-page-right-container-img')
-                imgEle.classList.add("fadeIn")
-            }
-        })
+        this.onScroll = this.onScroll.bind(this)
+    }
+    
+    componentDidMount(){
+        window.addEventListener("scroll", this.onScroll)
+    }
+
+    componentWillUnmount(){
+        window.removeEventListener("scroll", this.onScroll)
+    }
+
+    onScroll(){ 
+        let scrollPos = window.scrollY;
+        if(scrollPos >= 1200){
+            let imgEle = document.getElementById('front-page-right-container-img')
+            imgEle.classList.add("fadeIn")
+        }
     }
     render(){
         return(

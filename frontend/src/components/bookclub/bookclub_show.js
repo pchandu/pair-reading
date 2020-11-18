@@ -9,7 +9,6 @@ class BookClubShow extends React.Component {
         super(props)
 
         this.deleteBookClub = this.deleteBookClub.bind(this)
-
     }
 
     componentDidMount() {

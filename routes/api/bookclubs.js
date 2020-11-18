@@ -118,7 +118,37 @@ router.delete('/deleteBookClub', (req,res) => {
 }) 
 
 router.post('/joinBookClub', (req,res) => {
-    console.log(req.body)
+    User.findById(req.body.userId)
+        .then( user => {
+            if(user){
+                BookClub.findById(req.body.bookclub)
+                .then( bookclub => {
+                    if(bookclub){
+                        bookclub.users.push(user._id)
+                        user.bookclubs.push(bookclub._id)
+                        user.invites.forEach((invite,idx) => {
+                            if(JSON.stringify(invite.id) === JSON.stringify(bookclub._id)){
+                                user.invites.splice(idx, 1)
+                            }
+                        })
+
+                        user.save()
+                        bookclub.save()
+
+                        return res.status(200).json({msg: "Got everything boss."})
+                    }else{
+                        user.invites.forEach((invite,idx) => {
+                            if(JSON.stringify(invite.id) === JSON.stringify(bookclub._id)){
+                                user.invites.splice(idx, 1)
+                            }
+                        })
+                        return res.status(400).json({msg: "BookClub doesn't Exist! removed from invites."})
+                    }
+                })
+            }else{
+                return res.status(400).json({msg: "User not found."})
+            }
+        })
 })
 
 module.exports = router;

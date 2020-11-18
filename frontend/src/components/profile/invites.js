@@ -22,7 +22,7 @@ class Invites extends React.Component {
         this.props.joinBookClub({
             bookclub: bookClubId,
             userId: this.props.userId
-        })
+        }).then( res => console.log(res.data.msg))
     }
 
     handleDeny(){
