@@ -38,7 +38,7 @@ router.post('/new', (req, res) => {
     if (!isValid) {
         return res.status(400).json(errors);
     }
-    console.log(req.body);
+    // console.log(req.body);
     Forum.findOne({ title: req.body.title })
         .then(forum => {
             if (forum) {
