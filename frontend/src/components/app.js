@@ -23,7 +23,6 @@ import bookclub_show_container from "./bookclub/bookclub_show_container";
 // import ProfileContainer from "./profile/profile_container";
 
 
-import Footer from './footer/footer';
 import AboutPage from './footer/about';
 import user_show_container from "./user/user_show_container";
 import BookShow from "./books/book_show_container";
@@ -65,8 +64,6 @@ const App = () => (
       <Route component={NoPage} />
     </Switch>
     </div>
-
-    <Footer />
   </div>
   </>
 );

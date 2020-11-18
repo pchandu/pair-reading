@@ -7,7 +7,7 @@
 
 .carousel {
     display:flex;
-    width:100%;
+    width:60%;
     margin-top: 20px;
     background-color: #2a8793
 }
@@ -24,10 +24,14 @@
 }
 
 .carousel-item-container > img {
-    width: 300px;
+    width: 280px;
+    height: 100%;
     height: auto;
     border-radius:5px;
     margin-top:20px;
+}
+.carousel-item-container > .alex-picture-carousel{
+    width: 200px;
 }
 
 .carousel-caption {
@@ -68,12 +72,13 @@
 .front-page-carousel-container-description{
     display: flex;
     justify-content: center;
+    width: 60%;
     margin-top: 40px;
     margin-bottom: 30px;
 }
 
 .front-page-carousel-container-description > p {
-    font-size: 60px;
+    font-size: 38px;
     font-weight: 600;
     display:flex;
     color: #2a8793;

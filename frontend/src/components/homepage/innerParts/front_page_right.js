@@ -1,6 +1,16 @@
 import React from 'react'
 import WomanReading from '../../../images/Samantha-photo.jpeg'
 class FrontPageRight extends React.Component {
+    constructor(props){
+        super(props)
+        window.addEventListener("scroll", () => {
+            let scrollPos = window.scrollY;
+            if(scrollPos >= 1200){
+                let imgEle = document.getElementById('front-page-right-container-img')
+                imgEle.classList.add("fadeIn")
+            }
+        })
+    }
     render(){
         return(
             <div className="front-page-right-container">
@@ -11,7 +21,10 @@ class FrontPageRight extends React.Component {
                         options when needing that extra little push towards a good book.
                     </p>
                 </div>
-                <img src={WomanReading} alt="Woman reading in library"/>
+                <img src={WomanReading}
+                id="front-page-right-container-img" 
+                className="front-page-right-container-img"
+                alt="Woman reading in library"/>
             </div>
         )
     }
