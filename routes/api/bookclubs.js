@@ -103,7 +103,20 @@ router.delete('/deleteBookClub', (req,res) => {
                                     user.bookclubs.splice(idx, 1)
                                 }
                             })
-                        })
+                        
+                            bookClub.users.forEach(userId => {
+                                User.findById(userId)
+                                    .then(user =>{
+                                        user.bookclubs.forEach(bookClubId =>{
+                                            if(bookClub.id === bookClubId){
+                                                user.bookclubs.splice(idx,1)
+                                                user.save()
+                                            }
+                                        })
+                                    })
+                            })
+                    })
+  
                         .then(
                     bookClub.delete()
                         .then( res.status(200).json({msg: "Succesfully deleted bookclub"}))
