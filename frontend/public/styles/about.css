@@ -1,7 +1,7 @@
 .about-page-outer-container{
     display:flex;
     flex-wrap: wrap;
-    height: 85vh;
+    height: 95vh;
     width:100%;
     justify-content: center;
     align-items:center;

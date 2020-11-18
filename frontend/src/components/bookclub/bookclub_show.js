@@ -1,11 +1,15 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import ForumCreate from '../forum/forum_create_container';
 import BooksContainer from './books_bookclub_container';
+import { Redirect } from 'react-router-dom';
 
 class BookClubShow extends React.Component {
 
     constructor(props) {
         super(props)
+
+        this.deleteBookClub = this.deleteBookClub.bind(this)
 
     }
 
@@ -17,6 +21,17 @@ class BookClubShow extends React.Component {
         this.props.fetchFilteredBookClubForums(this.props.bookclubId);
         // this.props.fetchFilteredBookClubBooks(this.props.bookclubId);
         this.props.fetchFilteredBookClubUsers(this.props.bookclubId);
+    }
+
+    deleteBookClub(e){
+        e.preventDefault();
+
+        if(window.confirm("This will delete your bookclub, Do you really want to?")){
+            this.props.deleteBookClub({
+                title: this.props.bookclub.title, 
+                creator: this.props.userId
+            }).then( this.props.history.push("/dashboard") )
+        }
     }
 
     render() {
@@ -43,11 +58,23 @@ class BookClubShow extends React.Component {
                 </li>
             </Link>
         )
+        let deleteButton;
+        if(this.props.bookclub){
+        deleteButton = this.props.bookclub.creator === this.props.userId ? 
+        <button 
+        className="bookclub-show-delete-button btn btn-info" 
+        onClick={this.deleteBookClub}
+        >Delete BookClub</button> 
+        : ''}
+        
         return (
             <div className="bookclub-show-container">
-                <h1 className="bookclub-header">BookClub -</h1>
+                <h1 className="bookclub-header">BookClub -
                 <h2 className="bookclub-title">{bookclub ? bookclub.title:""}</h2>
+                {deleteButton}
+                </h1>
                 <div className="bookclub-show-content-container">
+                
                 <div className="left-side-bookclub-show-container">
                     <h1 className="profile-label">Members</h1>
                     <div className="bookclub-users-container">
@@ -56,14 +83,21 @@ class BookClubShow extends React.Component {
                     </ul>
                     </div>
                 </div>
+
                 <div className="middle-side-bookclub-show-container">
-                    <h1 className="profile-label">Forums</h1>
+                    <div className="profile-label">
+                        <h1>Forums</h1>     
+                        <div>
+                            <ForumCreate bookclubId={this.props.bookclubId}/>
+                        </div>
+                    </div>
                     <div className="bookclub-forums-container">
                         <ul className="bookclub-forums-list">
                             {forums}
                         </ul>
                     </div>
                 </div>
+                
                 <div className="right-side-bookclub-show-container">
                     <h1 className="profile-label" >Books</h1>
                     <ul className="bookclub-books-list">

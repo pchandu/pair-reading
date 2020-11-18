@@ -9,6 +9,9 @@ export const UPDATE_USER_PREFERENCES = "UPDATE_USER_PREFERENCES"
 
 export const GET_UPDATE_USER_INFO = "GET_UPDATE_USER_INFO";
 
+
+export const USER_FOLLOW_BOOK = "USER_FOLLOW_BOOK";
+
 // Retrieves user info from backed and returns OBJ of updated info
 export const updatedUserInfo = payload => ({
   type: GET_UPDATE_USER_INFO,
@@ -39,6 +42,12 @@ export const receiveErrors = (errors) => ({
 // When our user is logged out, we will dispatch this action to set isAuthenticated to false
 export const logoutUser = () => ({
   type: RECEIVE_USER_LOGOUT,
+});
+
+//updates user info to add a book!
+export const userFollowBook = (payload) => ({
+  type: USER_FOLLOW_BOOK,
+  payload,
 });
 
 // Upon signup, dispatch the approporiate action depending on which type of response we receieve from the backend
@@ -77,3 +86,7 @@ export const refreshLoggedInUserInfo = (loggedInUser) => dispatch => {
   APIUtil.refreshUserInfo(loggedInUser)
     .then(userInfo => dispatch(updatedUserInfo(userInfo)))
 }
+
+export const recieveUserFollowBook = (updatedUser) => (dispatch) => {
+  APIUtil.userFollowBook(updatedUser);
+};

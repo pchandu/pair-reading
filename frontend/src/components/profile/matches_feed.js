@@ -8,11 +8,14 @@ class MatchFeed extends React.Component {
         super(props)
         this.state = {
             bookClubModal: false,
-            userEl: ''
+            userEl: '',
+            bookClubTitle: ''
         }
 
         this.showBookClubModal = this.showBookClubModal.bind(this)
         this.handleClose = this.handleClose.bind(this)
+        this.makeBookClub = this.makeBookClub.bind(this)
+        this.handleChange = this.handleChange.bind(this)
     }
 
     componentDidMount() {
@@ -49,7 +52,21 @@ class MatchFeed extends React.Component {
     }
 
     makeBookClub(event){
-        // event.preventDefault();
+        event.preventDefault();
+        this.props.makeBookClub({
+            title: this.state.bookClubTitle,
+            creator: this.props.userId,
+            invitee: this.state.userEl
+            })
+            .then( this.setState({bookClubModal: false}) )
+            .then( window.location.reload() )
+        }
+
+    handleChange(field) {
+        return (e) => 
+        this.setState({
+            [field]:e.currentTarget.value
+        })
     }
 
 
@@ -80,21 +97,28 @@ class MatchFeed extends React.Component {
                 backdrop="static"
                 keyboard={false}
                 className="modal-bookclub-creation"
+                dialogClassName="modal-bookclub-dialog-class"
                 contentClassName="modal-bookclub-creation-content"
                 > 
 
-                <h1 className="modal-bookclub-header">BookClub Creation</h1>   
-                
-                <form onSubmit={() => this.makeBookClub()} className="form-bookclub-creation">
-                    <input type="text" placeholder="Bookclub Name" />
+                <h1 className="modal-bookclub-header">Book Club Creation</h1>   
+                <form onSubmit={this.makeBookClub} className="form-bookclub-creation">
+                    <input type="text" 
+                    placeholder="Bookclub Name" 
+                    value={this.state.bookClubTitle}
+                    onChange={this.handleChange("bookClubTitle")}
+                    centered="true"
+                    className="modal-bookclub-input-title form-control" 
+                    />
 
                     <input 
                     type="submit" 
-                    value={`Make bookclub and invite ${this.state.userEl.username}`} 
+                    value={`Make bookclub and invite ${this.state.userEl.username}`}
+                    className="create-bookclub-button btn btn-info" 
                     />
                 </form>
 
-                <button onClick={this.handleClose}>Close</button>
+                <button onClick={this.handleClose} className="create-bookclub-button btn btn-info">Close</button>
                 </Modal>
             </div>
         )

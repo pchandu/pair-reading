@@ -29,7 +29,7 @@ class DashBoard extends React.Component {
       <div className="outer-dashboard-container">
           <div className="dashboard-content-container">
                 <div className="left-side-dashboard-container">
-                    < ProfileContainer />
+                    <ProfileContainer/>
                     <MatchFeedContainer/>
                 </div>
 

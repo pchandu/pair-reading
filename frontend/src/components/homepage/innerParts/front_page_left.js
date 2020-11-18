@@ -3,10 +3,24 @@ import React from 'react'
 import KidReading from '../../../images/Timmy-reads.jpg'
 
 class FrontPageLeft extends React.Component {
+    constructor(props){
+        super(props)
+        window.addEventListener("scroll", () => {
+            let scrollPos = window.scrollY;
+            if(scrollPos >= 1800){
+                let imgEle = document.getElementById('front-page-left-container-img')
+                imgEle.classList.add("fadeIn")
+            }
+        })
+    }
     render(){
         return(
             <div className="front-page-left-container">
-                <img src={KidReading} alt="Kid reading in library"/>
+                <img src={KidReading} 
+                alt="Kid reading in library" 
+                id="front-page-left-container-img"
+                className="front-page-left-container-img"
+                />
                 <div className="front-page-left-text-container">
                     <h1>Finding people to enjoy a great book with you can be hard.</h1>
                     <p>The tools developed at Pair Reading aim to make the process

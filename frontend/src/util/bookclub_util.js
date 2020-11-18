@@ -1,7 +1,6 @@
 import Axios from "axios";
 
 export const fetchAllBookClubs = (filters) => {
-    // debugger
     return Axios.get("/api/bookclubs/",{params: filters})
 };
 export const fetchBookClub = (id) => {
@@ -13,4 +12,12 @@ export const fetchUserBookClubs = (filters) => (userId) => {
 export const fetchBookBookClubs = filters => (bookId) => {
     return Axios.get(`/api/books/${bookId}/bookclubs`, { params: filters })
 };
+
+export const makeBookClub = (bookClubData) => {
+    return Axios.post(`/api/bookclubs/createBookClub`, bookClubData)
+}
+
+export const deleteBookClub = (bookClubData) => {
+    return Axios.delete(`/api/bookclubs/deleteBookClub`, {data: bookClubData})
+}
 

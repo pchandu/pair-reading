@@ -2,6 +2,7 @@ import { connect } from 'react-redux'
 import { fetchFilteredBookClubBooks, clearBooksFilter, changeBooksFilter } from '../../actions/filters/book_filter_actions';
 import BookFeed from '../profile/books_feed'
 import { refSelector } from '../selectors/index_selectors'
+import { deleteBookClub } from '../../util/bookclub_util'
 
 const mSTP = ({ entities: { bookclubs, books } }, { match }) => {
     const bookclub = bookclubs[match.params.bookclubId];
@@ -15,7 +16,8 @@ const mSTP = ({ entities: { bookclubs, books } }, { match }) => {
 const mDTP = dispatch => ({
     clearBooksFilter: () => dispatch(clearBooksFilter()),
     changeBooksFilter: (filters) => dispatch(changeBooksFilter(filters)),
-    fetchFilteredOwnerBooks: (ownerId) => dispatch(fetchFilteredBookClubBooks(ownerId))
+    fetchFilteredOwnerBooks: (ownerId) => dispatch(fetchFilteredBookClubBooks(ownerId)),
+    deleteBookClub: (bookClubData) => deleteBookClub(bookClubData)
 });
 
 export default connect(mSTP, mDTP)(BookFeed)

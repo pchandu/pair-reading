@@ -28,6 +28,28 @@ router.patch('/updateUser', (req, res) => {
     })
 })
 
+router.patch("/userFollowBook", (req, res) => {
+  User.findById(req.body.user).then((user) => {
+    if (user) {
+      if(user.books.includes(req.body.book)) {
+        console.log(typeof req.body.book);
+        console.log(user.books);
+        user.books.forEach( (ele, idx) => {
+          if (ele === req.body.book){
+            user.books.splice(idx, 1);
+          }
+        })
+
+      } else {
+        user.books.push(req.body.book);
+      }
+      user.save().then((user) => res.json(user));
+    } else {
+      return res.json({ msg: "Something went wrong, captain." });
+    }
+  });
+});
+
 router.post('/refreshUserInfo', (req,res) => {
   User.findById(req.body.user)
     .then(user => {
@@ -46,6 +68,10 @@ router.post('/refreshUserInfo', (req,res) => {
         return res.json({ msg: "Not sure what happened."})
       }
     })
+})
+
+router.post('/sendUserInvite', (req,res) => {
+  User.findById({id: req.body.id})
 })
 
 router.post('/register', (req, res) => {
