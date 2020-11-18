@@ -20,8 +20,12 @@ class Invites extends React.Component {
     render(){
         let {invitesArray } = this.props;
         return(
-            <ul>
-                <button onClick={this.handleOpen}>Invites! ( {invitesArray.length} )</button>
+            <ul className="invites-outside-container">
+                <button 
+                className="btn btn-info"
+                onClick={this.handleOpen}>
+                    Invites! ( {invitesArray.length} )
+                </button>
 
                 <div 
                 className={`invites-dropdown-li-items 
@@ -32,8 +36,8 @@ class Invites extends React.Component {
                         <li className="individual-invite-li-container"> 
                             <p>Title: {invite.title} </p>
                             <p>Inviter: {invite.creator} </p>
-                            <button>Join</button>
-                            <button>Deny</button>
+                            <button className="btn btn-success">Join</button>
+                            <button className="btn btn-danger">Deny</button>
                         </li>
 
                     )

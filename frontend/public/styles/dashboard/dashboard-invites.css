@@ -1,3 +1,8 @@
+.invites-outside-container{
+    display:flex;
+    flex-direction:column;
+}
+
 .individual-invite-li-container{
     display:flex;
     width: 100%;
