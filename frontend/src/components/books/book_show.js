@@ -6,6 +6,10 @@ class BookShow extends React.Component {
 
     constructor(props) {
         super(props)
+
+        this.state = {
+            users: [],
+        }
         this.userFollow = this.userFollow.bind(this);
         this.toggleFollow = this.toggleFollow.bind(this);
 
@@ -23,7 +27,13 @@ class BookShow extends React.Component {
         this.props.removeAllUsers();
     }
 
+    componentDidUpdate() {
+        // this.props.fetchUsers(this.props.bookId);
+
+    }
+
     toggleFollow(bookId) {
+        console.log(this.props.user)
         // debugger
       let elem = document.getElementById("book-show-follow-btn");
       if (elem.innerHTML === "Unfollow Book"){
@@ -31,15 +41,50 @@ class BookShow extends React.Component {
         
 
         elem.innerHTML = "Follow Book";
+        // console.log(this.props.users);
+        let currUser = this.props.currentUser;
+        console.log(currUser);
+        console.log(typeof currUser);
+
+        console.log(this.props.users)
+        console.log(typeof this.props.users);
+
+
+
+        let joined = this.props.users;
+        joined[this.props.currentUserId] = currUser;
+
+        console.log(joined);
+        
+        this.setState({ users: joined });
+
+        // this.props.users.map((ele, idx)=> {
+        //     if (ele === this.props.currentUserId){
+        //         this.props.users.splice(idx, 1);
+        //     }
+        // })
+
       }
       else if (elem.innerHTML === "Follow Book") {
         elem.innerHTML = "Unfollow Book";
+        // this.props.users.push(this.props.currentUserId);
+        let currUser = this.props.currentUser;
+        let currUserId = this.props.currentUserId;
+
+
+        let joined = this.props.users;
+        delete joined.currUserId;
+        
+
       }
 
       this.props.userFollowBook({
         user: this.props.currentUserId,
         book: bookId,
       });
+
+    //   console.log(this.props.users);
+    //   console.log(this.props.currentUserId);
 
     };
     

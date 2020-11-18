@@ -31,8 +31,6 @@ router.patch('/updateUser', (req, res) => {
 router.patch("/userFollowBook", (req, res) => {
   User.findById(req.body.user).then((user) => {
     if (user) {
-      console.log(req.body.book);
-      console.log(user.books);
       if(user.books.includes(req.body.book)) {
         
         user.books.forEach( (ele, idx) => {

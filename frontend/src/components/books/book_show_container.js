@@ -13,6 +13,7 @@ const mSTP = (state, ownProps) => {
         books: state.entities.books[ownProps.match.params.bookId],
         bookId: ownProps.match.params.bookId,
         currentUserId: state.session.user.id,
+        currentUser: state.session.user,
         // currentUserBook : state.session.user.books,
         users: state.entities.users,
     }
