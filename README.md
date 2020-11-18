@@ -34,7 +34,7 @@ The preferences are stylized buttons that change color to indicate whether they 
         this.setState(stateCopy);
     }
 ```
-xOnce a user finishes onboarding, the user lands on the dashboard, where the main functionality of the app exists. 
+Once a user finishes onboarding, the user lands on the dashboard, where the main functionality of the app exists. 
 **screenshot of dashboard**
 
 The dashboard is broken into 3 modules: user profile (left), recent posts & casual reading of the day (middle), and more external interaction such as scheduling meetings feature and bookclubs (right). 
