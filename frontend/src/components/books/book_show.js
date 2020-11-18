@@ -33,7 +33,7 @@ class BookShow extends React.Component {
     }
 
     toggleFollow(bookId) {
-        console.log(this.props.user)
+        // console.log(this.props.user)
         // debugger
       let elem = document.getElementById("book-show-follow-btn");
       if (elem.innerHTML === "Unfollow Book"){
@@ -43,18 +43,18 @@ class BookShow extends React.Component {
         elem.innerHTML = "Follow Book";
         // console.log(this.props.users);
         let currUser = this.props.currentUser;
-        console.log(currUser);
-        console.log(typeof currUser);
+        // console.log(currUser);
+        // console.log(typeof currUser);
 
-        console.log(this.props.users)
-        console.log(typeof this.props.users);
+        // console.log(this.props.users)
+        // console.log(typeof this.props.users);
 
 
 
         let joined = this.props.users;
         joined[this.props.currentUserId] = currUser;
 
-        console.log(joined);
+        // console.log(joined);
         
         this.setState({ users: joined });
 
@@ -68,12 +68,12 @@ class BookShow extends React.Component {
       else if (elem.innerHTML === "Follow Book") {
         elem.innerHTML = "Unfollow Book";
         // this.props.users.push(this.props.currentUserId);
-        let currUser = this.props.currentUser;
-        let currUserId = this.props.currentUserId;
+        // let currUser = this.props.currentUser;
+        // let currUserId = this.props.currentUserId;
 
 
-        let joined = this.props.users;
-        delete joined.currUserId;
+        // let joined = this.props.users;
+        // delete joined.currUserId;
         
 
       }
@@ -126,9 +126,10 @@ class BookShow extends React.Component {
                     <h2 className="book-show-user-matches-text">Here are some other users that are looking for a partner!</h2>
                     <ul className="user-matches">
                         {Object.values(this.props.users).map((user) => {
+                            let idUser = user._id ? user._id : user.id;
                             return (
-                                <Link to={`/users/${user._id}`} style={{ textDecoration: 'none' }} >
-                                    <li key={user._id }className="matched-user">
+                                <Link to={`/users/${idUser}`} style={{ textDecoration: 'none' }} >
+                                    <li key={idUser}className="matched-user">
                                         <button>{user.username}</button> 
                                     </li>
                                 </Link>
