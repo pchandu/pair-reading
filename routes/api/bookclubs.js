@@ -117,4 +117,8 @@ router.delete('/deleteBookClub', (req,res) => {
         })
 }) 
 
+router.post('/joinBookClub', (req,res) => {
+    console.log(req.body)
+})
+
 module.exports = router;

@@ -1,8 +1,8 @@
 import React from 'react';
-import { Link } from 'react-router-dom'
+
 import BooksContainer from './books_user_container';
 import BookClubContainer from './bookclubs_user_container';
-import MatchContainer from './matches_user_container';
+
 import PostContainer from './posts_user_container';
 
 class UserShow extends React.Component {

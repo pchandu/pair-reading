@@ -9,12 +9,24 @@ class Invites extends React.Component {
         }
 
         this.handleOpen = this.handleOpen.bind(this)
+        this.handleAccept = this.handleAccept.bind(this)
+        this.handleDeny = this.handleDeny.bind(this)
     }
 
     handleOpen(){
         this.setState({
             showInvites: !this.state.showInvites
         })
+    }
+    handleAccept(bookClubId){
+        this.props.joinBookClub({
+            bookclub: bookClubId,
+            userId: this.props.userId
+        })
+    }
+
+    handleDeny(){
+
     }
 
     render(){
@@ -36,8 +48,14 @@ class Invites extends React.Component {
                         <li className="individual-invite-li-container"> 
                             <p>Title: {invite.title} </p>
                             <p>Inviter: {invite.creator} </p>
-                            <button className="btn btn-success">Join</button>
-                            <button className="btn btn-danger">Deny</button>
+
+                            <button 
+                            onClick={() => this.handleAccept(invite.id)} 
+                            className="btn btn-success">Join</button>
+
+                            <button 
+                            onClick={this.handleDeny} 
+                            className="btn btn-danger">Deny</button>
                         </li>
 
                     )

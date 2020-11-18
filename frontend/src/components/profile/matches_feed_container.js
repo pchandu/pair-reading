@@ -5,7 +5,6 @@ import {
     changeUsersFilter } from '../../actions/filters/user_filter_actions';
 import {fetchFilteredUserBookClubs} from '../../actions/filters/bookclub_filter_actions'
 import MatchFeed from './matches_feed'
-import { refSelector } from '../selectors/index_selectors'
 import { makeBookClub } from '../../util/bookclub_util';
 
 const mSTP = ({ session: { user }, entities:{users} }) => ({

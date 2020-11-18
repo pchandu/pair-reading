@@ -40,7 +40,7 @@ const App = () => (
       <ProtectedRoute path="/signup" component={SignupFormContainer} />
 
 
-      //! testing
+      {/* //! testing */}
       <AuthRoute exact path="/forums" component={ForumIndexContainer} />
       <AuthRoute exact path="/bookclubs" component={BookClubIndexContainer} />
       <AuthRoute exact path="/posts" component={PostIndexContainer} />

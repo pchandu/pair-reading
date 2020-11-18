@@ -4,7 +4,7 @@ import {
     REMOVE_ALL_BOOKS
 } from '../actions/book_actions'
 
-export default (state = {}, action) => {
+const booksReducer =  (state = {}, action) => {
     Object.freeze(state);
 
     switch (action.type) {
@@ -18,3 +18,5 @@ export default (state = {}, action) => {
             return state;
     }
 };
+
+export default booksReducer;

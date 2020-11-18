@@ -1,7 +1,6 @@
 import { connect } from 'react-redux'
 import { fetchFilteredUserMatches, clearUsersFilter, changeUsersFilter } from '../../actions/filters/user_filter_actions';
 import MatchFeed from '../profile/matches_feed'
-import { refSelector } from '../selectors/index_selectors'
 
 const mSTP = ({ entities: { users } }, { match }) => {
     // debugger

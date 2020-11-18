@@ -1,7 +1,5 @@
 import React from 'react'
 import Modal from 'react-bootstrap/Modal';
-import Button from 'react-bootstrap/Button';
-import Onboarding from '../onboarding/onboarding';
 
 class ProfilePreferences extends React.Component {
     constructor(props) {

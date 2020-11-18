@@ -4,7 +4,7 @@ import {
     REMOVE_ALL_USERS
 } from '../actions/user_actions'
 
-export default (state = {}, action) => {
+const userReducer = (state = {}, action) => {
     Object.freeze(state);
 
     switch (action.type) {
@@ -18,3 +18,5 @@ export default (state = {}, action) => {
             return state;
     }
 };
+
+export default userReducer;

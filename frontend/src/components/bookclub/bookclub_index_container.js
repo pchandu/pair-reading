@@ -1,5 +1,5 @@
 import { connect } from 'react-redux'
-import { fetchAllBookClubs } from '../../actions/bookclub_actions';
+// import { fetchAllBookClubs } from '../../actions/bookclub_actions';
 import BookClubIndex from './bookclub_index'
 import { fetchFilteredBookClubs, clearBookClubsFilter, changeBookClubsFilter } from '../../actions/filters/bookclub_filter_actions';
 

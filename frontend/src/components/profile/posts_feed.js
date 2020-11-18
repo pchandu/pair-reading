@@ -3,9 +3,6 @@ import { Link } from 'react-router-dom'
 
 class PostFeed extends React.Component {
 
-    constructor(props) {
-        super(props)
-    }
 
     componentDidMount() {
         this.props.clearPostsFilter();

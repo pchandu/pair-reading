@@ -21,3 +21,7 @@ export const deleteBookClub = (bookClubData) => {
     return Axios.delete(`/api/bookclubs/deleteBookClub`, {data: bookClubData})
 }
 
+export const joinBookClub = (bookClubData) => {
+    return Axios.post(`/api/bookclubs/joinBookClub`, bookClubData)
+}
+

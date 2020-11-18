@@ -3,10 +3,6 @@ import React from 'react'
 
 class PostIndex extends React.Component {
 
-    constructor(props) {
-        super(props)
-        // debugger
-    }
 
     componentDidMount() {
         this.props.fetchAllPosts();
