@@ -39,7 +39,7 @@
 
 .individual-invite-li-container{
     display:flex;
-    height: 30px;
+    min-height: 30px;
     margin-top: 5px;
     width: 95%;
     justify-content:space-between;
@@ -110,13 +110,14 @@
     display:flex;
     align-items: flex-start;
     width: 40%;
-    height: 30px;
+    min-height: 30px;
     background-color:#92cb63;
     border-radius: 5px;
     align-items: center;
     font-size:20px;
     padding:5px;
     margin-right: 10px;
+    flex-wrap:wrap;
 }
 .invites-outer-label >a {
     text-decoration:none;
