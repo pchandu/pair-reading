@@ -6,6 +6,10 @@ class BookShow extends React.Component {
 
     constructor(props) {
         super(props)
+
+        this.state = {
+            users: [],
+        }
         this.userFollow = this.userFollow.bind(this);
         this.toggleFollow = this.toggleFollow.bind(this);
 
@@ -23,59 +27,58 @@ class BookShow extends React.Component {
         this.props.removeAllUsers();
     }
 
+    componentDidUpdate() {
+    this.props.refreshUserInfo({ user: this.props.currentUser["id"] });
+
+
+    }
+
     toggleFollow(bookId) {
-        // debugger
+ 
       let elem = document.getElementById("book-show-follow-btn");
       if (elem.innerHTML === "Unfollow Book"){
-        // console.log('we exists yes');
-        
-
         elem.innerHTML = "Follow Book";
+        elem.style.backgroundColor = "limegreen";
+
       }
       else if (elem.innerHTML === "Follow Book") {
-        // console.log("NaH BrO");
-        // console.log(bookId);
-
-
         elem.innerHTML = "Unfollow Book";
-        // console.log(this.props);
+        elem.style.backgroundColor = "darkred";
       }
 
       this.props.userFollowBook({
         user: this.props.currentUserId,
         book: bookId,
       });
-
-    };
+    }
+    
     
 
     userFollow() {
-       let checkArr = Object.values(this.props.users).map(user => user._id)
-       if (checkArr.includes(this.props.currentUserId)) {
-            // console.log('we exists yes');
-            // elem.innerHTML = "Unfollow Book";
-            return true;
-       }
-       else {
-            // console.log("NaH BrO");
-            // elem.innerHTML = "Follow Book";
-            return false;
+    let checkbook = Object.values(this.props.currentUser.books).map((book) => book);
+      if (checkbook.includes(this.props.books._id)) {
+        return true;
+    } else {
+        return false;
+    }
 
-       }
     };
 
     render() {
         if (!this.props.books) return null
-
+        let bgButtonColor = this.userFollow() ? "darkred" : "limegreen";
         return (
             <div className="book-show-container">
                 <div className="book-show-info-container">
                     <img src={this.props.books.imagePath} className="book-show-cover-photo"/>
                     <div className="book-show-details">
+                        
+
                         <h1 className="book-show-title"> {this.props.books.title} </h1>
                         <h1 className="book-show-author"> by {this.props.books.author} </h1>
                         <p className="book-show-description"> {this.props.books.description} </p>
-                        <button id="book-show-follow-btn" onClick={() => this.toggleFollow(this.props.books._id)}>{this.userFollow() ? "Unfollow Book" : "Follow Book"}</button>
+                        <button id="book-show-follow-btn" onClick={() => this.toggleFollow(this.props.books._id)} style={{backgroundColor: bgButtonColor}}>{this.userFollow() ? "Unfollow Book" : "Follow Book"}</button>
+
                         
                     </div>
                    
@@ -86,9 +89,13 @@ class BookShow extends React.Component {
                     <h2 className="book-show-user-matches-text">Here are some other users that are looking for a partner!</h2>
                     <ul className="user-matches">
                         {Object.values(this.props.users).map((user) => {
+                            // let idUser = user._id ? user._id : user.id;
+                            // if (user._id === this.props.currentUserId){
+                            //    user._id = {};
+                            // }
                             return (
                                 <Link to={`/users/${user._id}`} style={{ textDecoration: 'none' }} >
-                                    <li key={user._id }className="matched-user">
+                                    <li key={user._id}className="matched-user">
                                         <button>{user.username}</button> 
                                     </li>
                                 </Link>

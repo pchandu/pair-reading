@@ -1,17 +1,18 @@
 .book-show-container {
     display: flex;
     /* flex-direction: column; */
-    align-items: center;
+    align-items: center; 
     justify-content: center;
-    padding: 10px;
-    /* height: 50%; */
-    height: 100vh;
+    /* padding: 10px; */
+    /* height: 85vh; */
     width: 100%;
    /* position: relative; */
+   /* bottom: 50px; */
 }
 
 .book-show-details {
     padding: 10px;
+    margin: 10px;
     display: flex;
     width: 600px;
     flex-direction: column;
@@ -48,19 +49,26 @@
     align-items: center;
     justify-content: center;
     
-    height: 900px;
+    height: auto;
     padding: 20px;
     width: 70%;
 
 }
 
 #book-show-follow-btn {
-    margin: 10px;
+    margin-top: 20px;
+    /* padding-top: 10px; */
+    margin-bottom: 10px;;
     height: 30px;
     background-color: darkcyan;
     color: white;
     border: none;
     border-radius: 5px;
+}
+
+#book-show-follow-btn:hover {
+   background-color: cadetblue !important;
+    /* color: red; */
 }
 
 .user-match-container {
@@ -85,6 +93,7 @@
     color: cadetblue;
     padding: 10px;
     height: 250px;
+    margin-top: 50px;
 
 }
 
