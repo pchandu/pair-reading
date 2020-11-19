@@ -85,7 +85,8 @@ class MatchFeed extends React.Component {
         )})
         return (
             <div className="matches-feed-container">
-                <button className="match-feed-btn" onClick={this.toggleMatches} type="button" >Matches ({this.props.matches.length})</button>
+                <button className="match-feed-btn" 
+                onClick={this.toggleMatches} type="button" >Matches ({this.props.matches.length})</button>
                     <ul id="matches-feed-list">
                         {matches}
                     </ul>

@@ -3,9 +3,6 @@ import {Link} from 'react-router-dom'
 
 class BookFeed extends React.Component {
 
-    constructor(props) {
-        super(props)
-    }
 
     componentDidMount() {
         this.props.clearBooksFilter();
@@ -35,7 +32,7 @@ class BookFeed extends React.Component {
         const books = this.props.books.map((el,i) =>
             <Link key={i} to={`/books/${el._id}`}>
             <li key={i} className="books-feed-list-item">
-                <div><img className="books-feed-img" src={el.imagePath}/></div>
+                <div><img className="books-feed-img" src={el.imagePath} alt={`${el.title}`}/></div>
                 <div><h1>{el.title}</h1>
                 <h2>by {el.author}</h2></div>
             </li>

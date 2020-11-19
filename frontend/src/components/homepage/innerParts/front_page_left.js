@@ -5,13 +5,23 @@ import KidReading from '../../../images/Timmy-reads.jpg'
 class FrontPageLeft extends React.Component {
     constructor(props){
         super(props)
-        window.addEventListener("scroll", () => {
-            let scrollPos = window.scrollY;
-            if(scrollPos >= 1800){
-                let imgEle = document.getElementById('front-page-left-container-img')
-                imgEle.classList.add("fadeIn")
-            }
-        })
+        this.onScroll = this.onScroll.bind(this)
+    }
+    
+    componentDidMount(){
+        window.addEventListener("scroll", this.onScroll)
+    }
+
+    componentWillUnmount(){
+        window.removeEventListener("scroll", this.onScroll)
+    }
+
+    onScroll(){ 
+        let scrollPos = window.scrollY;
+        if(scrollPos >= 1800){
+            let imgEle = document.getElementById('front-page-left-container-img')
+            imgEle.classList.add("fadeIn")
+        }
     }
     render(){
         return(

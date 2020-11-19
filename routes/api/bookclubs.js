@@ -72,13 +72,17 @@ router.post('/createBookClub',(req,res) => {
                         user.save()
                     })
                     .then(
-                        // Finds invitee and invites to bookclub
-                        User.findOne({_id: req.body.invitee})
-                        .then( user => {
-                        user.invites.push(newBookClub._id)
+                    User.findOne({_id: req.body.invitee})
+                        .then( user => {User.findOne({_id: req.body.creator})
+                        .then(creator => {
+                        user.invites.push({
+                            "id": newBookClub._id,
+                            "title": newBookClub.title,
+                            "creator": creator.username,
+                        })
                         user.save()
                         res.status(200).json({msg: "Successfully Created BookClub!", newBookClub})
-                    })
+                        })})
                     ))
             }
         })
@@ -99,7 +103,20 @@ router.delete('/deleteBookClub', (req,res) => {
                                     user.bookclubs.splice(idx, 1)
                                 }
                             })
-                        })
+                        
+                            bookClub.users.forEach(userId => {
+                                User.findById(userId)
+                                    .then(user =>{
+                                        user.bookclubs.forEach(bookClubId =>{
+                                            if(bookClub.id === bookClubId){
+                                                user.bookclubs.splice(idx,1)
+                                                user.save()
+                                            }
+                                        })
+                                    })
+                            })
+                    })
+  
                         .then(
                     bookClub.delete()
                         .then( res.status(200).json({msg: "Succesfully deleted bookclub"}))
@@ -112,5 +129,39 @@ router.delete('/deleteBookClub', (req,res) => {
             }
         })
 }) 
+
+router.post('/joinBookClub', (req,res) => {
+    User.findById(req.body.userId)
+        .then( user => {
+            if(user){
+                BookClub.findById(req.body.bookclub)
+                .then( bookclub => {
+                    if(bookclub){
+                        bookclub.users.push(user._id)
+                        user.bookclubs.push(bookclub._id)
+                        user.invites.forEach((invite,idx) => {
+                            if(JSON.stringify(invite.id) === JSON.stringify(bookclub._id)){
+                                user.invites.splice(idx, 1)
+                            }
+                        })
+
+                        bookclub.save()
+                        user.save()
+                        return res.status(200).json({msg: "Got everything boss."})
+                    }else{
+                        user.invites.forEach((invite,idx) => {
+                            if(JSON.stringify(invite.id) === `"${req.body.bookclub}"`){
+                                user.invites.splice(idx, 1)
+                            }
+                        })
+                        user.save()
+                        return res.status(200).json({msg: "Bookclub didnt exist! Removed from invites."})
+                    }
+                })
+            }else if(!user){
+                return res.status(400).json({msg: "User not found."})
+            }
+        })
+})
 
 module.exports = router;

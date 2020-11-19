@@ -4,7 +4,7 @@ import { fetchBookClub } from '../../actions/bookclub_actions';
 import { fetchFilteredBookClubForums, clearForumsFilter, changeForumsFilter } from '../../actions/filters/forum_filter_actions';
 import { clearBooksFilter, changeBooksFilter, fetchFilteredBookClubBooks } from '../../actions/filters/book_filter_actions';
 import { clearUsersFilter, changeUsersFilter, fetchFilteredBookClubUsers } from '../../actions/filters/user_filter_actions';
-import { refSelector, bookclubShowSelector } from '../selectors/index_selectors';
+import { bookclubShowSelector } from '../selectors/index_selectors';
 import { deleteBookClub } from '../../util/bookclub_util'
 
 const mSTP = ({ entities, session }, { match }) => {

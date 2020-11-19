@@ -1,5 +1,4 @@
 import React from 'react';
-import {Link} from 'react-router-dom'
 import ProfilePreferences from './preferences_container'
 
 class Profile extends React.Component {

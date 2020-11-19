@@ -3,16 +3,27 @@ import WomanReading from '../../../images/Samantha-photo.jpeg'
 class FrontPageRight extends React.Component {
     constructor(props){
         super(props)
-        window.addEventListener("scroll", () => {
-            let scrollPos = window.scrollY;
-            if(scrollPos >= 1200){
-                let imgEle = document.getElementById('front-page-right-container-img')
-                imgEle.classList.add("fadeIn")
-            }
-        })
+        this.onScroll = this.onScroll.bind(this)
+    }
+    
+    componentDidMount(){
+        window.addEventListener("scroll", this.onScroll)
+    }
+
+    componentWillUnmount(){
+        window.removeEventListener("scroll", this.onScroll)
+    }
+
+    onScroll(){ 
+        let scrollPos = window.scrollY;
+        if(scrollPos >= 1200){
+            let imgEle = document.getElementById('front-page-right-container-img')
+            imgEle.classList.add("fadeIn")
+        }
     }
     render(){
         return(
+            <div className="front-page-right-outer-div">
             <div className="front-page-right-container">
                 <div className="front-page-right-text-container">
                     <h1>Have you started a book only to shelve it a couple of minutes later?</h1>
@@ -25,6 +36,7 @@ class FrontPageRight extends React.Component {
                 id="front-page-right-container-img" 
                 className="front-page-right-container-img"
                 alt="Woman reading in library"/>
+            </div>
             </div>
         )
     }
