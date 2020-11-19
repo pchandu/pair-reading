@@ -70,22 +70,23 @@ class MatchFeed extends React.Component {
     render() {
         const matches = this.props.matches.map((el, i) =>{
             return(
+                // Individual list item rows
                 <li key={i} className="matches-feed-list-item">
-
-                <Link key={i} to={`/users/${el._id}`}>
-                <h2 className="h2-matches-inner-li">
-                    {el.username}
-                </h2>
-                </Link>
-                    <button className="match-user-invite" onClick={() => this.showBookClubModal(el)}>Invite</button>
+                    <Link key={i} to={`/users/${el._id}`} className="matches-link-item">
+                        {el.username}
+                    </Link>
+                    <button className="match-user-invite" 
+                    onClick={() => this.showBookClubModal(el)}>Invite</button>
                 </li>
         )})
         return (
             <div className="matches-feed-container">
                 <button className="match-feed-btn" 
                 onClick={this.toggleMatches} type="button" >Matches ({this.props.matches.length})</button>
-                    <ul className={`${this.state.showMatches ? "show" : "hidden"}`}>
+                    <ul className={`${this.state.showMatches ? "show" : "hidden"} ul-matches-container`}>
+                        <div className="div-matches-container">
                         {matches}
+                        </div>
                     </ul>
 
 
