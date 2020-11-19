@@ -56,3 +56,7 @@ time, mark, audio, video  {
 .show{
     display: block;
 }
+
+.invisibile{
+    visibility: none;
+}

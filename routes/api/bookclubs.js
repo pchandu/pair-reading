@@ -79,6 +79,7 @@ router.post('/createBookClub',(req,res) => {
                             "id": newBookClub._id,
                             "title": newBookClub.title,
                             "creator": creator.username,
+                            "creatorId": creator._id
                         })
                         user.save()
                         res.status(200).json({msg: "Successfully Created BookClub!", newBookClub})
