@@ -4,6 +4,8 @@ import { fetchBook, removeAllBooks } from '../../actions/book_actions'
 import {clearUsersFilter, fetchFilteredBookUsers} from '../../actions/filters/user_filter_actions'
 import { removeAllUsers} from '../../actions/user_actions'
 import { userFollowBook } from "../../util/session_api_util";
+import { refreshLoggedInUserInfo } from "../../actions/session_actions";
+
 
 
 
@@ -27,6 +29,7 @@ const mDTP = (dispatch) => ({
   removeAllBooks: () => dispatch(removeAllBooks()),
   removeAllUsers: () => dispatch(removeAllUsers()),
   userFollowBook: (updatedUser) => userFollowBook(updatedUser),
+  refreshUserInfo: (userId) => dispatch(refreshLoggedInUserInfo(userId)),
 });
 
 export default connect(mSTP,mDTP)(BookShow)

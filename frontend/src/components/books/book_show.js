@@ -29,6 +29,8 @@ class BookShow extends React.Component {
 
     componentDidUpdate() {
         // this.props.fetchUsers(this.props.bookId);
+    this.props.refreshUserInfo({ user: this.props.currentUser["id"] });
+
 
     }
 
