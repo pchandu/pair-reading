@@ -9,13 +9,15 @@ class MatchFeed extends React.Component {
         this.state = {
             bookClubModal: false,
             userEl: '',
-            bookClubTitle: ''
+            bookClubTitle: '',
+            showMatches: false
         }
 
         this.showBookClubModal = this.showBookClubModal.bind(this)
         this.handleClose = this.handleClose.bind(this)
         this.makeBookClub = this.makeBookClub.bind(this)
         this.handleChange = this.handleChange.bind(this)
+        this.toggleMatches = this.toggleMatches.bind(this)
     }
 
     componentDidMount() {
@@ -30,12 +32,7 @@ class MatchFeed extends React.Component {
     }
 
     toggleMatches() {
-        let matchDiv = document.getElementById('matches-feed-list');
-        if (matchDiv.style.display === "none") {
-            matchDiv.style.display = "block";
-        } else {
-            matchDiv.style.display = "none";
-        }
+        this.setState({showMatches: !this.state.showMatches})
     }
 
     showBookClubModal(user){
@@ -87,7 +84,7 @@ class MatchFeed extends React.Component {
             <div className="matches-feed-container">
                 <button className="match-feed-btn" 
                 onClick={this.toggleMatches} type="button" >Matches ({this.props.matches.length})</button>
-                    <ul id="matches-feed-list">
+                    <ul className={`${this.state.showMatches ? "show" : "hidden"}`}>
                         {matches}
                     </ul>
 
