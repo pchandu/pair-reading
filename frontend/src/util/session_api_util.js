@@ -24,3 +24,7 @@ export const updateUser = (updatedUser) => {
 export const refreshUserInfo = (loggedInUser) => {
     return axios.post("api/users/refreshUserInfo", loggedInUser)
 }
+
+export const userFollowBook= (updatedUser) => {
+  return axios.patch("api/users/userFollowBook", updatedUser);
+};

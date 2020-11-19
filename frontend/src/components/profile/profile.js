@@ -22,7 +22,7 @@ class Profile extends React.Component {
                     <div className="profile-email">
                         {this.props.user.email}
                     </div>
-                    < ProfilePreferences />
+                    <ProfilePreferences/>
                 </div>
             </div>
         )  

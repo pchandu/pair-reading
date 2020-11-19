@@ -27,6 +27,7 @@ import AboutPage from './footer/about';
 import user_show_container from "./user/user_show_container";
 import BookShow from "./books/book_show_container";
 
+import BookShowAll from "../components/books/book_show_all_container"
 
 
 const App = () => (
@@ -51,6 +52,8 @@ const App = () => (
 
     
       <Route exact path="/about" component={AboutPage} />
+      <Route exact path="/book-show-all" component={BookShowAll} />
+
 
 
       <AuthRoute path="/dashboard" component={DashBoardContainer} />
