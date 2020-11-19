@@ -9,18 +9,13 @@ class UserShow extends React.Component {
     constructor(props) {
         super(props);
         this.props = props;
-        // debugger
     }
 
     componentDidMount() {
         this.props.fetchUser(this.props.userId);
-        // const body = document.getElementsByClassName("user-show-content-container")[0];
-        // body.classList.add(`session-img`)
-        // body.classList.add(`background-${Math.floor(Math.random() * 8) + 1}`);
     }
 
     render() {
-        // debugger
         const {user} = this.props;
         let username = undefined;
         let email = undefined;

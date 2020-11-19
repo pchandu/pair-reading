@@ -4,10 +4,11 @@ import BookClubFeed from '../profile/bookclubs_feed'
 import { refSelector } from '../selectors/index_selectors'
 import { deleteBookClub } from '../../util/bookclub_util'
 
-const mSTP = ({ entities: { users, bookclubs } }, { match }) => {
+const mSTP = ({ entities: { users, bookclubs }, session }, { match }, ) => {
     const user = users[match.params.userId];
     return {
-        userId: match.params.userId,
+        userId1: match.params.userId,
+        userId: session.user.id,
         user: user,
         bookclubs: refSelector(user ? user.bookclubs : undefined, bookclubs)
     }
@@ -16,7 +17,7 @@ const mSTP = ({ entities: { users, bookclubs } }, { match }) => {
 const mDTP = dispatch => ({
     clearBookClubsFilter: () => dispatch(clearBookClubsFilter()),
     changeBookClubsFilter: (filter, value) => dispatch(changeBookClubsFilter(filter, value)),
-    fetchFilteredUserBookClubs: (userId) => dispatch(fetchFilteredUserBookClubs(userId)),
+    fetchFilteredUserBookClubs: (userId1) => dispatch(fetchFilteredUserBookClubs(userId1)),
     deleteBookClub: (bookClubData) => deleteBookClub(bookClubData)
 });
 
