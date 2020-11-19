@@ -73,11 +73,12 @@ class BookShow extends React.Component {
                     <img src={this.props.books.imagePath} className="book-show-cover-photo"/>
                     <div className="book-show-details">
                         
-                        <button id="book-show-follow-btn" onClick={() => this.toggleFollow(this.props.books._id)} style={{backgroundColor: bgButtonColor}}>{this.userFollow() ? "Unfollow Book" : "Follow Book"}</button>
 
                         <h1 className="book-show-title"> {this.props.books.title} </h1>
                         <h1 className="book-show-author"> by {this.props.books.author} </h1>
                         <p className="book-show-description"> {this.props.books.description} </p>
+                        <button id="book-show-follow-btn" onClick={() => this.toggleFollow(this.props.books._id)} style={{backgroundColor: bgButtonColor}}>{this.userFollow() ? "Unfollow Book" : "Follow Book"}</button>
+
                         
                     </div>
                    
