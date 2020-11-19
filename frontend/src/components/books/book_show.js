@@ -27,11 +27,9 @@ class BookShow extends React.Component {
         this.props.removeAllUsers();
     }
 
-    componentDidUpdate() {
-    this.props.refreshUserInfo({ user: this.props.currentUser["id"] });
-
-
-    }
+    // componentDidUpdate() {
+    // this.props.refreshUserInfo({ user: this.props.currentUser["id"] });
+    // }
 
     toggleFollow(bookId) {
  
