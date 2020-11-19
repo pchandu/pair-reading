@@ -79,6 +79,7 @@ router.post('/createBookClub',(req,res) => {
                             "id": newBookClub._id,
                             "title": newBookClub.title,
                             "creator": creator.username,
+                            "creatorId": creator._id
                         })
                         user.save()
                         res.status(200).json({msg: "Successfully Created BookClub!", newBookClub})
@@ -161,6 +162,20 @@ router.post('/joinBookClub', (req,res) => {
             }else if(!user){
                 return res.status(400).json({msg: "User not found."})
             }
+        })
+})
+
+router.delete('/denyBookClub', (req,res) => {
+
+    
+    User.findById(req.body.userId)
+        .then( user => {
+            user.invites.forEach( (invite,idx) => {
+                if(JSON.stringify(invite.id) === `"${req.body.bookclub}"`){
+                    user.invites.splice(idx,1)
+                }
+            })
+            user.save()
         })
 })
 

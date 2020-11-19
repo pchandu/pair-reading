@@ -9,13 +9,15 @@ class MatchFeed extends React.Component {
         this.state = {
             bookClubModal: false,
             userEl: '',
-            bookClubTitle: ''
+            bookClubTitle: '',
+            showMatches: false
         }
 
         this.showBookClubModal = this.showBookClubModal.bind(this)
         this.handleClose = this.handleClose.bind(this)
         this.makeBookClub = this.makeBookClub.bind(this)
         this.handleChange = this.handleChange.bind(this)
+        this.toggleMatches = this.toggleMatches.bind(this)
     }
 
     componentDidMount() {
@@ -30,12 +32,7 @@ class MatchFeed extends React.Component {
     }
 
     toggleMatches() {
-        let matchDiv = document.getElementById('matches-feed-list');
-        if (matchDiv.style.display === "none") {
-            matchDiv.style.display = "block";
-        } else {
-            matchDiv.style.display = "none";
-        }
+        this.setState({showMatches: !this.state.showMatches})
     }
 
     showBookClubModal(user){
@@ -73,22 +70,23 @@ class MatchFeed extends React.Component {
     render() {
         const matches = this.props.matches.map((el, i) =>{
             return(
+                // Individual list item rows
                 <li key={i} className="matches-feed-list-item">
-
-                <Link key={i} to={`/users/${el._id}`}>
-                <h2 className="h2-matches-inner-li">
-                    {el.username}
-                </h2>
-                </Link>
-                    <button className="match-user-invite" onClick={() => this.showBookClubModal(el)}>Invite</button>
+                    <Link key={i} to={`/users/${el._id}`} className="matches-link-item">
+                        {el.username}
+                    </Link>
+                    <button className="match-user-invite" 
+                    onClick={() => this.showBookClubModal(el)}>Invite</button>
                 </li>
         )})
         return (
             <div className="matches-feed-container">
                 <button className="match-feed-btn" 
                 onClick={this.toggleMatches} type="button" >Matches ({this.props.matches.length})</button>
-                    <ul id="matches-feed-list">
+                    <ul className={`${this.state.showMatches ? "show" : "hidden"} ul-matches-container`}>
+                        <div className="div-matches-container">
                         {matches}
+                        </div>
                     </ul>
 
 
