@@ -5,7 +5,8 @@ class Invites extends React.Component {
         super(props)
         this.props = props;
         this.state = {
-            showInvites: false
+            showInvites: false,
+            updated: false
         }
 
         this.handleOpen = this.handleOpen.bind(this)
@@ -22,14 +23,15 @@ class Invites extends React.Component {
         this.props.joinBookClub({
             bookclub: bookClubId,
             userId: this.props.userId
-        }).then( res => console.log(res.data.msg))
+        }).then( window.location.reload() )
     }
 
     handleDeny(bookClubId){
         this.props.denyBookClub({
             bookclub: bookClubId,
             userId: this.props.userId
-        }).then(res => console.log(res.data.msg))
+        }).then(this.props.refreshLoggedInUserInfo({user:this.props.userId}))
+        .then(this.setState({updated: !this.state.updated}))
     }
 
     render(){
