@@ -33,103 +33,61 @@ class BookShow extends React.Component {
     }
 
     toggleFollow(bookId) {
-        // console.log(this.props.user)
-        // debugger
+ 
       let elem = document.getElementById("book-show-follow-btn");
       let userAdd = 0;
       if (elem.innerHTML === "Unfollow Book"){
-        // console.log('we exists yes');
         elem.innerHTML = "Follow Book";
-        // console.log(this.props.users);
-       
-        // console.log(currUser);
-        // console.log(typeof currUser);
+        elem.style.backgroundColor = "green";
 
-        // console.log(this.props.users)
-        // console.log(typeof this.props.users);    
-        userAdd = true;
-        // this.props.users.map((ele, idx)=> {
-        //     if (ele === this.props.currentUserId){
-        //         this.props.users.splice(idx, 1);
-        //     }
-        // })
+   
 
       }
       else if (elem.innerHTML === "Follow Book") {
         elem.innerHTML = "Unfollow Book";
-        userAdd = false;
-        // this.props.users.push(this.props.currentUserId);
-      
+        elem.style.backgroundColor = "red";
         
-
+        // this.props.users.push(this.props.currentUserId);
       }
 
       this.props.userFollowBook({
         user: this.props.currentUserId,
         book: bookId,
-      }).then(() => {
-          if (userAdd) {
-            let currUser = this.props.currentUser;
-            let joined = this.props.users;
-            joined[this.props.currentUserId] = currUser;
-
-            // console.log(joined);
-
-            this.setState({ users: joined });
-          } else {
-            let blank = {};
-            let currUser = this.props.currentUser;
-            let currUserId = this.props.currentUserId;
-
-             Object.keys(this.props.users).map((user, idx) => {
-                 if (user === currUserId) {
-                    delete this.props.users[user];
-                 }
-             })
-            // })
-
-            //   joined[this.props.currentUserId] = {};
-              this.setState({ users: blank});
-          }
-
       });
-
-    let currUserId = this.props.currentUserId;
-    console.log(currUserId)
-      
-      console.log(this.props.users);
-      console.log(this.props.currentUserId);
-
-    };
+    console.log(this.props.currentUser.books);
+    this.setState({ games: [] });
+    }
+    
     
 
     userFollow() {
-       let checkArr = Object.values(this.props.users).map(user => user._id)
-       if (checkArr.includes(this.props.currentUserId)) {
-            // console.log('we exists yes');
-            // elem.innerHTML = "Unfollow Book";
-            return true;
-       }
-       else {
-            // console.log("NaH BrO");
-            // elem.innerHTML = "Follow Book";
-            return false;
+    let checkbook = Object.values(this.props.currentUser.books).map((book) => book);
+      console.log(checkbook);
 
-       }
+      if (checkbook.includes(this.props.books._id)) {
+        console.log("gottem");
+        return true;
+    } else {
+        console.log("nurp");
+        return false;
+    }
+
     };
 
     render() {
         if (!this.props.books) return null
-
+        let bgButtonColor = this.userFollow() ? "darkred" : "limegreen";
         return (
             <div className="book-show-container">
                 <div className="book-show-info-container">
                     <img src={this.props.books.imagePath} className="book-show-cover-photo"/>
                     <div className="book-show-details">
+                        
+                        <button id="book-show-follow-btn" onClick={() => this.toggleFollow(this.props.books._id)} style={{backgroundColor: bgButtonColor}}>{this.userFollow() ? "Unfollow Book" : "Follow Book"}</button>
+
                         <h1 className="book-show-title"> {this.props.books.title} </h1>
                         <h1 className="book-show-author"> by {this.props.books.author} </h1>
                         <p className="book-show-description"> {this.props.books.description} </p>
-                        <button id="book-show-follow-btn" onClick={() => this.toggleFollow(this.props.books._id)}>{this.userFollow() ? "Unfollow Book" : "Follow Book"}</button>
                         
                     </div>
                    
