@@ -46,11 +46,7 @@ Users have two primary functionalities, both of which are implemented in modals:
 2. inviting matched users (matches are based on matching preferences) to join a bookclub
 **screenshot of modal**
 # Post Activity
-
-# Books & Bookclubs 
-
-
-
-
-
+Post activity highlights recent posts the user has made. Clicking on posts redirects the user to the forum in which the post was made. 
+# Bookclubs 
+Bookclubs are micro-communities within PairReading where users interested in a specific set of books can have discussions to gain deeper insights from one another. **forum screenshot**
 # team-members: <!-- Alex Archibeque, Kat Chan, Praneeth Chandu, Kevin Su -->
