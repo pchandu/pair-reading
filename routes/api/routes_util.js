@@ -20,13 +20,16 @@ const convert2POJO = (res,data,cb) => {
     })
     // return res.json(pojo)
 }
-const nestedIndex = (Model, nestedData, query, res, cnt={limit:null,offset:null},cb) => {
+const nestedIndex = (Model, nestedData, query, res, cnt={limit:null,offset:null,sort:null},cb) => {
     // console.log(nestedData)
     return nestedIndexBase(Model, nestedData, query, cnt)
         .then(el => convert2POJO(res, el, cb));
 }
-const nestedIndexBase = (Model, nestedData, query, {limit,offset}) => {
-    return Model.find(Object.assign({}, { '_id': { $in: nestedData } }, query)).limit(parseInt(limit)).skip(parseInt(offset))
+const nestedIndexBase = (Model, nestedData, query, {limit,offset,sort}) => {
+    return Model.find(Object.assign({}, { '_id': { $in: nestedData } }, query))
+                .limit(parseInt(limit))
+                .skip(parseInt(offset))
+                .sort(sort)
 }
 
 const userMatches = (Model, data, res) => {

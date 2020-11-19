@@ -25,7 +25,7 @@ router.get('/:id', (req, res) => {
 router.get('/:id/posts', (req, res) => {
     // console.log(req.params.id)
     // console.log(req.query)
-    const cnt = { limit: req.query.recentCnt, offset: req.query.offset };
+    const cnt = { limit: req.query.recentCnt, offset: req.query.offset, sort: {created_at: -1} };
     const cb = (el) => User.findOne({_id: el.user},'username').then(result => {
         // el.user = result.username;
         // console.log(el)

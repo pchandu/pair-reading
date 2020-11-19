@@ -14,15 +14,24 @@ i {
 }
 .forum-show-posts {
     margin-top: 10px;
-    border: 1px solid black;
+    /* border: 1px solid red; */
 }
 .forum-show-post-item {
-    padding: 15px;
-    border: 1px solid black;
+    min-height: 150px;
+    /* padding: 15px; */
+    border: 2px solid black;
+    border-radius: 5px;
+    display: flex;
+    margin-bottom: 10px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
 }
-.forum-show-post-upper {
+.forum-show-post-main * {
+    background-color: inherit;
+}
+.forum-show-post-main {
+    background-color: rgb(238, 238, 238);
     padding: 15px;
-    border: 1px solid black;
+    width: 100%;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -68,4 +77,27 @@ i {
 .empty {
     width: 50px !important;
     margin-right: 10px;
+}
+.post-info {
+    min-width: 150px;
+    font-size: small;
+    border-right: 1px solid black;
+    background-color: rgb(228, 228, 228);
+    padding: 15px;
+}
+.post-info * {
+    background-color: inherit;
+}
+.post-info-profile a {
+    /* font-size: 10px; */
+}
+.post-info-profile i {
+    margin-left: 0px;
+}
+.post-info-profile {
+    /* cursor: pointer; */
+}
+.post-info-date {
+    margin-top: 10px;
+    font-size: 10px;
 }
