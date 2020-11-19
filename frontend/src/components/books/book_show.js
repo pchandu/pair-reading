@@ -28,7 +28,6 @@ class BookShow extends React.Component {
     }
 
     componentDidUpdate() {
-        // this.props.fetchUsers(this.props.bookId);
     this.props.refreshUserInfo({ user: this.props.currentUser["id"] });
 
 
@@ -37,40 +36,29 @@ class BookShow extends React.Component {
     toggleFollow(bookId) {
  
       let elem = document.getElementById("book-show-follow-btn");
-      let userAdd = 0;
       if (elem.innerHTML === "Unfollow Book"){
         elem.innerHTML = "Follow Book";
-        elem.style.backgroundColor = "green";
-
-   
+        elem.style.backgroundColor = "limegreen";
 
       }
       else if (elem.innerHTML === "Follow Book") {
         elem.innerHTML = "Unfollow Book";
-        elem.style.backgroundColor = "red";
-        
-        // this.props.users.push(this.props.currentUserId);
+        elem.style.backgroundColor = "darkred";
       }
 
       this.props.userFollowBook({
         user: this.props.currentUserId,
         book: bookId,
       });
-    // console.log(this.props.currentUser.books);
-    // this.setState({ games: [] });
     }
     
     
 
     userFollow() {
     let checkbook = Object.values(this.props.currentUser.books).map((book) => book);
-      console.log(checkbook);
-
       if (checkbook.includes(this.props.books._id)) {
-        console.log("gottem");
         return true;
     } else {
-        console.log("nurp");
         return false;
     }
 
@@ -100,10 +88,13 @@ class BookShow extends React.Component {
                     <h2 className="book-show-user-matches-text">Here are some other users that are looking for a partner!</h2>
                     <ul className="user-matches">
                         {Object.values(this.props.users).map((user) => {
-                            let idUser = user._id ? user._id : user.id;
+                            // let idUser = user._id ? user._id : user.id;
+                            // if (user._id === this.props.currentUserId){
+                            //    user._id = {};
+                            // }
                             return (
-                                <Link to={`/users/${idUser}`} style={{ textDecoration: 'none' }} >
-                                    <li key={idUser}className="matched-user">
+                                <Link to={`/users/${user._id}`} style={{ textDecoration: 'none' }} >
+                                    <li key={user._id}className="matched-user">
                                         <button>{user.username}</button> 
                                     </li>
                                 </Link>
