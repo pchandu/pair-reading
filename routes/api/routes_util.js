@@ -1,15 +1,35 @@
-const convert2POJO = (res,data) => {
+const convert2POJO = (res,data,cb) => {
     let pojo = {};
-    data.forEach(el => Object.assign(pojo, pojo, { [el._id]: el }))
-    return res.json(pojo)
+    const promises = [];
+    data.forEach(el => {
+        if(cb)
+            promises.push(
+                cb(el).then(
+                el2 => {
+                    Object.assign(pojo, pojo, { [el2._id]: el2 })
+                })
+            )
+        else{
+            Object.assign(pojo, pojo, { [el._id]: el })
+        }
+    })
+    // console.log(promises)
+    Promise.all(promises).then( values => {
+        // console.log(values)
+        return res.json(pojo)
+    })
+    // return res.json(pojo)
 }
-const nestedIndex = (Model, nestedData, query, res, limit) => {
-    return nestedIndexBase(Model, nestedData, query, limit)
-        .then(el => convert2POJO(res, el));
+const nestedIndex = (Model, nestedData, query, res, cnt={limit:null,offset:null,sort:null},cb) => {
+    // console.log(nestedData)
+    return nestedIndexBase(Model, nestedData, query, cnt)
+        .then(el => convert2POJO(res, el, cb));
 }
-const nestedIndexBase = (Model, nestedData, query, limit) => {
-    // console.log(limit)
-    return Model.find(Object.assign({}, { '_id': { $in: nestedData } }, query)).limit(parseInt(limit))
+const nestedIndexBase = (Model, nestedData, query, {limit,offset,sort}) => {
+    return Model.find(Object.assign({}, { '_id': { $in: nestedData } }, query))
+                .limit(parseInt(limit))
+                .skip(parseInt(offset))
+                .sort(sort)
 }
 
 const userMatches = (Model, data, res) => {

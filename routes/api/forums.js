@@ -25,9 +25,16 @@ router.get('/:id', (req, res) => {
 router.get('/:id/posts', (req, res) => {
     // console.log(req.params.id)
     // console.log(req.query)
+    const cnt = { limit: req.query.recentCnt, offset: req.query.offset, sort: {created_at: -1} };
+    const cb = (el) => User.findOne({_id: el.user},'username').then(result => {
+        // el.user = result.username;
+        // console.log(el)
+        // console.log(Object.assign({},el._doc,{user:result.username}))
+        return Object.assign({},el._doc,{user:{_id: el.user, username:result.username}})
+    })
     Forum.findById(req.params.id)
         .then(forum => 
-            nestedIndex(Post, forum.posts,filterPosts(req.query), res, req.query.recentCnt)
+            nestedIndex(Post, forum.posts,filterPosts(req.query), res, cnt, cb)
         )
         .catch(err => res.status(404).json({ noforumsfound: 'No forums found' }));
 });

@@ -26,7 +26,8 @@ const posts = [
 ];
 for(let i=0;i<500;i++){
     posts.push(new Post({
-        body: faker.commerce.productDescription()
+        body: faker.lorem.paragraphs()
+        // body: faker.commerce.productDescription()
     }))
 }
 module.exports = {
