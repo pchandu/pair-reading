@@ -3,7 +3,7 @@ import { AuthRoute, ProtectedRoute } from "../util/route_util";
 import { Switch, Route } from "react-router-dom";
 import NavBarContainer from "./nav/navbar_container";
 
-import ForumIndexContainer from "./forum/forum_index_container";
+// import ForumIndexContainer from "./forum/forum_index_container";
 import BookClubIndexContainer from "./bookclub/bookclub_index_container"
 import PostIndexContainer from "./post/post_index_container"
 
@@ -42,7 +42,7 @@ const App = () => (
 
 
       {/* //! testing */}
-      <AuthRoute exact path="/forums" component={ForumIndexContainer} />
+      {/* <AuthRoute exact path="/forums" component={ForumIndexContainer} /> */}
       <AuthRoute exact path="/bookclubs" component={BookClubIndexContainer} />
       <AuthRoute exact path="/posts" component={PostIndexContainer} />
 
