@@ -38,7 +38,7 @@ class ForumShow extends React.Component {
     }
     componentWillUpdate(ownProps,ownState){
         if(this.state.page !== ownState.page){
-            debugger
+            // debugger
             this.props.changePostsFilter("offset",(ownState.page-1) * this.postsPerPage);
             this.props.fetchFilteredForumPosts(this.props.forumId);
         }
