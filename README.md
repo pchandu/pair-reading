@@ -2,7 +2,10 @@
 How often do you pick up a book and never end up finishing it? Too often in our case. Pair Reading is a web application built with the MERN stack to help people find the accountability they need to finish their books by finding users reading partners on books they're interested in. 
 
 Check out our live demo here: https://pair-reading.herokuapp.com/#/
+# Design Process
+**gif of wireframes to real product**
 
+# Onboarding
 The PairReading journey begins upon signup, where users are taken to the onboarding page to select their preferences: the time of day that works best to meet with their pair and the books they're interested in pairing with. //talk about how this helps us "get to know the user" and help match them with other users.
 **screenshot of onboarding component**
 
@@ -45,9 +48,11 @@ Users have two primary functionalities, both of which are implemented in modals:
 **screenshot of modal**
 2. inviting matched users (matches are based on matching preferences) to join a bookclub
 **screenshot of modal**
-# Post Activity
+# Post Activity & Forums
 Post activity highlights recent posts the user has made. Clicking on posts redirects the user to the forum in which the post was made. 
+//CRUD
+**screenshot of Forums page**
 # Bookclubs 
-Bookclubs are micro-communities within PairReading where users interested in a specific set of books can have discussions to gain deeper insights from one another. **forum screenshot**
+Bookclubs are micro-communities within PairReading where users interested in a specific set of books can have discussions to gain deeper insights from one another. **bookclub show screenshot**
 # Developers: 
 Alex Archibeque, Kat Chan, Praneeth Chandu, Kevin Su
