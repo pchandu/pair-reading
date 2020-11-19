@@ -119,8 +119,10 @@
     margin-right: 10px;
     flex-wrap:wrap;
 }
+
 .invites-outer-label >a {
     text-decoration:none;
+    color: #1d5e66
 }
 .invites-outer-label > a:hover {
     color: #0056b3;

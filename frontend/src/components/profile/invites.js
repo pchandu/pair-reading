@@ -36,6 +36,8 @@ class Invites extends React.Component {
     }
 
     render(){
+
+        // 27 letters
         let {invitesArray } = this.props;
         if (invitesArray.length === 0) { 
             return(null)
@@ -65,7 +67,9 @@ class Invites extends React.Component {
                         <li className="individual-invite-li-container"> 
                             <label className="invites-outer-label">
                             <Link to={`/bookclubs/${invite.id}`}>
-                                {invite.title} 
+                                {invite.title.length > 27 ? 
+                                invite.title.slice(0,26) + "..."
+                                : invite.title}
                             </Link>
                             </label>
                             <label className="invites-outer-label">
