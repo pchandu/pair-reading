@@ -164,4 +164,18 @@ router.post('/joinBookClub', (req,res) => {
         })
 })
 
+router.delete('/denyBookClub', (req,res) => {
+
+    
+    User.findById(req.body.userId)
+        .then( user => {
+            user.invites.forEach( (invite,idx) => {
+                if(JSON.stringify(invite.id) === `"${req.body.bookclub}"`){
+                    user.invites.splice(idx,1)
+                }
+            })
+            user.save()
+        })
+})
+
 module.exports = router;

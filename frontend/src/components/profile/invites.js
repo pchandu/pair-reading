@@ -25,8 +25,11 @@ class Invites extends React.Component {
         }).then( res => console.log(res.data.msg))
     }
 
-    handleDeny(){
-
+    handleDeny(bookClubId){
+        this.props.denyBookClub({
+            bookclub: bookClubId,
+            userId: this.props.userId
+        }).then(res => console.log(res.data.msg))
     }
 
     render(){
@@ -54,7 +57,7 @@ class Invites extends React.Component {
                             className="btn btn-success">Join</button>
 
                             <button 
-                            onClick={this.handleDeny} 
+                            onClick={() => this.handleDeny(invite.id)} 
                             className="btn btn-danger">Deny</button>
                         </li>
 
