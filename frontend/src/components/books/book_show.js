@@ -56,8 +56,8 @@ class BookShow extends React.Component {
         user: this.props.currentUserId,
         book: bookId,
       });
-    console.log(this.props.currentUser.books);
-    this.setState({ games: [] });
+    // console.log(this.props.currentUser.books);
+    // this.setState({ games: [] });
     }
     
     
