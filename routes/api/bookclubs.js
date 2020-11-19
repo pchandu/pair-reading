@@ -155,9 +155,8 @@ router.post('/joinBookClub', (req,res) => {
                             }
                         })
                         user.save()
-                        return res.status(200).json({msg: "Bookclub didnt exist!"})
+                        return res.status(200).json({msg: "Bookclub didnt exist! Removed from invites."})
                     }
-                    // return res.status(400).json({msg: "BookClub doesn't Exist! removed from invites."})
                 })
             }else if(!user){
                 return res.status(400).json({msg: "User not found."})
