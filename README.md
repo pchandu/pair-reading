@@ -3,7 +3,7 @@ How often do you pick up a book and never end up finishing it? Too often in our 
 
 Check out our live demo here: https://pair-reading.herokuapp.com/#/
 
-The PairReading journey begins upon signup, where users are taken to the onboarding page to select their preferences: the time of day that works best to meet with their pair and the books they're interested in pairing with. 
+The PairReading journey begins upon signup, where users are taken to the onboarding page to select their preferences: the time of day that works best to meet with their pair and the books they're interested in pairing with. //talk about how this helps us "get to know the user" and help match them with other users.
 **screenshot of onboarding component**
 
 The preferences are stylized buttons that change color to indicate whether they are selected or not. The logic implemented for selection is a conditional that checks the status of the onboarding component's state which updates global state for the user upon clicking the "continue" button.
