@@ -13,5 +13,10 @@ router.get('/', (req, res) => {
         .then(posts => convert2POJO(res,posts))
         .catch(err => res.status(404).json({ nopostsfound: 'No posts found' }));
 });
+router.post('/',
+    passport.authenticate('jwt', { session: false }),
+    (req, res) => {
+    }
+);
 
 module.exports = router;
