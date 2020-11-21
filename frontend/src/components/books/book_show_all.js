@@ -16,13 +16,14 @@ class BookShowAll extends React.Component {
     const { books } = this.props;
 
     return (
-      <div>
+      <div className="outer-div-book-show-all">
+        <h1 className="show-all-h1">List of all books</h1>
         <ul className="book-show-all-ul">
           {Object.values(books).map((book, i) => {
             return (
               <Link className="book-show-all-link" key={i} to={`/books/${book._id}`}>
+                <div className="book-show-all-item-div">
                
-                  <div className="book-show-all-item-div">
                     <img
                       src={`${book.imagePath}`}
                       className="book-show-all-cover-photo"
@@ -31,8 +32,8 @@ class BookShowAll extends React.Component {
                         <p className="book-show-all-title">{book.title}</p>
                         <p className="book-show-all-author">by {book.author}</p>
                     </div>
-                  </div>
                 
+                </div>
               </Link>
             );
           })}
