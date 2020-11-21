@@ -12,18 +12,17 @@ import InvitesContainer from '../profile/invites_container'
 
 class DashBoard extends React.Component {
   componentDidMount(){
-    // const body = document.getElementsByClassName("dashboard-content-container")[0];
-    // body.classList.add(`session-img`)
-    // body.classList.add(`background-${Math.floor(Math.random() * 8) + 1}`);
+    this.props.resetEverything()
+    this.props.refreshUserInfo({user: this.props.currentUser["id"]}) 
   }
   componentWillUnmount() {
     this.props.resetEverything();
   }
   
-  componentWillMount(){
-    this.props.resetEverything()
-    this.props.refreshUserInfo({user: this.props.currentUser["id"]}) 
-  }
+  // componentWillMount(){
+  //   this.props.resetEverything()
+  //   this.props.refreshUserInfo({user: this.props.currentUser["id"]}) 
+  // }
 
 
   render() {

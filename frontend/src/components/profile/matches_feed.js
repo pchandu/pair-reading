@@ -10,7 +10,8 @@ class MatchFeed extends React.Component {
             bookClubModal: false,
             userEl: '',
             bookClubTitle: '',
-            showMatches: false
+            showMatches: false,
+            loaded: false
         }
 
         this.showBookClubModal = this.showBookClubModal.bind(this)
@@ -22,13 +23,8 @@ class MatchFeed extends React.Component {
 
     componentDidMount() {
         this.props.clearUsersFilter();
-        this.props.fetchFilteredUserBookMatches(this.props.userId);
-    }
-    componentDidUpdate(ownProps) {
-        if (ownProps.match && this.props.userId !== ownProps.match.params.userId) {
-            this.props.fetchFilteredUserBookMatches(this.props.userId);
-        }
-
+        this.props.fetchFilteredUserBookMatches(this.props.userId)
+            .then(this.setState({ loaded: true}))
     }
 
     toggleMatches() {
