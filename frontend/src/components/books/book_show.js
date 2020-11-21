@@ -20,6 +20,7 @@ class BookShow extends React.Component {
         this.props.clearFilters();
         this.props.fetchBook(this.props.bookId);
         this.props.fetchUsers(this.props.bookId);
+          this.props.refreshUserInfo({ user: this.props.currentUser["id"] });
     }
 
     componentWillUnmount(){
