@@ -53,11 +53,11 @@
     border-radius: 5px;
 }
 
-.selected-meeting-time > a > h2 {
+.selected-meeting-time > h2 {
     background-color: rgb(221, 243, 247);
 }
 
-.selected-meeting-time > a > p {
+.selected-meeting-time > p {
     background-color: rgb(221, 243, 247);
 }
 

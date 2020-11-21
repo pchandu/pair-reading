@@ -65,30 +65,30 @@ class Onboarding extends React.Component {
                 <form className="onboarding-form" onSubmit={this.handleContinue}>
                     <h1>What time of day works best for you to meet with a partner?</h1>
                     <ul className="preferences-container"> 
+                    <a onClick={() => this.handlePreference("M")}>
                         <li className={this.state.preferred_meeting_times["M"] === true ? 
                                             `preferences selected-meeting-time`
                                             : `preferences`}>
-                            <a onClick={() => this.handlePreference("M")}>
                                 <h2 className="preferences-time-of-day">Morning</h2>
                                 <p className="preferences-timing">(8am-12pm)</p>
-                            </a>
                         </li>
+                    </a>
+                    <a onClick={() => this.handlePreference("A")}>
                         <li className={this.state.preferred_meeting_times["A"] === true ? 
                                             `preferences selected-meeting-time`
                                             : `preferences`}>
-                            <a onClick={() => this.handlePreference("A")}>
                                 <h2 className="preferences-time-of-day">Afternoon </h2>
                                 <p className="preferences-timing">(12pm-4pm)</p>
-                            </a>
                         </li>
+                    </a>
+                    <a onClick={() => this.handlePreference("E")}>
                         <li className={this.state.preferred_meeting_times["E"] === true ? 
                                             `preferences selected-meeting-time`
                                             : `preferences`}>
-                            <a onClick={() => this.handlePreference("E")}>
                                 <h2 className="preferences-time-of-day">Evening</h2>
                                 <p className="preferences-timing">(5pm-9pm)</p>
-                            </a>
                         </li>
+                    </a>
                     </ul>
                     <h1>Please select what books you're interested in reading </h1>
                     <div className="books-container">
