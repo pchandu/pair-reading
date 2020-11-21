@@ -49,7 +49,7 @@ class Onboarding extends React.Component {
         e.preventDefault();
         const updatedUser = Object.assign({}, {user: this.props.currentUser} , this.state);
         this.props.updateUser(updatedUser)
-        this.props.history.push("/dashboard");
+        .then(this.props.history.push("/dashboard"))
     }
 
     componentDidMount() {
@@ -57,7 +57,7 @@ class Onboarding extends React.Component {
     }
     
     render(){
-        if (!this.props.books) return <div />
+        if (!this.props.books) return null
             const {books} = this.props;
 
         return(

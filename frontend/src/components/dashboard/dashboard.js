@@ -17,11 +17,12 @@ class DashBoard extends React.Component {
     // body.classList.add(`background-${Math.floor(Math.random() * 8) + 1}`);
   }
   componentWillUnmount() {
-    this.props.removeAllUsers();
+    this.props.resetEverything();
   }
   
   componentWillMount(){
-    this.props.refreshUserInfo({user: this.props.currentUser["id"]});
+    this.props.resetEverything()
+    this.props.refreshUserInfo({user: this.props.currentUser["id"]}) 
   }
 
 
