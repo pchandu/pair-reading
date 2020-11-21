@@ -84,12 +84,10 @@ class BookClubShow extends React.Component {
                 </div>
 
                 <div className="middle-side-bookclub-show-container">
-                    <div className="profile-label">
-                        <h1>Forums</h1>     
-                        <div>
+                        <h1 className="profile-label">
+                            Forums
                             <ForumCreate bookclubId={this.props.bookclubId}/>
-                        </div>
-                    </div>
+                        </h1>     
                     <div className="bookclub-forums-container">
                         <ul className="bookclub-forums-list">
                             {forums}
