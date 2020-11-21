@@ -49,7 +49,7 @@ class Onboarding extends React.Component {
         e.preventDefault();
         const updatedUser = Object.assign({}, {user: this.props.currentUser} , this.state);
         this.props.updateUser(updatedUser)
-        .then(this.props.history.push("/dashboard"))
+        .then(() => window.location.href = window.location.origin + "/#/dashboard" )
     }
 
     componentDidMount() {
@@ -107,7 +107,7 @@ class Onboarding extends React.Component {
                             })}
                         </ul>
                     </div>
-                  <input type="submit" value="Continue" className="onboarding-continue-button"></input>
+                  <input type="submit" value="Continue" className="onboarding-continue-button btn btn-info"></input>
                 </form>
             </div>
         )
