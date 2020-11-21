@@ -45,13 +45,13 @@
 .book-show-all-text {
     font-size: 16px;
     font-weight: 600;
-    background-color: 	rgb(244, 250, 237) !important;
+    background-color: rgb(244, 250, 237) !important;
 }
 
 .book-show-all-text > p{
     margin-top: 10px;
     margin-bottom:10px;
-    background-color: 	rgb(244, 250, 237) !important;
+    background-color: rgb(244, 250, 237) !important;
 }
 .book-show-all-text > p:hover {
     text-decoration:none;

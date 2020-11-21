@@ -19,12 +19,6 @@ class DashBoard extends React.Component {
     this.props.resetEverything();
   }
   
-  // componentWillMount(){
-  //   this.props.resetEverything()
-  //   this.props.refreshUserInfo({user: this.props.currentUser["id"]}) 
-  // }
-
-
   render() {
     return (
       <div className="outer-dashboard-container">
