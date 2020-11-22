@@ -44,15 +44,16 @@ class MatchFeed extends React.Component {
         })
     }
 
-    makeBookClub(event){
-        event.preventDefault();
+    makeBookClub(matchedBooks){
         this.props.makeBookClub({
             title: this.state.bookClubTitle,
             creator: this.props.userId,
-            invitee: this.state.userEl
+            invitee: this.state.userEl,
+            booksToAdd: matchedBooks
             })
             .then( this.setState({bookClubModal: false}) )
-            .then( window.location.reload() )
+            .then(window.location.href = window.location.href)
+            
         }
 
     handleChange(field) {
@@ -106,7 +107,7 @@ class MatchFeed extends React.Component {
                 contentClassName="modal-bookclub-creation-content"
                 > 
                 <h1 className="modal-bookclub-header">Book Club Creation</h1>   
-                <form onSubmit={this.makeBookClub} className="form-bookclub-creation">
+                <form onSubmit={() => this.makeBookClub(matchedBooks)} className="form-bookclub-creation">
                     <input type="text" 
                     placeholder="Bookclub Name" 
                     value={this.state.bookClubTitle}
@@ -114,20 +115,20 @@ class MatchFeed extends React.Component {
                     centered="true"
                     className="modal-bookclub-input-title form-control" 
                     />
-                    <ul>
-                        <p>Books you and {this.state.userEl.username} share interest:</p>
+                    <ul className="matches-feed-ul-container">
+                        <p className="heading-matches-feed" key="title123123">Books you and {this.state.userEl.username} share interest:</p>
                         {matchedBooks ? matchedBooks.map((bookId,idx) => {
                             let followedBook = followedBooks[bookId]
                             if(idx > 2 ){
                                 return;
                             }
                             return(
-                                <p> 
+                                <p key={followedBook.id} className="matches-feed-books-title"> 
                                     {followedBook.title}
                                 </p>
                             )
                         }): ''}
-                        <p>{endMessage}</p>
+                        <p className="matches-feed-end-message" key="endmsg123123">{endMessage}</p>
                     </ul>
                     <input 
                     type="submit" 
@@ -136,7 +137,7 @@ class MatchFeed extends React.Component {
                     />
                 </form>
 
-                <button onClick={this.handleClose} className="create-bookclub-button btn btn-info">Close</button>
+                <button onClick={this.handleClose} className="close-bookclub-button btn btn-info">Close</button>
                 </Modal>
             </div>
         )

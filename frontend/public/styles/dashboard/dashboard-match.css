@@ -85,3 +85,27 @@
 .div-matches-container:last-child{
     margin-bottom: 10px;
 }
+
+.matches-feed-ul-container{
+    display:flex;
+    align-items:flex-start;
+    flex-direction:column;
+    width: 100%;
+}
+
+.matches-feed-ul-container > p{
+    margin-left:10px;
+    margin-top:2px;
+}
+
+.heading-matches-feed{
+    font-size:20px;
+}
+
+.matches-feed-books-title{
+    font-size:16px;
+}
+
+.matches-feed-end-message{
+    font-size:16px
+}
