@@ -44,8 +44,8 @@ class ProfilePreferences extends React.Component {
             const {books} = this.props;
         
         return (
-        <div className="Preferences-button">
-        <button onClick={this.handleShow} className="dashboard-preferences-button">
+            <>
+        <button onClick={this.handleShow} className="dashboard-preferences-button btn btn-info">
             Preferences
         </button>
 
@@ -85,13 +85,13 @@ class ProfilePreferences extends React.Component {
                 <button onClick={this.handleClose} className="dashboard-preferences-modal-cancelbtn">
                     Close
                 </button>
-                <button onClick={this.handleSave} className="dashboard-preferences-modal-savebtn">
+                <button onClick={this.handleSave} className="dashboard-preferences-modal-savebtn btn btn-info">
                     Save Changes
                 </button>
             </div>
 
         </Modal>
-        </div>
+        </>
         );
     }
 }
