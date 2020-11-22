@@ -62,25 +62,6 @@ class MatchFeed extends React.Component {
         })
     }
 
-// bookclubs: (4) ["5fb84c0755c823627bbf1f81", 
-// "5fb84c0755c823627bbf1f8a", "5fb84c0755c823627bbf1f8b", "5fb84c0755c823627bbf1f8d"]
-// books: ["5fb84c0755c823627bbf1f74"]
-// createdAt: "2020-11-20T23:06:50.070Z"
-// email: "praneethchandu@pairreading.com"
-// invites: []
-// password: "$2a$10$HWYJ422vYwk4WCDrlwF/HO.sRH.Vz5WhY/ET31QHZbnY9ib9E4L2y"
-// posts: (23) ["5fb84c0755c823627bbf1fa4", "5fb84c0755c823627bbf1fa8", 
-// "5fb84c0755c823627bbf1fb7", "5fb84c0755c823627bbf1fea", "5fb84c0755c823627bbf1feb", "5fb84c0755c823627bbf1ff0", 
-// "5fb84c0755c823627bbf2006", "5fb84c0755c823627bbf200b", "5fb84c0755c823627bbf2013", "5fb84c0755c823627bbf202f", 
-// "5fb84c0755c823627bbf2040", "5fb84c0755c823627bbf2047", "5fb84c0755c823627bbf2081", "5fb84c0755c823627bbf209f", 
-// "5fb84c0755c823627bbf20b5", "5fb84c0755c823627bbf20e1", "5fb84c0755c823627bbf20e2", "5fb84c0755c823627bbf20f0", 
-// "5fb84c0755c823627bbf2108", "5fb84c0755c823627bbf2144", "5fb84c0755c823627bbf2181", "5fb84c0755c823627bbf2184", 
-// "5fb84c0755c823627bbf218d"]
-// preferred_meeting_time: {M: false, A: false, E: false}
-// updatedAt: "2020-11-20T23:06:50.070Z"
-// username: "Praneeth Chandu"
-
-
     render() {
         const { userEl } = this.state;
         const { books,followedBooks } = this.props;
@@ -90,6 +71,8 @@ class MatchFeed extends React.Component {
             if (books.includes(bookId)){ return bookId }
         })
         : ''
+
+        const endMessage = matchedBooks.length > 3 ? "and many more...": ''
         
         const matches = this.props.matches.map((el, i) =>{
             return(
@@ -133,14 +116,18 @@ class MatchFeed extends React.Component {
                     />
                     <ul>
                         <p>Books you and {this.state.userEl.username} share interest:</p>
-                        {matchedBooks ? matchedBooks.map(bookId => {
+                        {matchedBooks ? matchedBooks.map((bookId,idx) => {
                             let followedBook = followedBooks[bookId]
+                            if(idx > 2 ){
+                                return;
+                            }
                             return(
                                 <p> 
                                     {followedBook.title}
                                 </p>
                             )
                         }): ''}
+                        <p>{endMessage}</p>
                     </ul>
                     <input 
                     type="submit" 
