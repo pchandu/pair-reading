@@ -17,9 +17,10 @@ class BookClubFeed extends React.Component {
         this.props.fetchFilteredUserBookClubs(this.props.userId);
     }
 
-    componentWillReceiveProps(){
-        this.setState({updated: (this.state.updated += 1) })
-    }
+    // componentWillReceiveProps(){
+    //     debugger;
+    //     this.setState({updated: (this.state.updated += 1) })
+    // }
 
     deleteBookClub(bookClubTitle){
         return ( e =>{

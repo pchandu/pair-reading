@@ -52,7 +52,7 @@ class MatchFeed extends React.Component {
             booksToAdd: matchedBooks
             })
             .then( this.setState({bookClubModal: false}) )
-            .then(window.location.href = window.location.href)
+            .then( window.location.reload())
             
         }
 
@@ -84,7 +84,7 @@ class MatchFeed extends React.Component {
                     <Link key={i} to={`/users/${el._id}`} className="matches-link-item">
                         {el.username}
                     </Link>
-                    <button className="match-user-invite" 
+                    <button className="match-user-invite" key={el._id}
                     onClick={() => this.showBookClubModal(el)}>Invite</button>
                 </li>
         )})
@@ -117,21 +117,21 @@ class MatchFeed extends React.Component {
                     centered="true"
                     className="modal-bookclub-input-title form-control" 
                     />
-                    <ul className="matches-feed-ul-container">
-                        <p className="heading-matches-feed">Books you and {this.state.userEl.username} share interest:</p>
-                        {matchedBooks ? matchedBooks.filter(el => el).map((bookId,idx) => {
-                            let followedBook = followedBooks[bookId]
-                            if(idx > 2 ){
-                                return;
-                            }
-                            return(
-                                <p key={followedBook.id} className="matches-feed-books-title"> 
-                                    {followedBook.title}
-                                </p>
-                            )
-                        }): ''}
-                        <p className="matches-feed-end-message">{endMessage}</p>
-                    </ul>
+                    <p className="heading-matches-feed">Books you and {this.state.userEl.username} share interest:</p>
+                        <ul className="matches-feed-ul-container">
+                            {matchedBooks ? matchedBooks.filter(el => el).map((bookId,idx) => {
+                                let followedBook = followedBooks[bookId]
+                                if(idx > 2 ){
+                                    return;
+                                }
+                                return(
+                                    <p key={followedBook.id} className="matches-feed-books-title"> 
+                                        {followedBook.title}
+                                    </p>
+                                )
+                            }): ''}
+                        </ul>
+                    <p className="matches-feed-end-message">{endMessage}</p>
                     <input 
                     type="submit" 
                     value={`Make bookclub and invite ${this.state.userEl.username}`}
