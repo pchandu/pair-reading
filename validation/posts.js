@@ -4,14 +4,14 @@ const validText = require('./valid-text');
 module.exports = function validatePostInput(data) {
     let errors = {};
 
-    data.text = validText(data.text) ? data.text : '';
+    data.post = validText(data.post) ? data.post : '';
 
-    // if (!Validator.isLength(data.text, { min: 5, max: 140 })) {
-    //     errors.text = 'Post must be between 5 and 140 characters';
+    // if (!Validator.isLength(data.post, { min: 5, max: 140 })) {
+    //     errors.post = 'Post must be between 5 and 140 characters';
     // }
 
-    if (Validator.isEmpty(data.text)) {
-        errors.text = 'Text field is required';
+    if (Validator.isEmpty(data.post)) {
+        errors.post = 'Post field is required';
     }
 
     return {

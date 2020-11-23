@@ -1,7 +1,7 @@
 import React from 'react'
 import PostsForum from './posts_forum';
 import Nav from './forum_show_nav'
-import NewPost from './new_post'
+import NewPostContainer from './new_post_container'
 
 
 class ForumShow extends React.Component {
@@ -52,7 +52,7 @@ class ForumShow extends React.Component {
         return (
             <div className="forum-show-container">
                 <h1 className="forum-title">{this.props.forum.title}</h1>
-                {this.state.page === 1 ? <NewPost /> : null}
+                {this.state.page === 1 ? <NewPostContainer /> : null}
                 <PostsForum props={this.props}/>
                 <Nav page={this.state.page} maxPage={this.maxPage} handleClick={this.handleClick}/>
             </div>

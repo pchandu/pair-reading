@@ -1,4 +1,5 @@
 import {
+    RECEIVE_NEW_POST,
     RECEIVE_ALL_POSTS,
     RECEIVE_POST
 } from '../actions/post_actions'
@@ -8,6 +9,8 @@ const postReducer = (state = {}, action) => {
 
     switch (action.type) {
         case RECEIVE_POST:
+            return Object.assign({}, state, { [action.payload.data._id]: action.payload.data });
+        case RECEIVE_NEW_POST:
             return Object.assign({}, state, { [action.payload.data._id]: action.payload.data });
         case RECEIVE_ALL_POSTS:
             return action.payload.data;

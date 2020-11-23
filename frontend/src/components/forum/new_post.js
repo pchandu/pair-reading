@@ -15,10 +15,11 @@ export default class NewPost extends React.Component {
     }
     handleSubmit(e){
         e.preventDefault();
-        const { post } = this.state;
+        this.props.composePost(Object.assign({}, this.state, {user_id: this.props.userId}));
+        this.setState({ post: "" });
     }
     render () {
-        debugger
+        // debugger
         return (
             <div className="new-post-form-container">
                 <h1>New Post Form</h1>
