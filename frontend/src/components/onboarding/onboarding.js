@@ -94,6 +94,9 @@ class Onboarding extends React.Component {
                     <div className="books-container">
                         <ul className="books-ul">
                             {Object.values(books).map((book, i) => {
+                                if(i > 4){
+                                    return null;
+                                }
                                 return (
                                     <li className="book-index-item" key={i}>
                                         <a onClick={() => this.handleBook(book._id)}>
