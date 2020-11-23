@@ -106,8 +106,7 @@ const books = [
     title: "Sapiens",
     author: "Yuval Noah Harari",
     genre: "Non-Fiction",
-    imagePath:
-      "https://m.media-amazon.com/images/I/51Sn8PEXwcL.jpg",
+    imagePath: "https://m.media-amazon.com/images/I/51Sn8PEXwcL.jpg",
     description:
       "From a renowned historian comes a groundbreaking narrative of humanity’s creation and evolution—a #1 international bestseller—that explores the ways in which biology and history have defined us and enhanced our understanding of what it means to be “human.”",
   }),
@@ -137,6 +136,15 @@ const books = [
       "https://prodimage.images-bn.com/pimages/9781451635621_p0_v3_s1200x630.jpg",
     description:
       "Many novels have been written about the Civil War and its aftermath. None take us into the burning fields and cities of the American South as Gone With the Wind does, creating haunting scenes and thrilling portraits of characters so vivid that we remember their words and feel their fear and hunger for the rest of our lives.",
+  }),
+  new Book({
+    title: "Island of the Blue Dolphins",
+    author: "Scott O'Dell",
+    genre: "Historical-Fiction",
+    imagePath:
+      "https://images-na.ssl-images-amazon.com/images/I/51f8te9SbwL.jpg",
+    description:
+      "The Newberry Medal-winning story of a 12-year old girl who lives alone on a Pacific island after she leaps from a rescue ship. Isolated on the island for eighteen years, Karana forages for food, builds weapons to fight predators, clothes herself in a cormorant feathered skirt, and finds strength and peace in her seclusion.",
   }),
 ];
 module.exports = {
