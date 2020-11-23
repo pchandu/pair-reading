@@ -34,8 +34,8 @@ class DashBoard extends React.Component {
                     <h1 className="dashboard-header">Recent Post Activity</h1>
                     <PostFeedContainer/>
 
-                    <h1 className="dashboard-header">Casual Reading of The Day!</h1>
-                    < ReadOfTheDayContainer />
+                    {/* <h1 className="dashboard-header">Casual Reading of The Day!</h1>
+                    < ReadOfTheDayContainer /> */}
                 </div>
 
                 <div className="right-side-dashboard-container">
