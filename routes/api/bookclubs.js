@@ -180,4 +180,8 @@ router.delete('/denyBookClub', (req,res) => {
         })
 })
 
+router.post('/inviteToBookClub', (req,res) => {
+    console.log(req.body)
+})
+
 module.exports = router;

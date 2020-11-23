@@ -9,7 +9,13 @@ class BookClubShow extends React.Component {
     constructor(props) {
         super(props)
 
+        this.state = {
+            inviteName: '',
+            inviteMessage: ''
+        }
+
         this.deleteBookClub = this.deleteBookClub.bind(this)
+        this.inviteToBookClub = this.inviteToBookClub.bind(this)
     }
 
     componentDidMount() {
@@ -31,6 +37,29 @@ class BookClubShow extends React.Component {
                 creator: this.props.userId
             }).then( this.props.history.push("/dashboard") )
         }
+    }
+
+    update(field){
+        return (e) =>{
+            this.setState({
+                [field]: e.currentTarget.value
+            })
+        }
+    }
+
+    inviteToBookClub(event){
+        event.preventDefault();
+
+        this.props.inviteToBookClub({
+            invite: this.state.inviteName,
+            bookClub: this.props.bookclubId,
+            inviter: this.props.username
+        })
+        .then(
+            this.setState({
+                inviteName: '',
+                inviteMessage: `Invite sent to, ${this.state.inviteName}`,
+            }))
     }
 
     render() {
@@ -77,10 +106,17 @@ class BookClubShow extends React.Component {
                 <div className="left-side-bookclub-show-container">
                     <h1 className="profile-label">Members</h1>
                     <div className="bookclub-users-container">
-                    <ul className="bookclub-users-list">
-                        {users}
-                    </ul>
+                        <ul className="bookclub-users-list">
+                            {users}
+                        </ul>
                     </div>
+
+                    <form onSubmit={this.inviteToBookClub}>
+                        <p>Invite someone to the bookclub!</p>
+                        <input type="text" onChange={this.update('inviteName')} value={this.state.inviteName}/>
+                        <input type="submit" />
+                        <p>{this.state.inviteMessage}</p>
+                    </form>
                 </div>
 
                 <div className="middle-side-bookclub-show-container">
