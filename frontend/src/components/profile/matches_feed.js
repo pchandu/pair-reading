@@ -70,8 +70,10 @@ class MatchFeed extends React.Component {
         let matchedBooks = books && userEl ? 
         userEl.books.map( bookId => {
             if (books.includes(bookId)){ return bookId }
+            else{ return null }
         })
         : ''
+
 
         const endMessage = matchedBooks.length > 3 ? "and many more...": ''
         
@@ -116,8 +118,8 @@ class MatchFeed extends React.Component {
                     className="modal-bookclub-input-title form-control" 
                     />
                     <ul className="matches-feed-ul-container">
-                        <p className="heading-matches-feed" key="title123123">Books you and {this.state.userEl.username} share interest:</p>
-                        {matchedBooks ? matchedBooks.map((bookId,idx) => {
+                        <p className="heading-matches-feed">Books you and {this.state.userEl.username} share interest:</p>
+                        {matchedBooks ? matchedBooks.filter(el => el).map((bookId,idx) => {
                             let followedBook = followedBooks[bookId]
                             if(idx > 2 ){
                                 return;
@@ -128,7 +130,7 @@ class MatchFeed extends React.Component {
                                 </p>
                             )
                         }): ''}
-                        <p className="matches-feed-end-message" key="endmsg123123">{endMessage}</p>
+                        <p className="matches-feed-end-message">{endMessage}</p>
                     </ul>
                     <input 
                     type="submit" 
