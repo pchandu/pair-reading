@@ -50,11 +50,11 @@ time, mark, audio, video  {
 }
 
 .hidden{
-    display: none;
+    display: none !important;
 }
 
 .show{
-    display: block;
+    display: block !important;
 }
 
 .invisibile{
