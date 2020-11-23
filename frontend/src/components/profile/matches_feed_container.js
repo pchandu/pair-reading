@@ -7,10 +7,13 @@ import {fetchFilteredUserBookClubs} from '../../actions/filters/bookclub_filter_
 import MatchFeed from './matches_feed'
 import { makeBookClub } from '../../util/bookclub_util';
 
-const mSTP = ({ session: { user }, entities:{users} }) => ({
+const mSTP = ({ session: { user }, entities:{users,books} }) => ({
     userId: user.id,
     user,
-    matches: Object.values(users).filter(el => el._id !== user.id)
+    matches: Object.values(users).filter(el => el._id !== user.id),
+    books: user.books,
+    followedBooks: books
+
 });
 
 const mDTP = dispatch => ({

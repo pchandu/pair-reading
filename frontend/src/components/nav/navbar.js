@@ -61,13 +61,13 @@ class NavBar extends React.Component {
                   </Link>
               </li>
 
-              <li className="nav-item">
+              {/* <li className="nav-item">
                 <Link to="/forums">
                   <button type="button" className="navbar-btn btn btn-info">
                     Forums
                     </button>
                 </Link>
-              </li>
+              </li> */}
 
                 <li className="nav-item">
                 <Link to="/book-show-all">

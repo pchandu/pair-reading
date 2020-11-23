@@ -60,7 +60,8 @@ router.post('/createBookClub',(req,res) => {
                 const newBookClub = new BookClub({
                     title: req.body.title,
                     creator: req.body.creator,
-                    users: [req.body.creator]
+                    users: [req.body.creator],
+                    books: req.body.booksToAdd.filter(el => el)
                 })
                 
                 newBookClub.save()
@@ -79,6 +80,7 @@ router.post('/createBookClub',(req,res) => {
                             "id": newBookClub._id,
                             "title": newBookClub.title,
                             "creator": creator.username,
+                            "creatorId": creator._id
                         })
                         user.save()
                         res.status(200).json({msg: "Successfully Created BookClub!", newBookClub})
@@ -162,6 +164,24 @@ router.post('/joinBookClub', (req,res) => {
                 return res.status(400).json({msg: "User not found."})
             }
         })
+})
+
+router.delete('/denyBookClub', (req,res) => {
+
+    
+    User.findById(req.body.userId)
+        .then( user => {
+            user.invites.forEach( (invite,idx) => {
+                if(JSON.stringify(invite.id) === `"${req.body.bookclub}"`){
+                    user.invites.splice(idx,1)
+                }
+            })
+            user.save()
+        })
+})
+
+router.post('/inviteToBookClub', (req,res) => {
+    console.log(req.body)
 })
 
 module.exports = router;

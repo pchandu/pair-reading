@@ -1,6 +1,7 @@
 import { connect } from 'react-redux'
-import { joinBookClub } from '../../util/bookclub_util'
+import { joinBookClub, denyBookClub } from '../../util/bookclub_util'
 import Invites from './invites'
+import {refreshLoggedInUserInfo} from '../../actions/session_actions'
 
 const mSTP = ({session,entities}) => {
     return({
@@ -11,7 +12,9 @@ const mSTP = ({session,entities}) => {
 
 const mDTP = dispatch =>  {
     return({
-        joinBookClub: (bookClubData) => joinBookClub(bookClubData)
+        joinBookClub: (bookClubData) => joinBookClub(bookClubData),
+        denyBookClub: (bookClubData) => denyBookClub(bookClubData),
+        refreshLoggedInUserInfo: (loggedInUser) => dispatch(refreshLoggedInUserInfo(loggedInUser)) 
     })
 }
 

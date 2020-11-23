@@ -9,33 +9,26 @@ class MatchFeed extends React.Component {
         this.state = {
             bookClubModal: false,
             userEl: '',
-            bookClubTitle: ''
+            bookClubTitle: '',
+            showMatches: false,
+            loaded: false
         }
 
         this.showBookClubModal = this.showBookClubModal.bind(this)
         this.handleClose = this.handleClose.bind(this)
         this.makeBookClub = this.makeBookClub.bind(this)
         this.handleChange = this.handleChange.bind(this)
+        this.toggleMatches = this.toggleMatches.bind(this)
     }
 
     componentDidMount() {
         this.props.clearUsersFilter();
-        this.props.fetchFilteredUserBookMatches(this.props.userId);
-    }
-    componentDidUpdate(ownProps) {
-        if (ownProps.match && this.props.userId !== ownProps.match.params.userId) {
-            this.props.fetchFilteredUserBookMatches(this.props.userId);
-        }
-
+        this.props.fetchFilteredUserBookMatches(this.props.userId)
+            .then(this.setState({ loaded: true}))
     }
 
     toggleMatches() {
-        let matchDiv = document.getElementById('matches-feed-list');
-        if (matchDiv.style.display === "none") {
-            matchDiv.style.display = "block";
-        } else {
-            matchDiv.style.display = "none";
-        }
+        this.setState({showMatches: !this.state.showMatches})
     }
 
     showBookClubModal(user){
@@ -51,15 +44,21 @@ class MatchFeed extends React.Component {
         })
     }
 
-    makeBookClub(event){
-        event.preventDefault();
-        this.props.makeBookClub({
-            title: this.state.bookClubTitle,
-            creator: this.props.userId,
-            invitee: this.state.userEl
-            })
-            .then( this.setState({bookClubModal: false}) )
-            .then( window.location.reload() )
+    makeBookClub(matchedBooks){
+        
+            return (e) => {
+                e.preventDefault();
+
+            this.props.makeBookClub({
+                title: this.state.bookClubTitle,
+                creator: this.props.userId,
+                invitee: this.state.userEl,
+                booksToAdd: matchedBooks
+                })
+                .then( this.setState({bookClubModal: false}) )
+                .then( window.location.reload())
+                
+            }
         }
 
     handleChange(field) {
@@ -69,26 +68,38 @@ class MatchFeed extends React.Component {
         })
     }
 
-
     render() {
+        const { userEl } = this.state;
+        const { books,followedBooks } = this.props;
+
+        let matchedBooks = books && userEl ? 
+        userEl.books.map( bookId => {
+            if (books.includes(bookId)){ return bookId }
+            else{ return null }
+        })
+        : ''
+
+
+        const endMessage = matchedBooks.length > 3 ? "and many more...": ''
         const matches = this.props.matches.map((el, i) =>{
             return(
+                // Individual list item rows
                 <li key={i} className="matches-feed-list-item">
-
-                <Link key={i} to={`/users/${el._id}`}>
-                <h2 className="h2-matches-inner-li">
-                    {el.username}
-                </h2>
-                </Link>
-                    <button className="match-user-invite" onClick={() => this.showBookClubModal(el)}>Invite</button>
+                    <Link key={i} to={`/users/${el._id}`} className="matches-link-item">
+                        {el.username}
+                    </Link>
+                    <button className="match-user-invite" key={el._id}
+                    onClick={() => this.showBookClubModal(el)}>Invite</button>
                 </li>
         )})
         return (
             <div className="matches-feed-container">
                 <button className="match-feed-btn" 
                 onClick={this.toggleMatches} type="button" >Matches ({this.props.matches.length})</button>
-                    <ul id="matches-feed-list">
+                    <ul className={`${this.state.showMatches ? "show" : "hidden"} ul-matches-container`}>
+                        <div className="div-matches-container">
                         {matches}
+                        </div>
                     </ul>
 
 
@@ -101,9 +112,8 @@ class MatchFeed extends React.Component {
                 dialogClassName="modal-bookclub-dialog-class"
                 contentClassName="modal-bookclub-creation-content"
                 > 
-
                 <h1 className="modal-bookclub-header">Book Club Creation</h1>   
-                <form onSubmit={this.makeBookClub} className="form-bookclub-creation">
+                <form onSubmit={this.makeBookClub(matchedBooks)} className="form-bookclub-creation">
                     <input type="text" 
                     placeholder="Bookclub Name" 
                     value={this.state.bookClubTitle}
@@ -111,7 +121,21 @@ class MatchFeed extends React.Component {
                     centered="true"
                     className="modal-bookclub-input-title form-control" 
                     />
-
+                    <p className="heading-matches-feed">Books you and {this.state.userEl.username} share interest:</p>
+                        <ul className="matches-feed-ul-container">
+                            {matchedBooks ? matchedBooks.filter(el => el).map((bookId,idx) => {
+                                let followedBook = followedBooks[bookId]
+                                if(idx > 2 ){
+                                    return;
+                                }
+                                return(
+                                    <p key={followedBook.id} className="matches-feed-books-title"> 
+                                        {followedBook.title}
+                                    </p>
+                                )
+                            }): ''}
+                        </ul>
+                    <p className="matches-feed-end-message">{endMessage}</p>
                     <input 
                     type="submit" 
                     value={`Make bookclub and invite ${this.state.userEl.username}`}
@@ -119,7 +143,7 @@ class MatchFeed extends React.Component {
                     />
                 </form>
 
-                <button onClick={this.handleClose} className="create-bookclub-button btn btn-info">Close</button>
+                <button onClick={this.handleClose} className="close-bookclub-button btn btn-info">Close</button>
                 </Modal>
             </div>
         )

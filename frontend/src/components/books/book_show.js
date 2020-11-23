@@ -20,6 +20,7 @@ class BookShow extends React.Component {
         this.props.clearFilters();
         this.props.fetchBook(this.props.bookId);
         this.props.fetchUsers(this.props.bookId);
+          this.props.refreshUserInfo({ user: this.props.currentUser["id"] });
     }
 
     componentWillUnmount(){
@@ -87,10 +88,9 @@ class BookShow extends React.Component {
                     <h2 className="book-show-user-matches-text">Here are some other users that are looking for a partner!</h2>
                     <ul className="user-matches">
                         {Object.values(this.props.users).map((user) => {
-                            // let idUser = user._id ? user._id : user.id;
-                            // if (user._id === this.props.currentUserId){
-                            //    user._id = {};
-                            // }
+                            if(user._id === this.props.currentUser.id){
+                                return null
+                            }else {
                             return (
                                 <Link to={`/users/${user._id}`} style={{ textDecoration: 'none' }} >
                                     <li key={user._id}className="matched-user">
@@ -98,6 +98,7 @@ class BookShow extends React.Component {
                                     </li>
                                 </Link>
                             )
+                            }
                         })}
                     </ul>
                 </div>  

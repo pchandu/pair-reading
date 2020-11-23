@@ -18,6 +18,9 @@ const BookSchema = new Schema({
         type: String, 
         required: true
     },
+    genre:{
+        type: String
+    },
     users: [{
         type: Schema.Types.ObjectId,
         ref: 'users'
