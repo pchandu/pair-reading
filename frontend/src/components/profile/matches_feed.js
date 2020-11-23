@@ -45,15 +45,20 @@ class MatchFeed extends React.Component {
     }
 
     makeBookClub(matchedBooks){
-        this.props.makeBookClub({
-            title: this.state.bookClubTitle,
-            creator: this.props.userId,
-            invitee: this.state.userEl,
-            booksToAdd: matchedBooks
-            })
-            .then( this.setState({bookClubModal: false}) )
-            .then( window.location.reload())
-            
+        
+            return (e) => {
+                e.preventDefault();
+
+            this.props.makeBookClub({
+                title: this.state.bookClubTitle,
+                creator: this.props.userId,
+                invitee: this.state.userEl,
+                booksToAdd: matchedBooks
+                })
+                .then( this.setState({bookClubModal: false}) )
+                .then( window.location.reload())
+                
+            }
         }
 
     handleChange(field) {
@@ -76,7 +81,6 @@ class MatchFeed extends React.Component {
 
 
         const endMessage = matchedBooks.length > 3 ? "and many more...": ''
-        
         const matches = this.props.matches.map((el, i) =>{
             return(
                 // Individual list item rows
@@ -109,7 +113,7 @@ class MatchFeed extends React.Component {
                 contentClassName="modal-bookclub-creation-content"
                 > 
                 <h1 className="modal-bookclub-header">Book Club Creation</h1>   
-                <form onSubmit={() => this.makeBookClub(matchedBooks)} className="form-bookclub-creation">
+                <form onSubmit={this.makeBookClub(matchedBooks)} className="form-bookclub-creation">
                     <input type="text" 
                     placeholder="Bookclub Name" 
                     value={this.state.bookClubTitle}
