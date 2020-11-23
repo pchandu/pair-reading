@@ -60,7 +60,7 @@
     display:flex;
     flex-direction:column;
     justify-content:center;
-    height: 250px;
+    min-height: 250px;
     width: 600px;
     background-color: #c7eaab;
 }
@@ -68,9 +68,11 @@
 .modal-bookclub-creation-content{
     display:flex;
     flex-direction:column;
+    align-items:center;
     height: 100%;
     justify-content: space-between; 
     background-color: #c7eaab;
+    border:none;
 } 
 
 .modal-bookclub-header {
@@ -84,16 +86,31 @@
 .form-bookclub-creation{
     display:flex;
     flex-direction: column;
+    width: 95%;
 }
 
 .modal-bookclub-input-title{
-    width: 95%;
+    width: 100%;
     height: 45px;
     border-radius: 5px;
-    margin: 5px;
+    margin-top: 5px;
+    margin-bottom:5px;
 }
 
 .create-bookclub-button{
+    background-color: rgb(66, 169, 182);
+
+    height: 40px;
+    margin-top: 5px;
+    margin-bottom:5px;
+    border-radius: 5px;
+    color: rgb(221, 243, 247);
+
+    border-style: none;
+    font-family: 'Nunito', sans-serif;
+}
+
+.close-bookclub-button{
     background-color: rgb(66, 169, 182);
 
     height: 40px;
