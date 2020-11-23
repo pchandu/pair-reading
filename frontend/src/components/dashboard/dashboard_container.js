@@ -1,6 +1,6 @@
 import {connect} from 'react-redux';
 import Dashboard from './dashboard';
-import { removeAllUsers } from '../../actions/user_actions'
+import { resetEverything } from '../../actions/all_actions'
 import { refreshLoggedInUserInfo } from '../../actions/session_actions'
 
 const mSTP = (state) => {
@@ -11,7 +11,7 @@ const mSTP = (state) => {
 
 const mDTP = (dispatch) => {
     return({
-        removeAllUsers: () => dispatch(removeAllUsers()),
+        resetEverything: () => dispatch(resetEverything()),
         refreshUserInfo: (userId) => dispatch(refreshLoggedInUserInfo(userId))
     })
 }

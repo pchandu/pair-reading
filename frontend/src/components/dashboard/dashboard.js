@@ -12,19 +12,13 @@ import InvitesContainer from '../profile/invites_container'
 
 class DashBoard extends React.Component {
   componentDidMount(){
-    // const body = document.getElementsByClassName("dashboard-content-container")[0];
-    // body.classList.add(`session-img`)
-    // body.classList.add(`background-${Math.floor(Math.random() * 8) + 1}`);
+    this.props.resetEverything()
+    this.props.refreshUserInfo({user: this.props.currentUser["id"]}) 
   }
   componentWillUnmount() {
-    this.props.removeAllUsers();
+    this.props.resetEverything();
   }
   
-  componentWillMount(){
-    this.props.refreshUserInfo({user: this.props.currentUser["id"]});
-  }
-
-
   render() {
     return (
       <div className="outer-dashboard-container">
@@ -40,8 +34,8 @@ class DashBoard extends React.Component {
                     <h1 className="dashboard-header">Recent Post Activity</h1>
                     <PostFeedContainer/>
 
-                    <h1 className="dashboard-header">Casual Reading of The Day!</h1>
-                    < ReadOfTheDayContainer />
+                    {/* <h1 className="dashboard-header">Casual Reading of The Day!</h1>
+                    < ReadOfTheDayContainer /> */}
                 </div>
 
                 <div className="right-side-dashboard-container">

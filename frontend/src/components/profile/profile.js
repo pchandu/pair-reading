@@ -18,12 +18,8 @@ class Profile extends React.Component {
                     {/* {this.props.user.id} */}
                     {this.props.user.username}
                 </div>
-                <div className="profile-email-and-preferences">
-                    <div className="profile-email">
-                        {this.props.user.email}
-                    </div>
-                    <ProfilePreferences/>
-                </div>
+                
+                <ProfilePreferences email={this.props.user.email}/>
             </div>
         )  
     }

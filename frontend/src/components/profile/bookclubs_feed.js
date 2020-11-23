@@ -16,16 +16,11 @@ class BookClubFeed extends React.Component {
         this.props.clearBookClubsFilter();
         this.props.fetchFilteredUserBookClubs(this.props.userId);
     }
-    // componentDidUpdate(ownProps) {
-    //     debugger;
-    //     if (ownProps.match && this.props.userId !== ownProps.match.params.userId) {
-    //         this.props.fetchFilteredUserBookClubs(this.props.userId);
-    //     }
-    // }
 
-    refreshComponentFromDashboard(){
-        this.setState({updated: (this.state.updated += 1) })
-    }
+    // componentWillReceiveProps(){
+    //     debugger;
+    //     this.setState({updated: (this.state.updated += 1) })
+    // }
 
     deleteBookClub(bookClubTitle){
         return ( e =>{

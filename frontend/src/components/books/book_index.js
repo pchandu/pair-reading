@@ -13,7 +13,6 @@ class BookIndex extends React.Component {
     }
 
     render() {
-        // if (!this.props.books) return null
         if (!this.props.books) return <div />
         const {books} = this.props;
 
@@ -22,7 +21,6 @@ class BookIndex extends React.Component {
                 {Object.values(books).map((book, i) => {
                     return (
                     <li className="book-index-item" key={i}>
-                        {/* <a href={`#/books/${book.id}`}> */}
                         <img src={`${book.imagePath}`} className="book-index-cover-photo"/> 
                         <input type="checkbox" id={`${book.title}`} name={`${book.title}`} className="book-checkbox"/>
                     </li>

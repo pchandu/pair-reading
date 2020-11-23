@@ -4,6 +4,11 @@ import {
     REMOVE_ALL_USERS
 } from '../actions/user_actions'
 
+import {
+    RESET_EVERYTHING
+} from '../actions/all_actions'
+
+
 const userReducer = (state = {}, action) => {
     Object.freeze(state);
 
@@ -13,6 +18,8 @@ const userReducer = (state = {}, action) => {
         case RECEIVE_ALL_USERS:
             return action.payload.data;
         case REMOVE_ALL_USERS:
+            return {};
+        case RESET_EVERYTHING:
             return {};
         default:
             return state;

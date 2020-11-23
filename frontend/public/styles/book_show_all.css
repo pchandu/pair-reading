@@ -1,38 +1,76 @@
 
 .book-show-all-ul{
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    height: 80vh;
+    display:flex;
+    flex-wrap:wrap;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
 }
 
-.book-show-all-item-div {
-    height: 275px;
-    padding: 5px;
-    margin: 5px;
-    border-radius: 5px;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-     background-color: 	rgb(244, 250, 237) !important;
-    display: flex;
-    flex-direction: row;
-    border: 3px transparent solid;
+.outer-div-book-show-all{
+    height: 100vh;
+    display:flex;
+    flex-direction:column;
 }
 
+.book-show-all-title{
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.book-show-all-author{
+    font-size: 18px;
+    font-weight: 600;
+    font-style:italic;
+}
+
+.show-all-h1 {
+    font-size: 42px;
+    font-weight: 700;
+    width: 100%;
+    display:flex;
+    justify-content:center;
+    margin-top:20px;
+}
+
+.book-show-all-link {
+    height: auto;
+    width: auto;
+    margin: 10px;
+}
 
 .book-show-all-text {
-    padding: 10px;
-     background-color: 	rgb(244, 250, 237) !important;
+    display: none;
+    position: absolute;
+    width: 300px;
+    height: auto;
+    border-radius: 5px;
+    top: 20%;
+    margin-left: 10%;
+    color: black;
+    padding: 5px;
+    z-index: 100;
+    font-size: 16px;
+    font-weight: 600;
+    background-color: #8cc85b !important;
+    border: 3px solid cadetblue;
 }
 
-.book-show-all-text  > p{
-     background-color: 	rgb(244, 250, 237) !important;
+.book-show-all-text > p{
+    margin-top: 10px;
+    margin-bottom:10px;
+    background-color: #8cc85b  !important;
+}
+.book-show-all-text > p:hover {
+    text-decoration:none;
 }
 
-.book-show-all-item-div:hover{
-    border: cadetblue 3px solid;
-    /* background-color: red !important; */
+
+.book-show-all-link:hover {
+    text-decoration:none;
 }
 
 .book-show-all-cover-photo {
-    height: 250px;
+    height: 300px;
     width: auto;
 }
