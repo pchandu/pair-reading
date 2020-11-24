@@ -60,7 +60,8 @@ router.post('/createBookClub',(req,res) => {
                 const newBookClub = new BookClub({
                     title: req.body.title,
                     creator: req.body.creator,
-                    users: [req.body.creator]
+                    users: [req.body.creator],
+                    books: req.body.booksToAdd.filter(el => el)
                 })
                 
                 newBookClub.save()
@@ -177,6 +178,10 @@ router.delete('/denyBookClub', (req,res) => {
             })
             user.save()
         })
+})
+
+router.post('/inviteToBookClub', (req,res) => {
+    console.log(req.body)
 })
 
 module.exports = router;

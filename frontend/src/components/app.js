@@ -38,7 +38,7 @@ const App = () => (
     <div className="app-middle-container">
     <Switch>
       <ProtectedRoute path="/login" component={LoginFormContainer} />
-      <ProtectedRoute path="/signup" component={SignupFormContainer} />
+      <Route path="/signup" component={SignupFormContainer} />
 
 
       {/* //! testing */}

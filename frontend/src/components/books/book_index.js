@@ -13,20 +13,21 @@ class BookIndex extends React.Component {
     }
 
     render() {
-        // if (!this.props.books) return null
         if (!this.props.books) return <div />
         const {books} = this.props;
 
         return (
             <ul className="books-ul">
                 {Object.values(books).map((book, i) => {
+                    if(i > 4){
+                        return null;
+                    }else{
                     return (
                     <li className="book-index-item" key={i}>
-                        {/* <a href={`#/books/${book.id}`}> */}
                         <img src={`${book.imagePath}`} className="book-index-cover-photo"/> 
                         <input type="checkbox" id={`${book.title}`} name={`${book.title}`} className="book-checkbox"/>
                     </li>
-                    )
+                    )}
                 })}
             </ul>
         )

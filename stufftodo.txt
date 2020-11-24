@@ -1,0 +1,16 @@
+
+
+css for making a bookclub
+add how many bookclubs you're in with that person
+add books when bookclub is made
+
+invite someone to a bookclub
+add book to a bookclub
+
+book seeding ( 20-40 books )
+
+
+Genre on book show
+"Fantasy-Fiction"
+"Non-Fiction"
+"Historical-Fiction"

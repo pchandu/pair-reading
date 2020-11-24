@@ -12,20 +12,17 @@ class Profile extends React.Component {
     }
 
     render(){
-        return(
-            <div className="profile-container">
-                <div className="profile-username">
-                    {/* {this.props.user.id} */}
-                    {this.props.user.username}
-                </div>
-                <div className="profile-email-and-preferences">
-                    <div className="profile-email">
-                        {this.props.user.email}
-                    </div>
-                    <ProfilePreferences/>
-                </div>
+        return (
+          <div className="profile-container">
+            <div className="profile-username">
+              {/* {this.props.user.id} */}
+              <i class="fas fa-user"></i>
+              {this.props.user.username}
             </div>
-        )  
+
+            {/* <ProfilePreferences email={this.props.user.email}/> */}
+          </div>
+        );  
     }
 }
 

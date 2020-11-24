@@ -2,14 +2,20 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import ForumCreate from '../forum/forum_create_container';
 import BooksContainer from './books_bookclub_container';
-// import { Redirect } from 'react-router-dom';
+// import { Redirect } from 'react-router-dom'
 
 class BookClubShow extends React.Component {
 
     constructor(props) {
         super(props)
 
+        this.state = {
+            inviteName: '',
+            inviteMessage: ''
+        }
+
         this.deleteBookClub = this.deleteBookClub.bind(this)
+        this.inviteToBookClub = this.inviteToBookClub.bind(this)
     }
 
     componentDidMount() {
@@ -33,16 +39,32 @@ class BookClubShow extends React.Component {
         }
     }
 
+    update(field){
+        return (e) =>{
+            this.setState({
+                [field]: e.currentTarget.value
+            })
+        }
+    }
+
+    inviteToBookClub(event){
+        event.preventDefault();
+
+        this.props.inviteToBookClub({
+            invite: this.state.inviteName,
+            bookClub: this.props.bookclubId,
+            inviter: this.props.username
+        })
+        .then(
+            this.setState({
+                inviteName: '',
+                inviteMessage: `Invite sent to, ${this.state.inviteName}`,
+            }))
+    }
+
     render() {
-        // debugger
         const { bookclub} = this.props;
-        // const books = this.props.books.map((el, i) =>
-        //     <Link to={`/books/${el._id}`}>
-        //         <li key={i} className="bookclub-books-list-item">
-        //             <h2>{el.title}</h2>
-        //         </li>
-        //     </Link>
-        // )
+
         const forums = this.props.forums.map((el, i) =>
             <Link key={i} to={`/forums/${el._id}`} className="bookclub-forums-list-link">
                 <li key={i} className="bookclub-forums-list-item">
@@ -67,45 +89,54 @@ class BookClubShow extends React.Component {
         : ''}
         
         return (
-            <div className="bookclub-show-container">
-                <h1 className="bookclub-header">BookClub -
-                <h2 className="bookclub-title">{bookclub ? bookclub.title:""}</h2>
-                {deleteButton}
-                </h1>
-                <div className="bookclub-show-content-container">
-                
-                <div className="left-side-bookclub-show-container">
-                    <h1 className="profile-label">Members</h1>
+          <div className="bookclub-show-container">
+            <h1 className="bookclub-header">
+              BookClub -
+              <h2 className="bookclub-title">
+                {bookclub ? bookclub.title : ""}
+              </h2>
+              {deleteButton}
+            </h1>
+            <div className="bookclub-show-content-container">
+              <div className="left-side-bookclub-show-container">
+                    <h1 className="profile-label">
+                    <i class="fas fa-users"></i>Members
+                    </h1>
+
                     <div className="bookclub-users-container">
-                    <ul className="bookclub-users-list">
-                        {users}
-                    </ul>
+                        <ul className="bookclub-users-list">
+                            {users}
+                        </ul>
+
+                        <form onSubmit={this.inviteToBookClub}>
+                            <p>Invite someone to the bookclub!</p>
+                            <input type="text" onChange={this.update('inviteName')} value={this.state.inviteName}/>
+                            <input type="submit" />
+                            <p>{this.state.inviteMessage}</p>
+                        </form>
                     </div>
                 </div>
 
-                <div className="middle-side-bookclub-show-container">
-                    <div className="profile-label">
-                        <h1>Forums</h1>     
-                        <div>
-                            <ForumCreate bookclubId={this.props.bookclubId}/>
-                        </div>
-                    </div>
-                    <div className="bookclub-forums-container">
-                        <ul className="bookclub-forums-list">
-                            {forums}
-                        </ul>
-                    </div>
-                </div>
-                
-                <div className="right-side-bookclub-show-container">
-                    <h1 className="profile-label" >Books</h1>
+
+            <div className="right-side-bookclub-show-container">
+                    <h1 className="profile-label">
+                    {" "}
+                    <i class="fas fa-book-open"></i>Books
+                    </h1>
                     <ul className="bookclub-books-list">
-                        <BooksContainer match={this.props.match} owner="bookclub" />
+                    <BooksContainer match={this.props.match} owner="bookclub" />
                     </ul>
+                    <h1 className="profile-label-forum">
+                    Forums
+                    <ForumCreate bookclubId={this.props.bookclubId} />
+                    </h1>
+                    <div className="bookclub-forums-container">
+                    <ul className="bookclub-forums-list">{forums}</ul>
+                    </div>
                 </div>
             </div>
-            </div>
-        )
+          </div>
+        );
     }
 }
 

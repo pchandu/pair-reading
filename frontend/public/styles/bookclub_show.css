@@ -70,6 +70,7 @@
 
 .bookclub-books-list {
     padding-bottom: 15px;
+    width: 95%;
 }
 
 .bookclub-books-list *{
@@ -80,15 +81,49 @@
 .middle-side-bookclub-show-container,
 .right-side-bookclub-show-container
 {
-    display:flex;
+    /* display:flex;
     flex-direction:column;
     width: 33%;
     align-items: center;
     margin: 10px;
     /* border: cadetblue 3px solid; */
+    /* border-radius: 5px; */
+    /*  */
+    /* box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.5); */ 
+}
+
+.left-side-bookclub-show-container {
+    display:flex;
+    flex-direction:column;
+    width: 33%;
+    align-items: center;
+    /* margin: 10px; */
+    margin-left: 40px;
+    margin-right: 20px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    /* border: cadetblue 3px solid; */
     border-radius: 5px;
     /*  */
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.5);
+
+}
+
+.right-side-bookclub-show-container {
+    display:flex;
+    flex-direction:column;
+    width: 66%;
+    align-items: center;
+    /* margin: 10px; */
+    margin-left: 20px;
+    margin-right: 40px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    /* border: cadetblue 3px solid; */
+    border-radius: 5px;
+    /*  */
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.5);
+
 }
 
 .dashboard-header,
@@ -103,7 +138,15 @@
     border: none;
     align-items: center;
     align-content: center;
-    justify-content: space-between;
+    /* justify-content: space-between; */
+}
+
+.profile-label > i {
+    background-color: transparent;
+}
+.fa-pen{
+
+    background-color: #afdc8c;
 }
 
 .fa-pen:hover{
@@ -116,24 +159,45 @@
 }
 
 .bookclub-forums-list-item > h2{
-    margin: 5px;
+    /* margin: 5px; */
     padding: 5px;
+    margin: 7px 15px;
     border-radius: 5px;
     font-size: 20px;
     color: white;
     background-color: #67C3B2;
     text-decoration: none;
     height: 30px;
-    width: 98%;
+    /* width: 95%; */
+    display: flex;
+    align-items: center;
+    align-content: center;
 
 }
 
 .bookclub-forums-list-item > h2:hover{
      background-color: #47B6B4;
     text-decoration: none;
+    
 }
 
 .bookclub-forums-container {
      width: 100%;
-    height: 30%;
+    height: 100%;
+    overflow: auto;
+}
+
+.profile-label-forum {
+     display: flex;
+    font-size: 30px;
+    width: 98%;
+    color: rgb(42, 135, 147);
+    padding: 10px;
+    border-radius: 5px;
+    margin: 5px;
+    background-color: #AFDC8B;
+    border: none;
+    align-items: center;
+    align-content: center;
+    justify-content: space-between;
 }

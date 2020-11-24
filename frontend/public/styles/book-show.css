@@ -1,13 +1,9 @@
 .book-show-container {
     display: flex;
-    /* flex-direction: column; */
     align-items: center; 
     justify-content: center;
-    /* padding: 10px; */
-    /* height: 85vh; */
-    width: 100%;
-   /* position: relative; */
-   /* bottom: 50px; */
+    width: auto;
+    min-height: calc(100vh - 78px );
 }
 
 .book-show-details {
@@ -120,7 +116,3 @@
     text-decoration: none;
 
 }
-
-/* .book-show-isbn {
-
-} */

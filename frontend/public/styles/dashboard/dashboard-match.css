@@ -23,9 +23,17 @@
     cursor: pointer;
     background-color: #9CD170;
 }
+
+.match-feed-btn > i {
+    background-color: transparent;
+}
+
 .matches-feed-container {
     width: 100%;
     border-radius: 5px;
+    display:flex;
+    align-items:center;
+    flex-direction:column;
 }
 
 .matches-link-item{
@@ -81,4 +89,28 @@
 
 .div-matches-container:last-child{
     margin-bottom: 10px;
+}
+
+.matches-feed-ul-container{
+    display:flex;
+    align-items:flex-start;
+    flex-direction:column;
+    width: 100%;
+}
+
+.matches-feed-ul-container > p{
+    margin-left:10px;
+    margin-top:2px;
+}
+
+.heading-matches-feed{
+    font-size:20px;
+}
+
+.matches-feed-books-title{
+    font-size:16px;
+}
+
+.matches-feed-end-message{
+    font-size:16px
 }

@@ -49,7 +49,7 @@ class Onboarding extends React.Component {
         e.preventDefault();
         const updatedUser = Object.assign({}, {user: this.props.currentUser} , this.state);
         this.props.updateUser(updatedUser)
-        this.props.history.push("/dashboard");
+        .then(() => window.location.href = window.location.origin + "/#/dashboard" )
     }
 
     componentDidMount() {
@@ -57,43 +57,49 @@ class Onboarding extends React.Component {
     }
     
     render(){
-        if (!this.props.books) return <div />
+        if (!this.props.books) return null
             const {books} = this.props;
 
         return(
             <div className="onboarding-container">
                 <form className="onboarding-form" onSubmit={this.handleContinue}>
-                    <h1>What time of day works best for you to meet with a partner?</h1>
+                    <h1><i class="far fa-clock"></i>   What time of day works best for you to meet with a partner?</h1>
                     <ul className="preferences-container"> 
+                    <a onClick={() => this.handlePreference("M")}>
                         <li className={this.state.preferred_meeting_times["M"] === true ? 
                                             `preferences selected-meeting-time`
                                             : `preferences`}>
-                            <a onClick={() => this.handlePreference("M")}>
                                 <h2 className="preferences-time-of-day">Morning</h2>
                                 <p className="preferences-timing">(8am-12pm)</p>
-                            </a>
                         </li>
+                    </a>
+                    <a onClick={() => this.handlePreference("A")}>
                         <li className={this.state.preferred_meeting_times["A"] === true ? 
                                             `preferences selected-meeting-time`
                                             : `preferences`}>
-                            <a onClick={() => this.handlePreference("A")}>
                                 <h2 className="preferences-time-of-day">Afternoon </h2>
                                 <p className="preferences-timing">(12pm-4pm)</p>
-                            </a>
                         </li>
+                    </a>
+                    <a onClick={() => this.handlePreference("E")}>
                         <li className={this.state.preferred_meeting_times["E"] === true ? 
                                             `preferences selected-meeting-time`
                                             : `preferences`}>
-                            <a onClick={() => this.handlePreference("E")}>
                                 <h2 className="preferences-time-of-day">Evening</h2>
                                 <p className="preferences-timing">(5pm-9pm)</p>
-                            </a>
                         </li>
+                    </a>
                     </ul>
-                    <h1>Please select what books you're interested in reading </h1>
+                    <h1><i class="fas fa-book-open"></i>   Please select what books you're interested in reading </h1>
                     <div className="books-container">
                         <ul className="books-ul">
                             {Object.values(books).map((book, i) => {
+
+                                if (i > 4) {
+                                    return null;
+                                }
+                                else {
+                                  
                                 return (
                                     <li className="book-index-item" key={i}>
                                         <a onClick={() => this.handleBook(book._id)}>
@@ -104,10 +110,11 @@ class Onboarding extends React.Component {
                                         </a>
                                     </li>
                                 )
+                                }
                             })}
                         </ul>
                     </div>
-                  <input type="submit" value="Continue" className="onboarding-continue-button"></input>
+                  <input type="submit" value="Continue" className="onboarding-continue-button btn btn-info"></input>
                 </form>
             </div>
         )
