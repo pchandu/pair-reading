@@ -2,7 +2,7 @@
 .book-show-all-ul{
     display:flex;
     flex-wrap:wrap;
-    width: 100%;
+    width: 60%;
     align-items: center;
     justify-content: center;
 }
@@ -11,6 +11,7 @@
     height: 100vh;
     display:flex;
     flex-direction:column;
+    align-items:center;
 }
 
 .book-show-all-title{
@@ -30,7 +31,8 @@
     width: 100%;
     display:flex;
     justify-content:center;
-    margin-top:20px;
+    margin-top:40px;
+    color: cadetblue;
 }
 
 .book-show-all-link {
@@ -39,22 +41,6 @@
     margin: 10px;
 }
 
-.book-show-all-text {
-    display: none;
-    position: absolute;
-    width: 300px;
-    height: auto;
-    border-radius: 5px;
-    top: 20%;
-    margin-left: 10%;
-    color: black;
-    padding: 5px;
-    z-index: 100;
-    font-size: 16px;
-    font-weight: 600;
-    background-color: #8cc85b !important;
-    border: 3px solid cadetblue;
-}
 
 .book-show-all-text > p{
     margin-top: 10px;
@@ -71,6 +57,75 @@
 }
 
 .book-show-all-cover-photo {
-    height: 300px;
-    width: auto;
+    height: 225px;
+    width: 150px;
+}
+
+.container-for-book-show-item{
+    position: relative;
+    margin-top: 10px;
+}
+
+.book-show-all-text {
+    display: none;
+    position: absolute;
+    width: 300px;
+    height: auto;
+    border-radius: 5px;
+    margin-left: 10%;
+    margin-bottom: 20%;
+    color: black;
+    padding: 5px;
+    z-index: 100;
+    font-size: 16px;
+    font-weight: 600;
+    background-color: #8cc85b !important;
+    border: 3px solid cadetblue;
+    
+    top: 80px;
+    left: 130px;
+}
+
+.container-tabs-book-show-all{
+    display: flex;
+    align-items:center;
+    justify-content: center;
+    margin: 5px;
+    widtH: 100%;
+}
+
+.container-tabs-book-show-all > p {
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    /* width: 80 px; */
+    height: 30px;
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    cursor: pointer;
+}
+
+.container-tabs-book-show-all > p:hover {
+    /* background-color: #8cc85b; */
+    color: cadetblue;
+}
+
+/* Show all container */
+
+.book-show-singular-ul{
+    display:flex;
+    width: 40%;
+    color: cadetblue;
+}
+
+.all-book-show-outer-div > h1 {
+    color:  cadetblue;
+    margin-bottom: 10px;
+    margin-top: 20px;
+    font-size: 26px;
+    font-weight: 600;
+    border-bottom: 1px solid slategrey;
 }

@@ -63,15 +63,8 @@ class BookClubShow extends React.Component {
     }
 
     render() {
-        // debugger
         const { bookclub} = this.props;
-        // const books = this.props.books.map((el, i) =>
-        //     <Link to={`/books/${el._id}`}>
-        //         <li key={i} className="bookclub-books-list-item">
-        //             <h2>{el.title}</h2>
-        //         </li>
-        //     </Link>
-        // )
+
         const forums = this.props.forums.map((el, i) =>
             <Link key={i} to={`/forums/${el._id}`} className="bookclub-forums-list-link">
                 <li key={i} className="bookclub-forums-list-item">
@@ -109,21 +102,27 @@ class BookClubShow extends React.Component {
                 <h1 className="profile-label">
                   <i class="fas fa-users"></i>Members
                 </h1>
-                <div className="bookclub-users-container">
-                  <ul className="bookclub-users-list">{users}</ul>
-                </div>
 
-                <form onSubmit={this.inviteToBookClub}>
-                  <p>Invite someone to the bookclub!</p>
-                  <input
-                    type="text"
-                    onChange={this.update("inviteName")}
-                    value={this.state.inviteName}
-                  />
-                  <input type="submit" />
-                  <p>{this.state.inviteMessage}</p>
-                </form>
-              </div>
+                <div className="bookclub-show-content-container">
+                
+                <div className="left-side-bookclub-show-container">
+                    <h1 className="profile-label">Members</h1>
+
+
+                    <div className="bookclub-users-container">
+                        <ul className="bookclub-users-list">
+                            {users}
+                        </ul>
+
+                        <form onSubmit={this.inviteToBookClub}>
+                            <p>Invite someone to the bookclub!</p>
+                            <input type="text" onChange={this.update('inviteName')} value={this.state.inviteName}/>
+                            <input type="submit" />
+                            <p>{this.state.inviteMessage}</p>
+                        </form>
+                    </div>
+
+
 
               {/* <div className="middle-side-bookclub-show-container">
                         <h1 className="profile-label">
