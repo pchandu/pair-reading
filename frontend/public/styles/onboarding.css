@@ -123,10 +123,12 @@
 }
 
 .selected-book-preference {
-    border: 15px solid rgb(85, 150, 35);
+    border: 10px solid rgb(140, 200, 91);
     background-color: rgb(221, 243, 247);
     border-radius: 5px;
 }
+
+
 /* give images a 1px border, transparent
     when you click it, you should have a ternary in the handle click that gives the image a class
 */
