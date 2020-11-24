@@ -16,6 +16,7 @@ class BookClubShow extends React.Component {
 
         this.deleteBookClub = this.deleteBookClub.bind(this)
         this.inviteToBookClub = this.inviteToBookClub.bind(this)
+        this.leaveBookClub = this.leaveBookClub.bind(this)
     }
 
     componentDidMount() {
@@ -37,6 +38,14 @@ class BookClubShow extends React.Component {
                 creator: this.props.userId
             }).then( this.props.history.push("/dashboard") )
         }
+    }
+
+    leaveBookClub(){
+        debugger;
+        this.props.leaveBookClub({
+            bookClubId: this.props.bookclubId,
+            userId: this.props.userId
+        })
     }
 
     update(field){

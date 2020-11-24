@@ -183,6 +183,32 @@ router.delete('/denyBookClub', (req,res) => {
         })
 })
 
+router.delete('/leaveBookClub', (req,res) => {
+    // console.log(req.body)
+    User.findById(req.body.userId)
+        .then( user => {
+            user.bookclubs.forEach((bookClub,idx) => {
+                if(JSON.stringify(bookClub._id) === `"${req.body.bookClubId}"`){
+                    user.bookclubs.splice(idx, 1)
+                }
+            })
+            user.save()
+
+            BookClub.findById(req.body.bookClubId)
+                .then( bookclub => {
+                    bookclub.users.forEach((user,idx) => {
+                        if(JSON.stringify(user) === `"${req.body.userId}"`){
+                            bookclub.users.splice(idx,1)
+                        }
+                    })
+                    bookclub.save()
+                })
+
+            
+
+        })
+})
+
 router.post('/inviteToBookClub', (req,res) => {
     // console.log(req.body.invite)
     User.findOne({searchableName: req.body.invite.toLowerCase()})
@@ -190,7 +216,7 @@ router.post('/inviteToBookClub', (req,res) => {
             if(user){
                 BookClub.findById(req.body.bookClubId)
                     .then (bookclub => {
-                        console.log(bookclub.users)
+
                         if(bookclub.users.includes(user._id)){
                             return res.json({err: `${req.body.invite} is already a member!`})
                         }else{
@@ -213,5 +239,7 @@ router.post('/inviteToBookClub', (req,res) => {
             }
         })
 })
+
+
 
 module.exports = router;
