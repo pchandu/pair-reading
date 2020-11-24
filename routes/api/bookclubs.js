@@ -77,6 +77,7 @@ router.post('/createBookClub',(req,res) => {
                         .then( user => {User.findOne({_id: req.body.creator})
                         .then(creator => {
                         user.invites.push({
+                            "type": "bookclub",
                             "id": newBookClub._id,
                             "title": newBookClub.title,
                             "creator": creator.username,
