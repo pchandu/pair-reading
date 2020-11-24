@@ -184,10 +184,25 @@ router.delete('/denyBookClub', (req,res) => {
 })
 
 router.post('/inviteToBookClub', (req,res) => {
-    console.log(req.body.invite)
+    // console.log(req.body.invite)
     User.findOne({searchableName: req.body.invite.toLowerCase()})
         .then( user => {
-            console.log(user)
+            if(user){
+                user.invites.push({
+                    "type": "bookclub",
+                    "id": req.body.bookClubId,
+                    "title": req.body.bookClubTitle,
+                    "creator": req.body.inviter,
+                    "creatorId": req.body.inviterId
+                    })
+                    
+                user.save()
+                    .then( () => {
+                return res.json({msg: "success"})
+                    })
+            }else{
+                return res.json({err: "User does not exist"})
+            }
         })
 })
 

@@ -52,14 +52,25 @@ class BookClubShow extends React.Component {
 
         this.props.inviteToBookClub({
             invite: this.state.inviteName,
-            bookClub: this.props.bookclubId,
-            inviter: this.props.username
+            bookClubId: this.props.bookclubId,
+            bookClubTitle: this.props.bookclub.title,
+            inviter: this.props.username,
+            inviterId: this.props.userId
         })
-        .then(
-            this.setState({
-                inviteName: '',
-                inviteMessage: `Invite sent to, ${this.state.inviteName}`,
-            }))
+        .then( (res) => {
+            console.log(res)
+            if(res.data["err"]){
+                this.setState({
+                    inviteName: '',
+                    inviteMessage: res.data["err"],
+                })
+            }else{
+                this.setState({
+                    inviteName: '',
+                    inviteMessage: `Invite sent to, ${this.state.inviteName}`,
+                })
+            }
+        })
     }
 
     render() {
