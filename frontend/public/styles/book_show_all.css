@@ -2,7 +2,7 @@
 .book-show-all-ul{
     display:flex;
     flex-wrap:wrap;
-    width: 100%;
+    width: 60%;
     align-items: center;
     justify-content: center;
 }
@@ -11,6 +11,7 @@
     height: 100vh;
     display:flex;
     flex-direction:column;
+    align-items:center;
 }
 
 .book-show-all-title{
@@ -39,22 +40,6 @@
     margin: 10px;
 }
 
-.book-show-all-text {
-    display: none;
-    position: absolute;
-    width: 300px;
-    height: auto;
-    border-radius: 5px;
-    top: 20%;
-    margin-left: 10%;
-    color: black;
-    padding: 5px;
-    z-index: 100;
-    font-size: 16px;
-    font-weight: 600;
-    background-color: #8cc85b !important;
-    border: 3px solid cadetblue;
-}
 
 .book-show-all-text > p{
     margin-top: 10px;
@@ -73,4 +58,28 @@
 .book-show-all-cover-photo {
     height: 300px;
     width: auto;
+}
+
+.container-for-book-show-item{
+    position: relative;
+}
+
+.book-show-all-text {
+    display: none;
+    position: absolute;
+    width: 300px;
+    height: auto;
+    border-radius: 5px;
+    margin-left: 10%;
+    margin-bottom: 20%;
+    color: black;
+    padding: 5px;
+    z-index: 100;
+    font-size: 16px;
+    font-weight: 600;
+    background-color: #8cc85b !important;
+    border: 3px solid cadetblue;
+    
+    top: 80px;
+    left: 180px;
 }
