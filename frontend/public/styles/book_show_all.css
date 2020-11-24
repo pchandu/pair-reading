@@ -31,7 +31,7 @@
     width: 100%;
     display:flex;
     justify-content:center;
-    margin-top:20px;
+    margin-top:40px;
 }
 
 .book-show-all-link {
@@ -110,4 +110,19 @@
 .container-tabs-book-show-all > p:hover {
     /* background-color: #8cc85b; */
     color: cadetblue;
+}
+
+/* Show all container */
+
+.book-show-singular-ul{
+    display:flex;
+    width: 40%;
+}
+
+.all-book-show-outer-div > h1 {
+    margin-bottom: 10px;
+    margin-top: 20px;
+    font-size: 26px;
+    font-weight: 600;
+    border-bottom: 1px solid slategrey;
 }

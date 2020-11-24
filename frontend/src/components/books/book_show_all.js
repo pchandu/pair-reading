@@ -20,11 +20,8 @@ class BookShowAll extends React.Component {
   }
 
   componentWillMount() {
-    this.props.fetchAllBooks();
-  }
-
-  componentDidMount(){
-    this.setBooks();
+    this.props.fetchAllBooks()
+      .then(() => this.setBooks())
   }
 
   setBooks(){
@@ -41,14 +38,14 @@ class BookShowAll extends React.Component {
     this.setState({booksSet: true})
   }
 
-  showInfo(bookNum){
-    let book = document.getElementById(`text${bookNum}`)
+  showInfo(bookNum,subject){
+    let book = document.getElementById(`text${bookNum}${subject? subject : ''}`)
     book.classList.add("show")
     book.classList.remove("hidden")
   }
 
-  hideInfo(bookNum){
-    let book = document.getElementById(`text${bookNum}`)
+  hideInfo(bookNum, subject){
+    let book = document.getElementById(`text${bookNum}${subject? subject: ''}`)
     book.classList.add("hidden")
     book.classList.remove("show")
   }
@@ -89,7 +86,7 @@ class BookShowAll extends React.Component {
       header = "Fantasy books"
     } else if(whichTab === 0){
       page = <AllBooksContainer 
-      books={this.state}
+      books={{books: this.state}}
       hideInfo={this.hideInfo}
       showInfo={this.showInfo}
       />
