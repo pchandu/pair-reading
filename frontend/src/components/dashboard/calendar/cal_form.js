@@ -39,7 +39,6 @@ class CalendarForm extends React.Component {
                 <br />
                 <div className="text-center">
                     <input type="submit" className="login-submit-btn  d-flex justify-content-center" value="Submit" />
-
                 </div>
              
             </form>

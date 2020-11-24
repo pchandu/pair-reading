@@ -12,6 +12,20 @@ const _user = 'username email posts bookclubs books preferred_meeting_time invit
 
 router.get("/test", (req, res) => res.json({ msg: "This is the users route" }));
 
+
+router.post('/createMeetingInvite', (req, res) => {
+  User.findById(req.body.user)
+  .then(user => {
+    if (user) {
+      user.invites.push(req.body.invite);
+      user.save();
+      res.status(200).json({msg: "Successfully created a calendar invite."});
+    } else {
+      return res.json({ msg: "Captain, we have a problem."})
+    }
+  })
+})
+
 router.patch('/updateUser', (req, res) => {
   // console.log(req.body)
   User.findById(req.body.user)
