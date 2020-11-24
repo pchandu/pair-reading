@@ -73,10 +73,13 @@ router.post('/createBookClub',(req,res) => {
                         user.save()
                     })
                     .then(
+                        //invitee
                     User.findOne({_id: req.body.invitee})
+                        //creator of the invite
                         .then( user => {User.findOne({_id: req.body.creator})
                         .then(creator => {
                         user.invites.push({
+                            "type": "bookclub",
                             "id": newBookClub._id,
                             "title": newBookClub.title,
                             "creator": creator.username,
@@ -181,7 +184,11 @@ router.delete('/denyBookClub', (req,res) => {
 })
 
 router.post('/inviteToBookClub', (req,res) => {
-    console.log(req.body)
+    console.log(req.body.invite)
+    User.findOne({searchableName: req.body.invite.toLowerCase()})
+        .then( user => {
+            console.log(user)
+        })
 })
 
 module.exports = router;
