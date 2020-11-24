@@ -1,6 +1,6 @@
 import React from "react";
 import "react-dates/initialize";
-import { SingleDatePicker } from "react-dates";
+import MeetingDatePicker from "./date_picker"
 
 class CalendarForm extends React.Component {
   
@@ -10,31 +10,26 @@ class CalendarForm extends React.Component {
             type: "calendar",
             invitee: "",
             title: "",
-            date: "",
+            date: new Date(),
             start_time: "",
             end_time: ""
         }
+
+        this.handleTitle = this.handleTitle.bind(this);
     }
   
     handleTitle(e){
         this.setState({title: e.currentTarget.value});
     }
-    
+
     render() {
         return (
             <div className='meeting-invite-form-container'>
-
+                <h1>
+                    
+                </h1>
                 <div className='date-picker-form-container'>
-                     <SingleDatePicker
-                        date={this.state.date} // momentPropTypes.momentObj or null
-                        onDateChange={(date) => this.setState({ date: date })} // PropTypes.func.isRequired
-                        focused={this.state.focused} // PropTypes.bool
-                        onFocusChange={({ focused }) => this.setState({ focused })} // PropTypes.func.isRequired
-                        id="your_unique_id" // PropTypes.string.isRequired,
-                        placeholder="Meeting Date"
-                        numberOfMonths={1}
-                        // openDirection="up"
-                    />
+                    <MeetingDatePicker />
                 </div>
             </div>
         );
