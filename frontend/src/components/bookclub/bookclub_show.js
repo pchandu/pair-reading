@@ -99,15 +99,9 @@ class BookClubShow extends React.Component {
             </h1>
             <div className="bookclub-show-content-container">
               <div className="left-side-bookclub-show-container">
-                <h1 className="profile-label">
-                  <i class="fas fa-users"></i>Members
-                </h1>
-
-                <div className="bookclub-show-content-container">
-                
-                <div className="left-side-bookclub-show-container">
-                    <h1 className="profile-label">Members</h1>
-
+                    <h1 className="profile-label">
+                    <i class="fas fa-users"></i>Members
+                    </h1>
 
                     <div className="bookclub-users-container">
                         <ul className="bookclub-users-list">
@@ -121,37 +115,25 @@ class BookClubShow extends React.Component {
                             <p>{this.state.inviteMessage}</p>
                         </form>
                     </div>
-
-
-
-              {/* <div className="middle-side-bookclub-show-container">
-                        <h1 className="profile-label">
-                            Forums
-                            <ForumCreate bookclubId={this.props.bookclubId}/>
-                        </h1>     
-                    <div className="bookclub-forums-container">
-                        <ul className="bookclub-forums-list">
-                            {forums}
-                        </ul>
-                    </div>
-                </div> */}
-
-              <div className="right-side-bookclub-show-container">
-                <h1 className="profile-label">
-                  {" "}
-                  <i class="fas fa-book-open"></i>Books
-                </h1>
-                <ul className="bookclub-books-list">
-                  <BooksContainer match={this.props.match} owner="bookclub" />
-                </ul>
-                <h1 className="profile-label-forum">
-                  Forums
-                  <ForumCreate bookclubId={this.props.bookclubId} />
-                </h1>
-                <div className="bookclub-forums-container">
-                  <ul className="bookclub-forums-list">{forums}</ul>
                 </div>
-              </div>
+
+
+            <div className="right-side-bookclub-show-container">
+                    <h1 className="profile-label">
+                    {" "}
+                    <i class="fas fa-book-open"></i>Books
+                    </h1>
+                    <ul className="bookclub-books-list">
+                    <BooksContainer match={this.props.match} owner="bookclub" />
+                    </ul>
+                    <h1 className="profile-label-forum">
+                    Forums
+                    <ForumCreate bookclubId={this.props.bookclubId} />
+                    </h1>
+                    <div className="bookclub-forums-container">
+                    <ul className="bookclub-forums-list">{forums}</ul>
+                    </div>
+                </div>
             </div>
           </div>
         );
