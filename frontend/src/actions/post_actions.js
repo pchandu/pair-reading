@@ -1,4 +1,5 @@
 import * as postUtil from '../util/post_util'
+export const RECEIVE_NEW_POST = 'RECEIVE_NEW_POST'
 export const RECEIVE_ALL_POSTS = 'RECEIVE_ALL_POSTS'
 export const RECEIVE_POST = 'RECEIVE_POST'
 
@@ -9,6 +10,10 @@ export const receiveAllPosts = payload => ({
 export const receivePost = payload => ({
     type: RECEIVE_POST,
     payload
+});
+export const receiveNewPost = post => ({
+    type: RECEIVE_NEW_POST,
+    post
 });
 
 
@@ -32,3 +37,10 @@ postUtil.fetchAllUserPosts(filters)(userId)
     .then((posts) => {
         dispatch(receiveAllPosts(posts))
     });
+//! POST
+export const composePost = data => dispatch => (
+postUtil.composePost(data)
+    .then(post => dispatch(receiveNewPost(post)))
+    .catch(err => console.log(err))
+);
+

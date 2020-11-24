@@ -101,3 +101,17 @@ i {
     margin-top: 10px;
     font-size: 10px;
 }
+
+.new-post-form-container {
+    border: 1px solid red;
+}
+.new-post-form {
+    border: 1px solid blue;
+    min-height: 150px;
+}
+.new-post-text {
+    /* border: 1px solid yellow; */
+    min-height: 150px;
+    width: 100%;
+}
+

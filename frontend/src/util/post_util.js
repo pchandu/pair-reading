@@ -13,3 +13,9 @@ export const fetchAllForumPosts = filters => (id) => {
 export const fetchAllUserPosts = filters => (id) => {
     return Axios.get(`/api/users/${id}/posts`, { params: filters })
 };
+
+//!
+export const composePost = data => {
+    debugger
+    return Axios.post('/api/posts/', data )
+}
