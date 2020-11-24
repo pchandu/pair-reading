@@ -13,7 +13,7 @@ require('./config/passport')(passport);
 
 const path = require('path');
 
-app.use(express.static(path.join(__dirname, 'public')))
+// app.use(express.static(path.join(__dirname, 'frontend', 'public')))
 
 mongoose
 .connect(db, { useNewUrlParser: true, useUnifiedTopology: true} )
