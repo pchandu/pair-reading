@@ -98,6 +98,7 @@ class BookClubShow extends React.Component {
         onClick={this.deleteBookClub}
         >Delete BookClub</button> 
         : ''}
+
         
         return (
           <div className="bookclub-show-container">
@@ -119,10 +120,16 @@ class BookClubShow extends React.Component {
                             {users}
                         </ul>
 
-                        <form onSubmit={this.inviteToBookClub}>
-                            <p>Invite someone to the bookclub!</p>
-                            <input type="text" onChange={this.update('inviteName')} value={this.state.inviteName}/>
-                            <input type="submit" />
+                        <form onSubmit={this.inviteToBookClub} className="bookclub-invite-form">
+                            <h1>Invite someone to the bookclub!</h1>
+                            <div className="btn-and-input-for-bookclub-invite">
+                            <input type="text" 
+                            onChange={this.update('inviteName')} 
+                            value={this.state.inviteName}
+                            className="input-bookclub-invite"
+                            />
+                            <input type="submit" className="btn btn-info invite-to-bookclub-button"/>
+                            </div>
                             <p>{this.state.inviteMessage}</p>
                         </form>
                     </div>

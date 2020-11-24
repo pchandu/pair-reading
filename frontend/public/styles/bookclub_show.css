@@ -38,7 +38,6 @@
     display: flex;
     justify-content: space-between;
     min-height: 500px;
-    height: 85vh;
     background-color: #DDF1CA;
 }
 
@@ -201,3 +200,39 @@
     align-content: center;
     justify-content: space-between;
 }
+
+/*  Invitation to bookclub CSS */
+
+.bookclub-invite-form {
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    /* justify-content: center; */
+    width: 100%;
+}
+
+.bookclub-invite-form > h1,
+.bookclub-invite-form > p {
+    font-size: 20px;
+    font-weight: 600;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    color: cadetblue;
+}
+
+
+.btn-and-input-for-bookclub-invite{
+    display: flex;
+}
+
+.input-bookclub-invite{
+    margin-right: 5px;
+    border-radius:5px;
+    background-color: white;
+    width: 90%;
+}
+
+/* .invite-to-bookclub-button{
+    height: 30px;
+    width: auto;
+} */

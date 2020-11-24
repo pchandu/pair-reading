@@ -171,7 +171,6 @@ router.post('/joinBookClub', (req,res) => {
 
 router.delete('/denyBookClub', (req,res) => {
 
-    
     User.findById(req.body.userId)
         .then( user => {
             user.invites.forEach( (invite,idx) => {
@@ -180,6 +179,7 @@ router.delete('/denyBookClub', (req,res) => {
                 }
             })
             user.save()
+            return res.status(200).json({msg: "success"})
         })
 })
 
@@ -188,20 +188,28 @@ router.post('/inviteToBookClub', (req,res) => {
     User.findOne({searchableName: req.body.invite.toLowerCase()})
         .then( user => {
             if(user){
-                user.invites.push({
-                    "type": "bookclub",
-                    "id": req.body.bookClubId,
-                    "title": req.body.bookClubTitle,
-                    "creator": req.body.inviter,
-                    "creatorId": req.body.inviterId
-                    })
-                    
-                user.save()
-                    .then( () => {
-                return res.json({msg: "success"})
+                BookClub.findById(req.body.bookClubId)
+                    .then (bookclub => {
+                        console.log(bookclub.users)
+                        if(bookclub.users.includes(user._id)){
+                            return res.json({err: `${req.body.invite} is already a member!`})
+                        }else{
+                            user.invites.push({
+                                "type": "bookclub",
+                                "id": req.body.bookClubId,
+                                "title": req.body.bookClubTitle,
+                                "creator": req.body.inviter,
+                                "creatorId": req.body.inviterId
+                                })
+                                
+                            user.save()
+                            .then( () => {
+                                return res.json({msg: "success"})
+                            })
+                        }
                     })
             }else{
-                return res.json({err: "User does not exist"})
+                return res.json({err: `User ${req.body.invite} does not exist`})
             }
         })
 })
