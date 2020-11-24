@@ -8,12 +8,34 @@ import moment from 'moment';
 
 class DashboardCalendar extends React.Component {
 
+  constructor(props){
+    super(props);
+    this.state = {
+      selectedDate: moment()
+    }
+
+    this.onSelect = this.onSelect.bind(this);
+  }
+  
+  componentDidMount(){
+      const days = document.getElementsByClassName("Day");
+    for (let i = 0; i < days.length; i++) {
+      const day = days[i];
+      const button = day.children[0];
+      day.addEventListener("click", () => button.click());
+    }
+  }
+  onSelect(e) {
+    this.setState({ selectedDate: e });
+  }
+
   render() {
     return (
       <div>
-        <Calendar className="react-calendar"
+        <Calendar 
+            className="react-calendar"
+            onSelect={this.onSelect}
             // date={this.state.selectedDate}
-            // onSelect={this.onSelect}
             // onClickDay={this.openModal} 
           />
       </div>
