@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import HistoricalContainer from './genres/historical_fiction'
 import FantasyContainer from './genres/fantasy_fiction'
 import NonFictionContainer from './genres/non_fiction'
+import AllBooksContainer  from './genres/all'
 
 class BookShowAll extends React.Component {
   constructor(props) {
@@ -13,12 +14,17 @@ class BookShowAll extends React.Component {
       historicalBooks: [],
       fantasyBooks: [],
       nonFictionBooks: [],
+      booksSet: false,
       whichTab: 0
     }
   }
 
-  componentDidMount() {
+  componentWillMount() {
     this.props.fetchAllBooks();
+  }
+
+  componentDidMount(){
+    this.setBooks();
   }
 
   setBooks(){
@@ -32,7 +38,7 @@ class BookShowAll extends React.Component {
         this.state.historicalBooks.push(book)
       }
     })
-
+    this.setState({booksSet: true})
   }
 
   showInfo(bookNum){
@@ -54,60 +60,55 @@ class BookShowAll extends React.Component {
   render() {
     // if (!this.props.books) return null
     if (!this.props.books) return <div />;
-    else{
-      this.setBooks();
-    }
+    
     const { books } = this.props;
     const { whichTab } = this.state;
 
     let page;
+    let header;
 
     if(whichTab === 1){
-      page = <NonFictionContainer books={this.state.nonFictionBooks}/>
+      page = <NonFictionContainer 
+      hideInfo={this.hideInfo}
+      showInfo={this.showInfo}
+      books={this.state.nonFictionBooks}/>
+      header = "Non-Fiction books"
     } else if(whichTab === 2){
-      page = <HistoricalContainer books={this.state.historicalBooks}/>
+      page = <HistoricalContainer 
+      books={this.state.historicalBooks} 
+      hideInfo={this.hideInfo}
+      showInfo={this.showInfo}
+      />
+      header = "Historical books"
     } else if(whichTab === 3) {
-      page = <FantasyContainer books={this.state.fantasyBooks}/>
-    } else{
+      page = <FantasyContainer 
+      books={this.state.fantasyBooks}
+      hideInfo={this.hideInfo}
+      showInfo={this.showInfo}
+      />
+      header = "Fantasy books"
+    } else if(whichTab === 0){
+      page = <AllBooksContainer 
+      books={this.state}
+      hideInfo={this.hideInfo}
+      showInfo={this.showInfo}
+      />
+      header = "All books"
+    } else {
       page = ''
     }
 
     return (
       <div className="outer-div-book-show-all">
-        <h1 className="show-all-h1">List of all books</h1>
+        <h1 className="show-all-h1">{header}</h1>
         <div className="container-tabs-book-show-all">
           <p onClick={() => this.handlePage(0)}>All</p>
           <p onClick={() => this.handlePage(1)}>Non-Fiction</p>
           <p onClick={() => this.handlePage(2)}>Historical</p>
           <p onClick={() => this.handlePage(3)}>Fantasy</p>
         </div>
-        <ul className="book-show-all-ul">
-          
-          {this.state.whichTab === 0 ? Object.values(books).map((book, i) => {
-            return (
-                <div 
-                
-                onMouseEnter={() => this.showInfo(i)}
-                onMouseLeave={() => this.hideInfo(i)}
-                className="container-for-book-show-item">
-                  <Link className="book-show-all-link" 
-                  key={i} 
-                  to={`/books/${book._id}`}
-                  >
-                    <img
-                      src={`${book.imagePath}`}
-                      className="book-show-all-cover-photo"
-                    />
-                  </Link>
-                  <div className={`book-show-all-text`}
-                  id={`text${i}`}>
-                      <p className="book-show-all-title">{book.title}</p>
-                      <p className="book-show-all-author">{book.author}</p>
-                      <p>{book.description.slice(0,180)}...</p>
-                  </div>
-               </div>
-            );
-          }): page}
+        <ul className="book-show-all-ul"> 
+          {page}
         </ul>
       </div>
     );
