@@ -39,15 +39,15 @@ class DashBoard extends React.Component {
           {/* </div> */}
 
           <div className="right-side-dashboard-container">
-            <h1 className="dashboard-header"><i class="far fa-calendar-alt"></i>Calendar and Meeting Options</h1>
+            <h1 className="dashboard-header-home"><i class="far fa-calendar-alt"></i>Calendar and Meeting Options</h1>
             <Calendar />
 
-            <h1 className="dashboard-header">
+            <h1 className="dashboard-header-home">
               <i class="fas fa-book-open"></i>Books
             </h1>
             <BooksFeedContainer />
 
-            <h1 className="dashboard-header">
+            <h1 className="dashboard-header-home">
               <i class="fas fa-users"></i>Bookclubs
             </h1>
             <BookClubFeedContainer />
