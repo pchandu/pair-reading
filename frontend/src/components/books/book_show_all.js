@@ -51,11 +51,7 @@ class BookShowAll extends React.Component {
                   id={`text${i}`}>
                       <p className="book-show-all-title">{book.title}</p>
                       <p className="book-show-all-author">{book.author}</p>
-                      <p>{book.description.slice(0,180)}...
-                        {/* {book.description.length > 180 ? 
-                        <button onClick={}>more</button>
-                        : ''} */}
-                      </p>
+                      <p>{book.description.slice(0,180)}...</p>
                   </div>
 
                </div>

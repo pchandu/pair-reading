@@ -56,12 +56,13 @@
 }
 
 .book-show-all-cover-photo {
-    height: 300px;
-    width: auto;
+    height: 225px;
+    width: 150px;
 }
 
 .container-for-book-show-item{
     position: relative;
+    margin-top: 10px;
 }
 
 .book-show-all-text {
@@ -81,5 +82,5 @@
     border: 3px solid cadetblue;
     
     top: 80px;
-    left: 180px;
+    left: 130px;
 }
