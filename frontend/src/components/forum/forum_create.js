@@ -32,9 +32,9 @@ class ForumCreate extends React.Component {
     handleCreate(e){
         e.preventDefault();
         const newForum = Object.assign({}, {title: this.state.title, bookclub: this.state.bookclub})
-        debugger
-        this.props.createForum(newForum)
-        this.handleClose();
+        // debugger
+        this.props.createForum(newForum).then(this.handleClose());
+        window.location.reload(false)
     }
 
     handleChange(e) {
