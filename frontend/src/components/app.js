@@ -57,7 +57,7 @@ const App = () => (
 
 
       <AuthRoute path="/dashboard" component={DashBoardContainer} />
-      <AuthRoute path="/calendar-form" component={DashBoardCalFormContainer} />
+      <AuthRoute path="/schedule-meeting" component={DashBoardCalFormContainer} />
       <AuthRoute exact path="/onboarding" component={OnboardingContainer} />
       <AuthRoute path="/books/:bookId" component={BookShow} />
       <Route exact path="/" component={HomePage} />

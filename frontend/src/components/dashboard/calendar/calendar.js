@@ -32,12 +32,19 @@ class DashboardCalendar extends React.Component {
   render() {
     return (
       <div>
+        <p>Click on a date in your calendar to 
+          <br></br>
+          see if you have any meetings then
+        </p>
         <Calendar 
             className="react-calendar"
             onSelect={this.onSelect}
             // date={this.state.selectedDate}
             // onClickDay={this.openModal} 
           />
+          <button className="schedule new meeting">
+            <Link to='/schedule-meeting'>Schedule New Meeting</Link>
+          </button>
       </div>
     )
   }
