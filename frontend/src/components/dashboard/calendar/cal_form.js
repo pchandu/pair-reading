@@ -25,10 +25,12 @@ class CalendarForm extends React.Component {
     render() {
         return (
             <div className='meeting-invite-form-container'>
-                <h1>
-                    
+                <h1 className="cal-form-header">
+                    Feel free to fill out a form to remember your next meeting!
                 </h1>
+                <input type="text" value={this.state.title} onChange={this.handleTitle}/>
                 <div className='date-picker-form-container'>
+                    {/* <h2>Select the time for your meeting</h2> */} 
                     <MeetingDatePicker />
                 </div>
             </div>
