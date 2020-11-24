@@ -59,6 +59,8 @@ router.post('/new', (req, res) => {
                 const associatedBookClub = BookClub.findOne({_id: req.body.bookclub}).then(
                     bookclub => {
                         newForum.bookclub = bookclub;
+                        bookclub.forums.push(newForum);
+                        bookclub.save();
                         return newForum;
                     }
                 ).then((nf) => nf.save().then(forum => {res.status(200).json({message: "You have successfully made a forum."})

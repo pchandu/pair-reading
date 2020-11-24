@@ -17,6 +17,7 @@ export const fetchBookClubForums = (filters) => (bcId) => {
 };
 
 export const createForum = (forumData) => {
+    debugger
     return Axios.post(`/api/forums/new`, forumData)
 };
 
