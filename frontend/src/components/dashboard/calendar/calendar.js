@@ -1,51 +1,63 @@
 import React from "react";
 import { Link } from "react-router-dom";
-// import { gapi } from 'gapi-script'
+import Calendar from 'react-calendar-pane';
+import moment from 'moment';
 
 
-class Calendar extends React.Component {
-  // var gapi = window.gapi;
 
-  // let DISCOVERY_DOCS = ["https://www.googleapis.com/discovery/v1/apis/calendar/v3/rest"];
-  // let SCOPES = "https://www.googleapis.com/auth/calendar.readonly";
 
-  // const startCalendar = () => {
-  //     gapi.load('client:auth2', () => {
-  //       console.log("Loaded client")
+class DashboardCalendar extends React.Component {
 
-  //       gapi.client.init({
-  //         apiKay: API_KEY,
-  //         clientId: CLIENT_ID,
-  //         discoveryDocs: DISCOVERY_DOCS,
-  //         scope: SCOPES
-  //       })
+  constructor(props){
+    super(props);
+    this.state = {
+      selectedDate: moment()
+    }
 
-  //       gapi.client.load('calendar', 'v3', () => console.log('WOOHOo magics'))
-
-  //       gapi.auth2.getAuthInstance().signIn()
-  //     })
-  // }
+    this.onSelect = this.onSelect.bind(this);
+  }
+  
+  componentDidMount(){
+      const days = document.getElementsByClassName("Day");
+    for (let i = 0; i < days.length; i++) {
+      const day = days[i];
+      const button = day.children[0];
+      day.addEventListener("click", () => button.click());
+    }
+  }
+  onSelect(e) {
+    this.setState({ selectedDate: e });
+  }
 
   render() {
     return (
-      <div className="cal-container">
-        <a
-          href="https://accounts.google.com/signin/v2/identifier?service=cl&passive=1209600&osid=1&continue=https%3A%2F%2Fcalendar.google.com%2Fcalendar%2Frender&followup=https%3A%2F%2Fcalendar.google.com%2Fcalendar%2Frender&scc=1&flowName=GlifWebSignIn&flowEntry=ServiceLogin"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <button className="btn btn-info cal-btn"> Go to Google Calendar</button>
-        </a>
-        <Link to="/calendar-form">
-          <button className="btn btn-info cal-btn">
-            {" "}
-            Fill out form for next meeting!{" "}
-          </button>
-        </Link>
+      <div>
+        <Calendar 
+            className="react-calendar"
+            onSelect={this.onSelect}
+            // date={this.state.selectedDate}
+            // onClickDay={this.openModal} 
+          />
       </div>
-    );
+    )
   }
 }
-//
-
-export default Calendar;
+  //
+  
+export default DashboardCalendar;
+  
+  // <div className="cal-container">
+  // <a
+  //     href="https://accounts.google.com/signin/v2/identifier?service=cl&passive=1209600&osid=1&continue=https%3A%2F%2Fcalendar.google.com%2Fcalendar%2Frender&followup=https%3A%2F%2Fcalendar.google.com%2Fcalendar%2Frender&scc=1&flowName=GlifWebSignIn&flowEntry=ServiceLogin"
+  //     target="_blank"
+  //     rel="noopener noreferrer"
+  //   >
+  //     <button className="btn btn-info cal-btn"> Go to Google Calendar</button>
+  //   </a>
+  //   <Link to="/calendar-form">
+  //     <button className="btn btn-info cal-btn">
+  //       {" "}
+  //       Fill out form for next meeting!{" "}
+  //     </button>
+  //   </Link>
+  // </div>
