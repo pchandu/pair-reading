@@ -103,7 +103,7 @@
     border: none;
     align-items: center;
     align-content: center;
-    justify-content: space-between;
+    /* justify-content: space-between; */
 }
 
 .fa-pen{

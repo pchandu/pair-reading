@@ -24,30 +24,35 @@ class UserShow extends React.Component {
             email = user.email;
         }
         return (
-            <div className="user-show-content-container">
-                <div className="left-side-user-show-container">
-                    <div className="profile-container">
-                        <div className="profile-username">
-                            {/* {this.props.user.id} */}
-                            {username}
-                        </div>
-                        <div className="profile-email">
-                            {email}
-                        </div>
-                    <h1 className="profile-label">Bookclubs</h1>
-                        <BookClubContainer match={this.props.match} />
-                    </div>
+          <div className="user-show-content-container">
+            <div className="left-side-user-show-container">
+              <div className="profile-container">
+                <div className="profile-username">
+                  {/* {this.props.user.id} */}
+                  <i class="fas fa-user"></i>
+                  {username}
                 </div>
-                <div className="middle-side-user-show-container">
+                <div className="profile-email">{email}</div>
+                <h1 className="profile-label-user">
+                  <i class="fas fa-book-reader"></i>Bookclubs
+                </h1>
+                <BookClubContainer match={this.props.match} />
+              </div>
+            </div>
+            {/* <div className="middle-side-user-show-container">
                     <h1 className="profile-label">Recent Post Activity</h1>
                         <PostContainer match={this.props.match} />
-                </div>
-                <div className="right-side-user-show-container">
-                    <h1 className="profile-label" >Books</h1>
-                        <BooksContainer match={this.props.match} owner="user"/>
-                </div>
+                </div> */}
+            <div className="right-side-user-show-container">
+              <h1 className="profile-label-user">
+                <i class="fas fa-book-open"></i>Books
+              </h1>
+              <BooksContainer match={this.props.match} owner="user" />
+              <h1 className="profile-label-user"><i class="fas fa-user-edit"></i>Recent Post Activity</h1>
+              <PostContainer match={this.props.match} />
             </div>
-        )
+          </div>
+        );
     }
 }
 
