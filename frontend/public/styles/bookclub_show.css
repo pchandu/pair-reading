@@ -125,8 +125,8 @@
 
 }
 
-.dashboard-header,
-.profile-label {
+
+.profile-label-bookclub{
     display: flex;
     font-size: 30px;
     width: 98%;
@@ -134,10 +134,17 @@
     padding: 10px;
     border-radius: 5px;
     margin: 5px;
+    background-color: #AFDC8B;
+    align-items:center;
+    justify-content: space-between;
     border: none;
-    align-items: center;
-    align-content: center;
-    /* justify-content: space-between; */
+}
+
+.profile-label-bookclub > p > i {
+    background-color: transparent;
+}
+.profile-label-bookclub > p{
+    background-color: transparent;
 }
 
 .profile-label > i {

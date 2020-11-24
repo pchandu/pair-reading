@@ -91,13 +91,24 @@ class BookClubShow extends React.Component {
             </Link>
         )
         let deleteButton;
+        let leaveButton;
         if(this.props.bookclub){
         deleteButton = this.props.bookclub.creator === this.props.userId ? 
         <button 
         className="bookclub-show-delete-button btn btn-info" 
         onClick={this.deleteBookClub}
-        >Delete BookClub</button> 
-        : ''}
+        >Delete Book Club</button> 
+        : ''
+
+        leaveButton = 
+        this.props.bookclub.creator != this.props.userId &&
+        this.props.bookclub.users.includes(this.props.userId)? 
+        <button
+        className="bookclub-show-leave-button btn btn-info"
+        onClick={this.leaveBookClub}>
+        Leave Book Club </button> : ''
+        }
+
 
         
         return (
@@ -111,8 +122,9 @@ class BookClubShow extends React.Component {
             </h1>
             <div className="bookclub-show-content-container">
               <div className="left-side-bookclub-show-container">
-                    <h1 className="profile-label">
-                    <i class="fas fa-users"></i>Members
+                    <h1 className="profile-label-bookclub">
+                    <p><i class="fas fa-users" />Members</p>
+                    {leaveButton}
                     </h1>
 
                     <div className="bookclub-users-container">
@@ -132,6 +144,7 @@ class BookClubShow extends React.Component {
                             </div>
                             <p>{this.state.inviteMessage}</p>
                         </form>
+
                     </div>
                 </div>
 
