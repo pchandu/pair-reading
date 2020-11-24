@@ -8,25 +8,29 @@
     justify-content: space-between;
     min-height: 500px;
     background-color: #DDF1CA;
-    height: 85vh;
+    height: 90vh;
 }
 
 .left-side-user-show-container, 
 .middle-side-user-show-container,
 .right-side-user-show-container
 {
-    display:flex;
-    flex-direction:column;
-    width: 33%;
-    align-items: center;
-    margin: 10px;
-     /* border: cadetblue 3px solid; */
-    border-radius: 5px;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.5);
+   
 
 }
 
 .left-side-user-show-container {
+     display:flex;
+    flex-direction:column;
+    width: 33%;
+    align-items: center;
+       margin-left: 40px;
+    margin-right: 20px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+     /* border: cadetblue 3px solid; */
+    border-radius: 5px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.5);
 }
 
 .middle-side-user-show-container {
@@ -35,6 +39,19 @@
 }
 
 .right-side-user-show-container {
+     display:flex;
+    flex-direction:column;
+    width: 66%;
+    align-items: center;
+    /* margin: 10px; */
+        margin-left: 20px;
+    margin-right: 40px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+     /* border: cadetblue 3px solid; */
+    border-radius: 5px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.5);
+    overflow: auto;
 
 }
 
@@ -61,6 +78,15 @@
     
 }
 
+.profile-username > i {
+    background-color: transparent;
+}
+
+.profile-label-user > i {
+    background-color: transparent;
+    
+}
+
 .user-show-mid-text > p {
     margin: 2px;
 }
@@ -72,5 +98,18 @@
     font-family: 'Nunito', sans-serif;
 }
 
-
+.profile-label-user {
+    display: flex;
+    font-size: 30px;
+    width: 98%;
+    color: rgb(42, 135, 147);
+    padding: 10px;
+    border-radius: 5px;
+    margin: 5px;
+    background-color: #AFDC8B;
+    border: none;
+    align-items: center;
+    align-content: center;
+    /* justify-content: space-between; */
+}
 /* Styles each of the 3 columns within the user-show */
