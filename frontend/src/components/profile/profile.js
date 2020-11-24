@@ -19,7 +19,7 @@ class Profile extends React.Component {
                     {this.props.user.username}
                 </div>
                 
-                <ProfilePreferences email={this.props.user.email}/>
+                {/* <ProfilePreferences email={this.props.user.email}/> */}
             </div>
         )  
     }

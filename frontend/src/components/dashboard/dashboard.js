@@ -29,14 +29,14 @@ class DashBoard extends React.Component {
                     <MatchFeedContainer/>
                 </div>
 
-                <div className="middle-side-dashboard-container">
+                {/* <div className="middle-side-dashboard-container"> */}
 
-                    <h1 className="dashboard-header">Recent Post Activity</h1>
-                    <PostFeedContainer/>
+                    {/* <h1 className="dashboard-header">Recent Post Activity</h1>
+                    <PostFeedContainer/> */}
 
                     {/* <h1 className="dashboard-header">Casual Reading of The Day!</h1>
                     < ReadOfTheDayContainer /> */}
-                </div>
+                {/* </div> */}
 
                 <div className="right-side-dashboard-container">
 
@@ -46,7 +46,7 @@ class DashBoard extends React.Component {
                     <h1 className="dashboard-header" >Books</h1>
                     <BooksFeedContainer />
 
-                    <h1 className="dashboard-header">Your bookclubs</h1>
+                    <h1 className="dashboard-header">Bookclubs</h1>
                     <BookClubFeedContainer/>
                 </div>
           

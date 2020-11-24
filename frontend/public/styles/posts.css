@@ -6,13 +6,17 @@
 }
 
 .posts-feed-list-item > p {
-    margin: 5px;
+    margin: 7px 15px;
     padding: 5px;
     border-radius: 5px;
-    font-size: 15px;
+    font-size: 20px;
     color: white;
     background-color: #67C3B2;
     text-decoration: none;
+
+    display: flex;
+    align-items: center;
+    align-content: center;
 }
 .posts-feed-list-item > p:hover {
     background-color: #47B6B4;
