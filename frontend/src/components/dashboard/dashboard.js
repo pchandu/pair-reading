@@ -22,36 +22,38 @@ class DashBoard extends React.Component {
   render() {
     return (
       <div className="outer-dashboard-container">
-          <div className="dashboard-content-container">
-                <div className="left-side-dashboard-container">
-                    < ProfileContainer />
-                    < InvitesContainer />
-                    <MatchFeedContainer/>
-                </div>
+        <div className="dashboard-content-container">
+          <div className="left-side-dashboard-container">
+            <ProfileContainer />
+            <InvitesContainer />
+            <MatchFeedContainer />
+          </div>
 
-                {/* <div className="middle-side-dashboard-container"> */}
+          {/* <div className="middle-side-dashboard-container"> */}
 
-                    {/* <h1 className="dashboard-header">Recent Post Activity</h1>
+          {/* <h1 className="dashboard-header">Recent Post Activity</h1>
                     <PostFeedContainer/> */}
 
-                    {/* <h1 className="dashboard-header">Casual Reading of The Day!</h1>
+          {/* <h1 className="dashboard-header">Casual Reading of The Day!</h1>
                     < ReadOfTheDayContainer /> */}
-                {/* </div> */}
+          {/* </div> */}
 
-                <div className="right-side-dashboard-container">
+          <div className="right-side-dashboard-container">
+            <h1 className="dashboard-header"><i class="far fa-calendar-alt"></i>Calendar and Meeting Options</h1>
+            <Calendar />
 
-                    <h1 className="dashboard-header">Calendar and Meeting Options</h1>
-                    <Calendar />
+            <h1 className="dashboard-header">
+              <i class="fas fa-book-open"></i>Books
+            </h1>
+            <BooksFeedContainer />
 
-                    <h1 className="dashboard-header" >Books</h1>
-                    <BooksFeedContainer />
-
-                    <h1 className="dashboard-header">Bookclubs</h1>
-                    <BookClubFeedContainer/>
-                </div>
-          
+            <h1 className="dashboard-header">
+              <i class="fas fa-users"></i>Bookclubs
+            </h1>
+            <BookClubFeedContainer />
           </div>
-    </div>
+        </div>
+      </div>
     );
     }
 }

@@ -95,7 +95,7 @@ class MatchFeed extends React.Component {
         return (
             <div className="matches-feed-container">
                 <button className="match-feed-btn" 
-                onClick={this.toggleMatches} type="button" >Matches ({this.props.matches.length})</button>
+                onClick={this.toggleMatches} type="button" ><i class="fas fa-user-plus"></i>Matches ({this.props.matches.length})</button>
                     <ul className={`${this.state.showMatches ? "show" : "hidden"} ul-matches-container`}>
                         <div className="div-matches-container">
                         {matches}

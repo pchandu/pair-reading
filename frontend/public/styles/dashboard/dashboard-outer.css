@@ -74,5 +74,9 @@
     font-weight: 600;
 }
 
+.dashboard-header > i {
+    background-color: transparent;
+}
+
 
 /* Styles each of the 3 columns within the dashboard */

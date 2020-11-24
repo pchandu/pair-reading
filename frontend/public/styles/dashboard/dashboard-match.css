@@ -23,6 +23,11 @@
     cursor: pointer;
     background-color: #9CD170;
 }
+
+.match-feed-btn > i {
+    background-color: transparent;
+}
+
 .matches-feed-container {
     width: 100%;
     border-radius: 5px;
