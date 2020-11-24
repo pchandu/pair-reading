@@ -32,6 +32,7 @@
     display:flex;
     justify-content:center;
     margin-top:40px;
+    color: cadetblue;
 }
 
 .book-show-all-link {
@@ -117,9 +118,11 @@
 .book-show-singular-ul{
     display:flex;
     width: 40%;
+    color: cadetblue;
 }
 
 .all-book-show-outer-div > h1 {
+    color:  cadetblue;
     margin-bottom: 10px;
     margin-top: 20px;
     font-size: 26px;
