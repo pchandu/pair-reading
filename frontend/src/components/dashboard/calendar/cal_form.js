@@ -1,6 +1,7 @@
 import React from "react";
-// import moment from 'moment';
-//
+import "react-dates/initialize";
+import { SingleDatePicker } from "react-dates";
+
 class CalendarForm extends React.Component {
   
     constructor(props){
@@ -21,44 +22,20 @@ class CalendarForm extends React.Component {
     
     render() {
         return (
-            <div>
-                <p className="cal-form-header">Feel free to fill out a form to remember your next meeting!</p>
-                <form className="cal-form">
+            <div className='meeting-invite-form-container'>
 
-                    <div className="form-group row">
-                        <label for="example-text-input" className="col-2 col-form-label cal-form-label">Event Title</label>
-                        <div className="col-10">
-                            <input className="form-control" type="text" placeholder="What do you want your reading session to be called?" />
-                        </div>
-                    </div>
-
-                    <div className="form-group row">
-                        <label for="example-date-input" className="col-2 col-form-label cal-form-label">Date</label>
-                        <div className="col-10">
-                            <input className="form-control" type="date"  />
-                        </div>
-                    </div>
-
-                    <div className="form-group row">
-                        <label for="example-time-input" className="col-2 col-form-label cal-form-label">Start Time</label>
-                        <div className="col-10">
-                            <input className="form-control" type="time" />
-                        </div>
-                    </div>
-
-                    <div className="form-group row">
-                        <label for="example-time-input" className="col-2 col-form-label cal-form-label">End Time</label>
-                        <div className="col-10">
-                            <input className="form-control" type="time" />
-                        </div>
-                    </div>
-
-                    <br />
-                    <div className="text-center">
-                        <input type="submit" className="login-submit-btn  d-flex justify-content-center" value="Submit" />
-                    </div>
-                
-                </form>
+                <div className='date-picker-form-container'>
+                     <SingleDatePicker
+                        date={this.state.date} // momentPropTypes.momentObj or null
+                        onDateChange={(date) => this.setState({ date: date })} // PropTypes.func.isRequired
+                        focused={this.state.focused} // PropTypes.bool
+                        onFocusChange={({ focused }) => this.setState({ focused })} // PropTypes.func.isRequired
+                        id="your_unique_id" // PropTypes.string.isRequired,
+                        placeholder="Meeting Date"
+                        numberOfMonths={1}
+                        // openDirection="up"
+                    />
+                </div>
             </div>
         );
   }
