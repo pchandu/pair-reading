@@ -18,17 +18,21 @@
 
 .onboarding-form > h1 {
     font-weight: bold;
-    color: #0E6B3D;
-    text-shadow: 0px 0px 3px yellow;
+    color: #13a3b8;
+    /* text-shadow: 0px 0px 3px yellow; */
     /* color: #064D34; */
     
 }
 .preferences-container {
     display: flex;
     /* margin: 10px; */
+    
 }
 .preferences {
+    padding: 15px;
     display: flex;
+    border-radius: 5px;
+
     flex-direction: column-reverse;
     align-items: center;
     justify-content: center;
@@ -36,10 +40,16 @@
     width: 400px;
     margin-right: 20px;
     cursor: pointer;
-    border: 2px transparent solid;
+    border: 2px #13a3b8 solid;
+    background-color: transparent;
 }
 
+.preferences > p {
+    color: #13a3b8;
+    background-color: transparent;
+}
 .preferences > a {
+    color: #13a3b8;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -48,23 +58,29 @@
 }
 
 .selected-meeting-time {
-    border: 2px solid rgb(85, 150, 35);
-    background-color: rgb(221, 243, 247);
+    border: 2px solid #13a3b8;
+    background-color: #13a3b8 !important;
     border-radius: 5px;
+    color: white !important;
 }
 
 .selected-meeting-time > h2 {
-    background-color: rgb(221, 243, 247);
+    background-color: #13a3b8 !important;
+    color: white !important;
 }
 
 .selected-meeting-time > p {
-    background-color: rgb(221, 243, 247);
+    background-color: #13a3b8 !important;
+    color: white !important;
 }
 
 .preferences > h2 {
+    color: #13a3b8;
     font-size: 45px;
     margin-left: 5px;
     margin-top: 10px;
+    background-color: transparent;
+
 }
 
 .preferences-timing {
