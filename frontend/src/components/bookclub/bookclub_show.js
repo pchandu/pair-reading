@@ -41,11 +41,12 @@ class BookClubShow extends React.Component {
     }
 
     leaveBookClub(){
-        debugger;
         this.props.leaveBookClub({
             bookClubId: this.props.bookclubId,
             userId: this.props.userId
-        })
+        }).then( () => {
+                this.props.history.push("/dashboard")
+            })
     }
 
     update(field){

@@ -204,7 +204,7 @@ router.delete('/leaveBookClub', (req,res) => {
                     bookclub.save()
                 })
 
-            
+            return res.status(200).json({msg: "success"})
 
         })
 })
