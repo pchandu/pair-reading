@@ -4,6 +4,7 @@
 
 .bookclubs-feed-list a:hover {
     text-decoration: none;
+    color: white;
     background-color: rgb(80, 160, 170) !important;
 }
 .bookclubs-feed-list-item{

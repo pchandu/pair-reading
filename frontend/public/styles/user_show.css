@@ -20,7 +20,7 @@
 }
 
 .left-side-user-show-container {
-     display:flex;
+    display:flex;
     flex-direction:column;
     width: 33%;
     align-items: center;
@@ -39,12 +39,12 @@
 }
 
 .right-side-user-show-container {
-     display:flex;
+    display:flex;
     flex-direction:column;
     width: 66%;
     align-items: center;
     /* margin: 10px; */
-        margin-left: 20px;
+    margin-left: 20px;
     margin-right: 40px;
     margin-top: 20px;
     margin-bottom: 20px;

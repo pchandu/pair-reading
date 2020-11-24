@@ -63,7 +63,7 @@ class Onboarding extends React.Component {
         return(
             <div className="onboarding-container">
                 <form className="onboarding-form" onSubmit={this.handleContinue}>
-                    <h1>What time of day works best for you to meet with a partner?</h1>
+                    <h1><i class="far fa-clock"></i>   What time of day works best for you to meet with a partner?</h1>
                     <ul className="preferences-container"> 
                     <a onClick={() => this.handlePreference("M")}>
                         <li className={this.state.preferred_meeting_times["M"] === true ? 
@@ -90,10 +90,14 @@ class Onboarding extends React.Component {
                         </li>
                     </a>
                     </ul>
-                    <h1>Please select what books you're interested in reading </h1>
+                    <h1><i class="fas fa-book-open"></i>   Please select what books you're interested in reading </h1>
                     <div className="books-container">
                         <ul className="books-ul">
                             {Object.values(books).map((book, i) => {
+                                if (i > 4) {
+                                    return null;
+                                }
+                                else {
                                 return (
                                     <li className="book-index-item" key={i}>
                                         <a onClick={() => this.handleBook(book._id)}>
@@ -104,6 +108,7 @@ class Onboarding extends React.Component {
                                         </a>
                                     </li>
                                 )
+                                }
                             })}
                         </ul>
                     </div>

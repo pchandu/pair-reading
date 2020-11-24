@@ -10,7 +10,7 @@
 .books-feed-list {
     display:flex;
     /* flex-direction:column; */
-
+    width: 100%;
     flex-wrap:wrap;
 }
 .books-feed-container * {
