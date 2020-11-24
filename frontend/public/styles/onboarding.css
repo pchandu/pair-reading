@@ -57,6 +57,20 @@
     padding: 20px;   
 }
 
+
+.preferences:hover {
+
+    background-color: white;
+}
+
+.preferences > p:hover {
+
+    background-color: white;
+}
+.preferences > a:hover {
+    background-color: white;
+}
+
 .selected-meeting-time {
     border: 2px solid #13a3b8;
     background-color: #13a3b8 !important;
