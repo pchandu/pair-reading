@@ -70,16 +70,33 @@ router.post('/createMeetingInvite', (req, res) => {
   return res.status(200).json({msg: "Something went wrong"})
 })
 
-router.post('/acceptMeetingInvite', (req,res) => {
+
+//{ data:
+//    { date: '2020-11-27',
+//      inviterUsername: 'Demo User',
+//      time: '07:00:00',
+//      title: 'alfjaljfd',
+//      type: 'calendar' 
+//      userId: '5fbdde66f036d08b8a9e6b28' }
+
+router.post('/acceptCalInvite', (req,res) => {
   // put the meeting invite
   // into the meetings slice of model
   // and remove the invite from the invites array
-
+  console.log(req.body)
 })
 
-router.delete('/denyMeetingInvite', (req,res) => {
+// [0] { date: '2020-12-02',
+// [0]   inviterUsername: null,
+// [0]   time: '08:00:00',
+// [0]   title: 'asdfasdf',
+// [0]   type: 'calendar', 
+//       userId: '5fbdde66f036d08b8a9e6b28' }
+
+router.delete('/denyCalInvite', (req,res) => {
   // KEEP IN MIND denying the invite
   // find the user and remove the invite from the invites array
+  console.log(req.body)
 })
 
 router.patch('/updateUser', (req, res) => {

@@ -29,11 +29,11 @@ class BookClubInvitesContainer extends React.Component {
 
                         <div className="invites-button-container-div">
                             <button 
-                            onClick={() => this.handleAccept(invite.id)} 
+                            onClick={() => this.props.handleAccept(invite.id,"bookclub")} 
                             className="invites-join-button">Join</button>
 
                             <button 
-                            onClick={() => this.handleDeny(invite.id)} 
+                            onClick={() => this.props.handleDeny(invite.id,"bookclub")} 
                             className="invites-deny-button">Deny</button>
                         </div>
                     </li>

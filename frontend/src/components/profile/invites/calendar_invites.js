@@ -35,7 +35,7 @@ class CalendarInvitesContainer extends React.Component {
                                 onMouseEnter={() => this.showInfo(i)}
                                 onMouseLeave={() => this.hideInfo(i)}
                             >
-                                {invite.title}
+                                {invite.title.length > 20 ? invite.title.slice(0,19) + "..." : invite.title}
 
                                 <div 
                                 className="calendar-invite-info"
@@ -50,8 +50,12 @@ class CalendarInvitesContainer extends React.Component {
                             <p>
                                 On: {invite.date.slice(5,11)} At: {invite.time.slice(0,5)}
                             </p>
-                            <button className="invites-join-button">Join</button>
-                            <button className="invites-deny-button">Deny</button>
+                            <button 
+                            onClick={() => this.props.handleAccept(invite, "calendar") }
+                            className="invites-join-button">Join</button>
+                            <button 
+                            onClick={() => this.props.handleDeny(invite, "calendar") }
+                            className="invites-deny-button">Deny</button>
                         </div>
                     )
                 }): ''}

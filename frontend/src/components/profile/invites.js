@@ -39,19 +39,32 @@ class Invites extends React.Component {
             showInvites: !this.state.showInvites
         })
     }
-    handleAccept(bookClubId){
-        this.props.joinBookClub({
-            bookclub: bookClubId,
-            userId: this.props.userId
-        }).then( window.location.reload() )
+
+    handleAccept(info,type){
+        if(type === "bookclub"){
+
+            this.props.joinBookClub({
+                bookclub: info,
+                userId: this.props.userId
+            }).then( window.location.reload() )
+
+        } else if(type === "calendar"){
+            this.props.acceptCalInvite(Object.assign({},info, {userId: this.props.userId}))
+        }
     }
 
-    handleDeny(bookClubId){
-        this.props.denyBookClub({
-            bookclub: bookClubId,
-            userId: this.props.userId
-        }).then(this.props.refreshLoggedInUserInfo({user:this.props.userId}))
-        .then(this.setState({updated: !this.state.updated}))
+    handleDeny(info,type){
+        if(type === "bookclub"){
+
+            this.props.denyBookClub({
+                bookclub: info,
+                userId: this.props.userId
+            }).then(this.props.refreshLoggedInUserInfo({user:this.props.userId}))
+            .then(this.setState({updated: !this.state.updated}))
+
+        } else if (type === "calendar"){
+            this.props.denyCalInvite(Object.assign({},info, {userId: this.props.userId}))
+        }
     }
 
     render(){
@@ -63,12 +76,16 @@ class Invites extends React.Component {
         let calendarContainer;
 
         this.bookclubInvites.length > 0 ? 
-        bookClubContainer = < BookClubInvitesContainer 
+        bookClubContainer = < BookClubInvitesContainer
+        handleAccept={this.handleAccept}
+        handleDeny={this.handleDeny}
         invites={this.bookclubInvites}/> 
         : bookClubContainer = ''
 
         this.calendarInvites.length > 0 ? 
         calendarContainer = < CalendarInvitesContainer 
+        handleAccept={this.handleAccept}
+        handleDeny={this.handleDeny}
         invites={this.calendarInvites}/> 
         : calendarContainer = '' 
 
