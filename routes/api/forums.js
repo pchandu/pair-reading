@@ -25,7 +25,7 @@ router.get('/:id', (req, res) => {
 router.get('/:id/posts', (req, res) => {
     // console.log(req.params.id)
     // console.log(req.query)
-    const cnt = { limit: req.query.recentCnt, offset: req.query.offset, sort: {created_at: -1} };
+    const cnt = { limit: req.query.recentCnt, offset: req.query.offset, sort: {'createdAt': 'desc'} };
     const cb = (el) => User.findOne({_id: el.user},'username').then(result => {
         // el.user = result.username;
         // console.log(el)
@@ -34,7 +34,7 @@ router.get('/:id/posts', (req, res) => {
     })
     Forum.findById(req.params.id)
         .then(forum => 
-            nestedIndex(Post, forum.posts,filterPosts(req.query), res, cnt, cb)
+            nestedIndex(Post, forum.posts,filterPosts(req.query), res, cnt, cb,false)
         )
         .catch(err => res.status(404).json({ noforumsfound: 'No forums found' }));
 });
@@ -58,7 +58,10 @@ router.post('/new', (req, res) => {
 
                 const associatedBookClub = BookClub.findOne({_id: req.body.bookclub}).then(
                     bookclub => {
-                        newForum.bookclub = bookclub;
+                        newForum.bookclub = bookclub; //! Forum has a bookclub
+                        //! Bookclub needs the new forum
+                        bookclub.forums.push(newForum);
+                        bookclub.save();
                         return newForum;
                     }
                 ).then((nf) => nf.save().then(forum => {res.status(200).json({message: "You have successfully made a forum."})

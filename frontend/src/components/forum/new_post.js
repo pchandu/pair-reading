@@ -15,7 +15,7 @@ export default class NewPost extends React.Component {
     }
     handleSubmit(e){
         e.preventDefault();
-        this.props.composePost(Object.assign({}, this.state, {user_id: this.props.userId}));
+        this.props.composePost(Object.assign({}, this.state, {user_id: this.props.userId}, {forum_id: this.props.forum_id}));
         this.setState({ post: "" });
     }
     render () {

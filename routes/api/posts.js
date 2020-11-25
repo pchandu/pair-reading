@@ -26,10 +26,18 @@ router.post('/',
 
         const newPost = new Post({
             body: req.body.post,
-            user: req.body.user_id
+            user: req.body.user_id,
+            forum: req.body.forum_id
         });
-
-        newPost.save().then(post => res.json(post));
+        const associatedForum = Forum.findOne({ _id: req.body.forum_id }).then(
+            forum => {
+                newPost.forum = forum; //! Forum has a bookclub
+                //! Bookclub needs the new forum
+                forum.posts.push(newPost);
+                forum.save();
+                return newPost;
+            }
+        ).then((np) => np.save().then(post => res.json(post)))
     }
 );
 

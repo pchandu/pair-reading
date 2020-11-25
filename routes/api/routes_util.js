@@ -1,6 +1,7 @@
 const convert2POJO = (res,data,cb) => {
     let pojo = {};
     const promises = [];
+    const arr = [];
     data.forEach(el => {
         if(cb)
             promises.push(
@@ -12,10 +13,12 @@ const convert2POJO = (res,data,cb) => {
         else{
             Object.assign(pojo, pojo, { [el._id]: el })
         }
+        arr.push(el._id);
     })
     // console.log(promises)
     Promise.all(promises).then( values => {
-        // console.log(values)
+        // console.log(arr)
+        Object.assign(pojo, pojo, { order: arr })
         return res.json(pojo)
     })
     // return res.json(pojo)

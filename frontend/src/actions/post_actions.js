@@ -11,9 +11,9 @@ export const receivePost = payload => ({
     type: RECEIVE_POST,
     payload
 });
-export const receiveNewPost = post => ({
+export const receiveNewPost = payload => ({
     type: RECEIVE_NEW_POST,
-    post
+    payload
 });
 
 
