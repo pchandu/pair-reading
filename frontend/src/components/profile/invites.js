@@ -38,8 +38,9 @@ class Invites extends React.Component {
     render(){
 
         // 27 letters
-        let {invitesArray } = this.props;
-        if (invitesArray.length === 0) { 
+        let { invitesArray } = this.props;
+        
+        if (!invitesArray) { 
             return(null)
         }
         return(
