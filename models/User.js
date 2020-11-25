@@ -7,6 +7,9 @@ const UserSchema = new Schema({
     required: true,
     unique: true
   },
+  searchableName: {
+    type: String
+  },
   email: {
     type: String,
     required: true,

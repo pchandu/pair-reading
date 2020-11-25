@@ -31,13 +31,15 @@ class DashboardCalendar extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className="react-calender-container">
         <Calendar 
             className="react-calendar"
             onSelect={this.onSelect}
             // date={this.state.selectedDate}
             // onClickDay={this.openModal} 
           />
+          
+        <div>Placeholder Div</div>
       </div>
     )
   }

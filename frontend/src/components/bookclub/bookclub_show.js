@@ -16,6 +16,7 @@ class BookClubShow extends React.Component {
 
         this.deleteBookClub = this.deleteBookClub.bind(this)
         this.inviteToBookClub = this.inviteToBookClub.bind(this)
+        this.leaveBookClub = this.leaveBookClub.bind(this)
     }
 
     componentDidMount() {
@@ -39,6 +40,15 @@ class BookClubShow extends React.Component {
         }
     }
 
+    leaveBookClub(){
+        this.props.leaveBookClub({
+            bookClubId: this.props.bookclubId,
+            userId: this.props.userId
+        }).then( () => {
+                this.props.history.push("/dashboard")
+            })
+    }
+
     update(field){
         return (e) =>{
             this.setState({
@@ -52,14 +62,25 @@ class BookClubShow extends React.Component {
 
         this.props.inviteToBookClub({
             invite: this.state.inviteName,
-            bookClub: this.props.bookclubId,
-            inviter: this.props.username
+            bookClubId: this.props.bookclubId,
+            bookClubTitle: this.props.bookclub.title,
+            inviter: this.props.username,
+            inviterId: this.props.userId
         })
-        .then(
-            this.setState({
-                inviteName: '',
-                inviteMessage: `Invite sent to, ${this.state.inviteName}`,
-            }))
+        .then( (res) => {
+            console.log(res)
+            if(res.data["err"]){
+                this.setState({
+                    inviteName: '',
+                    inviteMessage: res.data["err"],
+                })
+            }else{
+                this.setState({
+                    inviteName: '',
+                    inviteMessage: `Invite sent to, ${this.state.inviteName}`,
+                })
+            }
+        })
     }
 
     render() {
@@ -80,13 +101,25 @@ class BookClubShow extends React.Component {
             </Link>
         )
         let deleteButton;
+        let leaveButton;
         if(this.props.bookclub){
         deleteButton = this.props.bookclub.creator === this.props.userId ? 
         <button 
         className="bookclub-show-delete-button btn btn-info" 
         onClick={this.deleteBookClub}
-        >Delete BookClub</button> 
-        : ''}
+        >Delete Book Club</button> 
+        : ''
+
+        leaveButton = 
+        this.props.bookclub.creator != this.props.userId &&
+        this.props.bookclub.users.includes(this.props.userId)? 
+        <button
+        className="bookclub-show-leave-button btn btn-info"
+        onClick={this.leaveBookClub}>
+        Leave Book Club </button> : ''
+        }
+
+
         
         return (
           <div className="bookclub-show-container">
@@ -99,8 +132,9 @@ class BookClubShow extends React.Component {
             </h1>
             <div className="bookclub-show-content-container">
               <div className="left-side-bookclub-show-container">
-                    <h1 className="profile-label">
-                    <i class="fas fa-users"></i>Members
+                    <h1 className="profile-label-bookclub">
+                    <p><i class="fas fa-users" />Members</p>
+                    {leaveButton}
                     </h1>
 
                     <div className="bookclub-users-container">
@@ -108,12 +142,19 @@ class BookClubShow extends React.Component {
                             {users}
                         </ul>
 
-                        <form onSubmit={this.inviteToBookClub}>
-                            <p>Invite someone to the bookclub!</p>
-                            <input type="text" onChange={this.update('inviteName')} value={this.state.inviteName}/>
-                            <input type="submit" />
+                        <form onSubmit={this.inviteToBookClub} className="bookclub-invite-form">
+                            <h1>Invite someone to the bookclub!</h1>
+                            <div className="btn-and-input-for-bookclub-invite">
+                            <input type="text" 
+                            onChange={this.update('inviteName')} 
+                            value={this.state.inviteName}
+                            className="input-bookclub-invite"
+                            />
+                            <input type="submit" className="btn btn-info invite-to-bookclub-button"/>
+                            </div>
                             <p>{this.state.inviteMessage}</p>
                         </form>
+
                     </div>
                 </div>
 
