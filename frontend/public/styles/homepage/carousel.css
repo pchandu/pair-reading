@@ -3,6 +3,8 @@
     align-items: center;
     justify-content: center;
     width: 100%;
+    padding: 0px;
+    margin: 0px;
 }
 
 .carousel {
@@ -34,14 +36,14 @@
 }
 
 .carousel-caption {
-    background-color: #2a8793;
+    background-color:  rgb(66, 169, 182);
     width: 70%;
     border-radius:5px;
     margin-bottom: 5px;
 }
 
 .carousel-caption > * {
-    background-color: #2a8793;
+    background-color:  rgb(66, 169, 182);
 }
 
 .carousel-caption > h3 {
@@ -75,6 +77,9 @@
 .home-page-carousel-container,
 .carousel > ol {
     background-color: #DDF1CA;
+
+
+
 }
 .carousel > ol >li{
     color: black;
@@ -87,11 +92,34 @@
     width: 60%;
     margin-top: 40px;
     margin-bottom: 30px;
+    background-color: #DDF1CA;
+
 }
 
 .front-page-carousel-container-description > p {
     font-size: 38px;
     font-weight: 600;
     display:flex;
-    color: #2a8793;
+    text-align: center;
+    color:  rgb(66, 169, 182);
+    background-color: #DDF1CA;
+    margin: 0px;
+    padding: 0px;
+
+}
+
+.carousel-control-prev-icon, .carousel-control-next-icon {
+    /* color: red; */
+    /* background-color: royalblue;
+    /* padding: 5px; */
+    /* width: 50px;
+    height: 50px; */
+    display: hidden;
+   
+}
+
+.carousel-control-next {
+    /* background-color: red; */
+    /* width: 50px; */
+    /* height: 80px; */
 }

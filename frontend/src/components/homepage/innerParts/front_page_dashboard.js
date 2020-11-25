@@ -1,5 +1,5 @@
 import React from 'react'
-import DashboardPic from '../../../images/Dashboard.png'
+import DashboardPic from '../../../images/Dashboard-3.png'
 
 class FrontPageDashboard extends React.Component {
     constructor(props){
@@ -27,8 +27,7 @@ class FrontPageDashboard extends React.Component {
         return(
             <div className="front-page-dashboard-container">
                 <h1> 
-                    Use our systems dedicated to finding you partners in any
-                    genre of books you are interested in!
+                    Use our systems to find the perfect reading partner!
                 </h1>
                 <img src={DashboardPic} 
                 alt="dashboard image"
