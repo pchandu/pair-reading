@@ -5,7 +5,7 @@ const passport = require('passport');
 
 const Post = require('../../models/Post');
 const {filterPosts} = require('../../filters/posts_filter');
-const { convert2POJO } = require('./routes_util');
+const { convert2POJO, getUsername } = require('./routes_util');
 const validatePostInput = require('../../validation/posts');
 
 router.get('/', (req, res) => {
@@ -37,7 +37,12 @@ router.post('/',
                 forum.save();
                 return newPost;
             }
-        ).then((np) => np.save().then(post => res.json(post)))
+        ).then((np) => np.save().then(post => {
+            // const cb = (el) => User.findOne({ _id: el.user }, 'username').then(result => {
+            //     return Object.assign({}, el._doc, { user: { _id: el.user, username: result.username } })
+            // })            
+            getUsername(post).then(el => res.json(el))
+        }))
     }
 );
 

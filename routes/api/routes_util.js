@@ -1,3 +1,10 @@
+const getUsername = (el) => User.findOne({ _id: el.user }, 'username').then(result => {
+    // el.user = result.username;
+    // console.log(el)
+    // console.log(Object.assign({},el._doc,{user:result.username}))
+    return Object.assign({}, el._doc, { user: { _id: el.user, username: result.username } })
+})
+
 const convert2POJO = (res,data,cb) => {
     let pojo = {};
     const promises = [];
@@ -85,6 +92,7 @@ const uniqueIdx = (nestedModel, model2) => {
 }
 
 module.exports = {
+    getUsername,
     convert2POJO,
     nestedIndex,
     uniqueIdx,
