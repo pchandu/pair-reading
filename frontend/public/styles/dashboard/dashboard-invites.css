@@ -127,3 +127,26 @@
 .invites-outer-label > a:hover {
     color: #0056b3;
 }
+
+
+/* Calendar Invites */
+
+.calendar-invite-container-div{
+    display: flex;
+    justify-content: space-between;
+    width: 95%;
+    margin-top: 5px;
+}
+
+.calendar-invite-container-div > p {
+    margin-right: 10px;
+    font-size: 18px;
+    width: 40%;
+    min-height: 30px;
+    margin-bottom: 5px;
+    padding: 5px;
+    border-radius: 5px;
+    color: rgb(29 94 102);
+    font-weight: 600;
+    background-color: #92cb63;
+}

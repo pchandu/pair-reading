@@ -1,18 +1,37 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
+import BookClubInvitesContainer from './invites/bookclub_invites'
+import CalendarInvitesContainer from './invites/calendar_invites'
+
 class Invites extends React.Component {
     constructor(props){
         super(props)
         this.props = props;
         this.state = {
             showInvites: false,
-            updated: false
+            updated: false,
+            bookclubInvites: [],
+            calendarInvites: []
         }
+        
+        this.bookclubInvites = []
+        this.calendarInvites = []
+        this.filterInvites()
 
         this.handleOpen = this.handleOpen.bind(this)
         this.handleAccept = this.handleAccept.bind(this)
         this.handleDeny = this.handleDeny.bind(this)
+    }
+
+    filterInvites(){
+        this.props.invitesArray.forEach( invite => {
+            if(invite.type === "calendar"){
+                this.calendarInvites.push(invite)
+            } else if(invite.type === "bookclub"){
+                this.bookclubInvites.push(invite)
+            }
+        })
     }
 
     handleOpen(){
@@ -39,62 +58,38 @@ class Invites extends React.Component {
 
         // 27 letters
         let { invitesArray } = this.props;
-        
+
+        let bookClubContainer;
+        let calendarContainer;
+
+        this.bookclubInvites.length > 0 ? 
+        bookClubContainer = < BookClubInvitesContainer 
+        invites={this.bookclubInvites}/> 
+        : bookClubContainer = ''
+
+        this.calendarInvites.length > 0 ? 
+        calendarContainer = < CalendarInvitesContainer 
+        invites={this.calendarInvites}/> 
+        : calendarContainer = '' 
+
         if (invitesArray.length === 0) { 
             return(null)
         }
         return(
-            <ul className="invites-outside-container">
+
+            <div className="invites-outside-container">
                 <button 
                 className="invites-toggle-button"
                 onClick={this.handleOpen}>
                     Invites ({invitesArray.length})
                 </button>
 
-                <div 
-                className={`invites-dropdown-li-items 
-                ${this.state.showInvites ? "show" : "hidden"}`}>
-                    <div className="invites-dropdown-container">
-                        <div className="top-invites-inner-container">
-                            <p>Book Club</p>   
-                            <p className="inviter-label">Inviter</p>
-                            <div className="hidden-button-div">
-                            <button className="invisible invites-hidden-button"/>
-                            <button className="invisible invites-hidden-button"/>
-                            </div>
-                        </div>
-                {invitesArray ? invitesArray.map( (invite,idx) => {
-                    return(
-                        <li className="individual-invite-li-container"> 
-                            <label className="invites-outer-label">
-                            <Link to={`/bookclubs/${invite.id}`}>
-                                {invite.title.length > 27 ? 
-                                invite.title.slice(0,26) + "..."
-                                : invite.title}
-                            </Link>
-                            </label>
-                            <label className="invites-outer-label">
-                            <Link to={`/users/${invite.creatorId}`}>
-                                {invite.creator}
-                            </Link>
-                            </label>
-
-                            <div className="invites-button-container-div">
-                                <button 
-                                onClick={() => this.handleAccept(invite.id)} 
-                                className="invites-join-button">Join</button>
-
-                                <button 
-                                onClick={() => this.handleDeny(invite.id)} 
-                                className="invites-deny-button">Deny</button>
-                            </div>
-                        </li>
-
-                    )
-                }): ''}
-                    </div>
+                <div className={`invites-dropdown-li-items 
+                    ${this.state.showInvites ? "show" : "hidden"}`}>
+                    {bookClubContainer}
+                    {calendarContainer}
                 </div>
-            </ul>
+            </div>
         )
     }
 }

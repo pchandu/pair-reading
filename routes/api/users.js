@@ -29,37 +29,45 @@ router.post('/createMeetingInvite', (req, res) => {
   let inviterUsername;
   User.findById(req.body.data.userId)
   .then( user => {
+    User.findOne({searchableName: req.body.data.invite.invitee.toLowerCase()})
+    .then(invitee => {
+
+      if(invitee){
+        if(invitee.username === user.username){
+          return res.json({msg: "Cant invite yourself!"})
+        }else{
+          
+          invitee.invites.push({
+            date: date,
+            inviterUsername: inviterUsername,
+            time: time,
+            title: title,
+            type: "calendar"
+          })
+          invitee.save();
+  
+          inviterUsername = user.username
+          let partner = req.body.data.invite.invitee
+          user.meetings.push({ 
+            date: date, 
+            partner: partner, 
+            time: time, 
+            title: title })
+          user.save();
+            return res.status(200).json({msg:"Invite sent!"})
+        } 
+      } else {
+        return res.json({msg:"Invitee doesnt exist"})
+      }
+    })
     
-    inviterUsername = user.username
-    let partner = req.body.data.invite.invitee
-    user.meetings.push({ 
-      date: date, 
-      partner: partner, 
-      time: time, 
-      title: title })
-    user.save();
   })
   
   // { type: 'calendar', date: date, time: time,
   //  inviterUsername: user.username, title: title }
   
-  User.findOne({username: req.body.data.invite.invitee})
-  .then(invitee => {
-    if(invitee){
-      invitee.invites.push({
-        date: date,
-        inviterUsername: inviterUsername,
-        time: time,
-        title: title,
-        type: "calendar"
-      })
-      invitee.save();
-    } else {
-
-    }
-  })
   
-  return res.status(200).json({msg: "hi"})
+  return res.status(200).json({msg: "Something went wrong"})
 })
 
 router.post('/acceptMeetingInvite', (req,res) => {
