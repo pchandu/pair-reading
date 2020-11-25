@@ -9,13 +9,16 @@ class ShowMeetingsForm extends React.Component {
     render(){
         return(
         <ul>
+            <h1>Meetings on {this.props.selectedDate}</h1>
         {this.props.meetings.map((meeting, idx) => {
             if(this.props.selectedDate === meeting.date){
             return(
             <li key={idx}>
+                Title: {meeting.title}
+                <br></br>
                 Partner: {meeting.partner}
                 <br></br>
-                Title: {meeting.title}
+                Time: {meeting.time}
             </li>
             )
             }

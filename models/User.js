@@ -48,7 +48,7 @@ const UserSchema = new Schema({
   invites: [{
       type: Object
   }],
-  meeetings:[{
+  meetings:[{
     type: Object
   }]
 }, {

@@ -14,11 +14,11 @@ class DashboardCalendar extends React.Component {
     this.state = {
       selectedDate: moment(),
       showForm: 0,
-      meetings: [{date: "2020-11-24", partner: "fake", title: "todayidiot"},
-                {date: "2020-11-24", partner: "yes", title: "14"},
-                {date: "2020-11-25", partner: "doubleFake", title: "notNow"}]
+      meetings: this.props.meetings
     }
-
+// [{date: "2020-11-24", partner: "fake", title: "todayidiot"},
+//                 {date: "2020-11-24", partner: "yes", title: "14"},
+//                 {date: "2020-11-25", partner: "doubleFake", title: "notNow"}]
     this.onSelect = this.onSelect.bind(this);
     this.showForm = this.showForm.bind(this)
   }
@@ -30,6 +30,12 @@ class DashboardCalendar extends React.Component {
       const button = day.children[0];
       day.addEventListener("click", () => button.click());
     }
+  }
+
+  getDerivedStateFromProps(props, state) {
+    debugger;
+    console.log(props)
+    console.log(state)
   }
   
   onSelect(e) {

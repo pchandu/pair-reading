@@ -1,6 +1,6 @@
 import React from "react";
 import ProfileContainer from "../profile/profile_container";
-import Calendar from "./calendar/calendar";
+import Calendar from "./calendar/calendar_container";
 import ReadOfTheDayContainer from './readOfTheDay/read_of_the_day'
 
 import BookClubFeedContainer from '../profile/bookclubs_feed_container';
