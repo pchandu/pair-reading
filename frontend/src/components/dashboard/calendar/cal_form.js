@@ -37,10 +37,9 @@ class CalendarForm extends React.Component {
         // debugger
         this.props.createCalInvite(inviteInfo)
             .then(() => {
-                debugger;
             this.props.showForm(0)
             this.props.refreshUserInfo({user: userId})
-            
+
             })
         //mDTP our backend call 
         //send invite into backend
