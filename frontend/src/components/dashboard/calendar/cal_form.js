@@ -33,7 +33,11 @@ class CalendarForm extends React.Component {
 
     handleSubmit(){
         const inviteInfo = Object.assign({},{invite: this.state}, {userId: this.props.userId});
-        this.props.createCalInvite(inviteInfo);
+        const userId = this.props.userId
+        debugger
+        this.props.createCalInvite(inviteInfo)
+            .then(() => this.props.showForm(0));
+        this.props.refreshUserInfo(userId)
         //mDTP our backend call 
         //send invite into backend
     }

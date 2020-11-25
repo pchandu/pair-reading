@@ -13,8 +13,7 @@ class DashboardCalendar extends React.Component {
     super(props);
     this.state = {
       selectedDate: moment(),
-      showForm: 0,
-      meetings: this.props.meetings
+      showForm: 0
     }
 
     // debugger;
@@ -63,11 +62,11 @@ class DashboardCalendar extends React.Component {
     
     if(showForm === 1){
       // debugger
-      generalForm = < CalendarForm />;
+      generalForm = < CalendarForm showForm={this.showForm}/>;
     } else if(showForm === 2){
       // debugger
       generalForm = <ShowMeetingForm 
-      meetings={this.state.meetings}
+      meetings={this.props.meetings}
       selectedDate={this.state.selectedDate}/>
     } else {
       generalForm = ''
