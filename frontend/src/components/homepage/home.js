@@ -14,7 +14,7 @@ class HomePage extends React.Component {
     render(){
         return(
             <div className="home-page-outer-container">
-                < FrontPageTop />
+                {/* < FrontPageTop /> */}
                 < FrontPageDashboard />
                 < FrontPageRight />
                 < FrontPageLeft />

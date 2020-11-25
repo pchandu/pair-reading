@@ -59,12 +59,12 @@
 .book-show-all-cover-photo {
     height: 225px;
     width: 150px;
-    padding-bottom: 20px;
 }
 
 .container-for-book-show-item{
     position: relative;
     margin-top: 10px;
+    margin-bottom: 20px;
 }
 
 .book-show-all-text {
