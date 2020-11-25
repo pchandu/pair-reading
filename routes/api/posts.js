@@ -14,7 +14,7 @@ router.get('/', (req, res) => {
         .catch(err => res.status(404).json({ nopostsfound: 'No posts found' }));
 });
 router.delete('/:id', (req,res) => {
-    console.log("FLAAGG")
+    //console.log("FLAAGG")
     Post.findById(req.params.id)
         .then(post => {
             if (post) post.delete().then(res.status(200).json({ msg: "Succesfully deleted bookclub" }));
