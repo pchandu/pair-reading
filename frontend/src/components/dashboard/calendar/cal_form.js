@@ -36,10 +36,11 @@ class CalendarForm extends React.Component {
         const userId = this.props.userId
 
         this.props.createCalInvite(inviteInfo)
-            .then(() => {
+            .then((res) => {
+                // let msg = res.data.msg
+                // debugger;
                 this.props.showForm(0)
                 this.props.refreshUserInfo({user: userId})
-
             })
 
     }

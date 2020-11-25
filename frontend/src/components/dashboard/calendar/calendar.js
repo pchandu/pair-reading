@@ -13,13 +13,10 @@ class DashboardCalendar extends React.Component {
     super(props);
     this.state = {
       selectedDate: moment(),
-      showForm: 0
+      showForm: 0,
+      responseMessage: ''
     }
 
-    // debugger;
-// [{date: "2020-11-24", partner: "fake", title: "todayidiot"},
-//                 {date: "2020-11-24", partner: "yes", title: "14"},
-//                 {date: "2020-11-25", partner: "doubleFake", title: "notNow"}]
     this.onSelect = this.onSelect.bind(this);
     this.showForm = this.showForm.bind(this)
   }
@@ -32,15 +29,8 @@ class DashboardCalendar extends React.Component {
       day.addEventListener("click", () => button.click());
     }
 
-    // this.props.refreshUserInfo({user: this.props.currentUser["id"]}) 
   }
 
-  // getDerivedStateFromProps(props, state) {
-  //   debugger;
-  //   console.log(props)
-  //   console.log(state)
-  // }
-  
   onSelect(e) {
     // e._d === date of the moment
     // let stripped_string = req.body.creator.replace(/\"/g, "")
@@ -52,7 +42,11 @@ class DashboardCalendar extends React.Component {
   }
 
   showForm(num){
-    this.setState({showForm: num})
+    // debugger;
+    this.setState({
+      showForm: num,
+      // responseMessage: msg
+    })
   }
 
   render() {
@@ -61,10 +55,8 @@ class DashboardCalendar extends React.Component {
     let generalForm;
     
     if(showForm === 1){
-      // debugger
       generalForm = < CalendarForm showForm={this.showForm}/>;
     } else if(showForm === 2){
-      // debugger
       generalForm = <ShowMeetingForm 
       meetings={this.props.meetings}
       selectedDate={this.state.selectedDate}/>
@@ -95,28 +87,13 @@ class DashboardCalendar extends React.Component {
           </div>
 
           <div>
+            {/* {this.state.responseMessage} */}
             {generalForm}
           </div>
       </div>
     )
   }
 }
-  //
+
   
 export default DashboardCalendar;
-  
-  // <div className="cal-container">
-  // <a
-  //     href="https://accounts.google.com/signin/v2/identifier?service=cl&passive=1209600&osid=1&continue=https%3A%2F%2Fcalendar.google.com%2Fcalendar%2Frender&followup=https%3A%2F%2Fcalendar.google.com%2Fcalendar%2Frender&scc=1&flowName=GlifWebSignIn&flowEntry=ServiceLogin"
-  //     target="_blank"
-  //     rel="noopener noreferrer"
-  //   >
-  //     <button className="btn btn-info cal-btn"> Go to Google Calendar</button>
-  //   </a>
-  //   <Link to="/calendar-form">
-  //     <button className="btn btn-info cal-btn">
-  //       {" "}
-  //       Fill out form for next meeting!{" "}
-  //     </button>
-  //   </Link>
-  // </div>
