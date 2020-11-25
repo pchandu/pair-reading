@@ -23,7 +23,7 @@
 
 /* Front Page Header/Top Container  */
 .front-page-top-container {
-    padding: 2%;
+    /* padding: 2%; */
     height: 70%;
     display:flex;
     width: 100%;
@@ -35,9 +35,10 @@
 }
 
 .front-page-top-container > img {
-    width: 85%;
     background-color: #8cc85b;
     border-radius: 5px;
+    width: 100%;
+
 }
 
 .front-page-top-text-container{
@@ -81,7 +82,7 @@
 }
 
 .front-page-dashboard-container-img {
-    width: 80%;
+    width: 85%;
     height: auto;
     margin-top: 40px;
     margin-bottom: 40px;

@@ -76,7 +76,9 @@
 .carousel-item,
 .home-page-carousel-container,
 .carousel > ol {
-    background-color: #DDF1CA;
+    background-color: rgb(199, 234, 171);
+
+
 }
 .carousel > ol >li{
     color: black;

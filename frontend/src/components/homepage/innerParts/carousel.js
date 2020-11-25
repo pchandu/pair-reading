@@ -19,7 +19,7 @@ class CarouselItem extends React.Component {
                     <img src={Kat} alt="Kat"/>
                     <Carousel.Caption>
                     <h3>Kat Chan</h3>
-                    <h2>Really enjoyes having her Plushies read with her.</h2>
+                    <h2>Really enjoys having her plushies read with her.</h2>
                     <p>"I enjoy my time on pair reading everyday and enjoy reading with all of you!"</p>
                     </Carousel.Caption>
                     </div>
@@ -29,7 +29,7 @@ class CarouselItem extends React.Component {
                     <img src={Praneeth} alt="Praneeth"/>
                     <Carousel.Caption>
                     <h3>Praneeth</h3>
-                    <h2>Enjoys Meditative reading sessions with other people.</h2>
+                    <h2>Enjoys meditative reading sessions with other people.</h2>
                     <p>"I ended up coming up with this website and enjoy every minute of it."</p>
                     </Carousel.Caption>
                     </div>
@@ -49,7 +49,7 @@ class CarouselItem extends React.Component {
                     <img src={Kevin} alt="Kevin"/>
                     <Carousel.Caption>
                     <h3>Kevin Su</h3>
-                    <h2>Enjoys finding engaging partners</h2>
+                    <h2>Enjoys finding engaging partners.</h2>
                     <p>"Telling people how they read in the forums is the best part, but I enjoy my reading partners!"</p>
                     </Carousel.Caption>
                     </div>
