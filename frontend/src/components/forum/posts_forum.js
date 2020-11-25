@@ -18,9 +18,9 @@ export default ({props}) => {
             // if(post.user.username === "Demo User") debugger;
             // debugger
             const actions = (post.user._id === user.id) ? <div className="forum-show-post-actions">
-                <div className="edit-button">
+                {/* <div className="edit-button">
                     <i className="fas fa-pen"></i>
-                </div>
+                </div> */}
                 <div className="delete-button" onClick={() => props.deletePost(key)}>
                     <i className="fas fa-trash"></i>
                 </div>
@@ -32,7 +32,7 @@ export default ({props}) => {
                     {post.user.username}
                 </Link>
                 <h1 className="post-info-date">{month} {dd} {yyyy}</h1>
-                <h1>{post.createdAt}</h1>
+                {/* <h1>{post.createdAt}</h1> */}
                 {/* <h1>{date}</h1> */}
                 </div>
             </div>;
