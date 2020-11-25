@@ -16,6 +16,8 @@ class DashboardCalendar extends React.Component {
       showForm: 0,
       meetings: this.props.meetings
     }
+
+    // debugger;
 // [{date: "2020-11-24", partner: "fake", title: "todayidiot"},
 //                 {date: "2020-11-24", partner: "yes", title: "14"},
 //                 {date: "2020-11-25", partner: "doubleFake", title: "notNow"}]
@@ -24,19 +26,21 @@ class DashboardCalendar extends React.Component {
   }
   
   componentDidMount(){
-      const days = document.getElementsByClassName("Day");
+    const days = document.getElementsByClassName("Day");
     for (let i = 0; i < days.length; i++) {
       const day = days[i];
       const button = day.children[0];
       day.addEventListener("click", () => button.click());
     }
+
+    // this.props.refreshUserInfo({user: this.props.currentUser["id"]}) 
   }
 
-  getDerivedStateFromProps(props, state) {
-    debugger;
-    console.log(props)
-    console.log(state)
-  }
+  // getDerivedStateFromProps(props, state) {
+  //   debugger;
+  //   console.log(props)
+  //   console.log(state)
+  // }
   
   onSelect(e) {
     // e._d === date of the moment
@@ -58,8 +62,10 @@ class DashboardCalendar extends React.Component {
     let generalForm;
     
     if(showForm === 1){
+      // debugger
       generalForm = < CalendarForm />;
     } else if(showForm === 2){
+      debugger
       generalForm = <ShowMeetingForm 
       meetings={this.state.meetings}
       selectedDate={this.state.selectedDate}/>

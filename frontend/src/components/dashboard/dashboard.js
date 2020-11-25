@@ -40,7 +40,7 @@ class DashBoard extends React.Component {
 
           <div className="right-side-dashboard-container">
             <h1 className="dashboard-header-home"><i class="far fa-calendar-alt"></i>Calendar and Meeting Options</h1>
-            <Calendar />
+            <Calendar meetings={this.props.meetings}/>
 
             <h1 className="dashboard-header-home">
               <i class="fas fa-book-open"></i>Books

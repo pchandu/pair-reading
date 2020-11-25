@@ -217,7 +217,8 @@ router.post('/login', (req, res) => {
               bookclubs: user.bookclubs,
               posts: user.posts,
               preferred_meeting_time: user.preferred_meeting_time,
-              invites: user.invites
+              invites: user.invites,
+              meetings: user.meetings
           };
 
         jwt.sign(
