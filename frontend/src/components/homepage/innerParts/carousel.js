@@ -13,7 +13,7 @@ class CarouselItem extends React.Component {
         return(
             <div className="outside-carousel-container">
         <div className="home-page-carousel-container">
-            <Carousel >
+            <Carousel controls={false}>
                 <Carousel.Item >
                     <div className="carousel-item-container">
                     <img src={Kat} alt="Kat"/>
