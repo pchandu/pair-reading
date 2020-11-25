@@ -29,56 +29,37 @@ router.post('/createMeetingInvite', (req, res) => {
   let inviterUsername;
   User.findById(req.body.data.userId)
   .then( user => {
+    
     inviterUsername = user.username
     let partner = req.body.data.invite.invitee
-    console.log(user)
-    console.log(user.meetings)
     user.meetings.push({ 
       date: date, 
       partner: partner, 
       time: time, 
       title: title })
-    console.log(user.meetings)
     user.save();
-    return res.status(200).json({msg: "hi"})
-    })
-    
-// { type: 'calendar', date: date, time: time,
-//  inviterUsername: user.username, title: title }
-
-  // User.findBy({username: req.body.invite.invitee})
-  //   .then(invitee => {
-      
-  //     invitee.invites.push({
-  //       date: date,
-  //       inviterUsername: inviterUsername,
-  //       time: time,
-  //       title: title,
-  //       type: "calendar"
-  //     })
-  //   })
+  })
   
-  // console.log(inviter)
-  // console.log(inviterUsername)
-  console.log(title)
-  console.log(date)
-  console.log(time)
+  // { type: 'calendar', date: date, time: time,
+  //  inviterUsername: user.username, title: title }
+  
+  User.findOne({username: req.body.data.invite.invitee})
+  .then(invitee => {
+    if(invitee){
+      invitee.invites.push({
+        date: date,
+        inviterUsername: inviterUsername,
+        time: time,
+        title: title,
+        type: "calendar"
+      })
+      invitee.save();
+    } else {
 
-  // User.findById(req.body.userId)
-  // .then(user => {
-  //   if (user) {
-  //     user.invites.push(req.body.invite);
-  //     user.save();
-  //     res.status(200).json({msg: "Successfully created a calendar invite."});
-  //     User.findOne({username: req.body.invitee})
-  //     .then(invitee => {
-  //       invitee.invites.push(req.body.invite);
-
-  //     })
-  //   } else {
-  //     return res.json({ msg: "Captain, we have a problem."})
-  //   }
-  // })
+    }
+  })
+  
+  return res.status(200).json({msg: "hi"})
 })
 
 router.post('/acceptMeetingInvite', (req,res) => {
@@ -140,15 +121,15 @@ router.post('/refreshUserInfo', (req,res) => {
     .then(user => {
       if(user) {
         res.json({
-          username: user.username,
-          email: user.email,
-          invites: user.invites,
           books: user.books,
           bookclubs: user.bookclubs,
+          email: user.email,
+          id: user.id,
+          invites: user.invites,
+          meetings: user.meetings,
           posts: user.posts,
           preferred_meeting_time: user.preferred_meeting_time,
-          meetings: user.meetings,
-          id: user.id
+          username: user.username,
         })
       } else {
         return res.json({ msg: "Not sure what happened."})

@@ -65,7 +65,7 @@ class DashboardCalendar extends React.Component {
       // debugger
       generalForm = < CalendarForm />;
     } else if(showForm === 2){
-      debugger
+      // debugger
       generalForm = <ShowMeetingForm 
       meetings={this.state.meetings}
       selectedDate={this.state.selectedDate}/>

@@ -3,7 +3,7 @@ import { refreshLoggedInUserInfo } from '../../../actions/session_actions'
 import { connect } from "react-redux";
 
 const mSTP = (state) => {
-  debugger;
+  // debugger
   return {
     meetings: state.session.user.meetings
   };
