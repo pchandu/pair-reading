@@ -5,11 +5,16 @@
     width: 95%;
 }
 
+.react-calendar * {
+    background-color: inherit;
+}
 .react-calendar {
+    background-color: rgb(238, 238, 238);
+    /* border: 1px solid red; */
     border-radius: 5px;
-    padding: 5px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.5);
     margin: 20px;
-    background:#8cc85b;
+    color: rgb(42, 135, 147);
 }
 
 .Calendar th,
@@ -19,15 +24,54 @@
     font-size: 16px;
     font-weight: 700;
 }
-
+.nav {
+    justify-content: center;
+}
+.nav-inner:hover {
+    background-color: rgba(255, 255, 255, 0.705);
+}
+.nav-inner {
+    border: 1px hidden blue;
+    border-radius: 5px;
+    background-color: white;
+    height: 25px;
+    width: 30px;
+}
+.month, .year {
+    font-size: 25px;
+}
+.Day:hover {
+    background: #d4ffb1;
+}
+.Day {
+    cursor: pointer;
+    background-color: white;
+    /* background-color: rgb(238, 238, 238); */
+    box-shadow: 0px 2px 4px 0px rgba(0,0,0,0.5);
+    border-radius: 5px;
+    margin: 50px;
+}
 .Day-inner {
+    all: unset;
+    color: black;
+    font-weight: normal;
+    text-align: center;
     border: none;
     height: 30px;
     width: 30px;
+    background-color: inherit;
+    text-decoration: none;
 }
-
-.Day:focus,
-.Day:focus > .Day-inner {
+.Day-inner:focus{
+    all: unset;
+    font-weight: bolder;
+    /* background-color: red;
+    border: 1px solid orange; */
+    /* text-decoration: none; */
+}
+.Day:focus {
+/* .Day:focus,
+.Day:focus > .Day-inner { */
     background: #2980b9;
     color: #fff;
 }
@@ -45,17 +89,29 @@
 }
 
 .Day.today {
-    background: #8cc85b;
+    /* background: #8cc85b; */
+    /* background: white; */
 }
 
-.Day.today > .Day-inner {
-    background: #8cc85b;
+.Day.today .Day-inner {
     color: white;
+}
+.Day.today {
+/* .Day.today > .Day-inner { */
+    background: #8cc85b;
 }
 
 .Day.other-month{
-    background-color: #bdc3c7;
+    border-radius: 0px;
+    box-shadow: none;
+    background-color: #dbdfe200;
 }
 .Day.other-month > .Day-inner {
-    background-color: #bdc3c7;
+    /* background-color: #bdc3c7; */
 }
+
+/*!!  */
+/* .month-header {
+    color: red;
+} */
+
