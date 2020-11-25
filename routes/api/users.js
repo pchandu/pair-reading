@@ -14,12 +14,17 @@ router.get("/test", (req, res) => res.json({ msg: "This is the users route" }));
 
 
 router.post('/createMeetingInvite', (req, res) => {
-  User.findById(req.body.user)
+  User.findById(req.body.userId)
   .then(user => {
     if (user) {
       user.invites.push(req.body.invite);
       user.save();
       res.status(200).json({msg: "Successfully created a calendar invite."});
+      User.findOne({username: req.body.invitee})
+      .then(invitee => {
+        invitee.invites.push(req.body.invite);
+
+      })
     } else {
       return res.json({ msg: "Captain, we have a problem."})
     }
@@ -80,6 +85,7 @@ router.post('/refreshUserInfo', (req,res) => {
           bookclubs: user.bookclubs,
           posts: user.posts,
           preferred_meeting_time: user.preferred_meeting_time,
+          meetings: user.meetings,
           id: user.id
         })
       } else {

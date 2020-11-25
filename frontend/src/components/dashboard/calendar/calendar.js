@@ -4,6 +4,8 @@ import Calendar from 'react-calendar-pane';
 import moment from 'moment';
 
 import CalendarForm from './cal_form_container';
+import ShowMeetingForm from './show_meetings_form';
+
 
 class DashboardCalendar extends React.Component {
 
@@ -11,7 +13,10 @@ class DashboardCalendar extends React.Component {
     super(props);
     this.state = {
       selectedDate: moment(),
-      showForm: 0
+      showForm: 0,
+      meetings: [{date: "2020-11-24", partner: "fake", title: "todayidiot"},
+                {date: "2020-11-24", partner: "yes", title: "14"},
+                {date: "2020-11-25", partner: "doubleFake", title: "notNow"}]
     }
 
     this.onSelect = this.onSelect.bind(this);
@@ -28,7 +33,13 @@ class DashboardCalendar extends React.Component {
   }
   
   onSelect(e) {
-    this.setState({ selectedDate: e });
+    // e._d === date of the moment
+    // let stripped_string = req.body.creator.replace(/\"/g, "")
+    let date = JSON.stringify(e._d).replace(/\"/g, "").slice(0,10)
+    // "YYYY-MM-DD" Object Type STRING
+    this.setState({ selectedDate: date, showForm: 2});
+
+    // meetings: [{date: "", partner: "", time: ""},{},{}]
   }
 
   showForm(num){
@@ -42,8 +53,12 @@ class DashboardCalendar extends React.Component {
     
     if(showForm === 1){
       generalForm = < CalendarForm />;
-    } else if(showForm === 0){
-      generalForm = '';
+    } else if(showForm === 2){
+      generalForm = <ShowMeetingForm 
+      meetings={this.state.meetings}
+      selectedDate={this.state.selectedDate}/>
+    } else {
+      generalForm = ''
     } 
     
     
@@ -57,8 +72,6 @@ class DashboardCalendar extends React.Component {
             <Calendar 
                 className="react-calendar"
                 onSelect={this.onSelect}
-                // date={this.state.selectedDate}
-                // onClickDay={this.openModal} 
               />
               <button 
               className="schedule new meeting"

@@ -14,6 +14,8 @@ class CalendarForm extends React.Component {
         }
 
         this.handleTitle = this.handleTitle.bind(this);
+        this.handleInvitee = this.handleInvitee.bind(this);
+        this.handleSubmit = this.handleSubmit.bind(this);
         this.onDateChange = this.onDateChange.bind(this);
     }
   
@@ -21,8 +23,20 @@ class CalendarForm extends React.Component {
         this.setState({title: e.currentTarget.value});
     }
 
+    handleInvitee(e){
+        this.setState({invitee: e.currentTarget.value});
+    }
+
     onDateChange(date) {
         this.setState({date: date})
+    }
+
+    handleSubmit(){
+        const inviteInfo = Object.assign({},{invite: this.state}, {userId: this.props.userId});
+        debugger
+        // this.props.createCalInvite(inviteInfo);
+        //mDTP our backend call 
+        //send invite into backend
     }
 
     render() {
@@ -43,6 +57,17 @@ class CalendarForm extends React.Component {
                     date={this.state.date} 
                     onDateChange={this.onDateChange}/>
                     </label>
+                    <label> Invitee Username:
+                        <input 
+                        type="text" 
+                        value={this.state.invitee}
+                        onChange={this.handleInvitee} />
+                    </label>
+                    <button 
+                    className='cal-invite-submit-btn'
+                    onClick={this.handleSubmit}>
+                        Submit
+                    </button>    
                         {/* {console.log(this.props.matches)} this works */}
                 </div>
             </div>

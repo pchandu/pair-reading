@@ -47,6 +47,9 @@ const UserSchema = new Schema({
   }],
   invites: [{
       type: Object
+  }],
+  meeetings:[{
+    type: Object
   }]
 }, {
   timestamps: true

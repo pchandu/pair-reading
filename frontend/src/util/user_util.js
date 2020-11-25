@@ -22,3 +22,6 @@ export const fetchUserTimeMatches = (filters) => (id) => {
 export const fetchUserBookMatches = (filters) => (id) => {
     return Axios.get(`/api/users/${id}/bookmatches`, { params: filters })
 };
+export const createCalInvite = (inviteInfo) => {
+    return Axios.post(`/api/users/createMeetingInvite`, inviteInfo);
+}
