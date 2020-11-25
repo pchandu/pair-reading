@@ -18,9 +18,9 @@ class HomePage extends React.Component {
                 < FrontPageDashboard />
                 {/* < FrontPageRight /> */}
                 {/* < FrontPageLeft /> */}
-                {/* <div className="front-page-carousel-container-description">
-                    <p>Don't take our word for it. Here are some testimonials!</p>
-                </div> */}
+                <div className="front-page-carousel-container-description">
+                    <p>Here are some of our testimonials!</p>
+                </div>
                 <div className="front-page-carousel-container">
                     <Carousel />
                 </div>

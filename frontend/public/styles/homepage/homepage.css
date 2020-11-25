@@ -2,6 +2,7 @@
     display:flex;
     flex-direction:column;
     align-items:center;
+    background-color: #DDF1CA;
 }
 
 /* Animations */
@@ -74,8 +75,9 @@
     align-items: center;
     justify-content: center;
     width: 100%;
-    padding-top:20px;
+    /* padding-top:20px; */
     height: 80%;
+    padding-bottom: 10px;
 }
 
 .front-page-dashboard-container-img {
@@ -85,7 +87,7 @@
     margin-bottom: 40px;
     visibility: hidden;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.5);
-
+    border-radius: 5px;
 }
 
 .front-page-dashboard-container > h1 {
@@ -189,7 +191,8 @@
 .front-page-signup-container > p{
     font-size:38px;
     font-weight: 600;
-    color: #2a8793;
+    color:  rgb(66, 169, 182);
+
     margin-top: 20px;
 }
 

@@ -6,7 +6,7 @@ class FrontPageSignup extends React.Component {
         return(
             <div className="front-page-outer-container">
             <div className="front-page-signup-container">
-                <p>So are you ready to start reading with others? If so...</p>
+                <p>Are you ready to begin reading?</p>
                 <Link to="/signup" className="front-page-signup-link">Sign Up Now!</Link>
             </div>
             </div>
