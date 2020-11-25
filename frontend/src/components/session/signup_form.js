@@ -56,6 +56,24 @@ class SignupForm extends React.Component {
     return (
       <div className="signup-div">
         <h1> Signup now and find your pair! </h1>
+         <div className='errors-div'>
+                 <p className={errors['email'] ? `signup-login-form-errors` : `hidden-errors` }>
+                    {this.state.errors['email']}
+                </p>
+
+                 <p className={errors['username'] ? `signup-login-form-errors` : `hidden-errors` }>
+                   {this.state.errors['username']}
+                </p>
+
+                 <p className={errors['password'] ? `signup-login-form-errors` : `hidden-errors` }>
+                    {this.state.errors['password']}
+                 </p>
+
+                <p className={errors['password2'] ? `signup-login-form-errors` : `hidden-errors` }>
+                  {this.state.errors['password2']}
+                </p>
+
+          </div>
         <form onSubmit={this.handleSubmit} className="inner-signup-container">
 
           <div className="signup-login-input-div">
@@ -66,9 +84,7 @@ class SignupForm extends React.Component {
               onChange={this.update("email")}
               placeholder="Email"
             />
-            <p className={errors['email'] ? `signup-login-form-errors` : `hidden-errors` }>
-             {this.state.errors['email']}
-            </p>
+         
             </div>
 
             <div className="signup-login-input-div">
@@ -79,9 +95,7 @@ class SignupForm extends React.Component {
               onChange={this.update("username")}
               placeholder="Username"
             />
-            <p className={errors['username'] ? `signup-login-form-errors` : `hidden-errors` }>
-             {this.state.errors['username']}
-            </p>
+           
             </div>
 
             <div className="signup-login-input-div">
@@ -92,9 +106,7 @@ class SignupForm extends React.Component {
               onChange={this.update("password")}
               placeholder="Password"
             />            
-            <p className={errors['password'] ? `signup-login-form-errors` : `hidden-errors` }>
-            {this.state.errors['password']}
-            </p>
+           
 
             </div>
 
@@ -107,9 +119,6 @@ class SignupForm extends React.Component {
               onChange={this.update("password2")}
               placeholder="Confirm Password"
             />
-            <p className={errors['password2'] ? `signup-login-form-errors` : `hidden-errors` }>
-             {this.state.errors['password2']}
-            </p>
 
             </div>
 
