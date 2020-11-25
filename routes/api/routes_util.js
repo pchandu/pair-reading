@@ -1,6 +1,14 @@
-const convert2POJO = (res,data,cb) => {
+const getUsername = (el) => User.findOne({ _id: el.user }, 'username').then(result => {
+    // el.user = result.username;
+    // console.log(el)
+    // console.log(Object.assign({},el._doc,{user:result.username}))
+    return Object.assign({}, el._doc, { user: { _id: el.user, username: result.username } })
+})
+
+const convert2POJO = (res,data,cb, order) => {
     let pojo = {};
     const promises = [];
+    const arr = [];
     data.forEach(el => {
         if(cb)
             promises.push(
@@ -12,18 +20,20 @@ const convert2POJO = (res,data,cb) => {
         else{
             Object.assign(pojo, pojo, { [el._id]: el })
         }
+        arr.push(el._id);
     })
     // console.log(promises)
     Promise.all(promises).then( values => {
-        // console.log(values)
+        // console.log(arr)
+        if(order) Object.assign(pojo, pojo, { order: arr })
         return res.json(pojo)
     })
     // return res.json(pojo)
 }
-const nestedIndex = (Model, nestedData, query, res, cnt={limit:null,offset:null,sort:null},cb) => {
+const nestedIndex = (Model, nestedData, query, res, cnt={limit:null,offset:null,sort:null},cb,order=false) => {
     // console.log(nestedData)
     return nestedIndexBase(Model, nestedData, query, cnt)
-        .then(el => convert2POJO(res, el, cb));
+        .then(el => convert2POJO(res, el, cb, order));
 }
 const nestedIndexBase = (Model, nestedData, query, {limit,offset,sort}) => {
     return Model.find(Object.assign({}, { '_id': { $in: nestedData } }, query))
@@ -82,6 +92,7 @@ const uniqueIdx = (nestedModel, model2) => {
 }
 
 module.exports = {
+    getUsername,
     convert2POJO,
     nestedIndex,
     uniqueIdx,

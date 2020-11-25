@@ -32,7 +32,7 @@
     display:flex;
     justify-content:center;
     margin-top:40px;
-    color: cadetblue;
+      color: rgb(42, 135, 147);
 }
 
 .book-show-all-link {
@@ -64,6 +64,7 @@
 .container-for-book-show-item{
     position: relative;
     margin-top: 10px;
+    margin-bottom: 20px;
 }
 
 .book-show-all-text {
@@ -106,11 +107,16 @@
     margin-top: 20px;
     margin-bottom: 20px;
     cursor: pointer;
+    background-color: #13a3b8;
+    padding: 20px;
+    border-radius: 5px;
+    color: white;
 }
 
 .container-tabs-book-show-all > p:hover {
     /* background-color: #8cc85b; */
-    color: cadetblue;
+    background-color: cadetblue;
+    color: white;
 }
 
 /* Show all container */
@@ -122,10 +128,10 @@
 }
 
 .all-book-show-outer-div > h1 {
-    color:  cadetblue;
+      color: rgb(42, 135, 147);
     margin-bottom: 10px;
     margin-top: 20px;
     font-size: 26px;
     font-weight: 600;
-    border-bottom: 1px solid slategrey;
+    border-bottom: 1px solid cadetblue;
 }

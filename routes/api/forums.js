@@ -10,7 +10,7 @@ const validateForumCreate = require('../../validation/forums');
 const filterForums = require('../../filters/forums_filter')
 const {filterPosts} = require('../../filters/posts_filter')
 
-const { convert2POJO, nestedIndex } = require('../api/routes_util')
+const { convert2POJO, nestedIndex, getUsername } = require('../api/routes_util')
 
 router.get('/', (req, res) => {
     Forum.find(filterForums(req.query))
@@ -25,16 +25,10 @@ router.get('/:id', (req, res) => {
 router.get('/:id/posts', (req, res) => {
     // console.log(req.params.id)
     // console.log(req.query)
-    const cnt = { limit: req.query.recentCnt, offset: req.query.offset, sort: {created_at: -1} };
-    const cb = (el) => User.findOne({_id: el.user},'username').then(result => {
-        // el.user = result.username;
-        // console.log(el)
-        // console.log(Object.assign({},el._doc,{user:result.username}))
-        return Object.assign({},el._doc,{user:{_id: el.user, username:result.username}})
-    })
+    const cnt = { limit: req.query.recentCnt, offset: req.query.offset, sort: {'createdAt': 'desc'} };
     Forum.findById(req.params.id)
         .then(forum => 
-            nestedIndex(Post, forum.posts,filterPosts(req.query), res, cnt, cb)
+            nestedIndex(Post, forum.posts,filterPosts(req.query), res, cnt, getUsername,true)
         )
         .catch(err => res.status(404).json({ noforumsfound: 'No forums found' }));
 });
@@ -58,7 +52,8 @@ router.post('/new', (req, res) => {
 
                 const associatedBookClub = BookClub.findOne({_id: req.body.bookclub}).then(
                     bookclub => {
-                        newForum.bookclub = bookclub;
+                        newForum.bookclub = bookclub; //! Forum has a bookclub
+                        //! Bookclub needs the new forum
                         bookclub.forums.push(newForum);
                         bookclub.save();
                         return newForum;

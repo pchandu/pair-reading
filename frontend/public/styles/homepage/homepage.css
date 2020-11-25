@@ -2,6 +2,7 @@
     display:flex;
     flex-direction:column;
     align-items:center;
+    background-color: #DDF1CA;
 }
 
 /* Animations */
@@ -22,18 +23,22 @@
 
 /* Front Page Header/Top Container  */
 .front-page-top-container {
+    /* padding: 2%; */
+    height: 70%;
     display:flex;
     width: 100%;
     align-items:center;
     justify-content:space-between;
     flex-direction:column;
-    background-color: #8cc85b;
+    background-color: #DDF1CA;
+
 }
 
 .front-page-top-container > img {
-    width: 600px;
     background-color: #8cc85b;
-    border-radius: 5px;
+    /* border-radius: 5px; */
+    width: 100%;
+
 }
 
 .front-page-top-text-container{
@@ -65,23 +70,29 @@
 /* Front Page Dashboard */
 
 .front-page-dashboard-container {
+    background-color:#96cd69;
     display:flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    width: 60%;
-    margin-top:100px;
+    width: 100%;
+    /* padding-top:20px; */
+    height: 80%;
+    padding-bottom: 10px;
 }
 
 .front-page-dashboard-container-img {
-    width: 90%;
+    width: 85%;
+    height: auto;
     margin-top: 40px;
     margin-bottom: 40px;
     visibility: hidden;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.5);
+    border-radius: 5px;
 }
 
 .front-page-dashboard-container > h1 {
-    color: #559623;
+    color: #ddf3f7;
     font-size: 38px;
     font-weight: 600;
     display:flex;
@@ -89,6 +100,9 @@
     line-height: 1.2;
     margin-top: 40px;
     margin-bottom: 30px;
+    text-align: center;
+    background-color:#96cd69;
+    
 }
 
 /* Left/Right Image CSS */
@@ -178,7 +192,8 @@
 .front-page-signup-container > p{
     font-size:38px;
     font-weight: 600;
-    color: #2a8793;
+    color:  rgb(66, 169, 182);
+
     margin-top: 20px;
 }
 
@@ -198,6 +213,30 @@
     margin-bottom: 40px;
     /* padding: 10px; */
 }
+
+.front-page-top-signup-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 250px;
+    height: 75px;
+    font-size: 30px;
+    font-weight: 600;
+    background-color: #8cc85b;
+    color: rgb(221, 243, 247);
+    text-decoration: none;
+    border-radius: 10px;
+    margin-top: 40px;
+    margin-bottom: 40px;
+    /* padding: 10px; */
+}
+
+.front-page-top-signup-link:hover {
+    background-color: #7EB451;
+    color: rgb(221, 243, 247);
+    text-decoration: none;
+}
+
 
 .front-page-signup-link:hover {
     background-color: #7EB451;

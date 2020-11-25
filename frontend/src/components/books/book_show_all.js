@@ -69,28 +69,28 @@ class BookShowAll extends React.Component {
       hideInfo={this.hideInfo}
       showInfo={this.showInfo}
       books={this.state.nonFictionBooks}/>
-      header = "Non-Fiction books"
+      header = "Non-Fiction Books"
     } else if(whichTab === 2){
       page = <HistoricalContainer 
       books={this.state.historicalBooks} 
       hideInfo={this.hideInfo}
       showInfo={this.showInfo}
       />
-      header = "Historical books"
+      header = "Historical Books"
     } else if(whichTab === 3) {
       page = <FantasyContainer 
       books={this.state.fantasyBooks}
       hideInfo={this.hideInfo}
       showInfo={this.showInfo}
       />
-      header = "Fantasy books"
+      header = "Fantasy Books"
     } else if(whichTab === 0){
       page = <AllBooksContainer 
       books={{books: this.state}}
       hideInfo={this.hideInfo}
       showInfo={this.showInfo}
       />
-      header = "All books"
+      header = "All Books"
     } else {
       page = ''
     }
