@@ -11,7 +11,7 @@
 
 .signup-div > h1,
 .login-div > h1 {
-    margin-bottom: 40px;
+    padding-bottom: 40px;
     font-weight: 600;
     font-size: 40px;
     color: #8cc85b;
@@ -48,6 +48,7 @@
     opacity: 0;
     position: absolute;
     margin-bottom: 5px;
+
     margin-left: 310px;
 
     border: 2px solid rgb(238, 67, 67);
@@ -76,6 +77,9 @@
     width: 300px;
     display: flex;
     flex-wrap: wrap;
+    align-content: center;
+    align-items: center;
+    color: maroon;
 }
 
 .errored-input{ 
