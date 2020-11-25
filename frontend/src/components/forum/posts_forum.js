@@ -21,7 +21,7 @@ export default ({props}) => {
                 <div className="edit-button">
                     <i className="fas fa-pen"></i>
                 </div>
-                <div className="delete-button">
+                <div className="delete-button" onClick={() => props.deletePost(key)}>
                     <i className="fas fa-trash"></i>
                 </div>
             </div> : null;

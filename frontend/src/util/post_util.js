@@ -19,3 +19,6 @@ export const composePost = data => {
     debugger
     return Axios.post('/api/posts/', data )
 }
+export const deletePost = id => {
+    return Axios.delete(`/api/posts/${id}`)
+}

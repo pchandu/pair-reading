@@ -13,6 +13,15 @@ router.get('/', (req, res) => {
         .then(posts => convert2POJO(res,posts))
         .catch(err => res.status(404).json({ nopostsfound: 'No posts found' }));
 });
+router.delete('/:id', (req,res) => {
+    console.log("FLAAGG")
+    Post.findById(req.params.id)
+        .then(post => {
+            if (post) post.delete().then(res.status(200).json({ msg: "Succesfully deleted bookclub" }));
+            else 
+            return res.status(400).json({ msg: "Invalid Permissions to delete post." })
+        })
+})
 router.post('/',
     // passport.authenticate('jwt', { session: false }),
     (req, res) => {
