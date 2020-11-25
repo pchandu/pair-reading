@@ -27,8 +27,7 @@ class FrontPageDashboard extends React.Component {
         return(
             <div className="front-page-dashboard-container">
                 <h1> 
-                    Use our systems dedicated to finding you partners in any
-                    genre of books you are interested in!
+                    Use our systems to find reading partners!
                 </h1>
                 <img src={DashboardPic} 
                 alt="dashboard image"
