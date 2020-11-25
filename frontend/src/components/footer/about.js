@@ -13,10 +13,10 @@ class AboutPage extends React.Component {
                     <h1>Alexzander Archibeque</h1>
 
                     <div className="about-page-links-container" >
-                        <a href="https://www.linkedin.com/in/alexzander-archibeque-129810189/">
+                        <a href="https://www.linkedin.com/in/alexzander-archibeque-129810189/" target="_blank">
                         <img src={LinkedInLogo} alt="Linked in Logo"/>
                         </a>
-                        <a href="https://github.com/AlexArchibeque">
+                        <a href="https://github.com/AlexArchibeque" target="_blank">
                         <img src={GithubLogo} alt="Github logo"/>
                         </a>
                     </div>
@@ -26,10 +26,10 @@ class AboutPage extends React.Component {
                 <div className="about-page-inner-container">
                     <h1>Kathy Chan</h1>
                     <div className="about-page-links-container" >
-                        <a href="https://www.linkedin.com/in/kemopaw/">
+                        <a href="https://www.linkedin.com/in/kemopaw/" target="_blank">
                         <img src={LinkedInLogo} alt="Linked in Logo"/>
                         </a>
-                        <a href="https://github.com/KemoPaw">
+                        <a href="https://github.com/KemoPaw" target="_blank">
                         <img src={GithubLogo} alt="Github logo"/>
                         </a>
                     </div>
@@ -38,7 +38,7 @@ class AboutPage extends React.Component {
                 <div className="about-page-inner-links-container">
 
                     <p>Pair Reading</p>
-                    <a href="https://github.com/pchandu/pair-reading">
+                    <a href="https://github.com/pchandu/pair-reading" target="_blank">
                         <img src={GithubLogo} alt="Github logo"/>
                     </a>
 
@@ -47,10 +47,10 @@ class AboutPage extends React.Component {
                 <div className="about-page-inner-container">
                     <h1>Kevin Su</h1>
                     <div className="about-page-links-container" >
-                        <a href="https://www.linkedin.com/in/kevin-su-2700a859/">
+                        <a href="https://www.linkedin.com/in/kevin-su-2700a859/" target="_blank">
                         <img src={LinkedInLogo} alt="Linked in Logo"/>
                         </a>
-                        <a href="https://github.com/kevinsuboy">
+                        <a href="https://github.com/kevinsuboy" target="_blank">
                         <img src={GithubLogo} alt="Github logo"/>
                         </a>
                     </div>
@@ -58,10 +58,10 @@ class AboutPage extends React.Component {
                 <div className="about-page-inner-container">
                     Praneeth Chandu
                     <div className="about-page-links-container" >
-                        <a href="https://www.linkedin.com/in/praneethch/">
+                        <a href="https://www.linkedin.com/in/praneethch/" target="_blank">
                         <img src={LinkedInLogo} alt="Linked in Logo"/>
                         </a>
-                        <a href="https://github.com/pchandu">
+                        <a href="https://github.com/pchandu" target="_blank">
                         <img src={GithubLogo} alt="Github logo"/>
                         </a>
                     </div>
