@@ -2,6 +2,25 @@ import React from 'react'
 
 class CalendarInvitesContainer extends React.Component {
 
+    constructor(){
+        super();
+
+        this.showInfo = this.showInfo.bind(this)
+        this.hideInfo = this.hideInfo.bind(this)
+    }
+
+    showInfo(inviteNum){
+        let invite = document.getElementById(`text${inviteNum}calendar`)
+        invite.classList.add("show")
+        invite.classList.remove("hidden")
+      }
+    
+    hideInfo(inviteNum){
+        let invite = document.getElementById(`text${inviteNum}calendar`)
+        invite.classList.add("hidden")
+        invite.classList.remove("show")
+    }
+
     render(){
         return(
             <>
@@ -9,21 +28,23 @@ class CalendarInvitesContainer extends React.Component {
                     <div className="top-invites-inner-container">
                         <p>Calendar Invites</p>   
                     </div>
-                {/* date: "2020-12-02"
-                inviterUsername: null
-                time: "08:00:00"
-                title: "asdfasdf"
-            type: "calendar" */}
                 {this.props.invites ? this.props.invites.map( (invite,i) => {
                     return(
                         <div className="calendar-invite-container-div"> 
-                            <p>
+                            <p className="invite-name-container"
+                                onMouseEnter={() => this.showInfo(i)}
+                                onMouseLeave={() => this.hideInfo(i)}
+                            >
                                 {invite.title}
+
                                 <div 
                                 className="calendar-invite-info"
                                 id={`text${i}calendar`}
                                 >
-
+                                    <h1>{invite.title}</h1>
+                                    <p>From: {invite.inviterUsername}</p>
+                                    <p>When: {invite.date}</p>
+                                    <p>At: {invite.time}</p>
                                 </div>
                             </p>
                             <p>
