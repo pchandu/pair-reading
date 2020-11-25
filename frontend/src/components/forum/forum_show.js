@@ -52,7 +52,7 @@ class ForumShow extends React.Component {
         return (
             <div className="forum-show-container">
                 <h1 className="forum-title">{this.props.forum.title}</h1>
-                {this.state.page === 1 ? <NewPostContainer /> : null}
+                {this.state.page === 1 ? <NewPostContainer forum_id={this.props.forumId}/> : null}
                 <PostsForum props={this.props}/>
                 <Nav page={this.state.page} maxPage={this.maxPage} handleClick={this.handleClick}/>
             </div>

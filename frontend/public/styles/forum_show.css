@@ -102,11 +102,20 @@ i {
     font-size: 10px;
 }
 
+.new-post-form-container h1 {
+    padding: 10px 0;
+}
 .new-post-form-container {
-    border: 1px solid red;
+    /* border: 1px solid red; */
+    margin-top: 10px;
+}
+.new-post-form textarea{
+    background-color: rgb(238, 238, 238);
+    margin-bottom: 10px;
+    padding: 10px;
 }
 .new-post-form {
-    border: 1px solid blue;
+    /* border: 1px solid blue; */
     min-height: 150px;
 }
 .new-post-text {

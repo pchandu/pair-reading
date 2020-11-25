@@ -1,6 +1,14 @@
+const getUsername = (el) => User.findOne({ _id: el.user }, 'username').then(result => {
+    // el.user = result.username;
+    // console.log(el)
+    // console.log(Object.assign({},el._doc,{user:result.username}))
+    return Object.assign({}, el._doc, { user: { _id: el.user, username: result.username } })
+})
+
 const convert2POJO = (res,data,cb) => {
     let pojo = {};
     const promises = [];
+    const arr = [];
     data.forEach(el => {
         if(cb)
             promises.push(
@@ -12,10 +20,12 @@ const convert2POJO = (res,data,cb) => {
         else{
             Object.assign(pojo, pojo, { [el._id]: el })
         }
+        arr.push(el._id);
     })
     // console.log(promises)
     Promise.all(promises).then( values => {
-        // console.log(values)
+        // console.log(arr)
+        Object.assign(pojo, pojo, { order: arr })
         return res.json(pojo)
     })
     // return res.json(pojo)
@@ -82,6 +92,7 @@ const uniqueIdx = (nestedModel, model2) => {
 }
 
 module.exports = {
+    getUsername,
     convert2POJO,
     nestedIndex,
     uniqueIdx,

@@ -15,14 +15,14 @@ export default class NewPost extends React.Component {
     }
     handleSubmit(e){
         e.preventDefault();
-        this.props.composePost(Object.assign({}, this.state, {user_id: this.props.userId}));
-        this.setState({ post: "" });
+        this.props.composePost(Object.assign({}, this.state, {user_id: this.props.userId}, {forum_id: this.props.forum_id}));
+        // this.setState({ post: "" });
     }
     render () {
         // debugger
         return (
             <div className="new-post-form-container">
-                <h1>New Post Form</h1>
+                <h1>New Post</h1>
                 <form className={`new-post-form`} onSubmit={this.handleSubmit}>
                     <textarea
                         // type="textarea"
@@ -30,7 +30,7 @@ export default class NewPost extends React.Component {
                         onChange={this.handleChange('post')}
                     />
                     <input
-                        className={`nav-bar-login link session-link filter-submit`}
+                        className={`match-user-invite`}
                         type="submit"
                         value="Post"
                     />

@@ -2,6 +2,7 @@ import * as postUtil from '../util/post_util'
 export const RECEIVE_NEW_POST = 'RECEIVE_NEW_POST'
 export const RECEIVE_ALL_POSTS = 'RECEIVE_ALL_POSTS'
 export const RECEIVE_POST = 'RECEIVE_POST'
+export const DELETE_POST = 'DELETE_POST'
 
 export const receiveAllPosts = payload => ({
     type: RECEIVE_ALL_POSTS,
@@ -11,9 +12,13 @@ export const receivePost = payload => ({
     type: RECEIVE_POST,
     payload
 });
-export const receiveNewPost = post => ({
+export const receiveNewPost = payload => ({
     type: RECEIVE_NEW_POST,
-    post
+    payload
+});
+export const removePost = (postId) => ({
+    type: DELETE_POST,
+    postId
 });
 
 
@@ -43,4 +48,8 @@ postUtil.composePost(data)
     .then(post => dispatch(receiveNewPost(post)))
     .catch(err => console.log(err))
 );
-
+export const deletePost = id => dispatch => (
+postUtil.deletePost(id)
+    .then(msg => dispatch(removePost(id)))
+    .catch(err => console.log(err))
+)
