@@ -1,50 +1,84 @@
 import React from "react";
+import "react-dates/initialize";
+import MeetingDatePicker from "./date_picker"
 
-//
 class CalendarForm extends React.Component {
-  render() {
-    return (
-        <div>
-            <p className="cal-form-header">Feel free to fill out a form to remember your next meeting!</p>
-            <form className="cal-form">
+  
+    constructor(props){
+        super(props);
+        this.state = {
+            type: "calendar",
+            invitee: "",
+            title: "",
+            date: null,
+        }
 
-                <div className="form-group row">
-                    <label for="example-text-input" className="col-2 col-form-label cal-form-label">Event Title</label>
-                    <div className="col-10">
-                        <input className="form-control" type="text" placeholder="What do you want your reading session to be called?" />
-                    </div>
+        this.handleTitle = this.handleTitle.bind(this);
+        this.handleInvitee = this.handleInvitee.bind(this);
+        this.handleSubmit = this.handleSubmit.bind(this);
+        this.onDateChange = this.onDateChange.bind(this);
+    }
+  
+    handleTitle(e){
+        this.setState({title: e.currentTarget.value});
+    }
+
+    handleInvitee(e){
+        this.setState({invitee: e.currentTarget.value});
+    }
+
+    onDateChange(date) {
+        this.setState({date: date})
+    }
+
+    handleSubmit(){
+        const inviteInfo = Object.assign({},{invite: this.state}, {userId: this.props.userId});
+        const userId = this.props.userId
+        // debugger
+        this.props.createCalInvite(inviteInfo)
+            .then(() => {
+                debugger;
+            this.props.showForm(0)
+            this.props.refreshUserInfo({user: userId})
+            
+            })
+        //mDTP our backend call 
+        //send invite into backend
+    }
+
+    render() {
+        return (
+            <div className='meeting-invite-form-container'>
+                <h1 className="cal-form-header">
+                    Fill out a form to schedule your next meeting!
+                </h1>
+                <label>Title:
+                    <input type="text" 
+                    value={this.state.title} 
+                    onChange={this.handleTitle}/>
+                </label>
+
+                <div className='date-picker-form-container'>
+                    <label>Date:
+                    <MeetingDatePicker 
+                    date={this.state.date} 
+                    onDateChange={this.onDateChange}/>
+                    </label>
+                    <label> Invitee Username:
+                        <input 
+                        type="text" 
+                        value={this.state.invitee}
+                        onChange={this.handleInvitee} />
+                    </label>
+                    <button 
+                    className='cal-invite-submit-btn'
+                    onClick={this.handleSubmit}>
+                        Submit
+                    </button>    
+                        {/* {console.log(this.props.matches)} this works */}
                 </div>
-
-                <div className="form-group row">
-                    <label for="example-date-input" className="col-2 col-form-label cal-form-label">Date</label>
-                    <div className="col-10">
-                        <input className="form-control" type="date"  />
-                    </div>
-                </div>
-
-                <div className="form-group row">
-                    <label for="example-time-input" className="col-2 col-form-label cal-form-label">Start Time</label>
-                    <div className="col-10">
-                        <input className="form-control" type="time" />
-                    </div>
-                </div>
-
-                <div className="form-group row">
-                    <label for="example-time-input" className="col-2 col-form-label cal-form-label">End Time</label>
-                    <div className="col-10">
-                        <input className="form-control" type="time" />
-                    </div>
-                </div>
-
-                <br />
-                <div className="text-center">
-                    <input type="submit" className="login-submit-btn  d-flex justify-content-center" value="Submit" />
-
-                </div>
-             
-            </form>
-        </div>
-    );
+            </div>
+        );
   }
 }
 

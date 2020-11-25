@@ -12,6 +12,68 @@ const _user = 'username email posts bookclubs books preferred_meeting_time invit
 
 router.get("/test", (req, res) => res.json({ msg: "This is the users route" }));
 
+
+// [0] { invite:
+//        { type: 'calendar',
+//          invitee: 'adlfjalsjdfjla',
+//          title: 'aflkjlsjf',
+//          date: '2020-11-26T04:30:00.000Z' },
+//      userId: '5fbdd57d905e7c80a3dcbe7e' }
+// MEETING INVITES 
+
+router.post('/createMeetingInvite', (req, res) => {
+  // console.log(req.body)
+  let date = req.body.data.invite.date.slice(0,10)
+  let time = req.body.data.invite.date.slice(11,19)
+  let title = req.body.data.invite.title
+  let inviterUsername;
+  User.findById(req.body.data.userId)
+  .then( user => {
+    
+    inviterUsername = user.username
+    let partner = req.body.data.invite.invitee
+    user.meetings.push({ 
+      date: date, 
+      partner: partner, 
+      time: time, 
+      title: title })
+    user.save();
+  })
+  
+  // { type: 'calendar', date: date, time: time,
+  //  inviterUsername: user.username, title: title }
+  
+  User.findOne({username: req.body.data.invite.invitee})
+  .then(invitee => {
+    if(invitee){
+      invitee.invites.push({
+        date: date,
+        inviterUsername: inviterUsername,
+        time: time,
+        title: title,
+        type: "calendar"
+      })
+      invitee.save();
+    } else {
+
+    }
+  })
+  
+  return res.status(200).json({msg: "hi"})
+})
+
+router.post('/acceptMeetingInvite', (req,res) => {
+  // put the meeting invite
+  // into the meetings slice of model
+  // and remove the invite from the invites array
+
+})
+
+router.delete('/denyMeetingInvite', (req,res) => {
+  // KEEP IN MIND denying the invite
+  // find the user and remove the invite from the invites array
+})
+
 router.patch('/updateUser', (req, res) => {
   // console.log(req.body)
   User.findById(req.body.user)
@@ -59,14 +121,15 @@ router.post('/refreshUserInfo', (req,res) => {
     .then(user => {
       if(user) {
         res.json({
-          username: user.username,
-          email: user.email,
-          invites: user.invites,
           books: user.books,
           bookclubs: user.bookclubs,
+          email: user.email,
+          id: user.id,
+          invites: user.invites,
+          meetings: user.meetings,
           posts: user.posts,
           preferred_meeting_time: user.preferred_meeting_time,
-          id: user.id
+          username: user.username,
         })
       } else {
         return res.json({ msg: "Not sure what happened."})
@@ -135,7 +198,8 @@ router.post('/login', (req, res) => {
               bookclubs: user.bookclubs,
               posts: user.posts,
               preferred_meeting_time: user.preferred_meeting_time,
-              invites: user.invites
+              invites: user.invites,
+              meetings: user.meetings
           };
 
         jwt.sign(

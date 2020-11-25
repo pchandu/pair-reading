@@ -45,11 +45,12 @@ const UserSchema = new Schema({
     type: Schema.Types.ObjectId,
     ref: 'posts'
   }],
-
   invites: [{
       type: Object
+  }],
+  meetings:[{
+    type: Object
   }]
-
 }, {
   timestamps: true
 })

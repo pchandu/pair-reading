@@ -1,6 +1,6 @@
 import React from "react";
 import ProfileContainer from "../profile/profile_container";
-import Calendar from "./calendar/calendar";
+import Calendar from "./calendar/calendar_container";
 import ReadOfTheDayContainer from './readOfTheDay/read_of_the_day'
 
 import BookClubFeedContainer from '../profile/bookclubs_feed_container';
@@ -40,7 +40,7 @@ class DashBoard extends React.Component {
 
           <div className="right-side-dashboard-container">
             <h1 className="dashboard-header-home"><i class="far fa-calendar-alt"></i>Calendar and Meeting Options</h1>
-            <Calendar />
+            <Calendar meetings={this.props.meetings}/>
 
             <h1 className="dashboard-header-home">
               <i class="fas fa-book-open"></i>Books

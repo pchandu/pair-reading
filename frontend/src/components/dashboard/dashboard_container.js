@@ -1,11 +1,13 @@
-import {connect} from 'react-redux';
 import Dashboard from './dashboard';
 import { resetEverything } from '../../actions/all_actions'
 import { refreshLoggedInUserInfo } from '../../actions/session_actions'
+import {connect} from 'react-redux';
 
 const mSTP = (state) => {
+    // debugger
     return({
-        currentUser:state.session.user
+        currentUser:state.session.user,
+        meetings: state.session.user.meetings
     })
 }
 
