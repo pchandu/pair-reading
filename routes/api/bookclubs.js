@@ -32,7 +32,7 @@ router.get('/:id/books', (req, res) => {
         .catch(err => res.status(404).json({ nobooksfound: 'No books found' }));
 });
 router.get('/:id/forums', (req, res) => {
-    console.log(req.params.id)
+    //console.log(req.params.id)
     BookClub.findById(req.params.id)
         .then(bookclub =>
             nestedIndex(Forum, bookclub.forums, filterForums(req.query), res)
