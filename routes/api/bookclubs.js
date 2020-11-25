@@ -73,7 +73,9 @@ router.post('/createBookClub',(req,res) => {
                         user.save()
                     })
                     .then(
+                        //invitee
                     User.findOne({_id: req.body.invitee})
+                        //creator of the invite
                         .then( user => {User.findOne({_id: req.body.creator})
                         .then(creator => {
                         user.invites.push({
@@ -169,7 +171,6 @@ router.post('/joinBookClub', (req,res) => {
 
 router.delete('/denyBookClub', (req,res) => {
 
-    
     User.findById(req.body.userId)
         .then( user => {
             user.invites.forEach( (invite,idx) => {
@@ -178,11 +179,67 @@ router.delete('/denyBookClub', (req,res) => {
                 }
             })
             user.save()
+            return res.status(200).json({msg: "success"})
+        })
+})
+
+router.delete('/leaveBookClub', (req,res) => {
+    // console.log(req.body)
+    User.findById(req.body.userId)
+        .then( user => {
+            user.bookclubs.forEach((bookClub,idx) => {
+                if(JSON.stringify(bookClub._id) === `"${req.body.bookClubId}"`){
+                    user.bookclubs.splice(idx, 1)
+                }
+            })
+            user.save()
+
+            BookClub.findById(req.body.bookClubId)
+                .then( bookclub => {
+                    bookclub.users.forEach((user,idx) => {
+                        if(JSON.stringify(user) === `"${req.body.userId}"`){
+                            bookclub.users.splice(idx,1)
+                        }
+                    })
+                    bookclub.save()
+                })
+
+            return res.status(200).json({msg: "success"})
+
         })
 })
 
 router.post('/inviteToBookClub', (req,res) => {
-    console.log(req.body)
+    // console.log(req.body.invite)
+    User.findOne({searchableName: req.body.invite.toLowerCase()})
+        .then( user => {
+            if(user){
+                BookClub.findById(req.body.bookClubId)
+                    .then (bookclub => {
+
+                        if(bookclub.users.includes(user._id)){
+                            return res.json({err: `${req.body.invite} is already a member!`})
+                        }else{
+                            user.invites.push({
+                                "type": "bookclub",
+                                "id": req.body.bookClubId,
+                                "title": req.body.bookClubTitle,
+                                "creator": req.body.inviter,
+                                "creatorId": req.body.inviterId
+                                })
+                                
+                            user.save()
+                            .then( () => {
+                                return res.json({msg: "success"})
+                            })
+                        }
+                    })
+            }else{
+                return res.json({err: `User ${req.body.invite} does not exist`})
+            }
+        })
 })
+
+
 
 module.exports = router;

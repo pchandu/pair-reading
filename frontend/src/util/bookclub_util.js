@@ -32,3 +32,7 @@ export const denyBookClub = (bookClubData) => {
 export const inviteToBookClub = (invite) => {
     return Axios.post(`/api/bookclubs/inviteToBookClub`, invite)
 }
+
+export const leaveBookClub = (bookClubData) => {
+    return Axios.delete(`/api/bookclubs/leaveBookClub`, {data: bookClubData} )
+}

@@ -44,16 +44,17 @@ for (let i = 1; i < users.length; i++) {
 //! Reader (handled above)
 //! Forums (handled below)
 //! Bookclubs (handled below)
+for (let i = 0; i < books.length; i++) {
+    //! BOOK
+    for (let j = 0; j < books.length; j++) {
+        idx = uniqueIdx(books[i].forums, forums);
+        books[i].forums.push(forums[idx])
+        forums[idx].book = books[i];
+    }
+}
 //------------- FORUM ASS -------------
 for (let i = 0; i < forums.length; i++) {
-    //! BOOK
-    idx = getRandomInt(books.length);
-    forums[i].book = books[idx];
-    books[idx].forums.push(forums[i])
     //! BOOKCLUB
-    idx = getRandomInt(bookclubs.length);
-    forums[i].bookclub = bookclubs[idx];
-    bookclubs[idx].forums.push(forums[i])
 }
 //------------- POST ASS -------------
 for(let i=0;i<posts.length;i++){
@@ -80,7 +81,12 @@ for (let i = 0; i < bookclubs.length; i++) {
         bookclubs[i].books.push(books[idx]);
         books[idx].bookclubs.push(bookclubs[i]);
     }
-    //! Forums (handled above)
+    //! Forums
+    for (let j = 0; j < getRandomInt(bookclubs.length)+1; j++ ){
+        idx = uniqueIdx(bookclubs[idx].forums, forums);
+        bookclubs[i].forums.push(forums[idx])
+        forums[idx].bookclub = bookclubs[i];
+    }
 }
 //------------- USER BCRYPT -------------
 User.deleteMany({}, () => {
