@@ -22,7 +22,12 @@ class NavBar extends React.Component {
     this.props.login({
       email: "demo@pairreading.com",
       password: "ilovereading"
-    })
+    }).then(() => {
+      let windowLOC = window.location.href.split('#/')[0];
+         window.location.href = windowLOC + "#/dashboard";
+
+    });
+ 
   }
   // btn btn-info cal-btn
    getLinks() {
