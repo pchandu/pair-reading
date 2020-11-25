@@ -18,7 +18,7 @@ class AllBooks extends React.Component {
                 <h1>Historical</h1>
                 <ul className="book-show-singular-ul">
                 {books2.historicalBooks.map((book,i)=>{
-                    if(book.description === undefined) debugger;
+                    //if(book.description === undefined) debugger;
                     if(i > 4){ return null };
                     return(
                     <div 
