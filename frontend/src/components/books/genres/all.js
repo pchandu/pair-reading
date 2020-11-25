@@ -12,11 +12,13 @@ class AllBooks extends React.Component {
     render(){
         const {books} = this.props;
         let books2 = books["books"]
+        // debugger
         return(
             <div className="all-book-show-outer-div">
                 <h1>Historical</h1>
                 <ul className="book-show-singular-ul">
                 {books2.historicalBooks.map((book,i)=>{
+                    if(book.description === undefined) debugger;
                     if(i > 4){ return null };
                     return(
                     <div 
