@@ -10,28 +10,40 @@ class CalendarForm extends React.Component {
             type: "calendar",
             invitee: "",
             title: "",
-            date: new Date(),
-            start_time: "",
-            end_time: ""
+            date: null,
         }
 
         this.handleTitle = this.handleTitle.bind(this);
+        this.onDateChange = this.onDateChange.bind(this);
     }
   
     handleTitle(e){
         this.setState({title: e.currentTarget.value});
     }
 
+    onDateChange(date) {
+        this.setState({date: date})
+    }
+
     render() {
         return (
             <div className='meeting-invite-form-container'>
                 <h1 className="cal-form-header">
-                    Feel free to fill out a form to remember your next meeting!
+                    Fill out a form to schedule your next meeting!
                 </h1>
-                <input type="text" value={this.state.title} onChange={this.handleTitle}/>
+                <label>Title:
+                    <input type="text" 
+                    value={this.state.title} 
+                    onChange={this.handleTitle}/>
+                </label>
+
                 <div className='date-picker-form-container'>
-                    {/* <h2>Select the time for your meeting</h2> */} 
-                    <MeetingDatePicker />
+                    <label>Date:
+                    <MeetingDatePicker 
+                    date={this.state.date} 
+                    onDateChange={this.onDateChange}/>
+                    </label>
+                        {/* {console.log(this.props.matches)} this works */}
                 </div>
             </div>
         );

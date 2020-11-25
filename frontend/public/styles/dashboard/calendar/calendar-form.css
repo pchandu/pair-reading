@@ -17,3 +17,9 @@
     color: #1d5e66;
     text-align: center;
 }
+
+.outer-div-container-calendar{ 
+    display:flex;
+    width: 90%;
+    justify-content: space-between;
+}

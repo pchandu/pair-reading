@@ -1,8 +1,10 @@
 import { connect } from "react-redux";
 import CalendarForm from "./cal_form";
 
-const mSTP = (state) => {
-  return {};
+const mSTP = ({session: {user}, entities:{users}}) => {
+  return {
+    matches: Object.values(users).filter(el => el._id !== user.id),
+  };
 };
 
 const mDTP = (dispatch) => {
