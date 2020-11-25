@@ -1,19 +1,48 @@
-.cal-form-header {
-    font-size: 50px;
+.react-calender-container{
+    display:flex;
+    align-items: center;
+    justify-content:space-between;
+    width: 95%;
+}
+
+.react-calendar {
+    border-radius: 5px;
+    padding: 5px;
+    margin: 20px;
+    background:#8cc85b;
+}
+
+.Calendar th,
+.Calendar td {
+    padding: 7px;
     text-align: center;
-    padding: 20px;
+    font-size: 16px;
+    font-weight: 700;
 }
 
-.cal-form-label {
-    font-family: 'Nunito', sans-serif;
+.Day-inner {
+    border: none;
+    height: 30px;
+    width: 30px;
 }
 
-.cal-form {
-    padding: 20px 150px;
+.Day:focus,
+.Day:focus > .Day-inner {
+    background: #2980b9;
+    color: #fff;
 }
 
-.cal-title {
-    font-size: 30px;
-    color: #1d5e66;
-    text-align: center;
+.Day.today {
+    background: #8cc85b;
+}
+.Day.today > .Day-inner {
+    background: #8cc85b;
+    color: white;
+}
+
+.Day.other-month{
+    background-color: #bdc3c7;
+}
+.Day.other-month > .Day-inner {
+    background-color: #bdc3c7;
 }

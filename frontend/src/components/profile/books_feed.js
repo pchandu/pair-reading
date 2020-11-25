@@ -33,8 +33,8 @@ class BookFeed extends React.Component {
             <Link key={i} to={`/books/${el._id}`}>
             <li key={i} className="books-feed-list-item">
                 <div><img className="books-feed-img" src={el.imagePath} alt={`${el.title}`}/></div>
-                <div><h1>{el.title}</h1>
-                <h2>by {el.author}</h2></div>
+                {/* <div><h1>{el.title}</h1>
+                <h2>by {el.author}</h2></div> */}
             </li>
             </Link>
         )

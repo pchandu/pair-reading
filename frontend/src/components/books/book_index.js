@@ -19,12 +19,15 @@ class BookIndex extends React.Component {
         return (
             <ul className="books-ul">
                 {Object.values(books).map((book, i) => {
+                    if(i > 4){
+                        return null;
+                    }else{
                     return (
                     <li className="book-index-item" key={i}>
                         <img src={`${book.imagePath}`} className="book-index-cover-photo"/> 
                         <input type="checkbox" id={`${book.title}`} name={`${book.title}`} className="book-checkbox"/>
                     </li>
-                    )
+                    )}
                 })}
             </ul>
         )

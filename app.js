@@ -13,6 +13,8 @@ require('./config/passport')(passport);
 
 const path = require('path');
 
+// app.use(express.static(path.join(__dirname, 'frontend', 'public')))
+
 mongoose
 .connect(db, { useNewUrlParser: true, useUnifiedTopology: true} )
 .then(() => console.log("Connected to MongoDB successfully"))
@@ -47,5 +49,9 @@ Object.keys(rr).forEach(el=> {
     console.log(r.route.path)
   }
 })})
+
+// app.use(express.favicon(__dirname + '/public/favicon.ico'))
+
+
 // console.log(app)
 // console.log(app._router)
