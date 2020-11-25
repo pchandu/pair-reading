@@ -16,7 +16,6 @@ const booksReducer =  (state = {}, action) => {
         case RECEIVE_BOOK:
             return Object.assign({}, state, {[action.payload.data._id]: action.payload.data});
         case RECEIVE_ALL_BOOKS:
-            debugger
             return action.payload.data;
         case REMOVE_ALL_BOOKS:
             return {};
