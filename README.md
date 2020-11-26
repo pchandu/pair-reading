@@ -39,17 +39,17 @@ The preferences are stylized buttons that change color to indicate whether they 
 ```
 Once a user finishes onboarding, the user lands on the dashboard, where the main functionality of the app exists. 
 # Dashboard
-**screenshot of dashboard**
-The dashboard is broken into 2 modules: user profile (left) and external interaction: scheduling meetings and visiting bookclubs (right). 
-
-# User Profile 
+**screenshot of dashboard with user profile in a red box, calendar in purple, and bookclubs in pink**
+The dashboard is broken into 2 modules: user profile (red outline on the left) and external interaction: scheduling meetings on the calendar (purple) and visiting bookclubs (pink outline on the bottom right). 
+## User Profile 
 Users have two primary functionalities: 
 1. managing invites. Users can be invited to join bookclubs or accept a meeting with a match.
-2. connecting with matches. 
-**screenshot of modal**
-# Bookclubs
+2. connecting with matches. A list of matches (an algorithm that finds other users who share book preferences) is populated in a dropdown style list. 
+## Calendar
+**gif of different calendar views**
+## Bookclubs
 Bookclubs are micro-communities within PairReading where users interested in a specific set of books can have discussions to gain deeper insights from one another. **bookclub show screenshot**
-## Post Activity & Forums
+### Post Activity & Forums
 Post activity highlights recent posts the user has made. Clicking on posts redirects the user to the forum in which the post was made. 
 //CRUD
 **screenshot of Forums page**
