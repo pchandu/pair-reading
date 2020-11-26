@@ -59,6 +59,7 @@
 .book-show-all-cover-photo {
     height: 225px;
     width: 150px;
+    border-radius: 5px;
 }
 
 .container-for-book-show-item{

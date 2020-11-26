@@ -11,9 +11,9 @@
 
 .signup-div > h1,
 .login-div > h1 {
-    margin-bottom: 40px;
+    padding-bottom: 5px;
     font-weight: 600;
-    font-size: 40px;
+    font-size: 55px;
     color: #8cc85b;
 }
 
@@ -46,36 +46,38 @@
 
 .hidden-errors {
     opacity: 0;
-    position: absolute;
-    margin-bottom: 5px;
-    margin-left: 310px;
-
-    border: 2px solid rgb(238, 67, 67);
     cursor: default;
-    height: 45px;
+    height: 25px;
     width: 300px;
 
     display: flex;
     flex-wrap: wrap;
+    padding: 4px;
+
 }
 
 .signup-login-form-errors {
-    position: absolute;
     opacity: 1;
-    margin-left: 310px;
-    border: 2px solid rgb(238, 67, 67);
     border-radius: 5px;
-    background-color: beige;
+    background-color: transparent;
     cursor: default;
 
     padding: 4px;
 
     font-size: 14;
     font-weight: 700;
-    height: 45px;
+    height: 25px;
     width: 300px;
     display: flex;
     flex-wrap: wrap;
+    align-content: center;
+    align-items: center;
+    color: maroon;
+    justify-content: center;
+}
+
+.errors-div {
+    padding-bottom: 10px;
 }
 
 .errored-input{ 

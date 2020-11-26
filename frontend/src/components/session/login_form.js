@@ -51,6 +51,15 @@ class LoginForm extends React.Component {
     return ( 
       <div className="login-div">
         <h1> Login to see your pairs </h1>
+         <div className='errors-div'>
+                <p className={errors['email'] ? `signup-login-form-errors` : `hidden-errors` }>
+                  {this.state.errors['email']}
+                </p>
+
+              <p className={errors['password'] ? `signup-login-form-errors` : `hidden-errors` }>
+              {this.state.errors['password']}
+              </p>
+         </div>
         <form onSubmit={this.handleSubmit} className="inner-login-container">
               <div className="signup-login-input-div">
                 <input
@@ -61,9 +70,6 @@ class LoginForm extends React.Component {
                   placeholder="Email"
                 />
 
-                <p className={errors['email'] ? `signup-login-form-errors` : `hidden-errors` }>
-                  {this.state.errors['email']}
-                </p>
               </div>
 
               <div className="signup-login-input-div">
@@ -76,9 +82,6 @@ class LoginForm extends React.Component {
                 placeholder="Password"
               />
 
-              <p className={errors['password'] ? `signup-login-form-errors` : `hidden-errors` }>
-              {this.state.errors['password']}
-              </p>
               </div>
 
               <input 
