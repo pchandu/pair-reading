@@ -26,9 +26,10 @@ router.post('/createMeetingInvite', (req, res) => {
   let date = req.body.data.invite.date.slice(0,10)
   let time = req.body.data.invite.date.slice(11,19)
   let title = req.body.data.invite.title
-  let inviterUsername;
+
   User.findById(req.body.data.userId)
   .then( user => {
+    if(user){
     User.findOne({searchableName: req.body.data.invite.invitee.toLowerCase()})
     .then(invitee => {
 
@@ -39,7 +40,7 @@ router.post('/createMeetingInvite', (req, res) => {
           
           invitee.invites.push({
             date: date,
-            inviterUsername: inviterUsername,
+            inviterUsername: user.username,
             time: time,
             title: title,
             type: "calendar"
@@ -59,23 +60,24 @@ router.post('/createMeetingInvite', (req, res) => {
       } else {
         return res.json({msg:"Invitee doesnt exist"})
       }
-    })
+    })}
+    else{
+      return res.status(200).json({msg: "Something went wrong"})
+    }
     
   })
   
   // { type: 'calendar', date: date, time: time,
   //  inviterUsername: user.username, title: title }
   
-  
-  return res.status(200).json({msg: "Something went wrong"})
+
 })
 
 
 router.post('/acceptCalInvite', (req,res) => {
-  console.log(req.body.data)
   User.findById(req.body.data.userId)
     .then( user => {
-
+      if(user){
       user.meetings.push({ 
         date: req.body.data.date, 
         partner: req.body.data.inviterUsername, 
@@ -91,9 +93,11 @@ router.post('/acceptCalInvite', (req,res) => {
       user.save()
 
       return res.status(200).json({msg: "done!"})
+    }else{
+      return res.json({msg:"Something went wrong."})
+    }
     })
 
-  return res.json({msg:"Something went wrong."})
 })
 
 // [0] { date: '2020-12-02',
@@ -107,6 +111,7 @@ router.delete('/denyCalInvite', (req,res) => {
 
   User.findById(req.body.userId)
     .then( user => {
+      if(user){
       user.invites.forEach( (invite,idx) => {
         if(invite.title === req.body.title) {
           user.invites.splice(idx,1)
@@ -115,10 +120,10 @@ router.delete('/denyCalInvite', (req,res) => {
       user.save()
 
       return res.status(200).json({msg:"denied"})
+    }else{
+      return res.json({msg:"User not found."})
+    }
     })
-
-  // KEEP IN MIND denying the invite
-  // find the user and remove the invite from the invites array
 
 })
 
@@ -179,6 +184,7 @@ router.post('/refreshUserInfo', (req,res) => {
           preferred_meeting_time: user.preferred_meeting_time,
           username: user.username,
         })
+        return res.status(200).json({msg: "updated!"})
       } else {
         return res.json({ msg: "Not sure what happened."})
       }
