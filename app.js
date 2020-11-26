@@ -14,6 +14,9 @@ require('./config/passport')(passport);
 const path = require('path');
 
 // app.use(express.static(path.join(__dirname, 'frontend', 'public')))
+// app.use("/favicon.ico", express.static("./frontend/public/favicon.ico"));
+// app.use("/public", express.static("public")); 
+app.use(express.static(path.join(__dirname, "public")));
 
 mongoose
 .connect(db, { useNewUrlParser: true, useUnifiedTopology: true} )
