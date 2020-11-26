@@ -51,7 +51,7 @@ The calendar provides functionality for users to schedule meetings with their ma
 ## Bookclubs
 Bookclubs are micro-communities within PairReading where users interested in a specific set of books can have discussions to gain deeper insights from one another. **bookclub show screenshot**
 ### Forums & Post Activity
-Post activity highlights recent posts the user has made. Clicking on posts redirects the user to the forum in which the post was made. Creating posts triggers a MongoDB trigger to send an email notification to all members of a bookclub informing them about the new post. 
+Post activity highlights recent posts the user has made. Clicking on posts redirects the user to the forum in which the post was made. Creating posts triggers a MongoDB DB trigger to send an email notification to all members of a bookclub (via Twilio's Sendgrid API) informing them about the new post.  
 **screenshot of email**
 ```
 function processUser(userId){
