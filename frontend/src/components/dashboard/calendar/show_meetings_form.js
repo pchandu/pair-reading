@@ -8,12 +8,13 @@ class ShowMeetingsForm extends React.Component {
 
     render(){
         return(
-        <ul>
+        <div className="show-meetings-container">
             <h1>Meetings on {this.props.selectedDate}</h1>
+        <ul>
         {this.props.meetings.map((meeting, idx) => {
             if(this.props.selectedDate === meeting.date){
             return(
-            <li key={idx}>
+            <li key={idx} className = "meeting-item">
                 Title: {meeting.title}
                 <br></br>
                 Partner: {meeting.partner}
@@ -24,6 +25,7 @@ class ShowMeetingsForm extends React.Component {
             }
         })}
         </ul>
+        </div>
         )
     }
 }

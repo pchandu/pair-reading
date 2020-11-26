@@ -1,0 +1,27 @@
+.show-meetings-container h1 {
+    font-size: 25px;
+    background-color: unset;
+    color: rgb(42, 135, 147);
+
+}
+.show-meetings-container ul{
+    background-color: unset;
+}
+.show-meetings-container{
+    margin-top: 10px;
+    overflow: scroll;
+    padding: 10px;
+    margin-right: 20px;
+    /* border: 1px solid red; */
+    width: 460px;
+    max-height: 400px;
+    background-color: rgb(238, 238, 238);
+    box-shadow: 0px 2px 4px 0px rgba(0,0,0,0.5);
+}
+.meeting-item {
+    padding: 10px;
+    background-color: white;
+    margin: 10px auto;
+    box-shadow: 0px 2px 4px 0px rgba(0,0,0,0.5);
+    border-radius: 5px;
+}

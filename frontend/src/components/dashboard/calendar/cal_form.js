@@ -51,26 +51,27 @@ class CalendarForm extends React.Component {
                 <h1 className="cal-form-header">
                     Fill out a form to schedule your next meeting!
                 </h1>
-                <label>Title:
+                <label><div className="cal-form-label">Title:</div>
                     <input type="text" 
                     value={this.state.title} 
                     onChange={this.handleTitle}/>
                 </label>
 
                 <div className='date-picker-form-container'>
-                    <label>Date:
+                    <label><div className="cal-form-label">Date:</div>
                     <MeetingDatePicker 
                     date={this.state.date} 
-                    onDateChange={this.onDateChange}/>
+                    onDateChange={this.onDateChange}
+                    className="datepicker-container"/>
                     </label>
-                    <label> Invitee Username:
+                    <label><div className="cal-form-label">Invitee Username:</div>
                         <input 
                         type="text" 
                         value={this.state.invitee}
                         onChange={this.handleInvitee} />
                     </label>
                     <button 
-                    className='cal-invite-submit-btn'
+                    className='cal-invite-submit-btn match-user-invite'
                     onClick={this.handleSubmit}>
                         Submit
                     </button>    
