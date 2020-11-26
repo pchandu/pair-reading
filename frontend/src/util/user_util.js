@@ -22,6 +22,18 @@ export const fetchUserTimeMatches = (filters) => (id) => {
 export const fetchUserBookMatches = (filters) => (id) => {
     return Axios.get(`/api/users/${id}/bookmatches`, { params: filters })
 };
+
+// Calendar actions
+
 export const createCalInvite = (inviteInfo) => {
     return Axios.post(`/api/users/createMeetingInvite`, {data: inviteInfo});
+}
+
+
+export const acceptCalInvite = (inviteInfo) => {
+    return Axios.post(`/api/users/acceptCalInvite`, {data: inviteInfo})
+}
+
+export const denyCalInvite = (inviteInfo) => {
+    return Axios.delete(`/api/users/denyCalInvite`, {data: inviteInfo})
 }

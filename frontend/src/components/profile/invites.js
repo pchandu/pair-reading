@@ -1,18 +1,45 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
+import BookClubInvitesContainer from './invites/bookclub_invites'
+import CalendarInvitesContainer from './invites/calendar_invites'
+
 class Invites extends React.Component {
     constructor(props){
         super(props)
         this.props = props;
         this.state = {
             showInvites: false,
+            updated: false,
+            bookclubInvites: [],
+            calendarInvites: [],
             updated: false
         }
+        
+        this.bookclubInvites = []
+        this.calendarInvites = []
 
         this.handleOpen = this.handleOpen.bind(this)
         this.handleAccept = this.handleAccept.bind(this)
         this.handleDeny = this.handleDeny.bind(this)
+        this.filterInvites = this.filterInvites.bind(this)
+    }
+
+    filterInvites(){
+        this.bookclubInvites = []
+        this.calendarInvites = []
+        this.props.invitesArray.forEach( invite => {
+            if(invite.type === "calendar"){
+                this.calendarInvites.push(invite)
+            } else if(invite.type === "bookclub"){
+                this.bookclubInvites.push(invite)
+            }
+        })
+        this.setState({updated: !this.state.updated})
+    }
+
+    componentDidMount(){
+        this.filterInvites()
     }
 
     handleOpen(){
@@ -20,81 +47,78 @@ class Invites extends React.Component {
             showInvites: !this.state.showInvites
         })
     }
-    handleAccept(bookClubId){
-        this.props.joinBookClub({
-            bookclub: bookClubId,
-            userId: this.props.userId
-        }).then( window.location.reload() )
+
+    handleAccept(info,type){
+        if(type === "bookclub"){
+
+            this.props.joinBookClub({
+                bookclub: info,
+                userId: this.props.userId
+            }).then( window.location.reload() )
+
+        } else if(type === "calendar"){
+            this.props.acceptCalInvite(Object.assign({},info, {userId: this.props.userId}))
+                .then(() => this.props.refreshLoggedInUserInfo({user:this.props.userId}))
+                .then(setTimeout(() => this.filterInvites, 3000)) 
+        }
     }
 
-    handleDeny(bookClubId){
-        this.props.denyBookClub({
-            bookclub: bookClubId,
-            userId: this.props.userId
-        }).then(this.props.refreshLoggedInUserInfo({user:this.props.userId}))
-        .then(this.setState({updated: !this.state.updated}))
+    handleDeny(info,type){
+        if(type === "bookclub"){
+
+            this.props.denyBookClub({
+                bookclub: info,
+                userId: this.props.userId
+            }).then(this.props.refreshLoggedInUserInfo({user:this.props.userId}))
+            .then(this.setState({updated: !this.state.updated}))
+
+        } else if (type === "calendar"){
+            this.props.denyCalInvite(Object.assign({},info, {userId: this.props.userId}))
+                .then(this.props.refreshLoggedInUserInfo({user:this.props.userId}))
+                .then(setTimeout(() => this.filterInvites, 3000)) 
+        }
     }
 
     render(){
 
         // 27 letters
         let { invitesArray } = this.props;
-        
+
+        let bookClubContainer;
+        let calendarContainer;
+
+        this.bookclubInvites.length > 0 ? 
+        bookClubContainer = < BookClubInvitesContainer
+        handleAccept={this.handleAccept}
+        handleDeny={this.handleDeny}
+        invites={this.bookclubInvites}/> 
+        : bookClubContainer = ''
+
+        this.calendarInvites.length > 0 ? 
+        calendarContainer = < CalendarInvitesContainer 
+        handleAccept={this.handleAccept}
+        handleDeny={this.handleDeny}
+        invites={this.calendarInvites}/> 
+        : calendarContainer = '' 
+
         if (invitesArray.length === 0) { 
             return(null)
         }
         return(
-            <ul className="invites-outside-container">
+
+            <div className="invites-outside-container">
                 <button 
                 className="invites-toggle-button"
                 onClick={this.handleOpen}>
                     <i class="fas fa-user-friends"></i>Invites ({invitesArray.length})
                 </button>
 
-                <div 
-                className={`invites-dropdown-li-items 
-                ${this.state.showInvites ? "show" : "hidden"}`}>
-                    <div className="invites-dropdown-container">
-                        <div className="top-invites-inner-container">
-                            <p>Book Club</p>   
-                            <p className="inviter-label">Inviter</p>
-                            <div className="hidden-button-div">
-                            <button className="invisible invites-hidden-button"/>
-                            <button className="invisible invites-hidden-button"/>
-                            </div>
-                        </div>
-                {invitesArray ? invitesArray.map( (invite,idx) => {
-                    return(
-                        <li className="individual-invite-li-container"> 
-                            <label className="invites-outer-label">
-                            <Link to={`/bookclubs/${invite.id}`}>
-                                {invite.title.length > 27 ? 
-                                invite.title.slice(0,26) + "..."
-                                : invite.title}
-                            </Link>
-                            </label>
-                            <label className="invites-outer-label">
-                            <Link to={`/users/${invite.creatorId}`}>
-                                {invite.creator}
-                            </Link>
-                            </label>
-
-                            <div className="invites-button-container-div">
-                                <button 
-                                onClick={() => this.handleAccept(invite.id)} 
-                                className="invites-join-button">Join</button>
-
-                                <button 
-                                onClick={() => this.handleDeny(invite.id)} 
-                                className="invites-deny-button">Deny</button>
-                            </div>
-                        </li>
-
-                    )
-                }): ''}
-                    </div>
+                <div className={`invites-dropdown-li-items 
+                    ${this.state.showInvites ? "show" : "hidden"}`}>
+                    {bookClubContainer}
+                    {calendarContainer}
                 </div>
-            </ul>
+            </div>
         )
     }
 }
