@@ -46,12 +46,34 @@ Users have two primary functionalities:
 1. managing invites. Users can be invited to join bookclubs or accept a meeting with a match.
 2. connecting with matches. A list of matches (an algorithm that finds other users who share book preferences) is populated in a dropdown style list. 
 ## Calendar
+The calendar provides functionality for users to schedule meetings with their matches so they can discuss their readings!
 **gif of different calendar views**
 ## Bookclubs
 Bookclubs are micro-communities within PairReading where users interested in a specific set of books can have discussions to gain deeper insights from one another. **bookclub show screenshot**
-### Post Activity & Forums
-Post activity highlights recent posts the user has made. Clicking on posts redirects the user to the forum in which the post was made. 
-//CRUD
+### Forums & Post Activity
+Post activity highlights recent posts the user has made. Clicking on posts redirects the user to the forum in which the post was made. Creating posts triggers a MongoDB trigger to send an email notification to all members of a bookclub informing them about the new post. 
+**screenshot of email**
+```
+function processUser(userId){
+  const sendGridApiUrl = "https://api.sendgrid.com/v3/mail/send";
+  // Access to SendGrid API Key value stored in Stitch Secret
+ const sendGridApiKey = context.values.get("SendGridApiKey");
+  const usersCollection = context.services.get("mongodb-atlas").db("Cluster0").collection("users");
+  usersCollection.findOne({_id: new BSON.ObjectId(`${userId}`)}).then(user => {
+    checkUser(user);
+    // Build email data 
+    
+    var emailData = BuildEmailData(user);
+    // deleted return before context
+    context.http.post({
+    // Access the default http client and execute a POST request
+    url: sendGridApiUrl, headers: {Authorization: [`Bearer ${sendGridApiKey}`]}, body: emailData, encodeBodyAsJSON: true})
+        .then(res =>{
+          console.log (res.statusCode); // For logging
+    });
+  })
+}
+```
 **screenshot of Forums page**
 # Developers: 
 Alex Archibeque, Kat Chan, Praneeth Chandu, Kevin Su
