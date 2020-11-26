@@ -28,6 +28,7 @@ class Invites extends React.Component {
     filterInvites(){
         this.bookclubInvites = []
         this.calendarInvites = []
+        
         this.props.invitesArray.forEach( invite => {
             if(invite.type === "calendar"){
                 this.calendarInvites.push(invite)
@@ -110,7 +111,7 @@ class Invites extends React.Component {
                 <button 
                 className="invites-toggle-button"
                 onClick={this.handleOpen}>
-                    <i class="fas fa-user-friends"></i>Invites ({invitesArray.length})
+                    Invites ({invitesArray.length})
                 </button>
 
                 <div className={`invites-dropdown-li-items 

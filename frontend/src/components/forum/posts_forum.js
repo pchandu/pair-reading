@@ -7,6 +7,7 @@ export default ({props}) => {
     delete posts['order'];
     let post;
     if(Object.values(posts).length !== 0)
+    {
     return <ul className="forum-show-posts">
         {order.map((key, i) => {
             post = posts[key];
@@ -47,5 +48,8 @@ export default ({props}) => {
             </li>)
         })}
     </ul>
+    }else{
+        return <div></div>
+    }
 
 }

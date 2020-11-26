@@ -10,7 +10,7 @@ import { deleteBookClub } from '../../util/bookclub_util';
 const mSTP = ({ session: { user }, entities }) => ({
     userId: user.id,
     user,
-    bookclubs: refSelector(user.bookclubs, entities.bookclubs)
+    bookclubs: refSelector(user ? user.bookclubs : undefined, entities.bookclubs)
 });
 
 const mDTP = dispatch => ({
