@@ -40,7 +40,7 @@ The preferences are stylized buttons that change color to indicate whether they 
 Once a user finishes onboarding, the user lands on the dashboard, where the main functionality of the app exists. 
 **screenshot of dashboard**
 
-The dashboard is broken into 3 modules: user profile (left), recent posts & casual reading of the day (middle), and more external interaction such as scheduling meetings feature and bookclubs (right). 
+The dashboard is broken into 2 modules: user profile (left), and more external interaction such as scheduling meetings feature and bookclubs (right). 
 
 # User Profile 
 Users have two primary functionalities, both of which are implemented in modals: 
