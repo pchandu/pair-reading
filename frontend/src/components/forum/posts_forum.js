@@ -6,8 +6,7 @@ export default ({props}) => {
     const order = posts.order ? posts.order : [];
     delete posts['order'];
     let post;
-    debugger
-    if(Object.values(posts).length !== 0) debugger
+    if(Object.values(posts).length !== 0)
     return <ul className="forum-show-posts">
         {order.map((key, i) => {
             post = posts[key];
