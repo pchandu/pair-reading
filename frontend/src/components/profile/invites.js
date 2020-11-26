@@ -47,7 +47,7 @@ class Invites extends React.Component {
                 <button 
                 className="invites-toggle-button"
                 onClick={this.handleOpen}>
-                    Invites ({invitesArray.length})
+                    <i class="fas fa-user-friends"></i>Invites ({invitesArray.length})
                 </button>
 
                 <div 

@@ -64,6 +64,16 @@
     background-color: #9CD170;
 }
 
+.invites-toggle-button > i {
+    background-color: transparent;
+    
+}
+
+.invites-toggle-button > i:hover {
+    background-color: transparent;
+
+}
+
 .invites-button-container-div{
     width: 20%;
     display:flex;
