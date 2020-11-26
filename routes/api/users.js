@@ -113,7 +113,7 @@ router.delete('/denyCalInvite', (req,res) => {
         }
       })
       user.save()
-      
+
       return res.status(200).json({msg:"denied"})
     })
 
