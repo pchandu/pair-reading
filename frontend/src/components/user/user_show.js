@@ -32,7 +32,6 @@ class UserShow extends React.Component {
                   <i class="fas fa-user"></i>
                   {username}
                 </div>
-                <div className="profile-email">{email}</div>
                 <h1 className="profile-label-user">
                   <i class="fas fa-book-reader"></i>Bookclubs
                 </h1>

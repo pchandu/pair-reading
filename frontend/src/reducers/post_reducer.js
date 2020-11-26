@@ -15,12 +15,10 @@ const postReducer = (state = {}, action) => {
         case RECEIVE_POST:
             return Object.assign({}, state, { [action.payload.data._id]: action.payload.data });
         case RECEIVE_NEW_POST:
-            debugger
             nextState = Object.assign({}, state, { [action.payload.data._id]: action.payload.data }, {order: state.order});
             nextState.order.unshift(action.payload.data._id);
             return nextState;
         case RECEIVE_ALL_POSTS:
-            debugger
             return action.payload.data;
         case DELETE_POST:
             nextState = Object.assign({}, state);
