@@ -14,6 +14,8 @@
 @import url('styles/dashboard/dashboard-outer.css');
 @import url('styles/dashboard/dashboard_profile.css');
 @import url('styles/dashboard/calendar/calendar-form.css');
+@import url('styles/dashboard/calendar/new-meeting.css');
+@import url('styles/dashboard/calendar/show-meeting.css');
 @import url('styles/dashboard/dashboard-match.css');
 @import url('styles/dashboard/preferences_modal.css');
 @import url('styles/dashboard/dashboard-invites.css');

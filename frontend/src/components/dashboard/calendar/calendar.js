@@ -29,7 +29,11 @@ class DashboardCalendar extends React.Component {
     for (let i = 0; i < days.length; i++) {
       const day = days[i];
       const button = day.children[0];
-      day.addEventListener("click", () => button.click());
+      day.addEventListener("click", () => {
+        // debugger
+        button.focus();
+        return button.click()
+      });
     }
 
     // this.props.refreshUserInfo({user: this.props.currentUser["id"]}) 
@@ -47,7 +51,6 @@ class DashboardCalendar extends React.Component {
     let date = JSON.stringify(e._d).replace(/\"/g, "").slice(0,10)
     // "YYYY-MM-DD" Object Type STRING
     this.setState({ selectedDate: date, showForm: 2});
-
     // meetings: [{date: "", partner: "", time: ""},{},{}]
   }
 
@@ -70,12 +73,12 @@ class DashboardCalendar extends React.Component {
       selectedDate={this.state.selectedDate}/>
     } else {
       generalForm = ''
+      
+      
     } 
-    
-    
     return (
       <div className="outer-div-container-calendar">
-          <div>
+          <div className="inner-div-container-calendar">
             <p>Click on a date in your calendar to 
               <br></br>
               see if you have any meetings then
@@ -85,18 +88,18 @@ class DashboardCalendar extends React.Component {
                 onSelect={this.onSelect}
               />
               <button 
-              className="schedule new meeting"
+              className="match-user-invite new-meeting-btn"
               onClick={() => this.showForm(1)}
               >
                 {/* On click that updates state that rerenders */}
                 {/* When true render thing */}
-                Schedule New meetings
+                Schedule New Meetings
               </button>
           </div>
-
           <div>
             {generalForm}
           </div>
+
       </div>
     )
   }
