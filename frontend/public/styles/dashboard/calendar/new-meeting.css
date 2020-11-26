@@ -1,0 +1,55 @@
+
+.outer-div-container-calendar {
+    /* border: 1px solid blue; */
+    width: 95%;
+}
+.inner-div-container-calendar {
+    margin-top: 10px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+.inner-div-container-calendar p {
+    color: rgb(42, 135, 147);
+    font-weight: bold;
+}
+
+.new-meeting-btn {
+    width: 250px !important;
+    margin-bottom: 30px;
+}
+
+.meeting-invite-form-container {
+    /* border: 1px solid red; */
+    width: 460px;
+    color: rgb(42, 135, 147);
+    padding: 15px;
+    margin-top: 61px;
+    margin-right: 20px;
+    box-shadow: 0px 2px 4px 0px rgba(0,0,0,0.5);
+    background-color: rgb(238, 238, 238);
+}
+.meeting-invite-form-container * {
+    background-color: inherit;
+}
+.meeting-invite-form-container input {
+    width: 300px;
+    padding: 5px;
+}
+.meeting-invite-form-container label {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.cal-form-header{
+    margin-bottom: 20px;
+    font-weight: bold;
+    font-size: 20px;
+}
+.cal-form-label{
+    /* margin-right: 20px; */
+}
+.cal-invite-submit-btn{
+
+}
+

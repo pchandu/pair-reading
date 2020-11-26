@@ -79,7 +79,7 @@ class DashboardCalendar extends React.Component {
     } 
     return (
       <div className="outer-div-container-calendar">
-          <div>
+          <div className="inner-div-container-calendar">
             <p>Click on a date in your calendar to 
               <br></br>
               see if you have any meetings then
@@ -89,18 +89,18 @@ class DashboardCalendar extends React.Component {
                 onSelect={this.onSelect}
               />
               <button 
-              className="schedule new meeting"
+              className="match-user-invite new-meeting-btn"
               onClick={() => this.showForm(1)}
               >
                 {/* On click that updates state that rerenders */}
                 {/* When true render thing */}
-                Schedule New meetings
+                Schedule New Meetings
               </button>
           </div>
-
           <div>
             {generalForm}
           </div>
+
       </div>
     )
   }
