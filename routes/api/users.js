@@ -71,19 +71,29 @@ router.post('/createMeetingInvite', (req, res) => {
 })
 
 
-//{ data:
-//    { date: '2020-11-27',
-//      inviterUsername: 'Demo User',
-//      time: '07:00:00',
-//      title: 'alfjaljfd',
-//      type: 'calendar' 
-//      userId: '5fbdde66f036d08b8a9e6b28' }
-
 router.post('/acceptCalInvite', (req,res) => {
-  // put the meeting invite
-  // into the meetings slice of model
-  // and remove the invite from the invites array
-  console.log(req.body)
+  console.log(req.body.data)
+  User.findById(req.body.data.userId)
+    .then( user => {
+
+      user.meetings.push({ 
+        date: req.body.data.date, 
+        partner: req.body.data.inviterUsername, 
+        time: req.body.data.time, 
+        title: req.body.data.title })
+
+      user.invites.forEach( (invite, idx) => {
+        if(invite.title === req.body.data.title){
+          user.invites.splice(idx,1)
+        }
+      })
+
+      user.save()
+
+      return res.status(200).json({msg: "done!"})
+    })
+
+  return res.json({msg:"Something went wrong."})
 })
 
 // [0] { date: '2020-12-02',
@@ -94,9 +104,22 @@ router.post('/acceptCalInvite', (req,res) => {
 //       userId: '5fbdde66f036d08b8a9e6b28' }
 
 router.delete('/denyCalInvite', (req,res) => {
+
+  User.findById(req.body.userId)
+    .then( user => {
+      user.invites.forEach( (invite,idx) => {
+        if(invite.title === req.body.title) {
+          user.invites.splice(idx,1)
+        }
+      })
+      user.save()
+      
+      return res.status(200).json({msg:"denied"})
+    })
+
   // KEEP IN MIND denying the invite
   // find the user and remove the invite from the invites array
-  console.log(req.body)
+
 })
 
 router.patch('/updateUser', (req, res) => {

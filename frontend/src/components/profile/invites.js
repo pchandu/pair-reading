@@ -12,19 +12,22 @@ class Invites extends React.Component {
             showInvites: false,
             updated: false,
             bookclubInvites: [],
-            calendarInvites: []
+            calendarInvites: [],
+            updated: false
         }
         
         this.bookclubInvites = []
         this.calendarInvites = []
-        this.filterInvites()
 
         this.handleOpen = this.handleOpen.bind(this)
         this.handleAccept = this.handleAccept.bind(this)
         this.handleDeny = this.handleDeny.bind(this)
+        this.filterInvites = this.filterInvites.bind(this)
     }
 
     filterInvites(){
+        this.bookclubInvites = []
+        this.calendarInvites = []
         this.props.invitesArray.forEach( invite => {
             if(invite.type === "calendar"){
                 this.calendarInvites.push(invite)
@@ -32,6 +35,11 @@ class Invites extends React.Component {
                 this.bookclubInvites.push(invite)
             }
         })
+        this.setState({updated: !this.state.updated})
+    }
+
+    componentDidMount(){
+        this.filterInvites()
     }
 
     handleOpen(){
@@ -50,6 +58,8 @@ class Invites extends React.Component {
 
         } else if(type === "calendar"){
             this.props.acceptCalInvite(Object.assign({},info, {userId: this.props.userId}))
+                .then(() => this.props.refreshLoggedInUserInfo({user:this.props.userId}))
+                .then(setTimeout(() => this.filterInvites, 3000)) 
         }
     }
 
@@ -64,6 +74,8 @@ class Invites extends React.Component {
 
         } else if (type === "calendar"){
             this.props.denyCalInvite(Object.assign({},info, {userId: this.props.userId}))
+                .then(this.props.refreshLoggedInUserInfo({user:this.props.userId}))
+                .then(setTimeout(() => this.filterInvites, 3000)) 
         }
     }
 
