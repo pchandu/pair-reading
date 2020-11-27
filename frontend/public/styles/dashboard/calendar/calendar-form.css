@@ -115,3 +115,16 @@
     color: red;
 } */
 
+.errors-div-for-cal-invites-form{
+    width: 90%;
+    height: 30px;
+    display:flex;
+    color: maroon;
+    font-weight: 700;
+    align-items:center;
+    justify-content:center;
+    padding: 5px;
+    font-size: 20px;
+    margin-bottom: 10px;
+    border-radius:5px;
+}

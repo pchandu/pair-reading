@@ -23,6 +23,11 @@ router.get("/test", (req, res) => res.json({ msg: "This is the users route" }));
 
 router.post('/createMeetingInvite', (req, res) => {
   // console.log(req.body)
+  if( !req.body.data.invite.date ){
+    return res.json({err: "You need a valid date!"})
+  }else if(!req.body.data.invite.title){
+    return res.json({err: "You need a Title!"})
+  }else{
   let date = req.body.data.invite.date.slice(0,10)
   let time = req.body.data.invite.date.slice(11,19)
   let title = req.body.data.invite.title
@@ -35,7 +40,7 @@ router.post('/createMeetingInvite', (req, res) => {
 
       if(invitee){
         if(invitee.username === user.username){
-          return res.json({msg: "Cant invite yourself!"})
+          return res.json({err: "Cant invite yourself!"})
         }else{
           
           invitee.invites.push({
@@ -58,14 +63,14 @@ router.post('/createMeetingInvite', (req, res) => {
             return res.status(200).json({msg:"Invite sent!"})
         } 
       } else {
-        return res.json({msg:"Invitee doesnt exist"})
+        return res.json({err:"Invitee doesnt exist"})
       }
     })}
     else{
-      return res.status(200).json({msg: "Something went wrong"})
+      return res.json({err: "Something went wrong"})
     }
     
-  })
+  })}
   
   // { type: 'calendar', date: date, time: time,
   //  inviterUsername: user.username, title: title }

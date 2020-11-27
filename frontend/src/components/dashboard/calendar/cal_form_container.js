@@ -14,7 +14,7 @@ const mSTP = ({session: {user}, entities:{users}}) => {
 const mDTP = (dispatch, ownProps) => {
   return {
     createCalInvite: inviteInfo => createCalInvite(inviteInfo),
-    showForm: num => ownProps.showForm(num),
+    showForm: (num,msg) => ownProps.showForm(num,msg),
     refreshUserInfo: (userId) => dispatch(refreshLoggedInUserInfo(userId))
   };
 };
