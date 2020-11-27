@@ -173,6 +173,7 @@ router.delete('/denyBookClub', (req,res) => {
 
     User.findById(req.body.userId)
         .then( user => {
+            if(user){
             user.invites.forEach( (invite,idx) => {
                 if(JSON.stringify(invite.id) === `"${req.body.bookclub}"`){
                     user.invites.splice(idx,1)
@@ -180,6 +181,9 @@ router.delete('/denyBookClub', (req,res) => {
             })
             user.save()
             return res.status(200).json({msg: "success"})
+        }else{
+            return res.status(200).json({msg:"something went wrong"})
+        }
         })
 })
 

@@ -1,8 +1,8 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
-import BookClubInvitesContainer from './invites/bookclub_invites'
-import CalendarInvitesContainer from './invites/calendar_invites'
+import BookClubInvitesContainer from './invites/bookclub_container'
+import CalendarInvitesContainer from './invites/calendar_container'
 
 class Invites extends React.Component {
     constructor(props){
@@ -11,37 +11,15 @@ class Invites extends React.Component {
         this.state = {
             showInvites: false,
             updated: false,
-            bookclubInvites: [],
-            calendarInvites: [],
-            updated: false
         }
         
-        this.bookclubInvites = []
-        this.calendarInvites = []
 
         this.handleOpen = this.handleOpen.bind(this)
         this.handleAccept = this.handleAccept.bind(this)
         this.handleDeny = this.handleDeny.bind(this)
-        this.filterInvites = this.filterInvites.bind(this)
     }
 
-    filterInvites(){
-        this.bookclubInvites = []
-        this.calendarInvites = []
-        
-        this.props.invitesArray.forEach( invite => {
-            if(invite.type === "calendar"){
-                this.calendarInvites.push(invite)
-            } else if(invite.type === "bookclub"){
-                this.bookclubInvites.push(invite)
-            }
-        })
-        this.setState({updated: !this.state.updated})
-    }
 
-    componentDidMount(){
-        this.filterInvites()
-    }
 
     handleOpen(){
         this.setState({
@@ -55,12 +33,11 @@ class Invites extends React.Component {
             this.props.joinBookClub({
                 bookclub: info,
                 userId: this.props.userId
-            }).then( window.location.reload() )
+            }).then( () => this.props.refreshLoggedInUserInfo({user:this.props.userId}) )
 
         } else if(type === "calendar"){
             this.props.acceptCalInvite(Object.assign({},info, {userId: this.props.userId}))
-                .then(() => this.props.refreshLoggedInUserInfo({user:this.props.userId}))
-                .then(setTimeout(() => this.filterInvites, 3000)) 
+                .then(  () => this.props.refreshLoggedInUserInfo({user:this.props.userId}))
         }
     }
 
@@ -70,13 +47,12 @@ class Invites extends React.Component {
             this.props.denyBookClub({
                 bookclub: info,
                 userId: this.props.userId
-            }).then(this.props.refreshLoggedInUserInfo({user:this.props.userId}))
-            .then(this.setState({updated: !this.state.updated}))
+            })
+            .then(this.props.refreshLoggedInUserInfo({user:this.props.userId}))
 
         } else if (type === "calendar"){
             this.props.denyCalInvite(Object.assign({},info, {userId: this.props.userId}))
-                .then(this.props.refreshLoggedInUserInfo({user:this.props.userId}))
-                .then(setTimeout(() => this.filterInvites, 3000)) 
+                .then(() => this.props.refreshLoggedInUserInfo({user:this.props.userId}))
         }
     }
 
@@ -88,19 +64,13 @@ class Invites extends React.Component {
         let bookClubContainer;
         let calendarContainer;
 
-        this.bookclubInvites.length > 0 ? 
         bookClubContainer = < BookClubInvitesContainer
         handleAccept={this.handleAccept}
-        handleDeny={this.handleDeny}
-        invites={this.bookclubInvites}/> 
-        : bookClubContainer = ''
+        handleDeny={this.handleDeny} /> 
 
-        this.calendarInvites.length > 0 ? 
         calendarContainer = < CalendarInvitesContainer 
         handleAccept={this.handleAccept}
-        handleDeny={this.handleDeny}
-        invites={this.calendarInvites}/> 
-        : calendarContainer = '' 
+        handleDeny={this.handleDeny} /> 
 
         if (invitesArray.length === 0) { 
             return(null)
@@ -111,7 +81,7 @@ class Invites extends React.Component {
                 <button 
                 className="invites-toggle-button"
                 onClick={this.handleOpen}>
-                    Invites ({invitesArray.length})
+                    <i class="fas fa-user-friends"></i>Invites ({invitesArray.length})
                 </button>
 
                 <div className={`invites-dropdown-li-items 
