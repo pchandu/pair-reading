@@ -4,7 +4,6 @@ import { Link } from 'react-router-dom'
 class BookClubInvitesContainer extends React.Component {
 
     render(){
-        debugger;
         return(
             <>     
             <div className="invites-dropdown-container">
