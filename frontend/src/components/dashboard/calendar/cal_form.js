@@ -11,6 +11,7 @@ class CalendarForm extends React.Component {
             invitee: "",
             title: "",
             date: null,
+            errors: ''
         }
 
         this.handleTitle = this.handleTitle.bind(this);
@@ -37,10 +38,13 @@ class CalendarForm extends React.Component {
 
         this.props.createCalInvite(inviteInfo)
             .then((res) => {
-                // let msg = res.data.msg
-                // debugger;
-                this.props.showForm(0)
-                this.props.refreshUserInfo({user: userId})
+                if(res.data.err){
+                    this.setState({errors: res.data.err})
+                }else{
+                    let msg = res.data.msg
+                    this.props.showForm(0, msg)
+                    this.props.refreshUserInfo({user: userId})
+                }
             })
 
     }
@@ -51,6 +55,12 @@ class CalendarForm extends React.Component {
                 <h1 className="cal-form-header">
                     Fill out a form to schedule your next meeting!
                 </h1>
+
+                <div 
+                className={`${this.state.errors ? "show-flex errors-div-for-cal-invites-form" : "hidden"}`}> 
+                {this.state.errors} 
+                </div>
+
                 <label><div className="cal-form-label">Title:</div>
                     <input type="text" 
                     value={this.state.title} 

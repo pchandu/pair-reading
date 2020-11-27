@@ -115,3 +115,30 @@
     color: red;
 } */
 
+.errors-div-for-cal-invites{
+    font-size: 30px;
+    font-weight: 700;
+    color: cadetblue;
+    display:flex;
+    align-items:center;
+    justify-content: center;
+    height: 100%;
+    min-width: 200px;
+    flex-wrap:wrap;
+    padding: 20px;
+    margin-right: 30px;
+}
+
+.errors-div-for-cal-invites-form{
+    width: 90%;
+    height: 30px;
+    display:flex;
+    color: maroon;
+    font-weight: 700;
+    align-items:center;
+    justify-content:center;
+    padding: 5px;
+    font-size: 20px;
+    margin-bottom: 10px;
+    border-radius:5px;
+}

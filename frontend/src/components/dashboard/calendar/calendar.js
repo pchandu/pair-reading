@@ -44,12 +44,17 @@ class DashboardCalendar extends React.Component {
     // meetings: [{date: "", partner: "", time: ""},{},{}]
   }
 
-  showForm(num){
-    // debugger;
+  showForm(num,msg){
+    if(msg){
     this.setState({
       showForm: num,
-      // responseMessage: msg
-    })
+      responseMessage: msg
+    })}
+    else{
+      this.setState({
+        showForm: num
+      })
+    }
   }
 
   render() {
@@ -64,9 +69,10 @@ class DashboardCalendar extends React.Component {
       meetings={this.props.meetings}
       selectedDate={this.state.selectedDate}/>
     } else {
-      generalForm = ''
-      
-      
+      generalForm = 
+      <div className="errors-div-for-cal-invites"> 
+        {this.state.responseMessage}
+      </div>
     } 
     return (
       <div className="outer-div-container-calendar">

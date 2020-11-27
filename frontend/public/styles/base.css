@@ -57,6 +57,10 @@ time, mark, audio, video  {
     display: block !important;
 }
 
+.show-flex{
+    display: flex !important;
+}
+
 .invisibile{
     visibility: none;
 }
