@@ -60,7 +60,7 @@ router.post('/createMeetingInvite', (req, res) => {
             time: time, 
             title: title })
           user.save();
-            return res.status(200).json({msg:"Invite sent!"})
+            return res.status(200).json({msg:`Invite sent to ${invitee.username}`})
         } 
       } else {
         return res.json({err:"Invitee doesnt exist"})
