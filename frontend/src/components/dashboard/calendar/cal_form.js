@@ -2,6 +2,7 @@ import React from "react";
 import "react-dates/initialize";
 import MeetingDatePicker from "./date_picker"
 import DropdownButton from 'react-bootstrap/DropdownButton'
+import { Dropdown } from "react-bootstrap";
 
 class CalendarForm extends React.Component {
   
@@ -45,8 +46,8 @@ class CalendarForm extends React.Component {
     }
 
     handleMatch(e){
-        // debugger
-        this.setState({invitee: e.currentTarget.value});
+        this.setState({invitee: e.currentTarget.outerText});
+        debugger
         this.showMatches(e);
     }
     
@@ -105,7 +106,14 @@ class CalendarForm extends React.Component {
         // })}
         // </div>;
 
-        
+        const matches = 
+        <DropdownButton>
+            {this.props.matches.map((match, i) => {
+            return(
+                <Dropdown.Item key={i} value={match.username} onClick={this.handleMatch}>{match.username}</Dropdown.Item>
+            )
+        })}
+        </DropdownButton>
 
         return (
             <div className='meeting-invite-form-container'>
@@ -135,7 +143,7 @@ class CalendarForm extends React.Component {
                         {matches}
                     </label>
                     <label><div className="cal-form-label">Book:</div>
-                        {books}
+                        {/* {books} */}
                     </label>
                     <button 
                     className='cal-invite-submit-btn match-user-invite'
