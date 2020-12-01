@@ -10,22 +10,18 @@ class CalendarForm extends React.Component {
         super(props);
         this.state = {
             type: "calendar",
-            invitee: "",
+            invitee: "Select the match you want to invite",
             title: "",
             date: null,
-            book: "",
+            book: "Select the book you would like to meet about",
             errors: '',
-            showMatches: false,
-            showBooks: false
         }
 
         this.handleTitle = this.handleTitle.bind(this);
         this.handleInvitee = this.handleInvitee.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
         this.onDateChange = this.onDateChange.bind(this);
-        this.showMatches = this.showMatches.bind(this);
         this.handleMatch = this.handleMatch.bind(this);
-        this.showBooks = this.showBooks.bind(this);
         this.handleBook = this.handleBook.bind(this);
     }
   
@@ -37,32 +33,13 @@ class CalendarForm extends React.Component {
         this.setState({invitee: e.currentTarget.value});
     }
 
-    showMatches(e){
-        e.preventDefault();
-
-        this.setState({
-            showMatches: !this.state.showMatches
-        })
-    }
-
     handleMatch(e){
-        this.setState({invitee: e.currentTarget.outerText});
-        debugger
-        this.showMatches(e);
-    }
-    
-    showBooks(e){
-        e.preventDefault();
-
-        this.setState({
-            showBooks: !this.state.showBooks
-        })
+        this.setState({invitee: e.currentTarget.title});
     }
 
     handleBook(e){
-        // debugger
-        this.setState({book: e.currentTarget.value});
-        this.showBooks(e);
+        this.setState({book: e.currentTarget.title});
+        debugger
     }
 
     onDateChange(date) {
@@ -70,16 +47,14 @@ class CalendarForm extends React.Component {
     }
 
     handleSubmit(){
-        const invite = Object.assign({}, 
-            {invite: this.state.type, invitee: this.state.invitee, title: this.state.title, date: this.state.date, errors: this.state.errors});
-        const inviteInfo = Object.assign({},{invite: invite}, {userId: this.props.userId});
+        const inviteInfo = Object.assign({},{invite: this.state}, {userId: this.props.userId});
         const userId = this.props.userId
 
         this.props.createCalInvite(inviteInfo)
             .then((res) => {
                 if(res.data.err){
                     this.setState({errors: res.data.err})
-                }else{
+                } else {
                     let msg = res.data.msg
                     this.props.showForm(0, msg)
                     this.props.refreshUserInfo({user: userId})
@@ -88,29 +63,20 @@ class CalendarForm extends React.Component {
     }
 
     render() {
-        // const matches = !this.state.showMatches ? (<select name="matches" id="matches" onClick={this.showMatches}></select>) :
-        // <div className="cal-form-dropdown">
-        // {this.props.matches.map((match, i) => {
-        //     return(
-        //         <button key={i} value={match.username} onClick={this.handleMatch}>{match.username}</button>
-        //     )
-        // })}
-        // </div>;
-        
-        // const books = !this.state.showBooks ? (<select name="books" id="books" onClick={this.showBooks}></select>) :
-        // <div className="cal-form-dropdown">
-        // {this.props.books.map((book, i) => {
-        //     return(
-        //         <button key={i} value={book.title} onClick={this.handleBook}>{book.title}</button>
-        //     )
-        // })}
-        // </div>;
-
         const matches = 
-        <DropdownButton>
+        <DropdownButton title={this.state.invitee} className="cal-form-dropdown">
             {this.props.matches.map((match, i) => {
             return(
-                <Dropdown.Item key={i} value={match.username} onClick={this.handleMatch}>{match.username}</Dropdown.Item>
+                <Dropdown.Item key={i} title={match.username} onClick={this.handleMatch}>{match.username}</Dropdown.Item>
+            )
+        })}
+        </DropdownButton>
+        
+        const books = 
+        <DropdownButton title={this.state.book} className="cal-form-dropdown">
+            {this.props.books.map((book, i) => {
+            return(
+                <Dropdown.Item key={i} title={book.title} onClick={this.handleBook}>{book.title}</Dropdown.Item>
             )
         })}
         </DropdownButton>
@@ -143,14 +109,13 @@ class CalendarForm extends React.Component {
                         {matches}
                     </label>
                     <label><div className="cal-form-label">Book:</div>
-                        {/* {books} */}
+                        {books}
                     </label>
                     <button 
                     className='cal-invite-submit-btn match-user-invite'
                     onClick={this.handleSubmit}>
                         Submit
                     </button>    
-                        {/* {console.log(this.props.matches)} this works */}
                 </div>
             </div>
         );
