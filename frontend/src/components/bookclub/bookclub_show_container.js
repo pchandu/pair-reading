@@ -16,7 +16,7 @@ const mSTP = ({ entities, session }, { match }) => {
     bookclub: entities.bookclubs[match.params.bookclubId],
     books: bookclubShowSelector(entities.bookclubs[match.params.bookclubId], entities.books,"books"),
     users: bookclubShowSelector(entities.bookclubs[match.params.bookclubId], entities.users,"users"),
-    forums: bookclubShowSelector(entities.bookclubs[match.params.bookclubId], entities.forums,"forums"),
+    forums: Object.values(entities.forums),
 }};
 
 const mDTP = dispatch => ({
