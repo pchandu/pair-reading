@@ -86,13 +86,13 @@ class BookClubShow extends React.Component {
     render() {
         const { bookclub} = this.props;
 
-        const forums = this.props.forums.map((el, i) =>
+        const forums = this.props.forums?  this.props.forums.map((el, i) =>
             <Link key={i} to={`/forums/${el._id}`} className="bookclub-forums-list-link">
                 <li key={i} className="bookclub-forums-list-item">
                     <h2>{el.title}</h2>
                 </li>
             </Link>
-        )
+        ) : ''
         const users = this.props.users.map((el, i) =>
             <Link key={i} to={`/users/${el._id}`}>
                 <li key={i} className="bookclub-users-list-item">

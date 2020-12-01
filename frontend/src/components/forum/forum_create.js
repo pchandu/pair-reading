@@ -18,23 +18,22 @@ class ForumCreate extends React.Component {
     }
 
     handleClose(){
-        // console.log("does this work at least?")
-        // debugger
         this.setState({show: false});
-        // debugger
     }
     
     handleShow(){
-        // debugger
         this.setState({show: true});
     }
 
     handleCreate(e){
         e.preventDefault();
         const newForum = Object.assign({}, {title: this.state.title, bookclub: this.state.bookclub})
-        // debugger
-        this.props.createForum(newForum).then(this.handleClose());
-        window.location.reload(false)
+        
+        this.props.createForum(newForum)
+            .then( () => {
+                this.handleClose()
+                this.props.fetchFilteredBookClubForums(this.props.bookclubId)
+            });
     }
 
     handleChange(e) {

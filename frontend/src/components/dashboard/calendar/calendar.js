@@ -76,7 +76,7 @@ class DashboardCalendar extends React.Component {
     } 
     return (
       <div className="outer-div-container-calendar">
-          <div className="inner-div-container-calendar">
+        <div className="inner-div-container-calendar">
             <p>Click on a date in your calendar to 
               <br></br>
               see if you have any meetings then
@@ -94,8 +94,7 @@ class DashboardCalendar extends React.Component {
                 Schedule New Meetings
               </button>
           </div>
-          <div>
-            {/* {this.state.responseMessage} */}
+          <div className="outer-invite-form-container-invisible" >
             {generalForm}
           </div>
 
