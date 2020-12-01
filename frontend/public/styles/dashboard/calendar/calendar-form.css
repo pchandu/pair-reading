@@ -145,3 +145,10 @@
 
 /* Calendar Form Dropdown */
 
+.cal-form-dropdown{
+    width: 300px;
+}
+
+.dropdown-toggle{
+    color: black;
+}
