@@ -33,7 +33,13 @@ class Invites extends React.Component {
             this.props.joinBookClub({
                 bookclub: info,
                 userId: this.props.userId
-            }).then( () => this.props.refreshLoggedInUserInfo({user:this.props.userId}) )
+            })
+            .then( () =>{ 
+
+            this.props.refreshLoggedInUserInfo({user:this.props.userId})
+            
+            this.props.fetchFilteredUserBookClubs(this.props.userId) 
+        })
 
         } else if(type === "calendar"){
             this.props.acceptCalInvite(Object.assign({},info, {userId: this.props.userId}))
@@ -48,7 +54,7 @@ class Invites extends React.Component {
                 bookclub: info,
                 userId: this.props.userId
             })
-            .then(this.props.refreshLoggedInUserInfo({user:this.props.userId}))
+            .then(() => this.props.refreshLoggedInUserInfo({user:this.props.userId}))
 
         } else if (type === "calendar"){
             this.props.denyCalInvite(Object.assign({},info, {userId: this.props.userId}))

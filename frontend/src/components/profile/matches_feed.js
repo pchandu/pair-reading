@@ -129,9 +129,9 @@ class MatchFeed extends React.Component {
                                     return;
                                 }
                                 return(
-                                    <p key={followedBook.id} className="matches-feed-books-title"> 
+                                    <li key={followedBook.id} className="matches-feed-books-title"> 
                                         {followedBook.title}
-                                    </p>
+                                    </li>
                                 )
                             }): ''}
                         </ul>

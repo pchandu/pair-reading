@@ -31,7 +31,7 @@ class BookClubFeed extends React.Component {
                     title: bookClubTitle, 
                     creator: this.props.userId
                 })
-                    .then(this.props.fetchFilteredUserBookClubs(this.props.userId))
+                    .then( () => this.props.fetchFilteredUserBookClubs(this.props.userId))
             }
         }).bind(this)
 
