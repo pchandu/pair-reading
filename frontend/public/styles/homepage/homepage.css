@@ -237,6 +237,23 @@
     text-decoration: none;
 }
 
+.front-page-top-signup-link-not-logged-in {
+    /* display: flex;
+    align-items: center;
+    justify-content: center; */
+    width: 250px;
+    height: 75px;
+    /* font-size: 30px;
+    font-weight: 600; */
+    /* background-color: #8cc85b;
+    color: rgb(221, 243, 247); */
+    text-decoration: none;
+    border-radius: 10px;
+    margin-top: 40px;
+    margin-bottom: 40px;
+    display: none;
+}
+
 
 .front-page-signup-link:hover {
     background-color: #7EB451;
