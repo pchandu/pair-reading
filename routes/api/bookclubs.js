@@ -108,16 +108,17 @@ router.delete('/deleteBookClub', (req,res) => {
                                     user.bookclubs.splice(idx, 1)
                                 }
                             })
-                        
+                            user.save()
+                            
                             bookClub.users.forEach(userId => {
                                 User.findById(userId)
                                     .then(user =>{
                                         user.bookclubs.forEach(bookClubId =>{
                                             if(bookClub.id === bookClubId){
                                                 user.bookclubs.splice(idx,1)
-                                                user.save()
                                             }
                                         })
+                                        user.save()
                                     })
                             })
                     })
