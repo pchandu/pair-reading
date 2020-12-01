@@ -108,7 +108,8 @@ router.delete('/deleteBookClub', (req,res) => {
                                     user.bookclubs.splice(idx, 1)
                                 }
                             })
-                        
+                            user.save()
+                            
                             bookClub.users.forEach(userId => {
                                 User.findById(userId)
                                     .then(user =>{

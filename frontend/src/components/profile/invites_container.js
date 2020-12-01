@@ -4,6 +4,8 @@ import Invites from './invites'
 import { refreshLoggedInUserInfo } from '../../actions/session_actions'
 import { acceptCalInvite, denyCalInvite } from '../../util/user_util'
 
+import { fetchFilteredUserBookClubs } from '../../actions/filters/bookclub_filter_actions';
+
 const mSTP = ({session,entities}) => {
     return({
         invitesArray: session.user.invites,
@@ -19,6 +21,7 @@ const mDTP = dispatch =>  {
         
         acceptCalInvite: (inviteInfo) => acceptCalInvite(inviteInfo),
         denyCalInvite: (inviteInfo) => denyCalInvite(inviteInfo),
+        fetchFilteredUserBookClubs: (userId) => dispatch(fetchFilteredUserBookClubs(userId))
     })
 }
 
