@@ -142,3 +142,13 @@
     margin-bottom: 10px;
     border-radius:5px;
 }
+
+/* Calendar Form Dropdown */
+
+.cal-form-dropdown{
+    width: 300px;
+}
+
+.dropdown-toggle{
+    color: black;
+}
