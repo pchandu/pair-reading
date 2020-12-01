@@ -20,6 +20,8 @@ class ShowMeetingsForm extends React.Component {
                 Partner: {meeting.partner}
                 <br></br>
                 Time: {meeting.time}
+                <br></br>
+                Book: {meeting.book.title}
             </li>
             )
             }
