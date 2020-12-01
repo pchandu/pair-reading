@@ -49,6 +49,7 @@ class ForumShow extends React.Component {
         // debugger
         const l = this.props.forum.posts ? this.props.forum.posts.length : 1;
         this.maxPage = Math.ceil(l/this.postsPerPage);
+        debugger
         return (
             <div className="forum-show-container">
                 <h1 className="forum-title">{this.props.forum.title}</h1>

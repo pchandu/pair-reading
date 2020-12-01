@@ -10,7 +10,7 @@ export default ({page, maxPage, handleClick}) => {
             prev
             </li>
     }
-    if(page !== maxPage){
+    if(page !== maxPage && maxPage >= 1){
         next = <li className="forum-show-nxt-btn" onClick={handleClick('next')}>
             next
             </li>

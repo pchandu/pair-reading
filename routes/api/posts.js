@@ -4,6 +4,7 @@ const mongoose = require('mongoose');
 const passport = require('passport');
 
 const Post = require('../../models/Post');
+const Forum = require('../../models/Forum');
 const {filterPosts} = require('../../filters/posts_filter');
 const { convert2POJO, getUsername } = require('./routes_util');
 const validatePostInput = require('../../validation/posts');
@@ -17,7 +18,16 @@ router.delete('/:id', (req,res) => {
     //console.log("FLAAGG")
     Post.findById(req.params.id)
         .then(post => {
-            if (post) post.delete().then(res.status(200).json({ msg: "Succesfully deleted bookclub" }));
+            if (post) {
+                Forum.findById(post.forum).then(forum => {
+                    console.log(forum)
+                    const idx = forum.posts.indexOf(req.params.id);
+                    forum.posts.splice(idx,1);
+                    forum.save()
+                }).then( () => 
+                    post.delete().then(res.status(200).json({ msg: "Succesfully deleted post" }))
+                )
+            }
             else 
             return res.status(400).json({ msg: "Invalid Permissions to delete post." })
         })
