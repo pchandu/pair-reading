@@ -82,7 +82,7 @@ class CalendarForm extends React.Component {
         </DropdownButton>
         
         const books = 
-        <DropdownButton title={this.state.book} 
+        <DropdownButton title={this.state.book.title} 
         className="cal-form-dropdown"
         key='Info'
         id={`dropdown-info`}
