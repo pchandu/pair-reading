@@ -1,6 +1,7 @@
 import React from "react";
 import "react-dates/initialize";
 import MeetingDatePicker from "./date_picker"
+import Dropdown from 'react-dropdown'
 
 class CalendarForm extends React.Component {
   
@@ -11,13 +12,15 @@ class CalendarForm extends React.Component {
             invitee: "",
             title: "",
             date: null,
-            errors: ''
+            errors: '',
+            showDDown: false
         }
 
         this.handleTitle = this.handleTitle.bind(this);
         this.handleInvitee = this.handleInvitee.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
         this.onDateChange = this.onDateChange.bind(this);
+        this.showMatches = this.showMatches.bind(this);
     }
   
     handleTitle(e){
@@ -28,12 +31,22 @@ class CalendarForm extends React.Component {
         this.setState({invitee: e.currentTarget.value});
     }
 
+    showMatches(e){
+        e.preventDefault();
+
+        this.setState({
+            showDDown: !this.state.showDDown
+        })
+    }
+
     onDateChange(date) {
         this.setState({date: date})
     }
 
     handleSubmit(){
-        const inviteInfo = Object.assign({},{invite: this.state}, {userId: this.props.userId});
+        const invite = Object.assign({}, 
+            {invite: this.state.type, invitee: this.state.invitee, title: this.state.title, date: this.state.date, errors: this.state.errors});
+        const inviteInfo = Object.assign({},{invite: invite}, {userId: this.props.userId});
         const userId = this.props.userId
 
         this.props.createCalInvite(inviteInfo)
@@ -46,10 +59,18 @@ class CalendarForm extends React.Component {
                     this.props.refreshUserInfo({user: userId})
                 }
             })
-
     }
 
     render() {
+        const matches = !this.state.showDDown ? (<select name="matches" id="matches" onClick={this.showMatches}></select>) :
+        <div className="cal-form-matches">
+        {this.props.matches.map((match, i) => {
+            return(
+                <button key={i}>{match.username}</button>
+            )
+        })}
+        </div>    
+        ;
         return (
             <div className='meeting-invite-form-container'>
                 <h1 className="cal-form-header">
@@ -75,10 +96,11 @@ class CalendarForm extends React.Component {
                     className="datepicker-container"/>
                     </label>
                     <label><div className="cal-form-label">Invitee Username:</div>
-                        <input 
+                        {/* <input 
                         type="text" 
                         value={this.state.invitee}
-                        onChange={this.handleInvitee} />
+                        onChange={this.handleInvitee} /> */}
+                        {matches}
                     </label>
                     <button 
                     className='cal-invite-submit-btn match-user-invite'

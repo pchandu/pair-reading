@@ -5,7 +5,9 @@ import { connect } from "react-redux";
 
 
 const mSTP = ({session: {user}, entities:{users}}) => {
+  // debugger
   return {
+    
     matches: Object.values(users).filter(el => el._id !== user.id),
     userId: user.id
   };
