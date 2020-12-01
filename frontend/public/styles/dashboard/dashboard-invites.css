@@ -150,20 +150,51 @@
 
 .calendar-invite-container-div > p {
     margin-right: 10px;
-    font-size: 18px;
-    width: 40%;
+    width: 100%;
     min-height: 30px;
     margin-bottom: 5px;
-    padding: 5px;
     border-radius: 5px;
+    background-color: #92cb63;
+    padding: 5px;
+}
+
+.individual-calendar-invite-container{
+    width: 100%;
+    display:flex;
+    justify-content: space-between;
+    background-color: #92cb63;
+}
+
+.div-container-for-the-outer-title{
+    display:flex;
+    flex-direction:column;
+}
+
+.div-container-for-the-outer-title > p {
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    padding: 5px;
+    margin-bottom: 5px;
+    margin-top: 5px;
+    font-weight: 700;
+    font-size: 26px;
+    width: 350px;
+    flex-wrap: wrap;
+}
+
+.individual-calendar-invite-container > p {
     color: rgb(29 94 102);
     font-weight: 600;
+    font-size: 18px;
     background-color: #92cb63;
+
 }
 
 .invite-name-container{
     position: relative;
 }
+
 
 .calendar-invite-info{
     display:none;
@@ -177,7 +208,17 @@
     border: 3px solid cadetblue;
 }
 
-.calendar-invite-info > h1 {
+.right-side-div-for-cal-invite{
+    display:flex;
+    align-items: center;
+    flex-direction:column;
+    justify-content:space-between;
+    width: 200px;
+    padding:10px;
+    margin:5px;
+}
+
+.right-side-div-for-cal-invite > h1 {
     display: flex;
     justify-content: center;
     font-size: 24px;
@@ -185,7 +226,17 @@
     align-items: center;
 }
 
-.calendar-invite-info >p {
+.right-side-div-for-cal-invite >p {
     display: flex;
     margin-top: 5px;
+}
+
+.inner-outer-div-for-cal-invite,
+.inner-button-div-for-cal-invite{
+    display:flex;
+}
+
+.image-for-cal-invite-book{
+    width: 150px;
+    height: auto;
 }

@@ -29,33 +29,50 @@ class CalendarInvitesContainer extends React.Component {
                         <p>Calendar Invites</p>   
                     </div>
                 {this.props.invites ? this.props.invites.map( (invite,i) => {
+                    let book = invite.book
                     return(
                         <div className="calendar-invite-container-div"> 
                             <p className="invite-name-container"
                                 onMouseEnter={() => this.showInfo(i)}
                                 onMouseLeave={() => this.hideInfo(i)}
-                            >
-                                {invite.title.length > 20 ? invite.title.slice(0,19) + "..." : invite.title}
+                            >   
+                                <div className="individual-calendar-invite-container">
+                                    <p>{invite.title.length > 50 ? invite.title.slice(0,51) + "..." : invite.title} </p>
+                                    <p>On: {invite.date.slice(5,11)} At: {invite.time.slice(0,5)}</p>
+                                </div>
+
 
                                 <div 
                                 className="calendar-invite-info"
                                 id={`text${i}calendar`}
-                                >
-                                    <h1>{invite.title}</h1>
-                                    <p>From: {invite.inviterUsername}</p>
-                                    <p>When: {invite.date}</p>
-                                    <p>At: {invite.time}</p>
+                                >   
+                                    <div className="div-container-for-the-outer-title">
+                                        <p>{invite.title}</p>
+
+                                        <div className="inner-outer-div-for-cal-invite">
+                                        <img className="image-for-cal-invite-book" src={book.imagePath}/>
+                                        <div className="right-side-div-for-cal-invite">
+                                            <p className="book-show-all-title">{book.title}</p>
+                                            <p className="book-show-all-author">{book.author}</p>
+                                            <p>From: {invite.inviterUsername}</p>
+                                            <p>When: {invite.date}</p>
+                                            <p>At: {invite.time}</p>
+
+                                            <div className="inner-button-div-for-cal-invite">
+                                                <button 
+                                                onClick={() => this.props.handleAccept(invite, "calendar") }
+                                                className="invites-join-button">Join</button>
+                                                <button 
+                                                onClick={() => this.props.handleDeny(invite, "calendar") }
+                                                className="invites-deny-button">Deny</button>
+                                            </div>
+                                        </div>
+
+                                        </div>
+
+                                    </div>
                                 </div>
                             </p>
-                            <p>
-                                On: {invite.date.slice(5,11)} At: {invite.time.slice(0,5)}
-                            </p>
-                            <button 
-                            onClick={() => this.props.handleAccept(invite, "calendar") }
-                            className="invites-join-button">Join</button>
-                            <button 
-                            onClick={() => this.props.handleDeny(invite, "calendar") }
-                            className="invites-deny-button">Deny</button>
                         </div>
                     )
                 }): ''}
