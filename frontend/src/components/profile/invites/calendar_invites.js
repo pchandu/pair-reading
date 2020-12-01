@@ -22,7 +22,6 @@ class CalendarInvitesContainer extends React.Component {
     }
 
     render(){
-        debugger
         return(
             <>
                 <div className="invites-dropdown-container">
