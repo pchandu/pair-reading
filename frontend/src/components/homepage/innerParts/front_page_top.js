@@ -16,10 +16,6 @@ class FrontPageTop extends React.Component {
         super(props)
     }
 
-    componentDidMount(){
-      console.log(this.props);
-    }
-
 
     render(){
       let signupButton = (this.props.loggedIn) ?   <div className="front-page-top-signup-link-logged-in "></div> : <Link to="/signup" className="front-page-top-signup-link"> Sign Up Now! </Link>;
