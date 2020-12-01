@@ -90,7 +90,9 @@ router.post('/acceptCalInvite', (req,res) => {
         date: req.body.data.date, 
         partner: req.body.data.inviterUsername, 
         time: req.body.data.time, 
-        title: req.body.data.title })
+        title: req.body.data.title,
+        book: req.body.data.book 
+      })
 
       user.invites.forEach( (invite, idx) => {
         if(invite.title === req.body.data.title){
