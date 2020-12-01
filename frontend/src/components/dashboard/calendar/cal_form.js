@@ -13,7 +13,7 @@ class CalendarForm extends React.Component {
             invitee: "Select the match you want to invite",
             title: "",
             date: null,
-            book: "Select the book you would like to meet about",
+            book: {title: "Select the book you would like to meet about"},
             errors: '',
         }
 
@@ -38,8 +38,11 @@ class CalendarForm extends React.Component {
     }
 
     handleBook(e){
-        this.setState({book: e.currentTarget.title});
-        debugger
+        this.props.books.forEach(bookPojo => {
+            if(bookPojo.title === e.currentTarget.title){
+                this.setState({book: bookPojo});
+            }
+        })
     }
 
     onDateChange(date) {
@@ -73,7 +76,7 @@ class CalendarForm extends React.Component {
         </DropdownButton>
         
         const books = 
-        <DropdownButton title={this.state.book} className="cal-form-dropdown">
+        <DropdownButton title={this.state.book.title} className="cal-form-dropdown">
             {this.props.books.map((book, i) => {
             return(
                 <Dropdown.Item key={i} title={book.title} onClick={this.handleBook}>{book.title}</Dropdown.Item>

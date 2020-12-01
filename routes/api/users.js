@@ -49,7 +49,7 @@ router.post('/createMeetingInvite', (req, res) => {
             time: time,
             title: title,
             type: "calendar",
-            bookTitle: req.body.data.invite.book
+            book: req.body.data.invite.book
           })
           invitee.save();
   
@@ -60,7 +60,7 @@ router.post('/createMeetingInvite', (req, res) => {
             partner: partner, 
             time: time, 
             title: title,
-            bookTitle: req.body.data.invite.book
+            book: req.body.data.invite.book
           })
           user.save();
             return res.status(200).json({msg:`Invite sent to ${invitee.username}`})
