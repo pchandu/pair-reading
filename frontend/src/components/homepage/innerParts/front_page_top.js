@@ -22,7 +22,7 @@ class FrontPageTop extends React.Component {
 
 
     render(){
-      let signupButton = (this.props.loggedIn) ?   <div className="front-page-top-signup-link-not-logged-in "></div> : <Link to="/signup" className="front-page-top-signup-link"> Sign Up Now! </Link>;
+      let signupButton = (this.props.loggedIn) ?   <div className="front-page-top-signup-link-logged-in "></div> : <Link to="/signup" className="front-page-top-signup-link"> Sign Up Now! </Link>;
         return (
           <div className="front-page-top-container">
             <img src={PRSplash} alt="Pair Reading Logo" />
