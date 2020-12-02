@@ -19,12 +19,24 @@ class PostsForum extends React.Component {
     toggleEdit(idx) {
         let newEdit = Array(this.state.edit.length).fill(false);
         newEdit[idx] = !this.state.edit[idx];
+        debugger
+        let targetPost = this.props.posts[this.props.posts.order[idx]];
         this.setState({
-            edit: newEdit
+            edit: newEdit,
+            post: targetPost.body
         })
     }
+    handleSubmit(id) {
+        return (e) => {
+            e.preventDefault();
+            debugger
+            // console.log(id)
+            this.props.updatePost(id, Object.assign({}, {post: this.state.post}));
+            // this.setState({ post: "" });
+        }
+    }
     componentWillUpdate(nextProps, nextState) {
-        if(this.state.edit.length !== nextProps.posts.length){
+        if(this.state.edit.length !== nextProps.posts.length){ // new posts
             this.state.edit = Array(nextProps.posts.length).fill(false);
         }
     }
@@ -41,7 +53,6 @@ class PostsForum extends React.Component {
         return <ul className="forum-show-posts">
             {order.map((key, i) => {
                 post = posts[key];
-                this.state.post = post.body;
                 const date = new Date(post.createdAt);
                 const month = date.toLocaleString('default', { month: 'long' });
                 const dd = date.getDate();
@@ -67,7 +78,7 @@ class PostsForum extends React.Component {
                     {/* <h1>{date}</h1> */}
                     </div>
                 </div>;
-                const editPost = <form className="forum-show-edit-post">
+                const editPost = <form className="forum-show-edit-post" onSubmit={this.handleSubmit(post._id)}>
                     <textarea
                         // type="textarea"
                         className="edit-post-text"

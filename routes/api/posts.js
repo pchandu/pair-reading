@@ -64,5 +64,24 @@ router.post('/',
         }))
     }
 );
+router.patch('/:id',
+    // passport.authenticate('jwt', { session: false }),
+    (req, res) => {
+        console.log(req)
+        console.log(req.body)
+        console.log(req.params)
+        Post.findById(req.params.id)
+            .then(post => {
+                if (post) {
+                    post.body = req.body.post;
+                    post.save().then(post => {
+                        getUsername(post).then(el => res.json(el))
+                    })
+                }
+                else
+                    return res.status(400).json({ msg: "Invalid Permissions to delete post." })
+            })
+    }
+);
 
 module.exports = router;
