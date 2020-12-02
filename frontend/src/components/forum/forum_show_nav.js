@@ -1,5 +1,6 @@
+import { max } from "moment";
 
-export default ({page, maxPage, handleClick}) => {
+export default ({page, maxPage, handleClick, handlePage}) => {
     // const { posts, user } = props;
     // debugger
     const pages = [];
@@ -10,7 +11,7 @@ export default ({page, maxPage, handleClick}) => {
             prev
             </li>
     }
-    if(page !== maxPage && maxPage >= 1){
+    if(page < maxPage && maxPage >= 1){
         next = <li className="forum-show-nxt-btn" onClick={handleClick('next')}>
             next
             </li>
@@ -18,6 +19,7 @@ export default ({page, maxPage, handleClick}) => {
     for (let i = 0; i < maxPage; i++) pages.push(
         <li key={i} className={page === i+1 ? "page-selected":""}>{i + 1}</li>
     );
+    if(page > maxPage) handlePage(maxPage)
     return <div className="forum-show-nav">
         <ul className = "forum-show-pages">
             {prev ? prev:<div className="empty"></div>}

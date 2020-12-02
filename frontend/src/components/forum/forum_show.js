@@ -13,6 +13,7 @@ class ForumShow extends React.Component {
             page: 1
         }
         this.handleClick = this.handleClick.bind(this);
+        this.handlePage = this.handlePage.bind(this);
         // debugger
     }
     
@@ -36,6 +37,9 @@ class ForumShow extends React.Component {
                     break;
             }
         }
+    }
+    handlePage(num){
+        this.setState({ page: num })
     }
     componentWillUpdate(nextProps,nextState){
         // if(this.props.posts.length !==)
@@ -62,7 +66,7 @@ class ForumShow extends React.Component {
                 <h1 className="forum-title">{this.props.forum.title}</h1>
                 {this.state.page === 1 ? <NewPostContainer forum_id={this.props.forumId}/> : null}
                 <PostsForum {...this.props}/>
-                <Nav page={this.state.page} maxPage={this.maxPage} handleClick={this.handleClick}/>
+                <Nav page={this.state.page} maxPage={this.maxPage} handleClick={this.handleClick} handlePage={this.handlePage}/>
             </div>
         )
     }
