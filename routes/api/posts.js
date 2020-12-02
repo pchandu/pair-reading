@@ -20,7 +20,7 @@ router.delete('/:id', (req,res) => {
         .then(post => {
             if (post) {
                 Forum.findById(post.forum).then(forum => {
-                    console.log(forum)
+//                     console.log(forum)
                     const idx = forum.posts.indexOf(req.params.id);
                     forum.posts.splice(idx,1);
                     forum.save()
@@ -36,9 +36,9 @@ router.post('/',
     // passport.authenticate('jwt', { session: false }),
     (req, res) => {
         const { errors, isValid } = validatePostInput(req.body);
-        console.log(req.body)
-        console.log(req.body.user_id)
-        console.log(errors, isValid)
+//         console.log(req.body)
+//         console.log(req.body.user_id)
+//         console.log(errors, isValid)
         if (!isValid) {
             return res.status(400).json(errors);
         }
@@ -67,9 +67,9 @@ router.post('/',
 router.patch('/:id',
     // passport.authenticate('jwt', { session: false }),
     (req, res) => {
-        console.log(req)
-        console.log(req.body)
-        console.log(req.params)
+//         console.log(req)
+//         console.log(req.body)
+//         console.log(req.params)
         Post.findById(req.params.id)
             .then(post => {
                 if (post) {
