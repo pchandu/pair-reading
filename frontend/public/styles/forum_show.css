@@ -124,3 +124,19 @@ i {
     width: 100%;
 }
 
+.edit-post-btn {
+    background-color: #42a9b6;
+}
+
+.forum-show-post-body {
+    display: flex;
+    width: 100%;
+}
+.edit-post-text {
+    padding: 10px;
+    width: 100%;
+    height: 80%;
+}
+.forum-show-edit-post {
+    width: 100%;
+}

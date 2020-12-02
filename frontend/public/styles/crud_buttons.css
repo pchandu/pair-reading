@@ -1,5 +1,5 @@
-.edit-button:hover, .delete-button:hover {
-    cursor: pointer;
+.edit-button, .delete-button {
+    height: 20px;
 }
 .delete-button:hover {
     color: red;

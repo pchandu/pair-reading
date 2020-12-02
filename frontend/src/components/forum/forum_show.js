@@ -41,7 +41,7 @@ class ForumShow extends React.Component {
         // if(this.props.posts.length !==)
         const cond1 = this.state.page !== nextState.page; // page change
         const cond2 = Object.keys(nextProps.posts).length !== Object.keys(this.props.posts).length; // post was deleted or added
-        debugger
+        // debugger
         if(cond1 || cond2){
             // this.props.fetchForum(this.props.forumId);
             this.props.changePostsFilter("offset",(nextState.page-1) * this.postsPerPage);
@@ -61,7 +61,7 @@ class ForumShow extends React.Component {
             <div className="forum-show-container">
                 <h1 className="forum-title">{this.props.forum.title}</h1>
                 {this.state.page === 1 ? <NewPostContainer forum_id={this.props.forumId}/> : null}
-                <PostsForum props={this.props}/>
+                <PostsForum {...this.props}/>
                 <Nav page={this.state.page} maxPage={this.maxPage} handleClick={this.handleClick}/>
             </div>
         )
