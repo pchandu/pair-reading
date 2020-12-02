@@ -36,15 +36,15 @@ const users = [
         password: "ilovereading",
     }),
 ];
-for (let i = 0; i < 20; i++) {
-    let username = faker.name.firstName()
-    users.push(new User({
-        username: username,
-        searchableName: username.toLowerCase(),
-        email: faker.internet.email(),
-        password: "ilovereading",
-    }))
-}
+// for (let i = 0; i < 20; i++) {
+//     let username = faker.name.firstName()
+//     users.push(new User({
+//         username: username,
+//         searchableName: username.toLowerCase(),
+//         email: faker.internet.email(),
+//         password: "ilovereading",
+//     }))
+// }
 module.exports = {
     users
 }

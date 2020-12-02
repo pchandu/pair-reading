@@ -156,23 +156,33 @@ router.patch('/updateUser', (req, res) => {
 router.patch("/userFollowBook", (req, res) => {
   User.findById(req.body.user).then((user) => {
     if (user) {
-      if(user.books.includes(req.body.book)) {
-        
-        user.books.forEach( (ele, idx) => {
-          //  console.log(ele);
-          //  console.log(typeof ele);
-          //  console.log(typeof JSON.stringify(ele));
-        //  console.log(JSON.stringify(ele));
-         let sult = JSON.stringify(ele).slice(1, -1);
-          if (sult === req.body.book) {
-            user.books.splice(idx, 1);
-          }
-        })
-
-      } else {
-        user.books.push(req.body.book);
-      }
-      user.save().then((user) => res.json(user));
+      Book.findById(req.body.book).then(book => {
+        if(user.books.includes(req.body.book)) {
+          
+          user.books.forEach( (ele, idx) => {
+            //  console.log(ele);
+            //  console.log(typeof ele);
+            //  console.log(typeof JSON.stringify(ele));
+          //  console.log(JSON.stringify(ele));
+          let sult = JSON.stringify(ele).slice(1, -1);
+            if (sult === req.body.book) {
+              user.books.splice(idx, 1);
+            }
+          })
+          //! Book remove
+          book.users.forEach( (userId, idx) => {
+            if (userId === user._id) {
+              book.users.splice(idx, 1);
+            }
+          })
+        } else {
+          user.books.push(req.body.book);
+          //! Book add
+          book.users.push(user._id)
+        }
+        book.save();
+        user.save().then((user) => res.json(user));
+      })
     } else {
       return res.json({ msg: "Something went wrong, captain." });
     }
