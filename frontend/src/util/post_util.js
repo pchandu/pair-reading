@@ -16,9 +16,12 @@ export const fetchAllUserPosts = filters => (id) => {
 
 //!
 export const composePost = data => {
-    debugger
     return Axios.post('/api/posts/', data )
 }
 export const deletePost = id => {
     return Axios.delete(`/api/posts/${id}`)
 }
+export const updatePost = id => data => {
+    return Axios.patch(`/api/posts/${id}`, data)
+}
+

@@ -53,3 +53,8 @@ postUtil.deletePost(id)
     .then(msg => dispatch(removePost(id)))
     .catch(err => console.log(err))
 )
+export const updatePost = id => data => dispatch => (
+postUtil.updatePost(id)(data)
+    .then(post => dispatch(receivePost(post)))
+    .catch(err => console.log(err))
+)

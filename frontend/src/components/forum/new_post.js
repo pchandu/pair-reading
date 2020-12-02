@@ -16,7 +16,7 @@ export default class NewPost extends React.Component {
     handleSubmit(e){
         e.preventDefault();
         this.props.composePost(Object.assign({}, this.state, {user_id: this.props.userId}, {forum_id: this.props.forum_id}));
-        // this.setState({ post: "" });
+        this.setState({ post: "" });
     }
     render () {
         // debugger
@@ -28,6 +28,7 @@ export default class NewPost extends React.Component {
                         // type="textarea"
                         className="new-post-text"
                         onChange={this.handleChange('post')}
+                        value={this.state.post}
                     />
                     <input
                         className={`match-user-invite`}
