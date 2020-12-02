@@ -19,7 +19,7 @@ class PostsForum extends React.Component {
     toggleEdit(idx) {
         let newEdit = Array(this.state.edit.length).fill(false);
         newEdit[idx] = !this.state.edit[idx];
-        debugger
+//         debugger
         let targetPost = this.props.posts[this.props.posts.order[idx]];
         this.setState({
             edit: newEdit,
@@ -29,7 +29,7 @@ class PostsForum extends React.Component {
     handleSubmit(id) {
         return (e) => {
             e.preventDefault();
-            debugger
+//             debugger
             // console.log(id)
             this.props.updatePost(id, Object.assign({}, {post: this.state.post}));
             // this.setState({ post: "" });
@@ -41,7 +41,7 @@ class PostsForum extends React.Component {
         }
     }
     render () {
-        debugger
+//         debugger
 
         let {posts, user} = this.props;
         posts = Object.assign({}, posts);
