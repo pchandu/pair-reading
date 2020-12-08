@@ -18,6 +18,9 @@ const path = require('path');
 // app.use("/public", express.static("public")); 
 // app.use(express.static(path.join(__dirname, "public")));
 
+const cors = require('cors')
+app.use(cors())
+
 mongoose
 .connect(db, { useNewUrlParser: true, useUnifiedTopology: true} )
 .then(() => console.log("Connected to MongoDB successfully"))
