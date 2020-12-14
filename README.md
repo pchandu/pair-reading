@@ -39,7 +39,6 @@ The preferences are stylized buttons that change color to indicate whether they 
 ```
 Once a user finishes onboarding, the user lands on the dashboard, where the main functionality of the app exists. 
 # Dashboard
-**screenshot of dashboard with user profile in a red box, calendar in purple, and bookclubs in pink**
 The dashboard is broken into 2 modules: user profile (red outline on the left) and external interaction: scheduling meetings on the calendar (purple) and visiting bookclubs (pink outline on the bottom right). 
 ## User Profile 
 Users have two primary functionalities: 
