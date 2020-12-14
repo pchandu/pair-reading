@@ -2,12 +2,12 @@
 How often do you pick up a book and never end up finishing it? Too often in our case. Pair Reading is a web application built with the MERN stack to help people find the accountability they need to finish their books by finding users reading partners on books they're interested in. 
 
 Check out our live demo here: https://pair-reading.herokuapp.com/#/
-# Design Process
+# Preliminary Design to Product
 ![alt-text](https://github.com/pchandu/pair-reading/blob/main/frontend/public/imgs/dashDesign.gif)
 
 # Onboarding
 The PairReading journey begins upon signup, where users are taken to the onboarding page to select their preferences: the time of day that works best to meet with their pair and the books they're interested in pairing with. //talk about how this helps us "get to know the user" and help match them with other users.
-**screenshot of onboarding component**
+![alt-text](https://github.com/pchandu/pair-reading/blob/main/frontend/public/imgs/onboarding.png)
 
 The preferences are stylized buttons that change color to indicate whether they are selected or not. The logic implemented for selection is a conditional that checks the status of the onboarding component's state which updates global state for the user upon clicking the "continue" button.
 ```js
@@ -47,12 +47,12 @@ Users have two primary functionalities:
 2. connecting with matches. A list of matches (an algorithm that finds other users who share book preferences) is populated in a dropdown style list. 
 ## Calendar
 The calendar provides functionality for users to schedule meetings with their matches so they can discuss their readings!
-**gif of different calendar views**
+![alt-text](https://github.com/pchandu/pair-reading/blob/main/frontend/public/imgs/calendar.gif)
 ## Bookclubs
-Bookclubs are micro-communities within PairReading where users interested in a specific set of books can have discussions to gain deeper insights from one another. **bookclub show screenshot**
+Bookclubs are micro-communities within PairReading where users interested in a specific set of books can have discussions to gain deeper insights from one another. 
+![alt-text](https://github.com/pchandu/pair-reading/blob/main/frontend/public/imgs/bookclub.png)
 ### Forums & Post Activity
 Post activity highlights recent posts the user has made. Clicking on posts redirects the user to the forum in which the post was made. Creating posts triggers a MongoDB DB trigger to send an email notification to all members of a bookclub (via Twilio's Sendgrid API) informing them about the new post.  
-**screenshot of email**
 ```
 function processUser(userId){
   const sendGridApiUrl = "https://api.sendgrid.com/v3/mail/send";
@@ -74,6 +74,6 @@ function processUser(userId){
   })
 }
 ```
-**screenshot of Forums page**
+![alt-text](https://github.com/pchandu/pair-reading/blob/main/frontend/public/imgs/forum_show.png)
 # Developers: 
 Alex Archibeque, Kat Chan, Praneeth Chandu, Kevin Su
