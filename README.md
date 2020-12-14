@@ -3,7 +3,7 @@ How often do you pick up a book and never end up finishing it? Too often in our 
 
 Check out our live demo here: https://pair-reading.herokuapp.com/#/
 # Design Process
-**gif of wireframes to real product**
+![alt-text](https://github.com/pchandu/pair-reading/blob/main/frontend/public/imgs/dashDesign.gif)
 
 # Onboarding
 The PairReading journey begins upon signup, where users are taken to the onboarding page to select their preferences: the time of day that works best to meet with their pair and the books they're interested in pairing with. //talk about how this helps us "get to know the user" and help match them with other users.
