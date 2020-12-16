@@ -6,7 +6,7 @@ Check out our live demo here: https://pair-reading.herokuapp.com/#/
 ![alt-text](https://github.com/pchandu/pair-reading/blob/main/frontend/public/imgs/dashDesign.gif)
 
 # Onboarding
-The PairReading journey begins upon signup, where users are taken to the onboarding page to select their preferences: the time of day that works best to meet with their pair and the books they're interested in pairing with. //talk about how this helps us "get to know the user" and help match them with other users.
+The PairReading journey begins upon signup, where users are taken to the onboarding page to select their preferences: the time of day that works best to meet with their pair and the books they're interested in pairing with. This allows us to get to know our users and pair them with the right people. 
 ![alt-text](https://github.com/pchandu/pair-reading/blob/main/frontend/public/imgs/onboarding.png)
 
 The preferences are stylized buttons that change color to indicate whether they are selected or not. The logic implemented for selection is a conditional that checks the status of the onboarding component's state which updates global state for the user upon clicking the "continue" button.
@@ -39,7 +39,7 @@ The preferences are stylized buttons that change color to indicate whether they 
 ```
 Once a user finishes onboarding, the user lands on the dashboard, where the main functionality of the app exists. 
 # Dashboard
-The dashboard is broken into 2 modules: user profile (red outline on the left) and external interaction: scheduling meetings on the calendar (purple) and visiting bookclubs (pink outline on the bottom right). 
+The dashboard is broken into 2 modules: user profile and external interaction: scheduling meetings on the calendar and visiting bookclubs. 
 ## User Profile 
 Users have two primary functionalities: 
 1. managing invites. Users can be invited to join bookclubs or accept a meeting with a match.
