@@ -47,14 +47,15 @@ if (process.env.NODE_ENV === 'production') {
       res.sendFile(path.resolve(__dirname, 'frontend', 'build', 'index.html'));
     })
   }
-const rr = {users,books,forums,posts,bookclubs}
-Object.keys(rr).forEach(el=> {
-  console.log(`---------${el}---------`)
-  rr[el].stack.forEach(function (r) {
-  if (r.route && r.route.path) {
-    console.log(r.route.path)
-  }
-})})
+// const rr = {users,books,forums,posts,bookclubs}
+
+// Object.keys(rr).forEach(el=> {
+//   console.log(`---------${el}---------`)
+//   rr[el].stack.forEach(function (r) {
+//   if (r.route && r.route.path) {
+//     console.log(r.route.path)
+//   }
+// })})
 
 // app.use(express.favicon(__dirname + '/public/favicon.ico'))
 
