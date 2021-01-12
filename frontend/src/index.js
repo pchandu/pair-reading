@@ -10,15 +10,15 @@ import { setAuthToken,updateUser } from "./util/session_api_util";
 
 
 //! debug
-import {fetchFilteredBooks, changeBooksFilter, clearBooksFilter}              from "./actions/filters/book_filter_actions"
-import {fetchFilteredBookClubs, changeBookClubsFilter, clearBookClubsFilter}  from "./actions/filters/bookclub_filter_actions"
-import {fetchFilteredPosts, changePostsFilter, clearPostsFilter}              from "./actions/filters/post_filter_actions"
-import {fetchFilteredForums, changeForumsFilter, clearForumsFilter}           from "./actions/filters/forum_filter_actions"
+// import {fetchFilteredBooks, changeBooksFilter, clearBooksFilter}              from "./actions/filters/book_filter_actions"
+// import {fetchFilteredBookClubs, changeBookClubsFilter, clearBookClubsFilter}  from "./actions/filters/bookclub_filter_actions"
+// import {fetchFilteredPosts, changePostsFilter, clearPostsFilter}              from "./actions/filters/post_filter_actions"
+// import {fetchFilteredForums, changeForumsFilter, clearForumsFilter}           from "./actions/filters/forum_filter_actions"
 
-import {fetchFilteredUserBooks, fetchFilteredBookClubBooks}              from "./actions/filters/book_filter_actions"
-import {fetchFilteredUserBookClubs, fetchFilteredBookBookClubs}  from "./actions/filters/bookclub_filter_actions"
-import {fetchFilteredForumPosts, fetchFilteredUserPosts}           from "./actions/filters/post_filter_actions"
-import {fetchFilteredBookForums, fetchFilteredBookClubForums}           from "./actions/filters/forum_filter_actions"
+// import {fetchFilteredUserBooks, fetchFilteredBookClubBooks}              from "./actions/filters/book_filter_actions"
+// import {fetchFilteredUserBookClubs, fetchFilteredBookBookClubs}  from "./actions/filters/bookclub_filter_actions"
+// import {fetchFilteredForumPosts, fetchFilteredUserPosts}           from "./actions/filters/post_filter_actions"
+// import {fetchFilteredBookForums, fetchFilteredBookClubForums}           from "./actions/filters/forum_filter_actions"
 
 document.addEventListener('DOMContentLoaded', () => {
   const root = document.getElementById('root')
@@ -36,20 +36,20 @@ document.addEventListener('DOMContentLoaded', () => {
   };
   ReactDOM.render(<Root store={store}/>, root);
   //! DEBUG
-  window.store = store;
-  window.getState = store.getState;
-  window.BookActions = BookActions;
-  window.axios = Axios;
+  // window.store = store;
+  // window.getState = store.getState;
+  // window.BookActions = BookActions;
+  // window.axios = Axios;
 
-  window.updateUser = updateUser;
+  // window.updateUser = updateUser;
   //! filter actions
-  window.fetchFilteredBooks = fetchFilteredBooks; window.changeBooksFilter = changeBooksFilter; window.clearBooksFilter = clearBooksFilter
-  window.fetchFilteredBookClubs = fetchFilteredBookClubs; window.changeBookClubsFilter = changeBookClubsFilter; window.clearBookClubsFilter = clearBookClubsFilter
-  window.fetchFilteredPosts = fetchFilteredPosts; window.changePostsFilter = changePostsFilter; window.clearPostsFilter = clearPostsFilter
-  window.fetchFilteredForums = fetchFilteredForums; window.changeForumsFilter = changeForumsFilter; window.clearForumsFilter = clearForumsFilter
+  // window.fetchFilteredBooks = fetchFilteredBooks; window.changeBooksFilter = changeBooksFilter; window.clearBooksFilter = clearBooksFilter
+  // window.fetchFilteredBookClubs = fetchFilteredBookClubs; window.changeBookClubsFilter = changeBookClubsFilter; window.clearBookClubsFilter = clearBookClubsFilter
+  // window.fetchFilteredPosts = fetchFilteredPosts; window.changePostsFilter = changePostsFilter; window.clearPostsFilter = clearPostsFilter
+  // window.fetchFilteredForums = fetchFilteredForums; window.changeForumsFilter = changeForumsFilter; window.clearForumsFilter = clearForumsFilter
 
-  window.fetchFilteredUserBooks = fetchFilteredUserBooks; window.fetchFilteredBookClubBooks = fetchFilteredBookClubBooks;
-  window.fetchFilteredUserBookClubs = fetchFilteredUserBookClubs; window.fetchFilteredBookBookClubs = fetchFilteredBookBookClubs;
-  window.fetchFilteredForumPosts = fetchFilteredForumPosts; window.fetchFilteredUserPosts = fetchFilteredUserPosts;
-  window.fetchFilteredBookForums = fetchFilteredBookForums; window.fetchFilteredBookClubForums = fetchFilteredBookClubForums;
+  // window.fetchFilteredUserBooks = fetchFilteredUserBooks; window.fetchFilteredBookClubBooks = fetchFilteredBookClubBooks;
+  // window.fetchFilteredUserBookClubs = fetchFilteredUserBookClubs; window.fetchFilteredBookBookClubs = fetchFilteredBookBookClubs;
+  // window.fetchFilteredForumPosts = fetchFilteredForumPosts; window.fetchFilteredUserPosts = fetchFilteredUserPosts;
+  // window.fetchFilteredBookForums = fetchFilteredBookForums; window.fetchFilteredBookClubForums = fetchFilteredBookClubForums;
 })
